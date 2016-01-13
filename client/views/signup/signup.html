@@ -1,7 +1,13 @@
-<div>
-  {{ vm.name }}
-</div>
-
+<!Doctype html>
+<html>
+  <head>
+    <title>ACHOLIC Home</title>
+    <meta charset = "utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  
+  <body>
+  </br></br><h1>SignUp</h1>
 <form ng-submit="vm.signup()">
   <input type="email"
          ng-model="vm.user.email"
@@ -15,3 +21,5 @@
 </form>
 
 <pre ng-if="vm.error">{{ vm.error | json }}</pre>
+</body>
+</html>
