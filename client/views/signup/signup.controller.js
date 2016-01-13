@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('alcholic')
+angular.module('acholic')
   .controller('SignupCtrl', function ($location, Auth) {
 
     var vm = this;

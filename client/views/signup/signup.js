@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('alcholic')
+angular.module('acholic')
   .config(function ($routeProvider) {
     $routeProvider
       .when('/signup', {

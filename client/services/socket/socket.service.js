@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('alcholic')
+angular.module('acholic')
   .factory('Socket', function (socketFactory) {
 
     var ioSocket = io('', {

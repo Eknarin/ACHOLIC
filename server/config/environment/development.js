@@ -2,6 +2,6 @@
 
 module.exports = {
   mongo: {
-    uri: 'mongodb://localhost/alcholic-dev'
+    uri: 'mongodb://localhost/acholic-dev'
   }
 };
