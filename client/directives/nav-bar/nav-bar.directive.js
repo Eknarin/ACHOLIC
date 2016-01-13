@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('alcholic')
+angular.module('acholic')
   .directive('navBar', function () {
     return {
       restrict: 'E',

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('alcholic')
+angular.module('acholic')
   .service('Auth', function ($rootScope, $cookieStore, $q, $http) {
 
     var _user = {};
