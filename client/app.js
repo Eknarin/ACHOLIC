@@ -6,7 +6,8 @@ angular.module('acholic', [
   'ngResource',
   'ngSanitize',
   'ngAnimate',
-  'btford.socket-io'
+  'btford.socket-io',
+  'rzModule'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
 
