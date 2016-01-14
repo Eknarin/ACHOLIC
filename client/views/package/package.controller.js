@@ -13,5 +13,10 @@ angular.module('acholic')
     angular.extend(this, {
       name: 'PackageCtrl'
     });
+    $scope.n = 5;
+    $scope.price = 1000;
+    $scope.getNumber = function(num) {
+	    return new Array(num);   
+	};
 
   }]);
