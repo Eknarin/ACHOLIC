@@ -4,8 +4,6 @@
     <title>ACHOLIC</title>
     <meta charset = "utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
   </head>
   
   <body>
@@ -44,7 +42,12 @@
                             <li><a href="#">My Bookmarks</a></li>
                             <li><a href="#">My Cart</a></li>
                             <li><a href="#">My Receipts</a></li>
-                            <li><a href="#">Log Out</a></li>
+                            <li ng-if="!Auth.isLogged()">
+                              <a href="/login">Sign In</a>
+                            </li>
+                            <li ng-if="Auth.isLogged()">
+                              <a href="" ng-click="Auth.logout()">Sign out</a>
+                            </li>
                            <!--  <li role="separator" class="divider"></li>
                             <li class="dropdown-header">Nav header</li>
                             <li><a href="#">Separated link</a></li>
