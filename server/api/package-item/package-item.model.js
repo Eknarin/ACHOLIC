@@ -3,7 +3,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var ItemSchema = new Schema({
+var PackageItemSchema = new Schema({
   name: { type: String, required: true, unique: true },
   description: String,
   price: Number,
@@ -13,4 +13,4 @@ var ItemSchema = new Schema({
   updated_at: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('Item', ItemSchema);
+module.exports = mongoose.model('PackageItem', PackageItemSchema);
