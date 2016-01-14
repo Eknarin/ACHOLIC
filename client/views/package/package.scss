@@ -1,3 +1,15 @@
 /**
  * package.scss
  */
+ .package_item{
+ 	display: inline-block;
+    position: relative;
+ }
+ .like_button {
+    position: absolute;    
+    right: 12%;
+    top: 10px;
+}
+
+
+
