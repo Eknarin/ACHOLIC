@@ -2,13 +2,26 @@
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var role = require('../tag/tag.model.js');
 
 var PackageItemSchema = new Schema({
   name: { type: String, required: true, unique: true },
   description: String,
+  rating: { type: Number, min: 0, max: 10 },
+  people: String,
   price: Number,
-  contact: String,
-  office_time: String,
+  contact: {
+  	email: String,
+  	phone_number: String
+	},
+  location: String,
+  office_time: {
+  	open_time: String,
+  	close_time: String,
+  	note: String
+	},
+  availability: Boolean,
+  tag: { type: Schema.Types.ObjectId, ref: 'TagSchema' },
   created_at: Date,
   updated_at: { type: Date, default: Date.now }
 });

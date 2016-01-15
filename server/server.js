@@ -5,7 +5,7 @@ var chalk = require('chalk');
 var config = require('./config/environment');
 var mongoose = require('mongoose');
 var seeder = require('mongoose-seed');
-var seedData = require('./migrations/data');
+var seedData = require('./migrations/data.js');
 
 //mongoose.connect(config.mongo.uri, config.mongo.options);
 seeder.connect(config.mongo.uri, function() {
