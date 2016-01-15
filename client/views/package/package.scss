@@ -2,7 +2,12 @@
  * package.scss
  */
  .package_pic{
+    border: 1px solid black;
  	display: inline-block;
+    position: relative;
+ }
+ .package{
+    display: inline-block;
     position: relative;
  }
  .like_button {
@@ -22,6 +27,16 @@
 }
 .package_item{
 	margin-top:30px;
+}
+.dropdown_filter{
+    width:90%; 
+    text-align:left; 
+    color:grey;
+}
+.scrollable-menu {
+    height: auto;
+    max-height: 150px;
+    overflow-x: hidden;
 }
 
 

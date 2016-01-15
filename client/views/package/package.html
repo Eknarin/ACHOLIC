@@ -9,68 +9,95 @@
 	<body>
 	  	<!-- Filter Options -->
 	  	<div>
-			<div class="container-fluid" style="background-color:#202121; padding-top: 70px">
+			<div class="container-fluid" style="background-color:#5e5994; padding-top: 70px">
 				<div class="container">
 					<h3 style="color:#ebebeb"><center>Filter Options</center></h3>
 					<!-- Hiding Filter Page -->
 					<div id="filter_menu" class="collapse"></br>
-						<div class="row" style="background-color:red">
-							<div class="col-md-5"> 
-								<div class="col-md-2">
-									Place
+						<div class="row">
+							<div class="col-md-4"> 
+							    <div class="col-md-12 col-xs-12 btn-group" style="padding-bottom:5px;">
+								  <button type="button" class="btn btn-default" style="width:90%; padding-left:0px"> Province </button>
+								  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width:10%">
+								    <span class="caret"></span>
+								    <span class="sr-only">Toggle Dropdown</span>
+								  </button>
+								  <ul class="dropdown-menu scrollable-menu" style="width:91.5%;margin-left:17px;">
+								    <li><a href="#">กรุงเทพ</a></li>
+								    <li><a href="#">นครนายก</a></li>
+								  </ul>
 								</div>
-								<div class="input-group col-md-10">
-							        <input type="text" class="form-control" placeholder="Activity Place" name="srch-term" id="srch-term">
-							        <div class="input-group-btn">
-							             <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-chevron-down"></span></button>
-							    	</div>
-							    </div>
 							</div>
-							<br><br>
-							<div class="col-md-5" style="float:none"> 
-								<div class="col-md-2">
-									<label>Type</label>
+
+							<div class="col-md-4"> 
+							    <div class="col-md-12 col-xs-12 btn-group" style="padding-bottom:5px;">
+								  <button type="button" class="btn btn-default" style="width:90%; padding-left:0px"> Type </button>
+								  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width:10%">
+								    <span class="caret"></span>
+								    <span class="sr-only">Toggle Dropdown</span>
+								  </button>
+								  <ul class="dropdown-menu scrollable-menu" style="width:91.5%;margin-left:17px;">
+								    <li><a href="#">Ski</a></li>
+								    <li><a href="#">ล่องแก่ง</a></li>
+								  </ul>
 								</div>
-								<div class="input-group col-md-10">
-							        <input type="text" class="form-control" placeholder="Activity Type" name="srch-term" id="srch-term">
-							        <div class="input-group-btn">
-							             <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-chevron-down"></span></button>
-							    	</div>
-							    </div>
+							</div>
+							<div class="col-md-4">
+								<div class="col-md-12 col-xs-12 btn-group" style="padding-bottom:5px;">
+								  <button type="button" class="btn btn-default" style="width:90%"> Guest </button>
+								  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width:10%">
+								    <span class="caret"></span>
+								    <span class="sr-only">Toggle Dropdown</span>
+								  </button>
+								  <ul class="dropdown-menu scrollable-menu" style="width:91.5%;margin-left:17px;">
+								    <li><a href="#">1 Guest</a></li>
+								    <li><a href="#">2 Guests</a></li>
+								    <li><a href="#">3 Guests</a></li>
+								    <li><a href="#">4 Guests</a></li>
+								    <li><a href="#">5 Guest</a></li>
+								    <li><a href="#">6 Guests</a></li>
+								    <li><a href="#">7 Guests</a></li>
+								    <li><a href="#">8 Guests</a></li>
+								    <li><a href="#">9 Guests</a></li>
+								    <li><a href="#">10 Guests</a></li>
+								    <li><a href="#">11 Guests</a></li>
+								    <li><a href="#">12 Guest</a></li>
+								    <li><a href="#">13 Guests</a></li>
+								    <li><a href="#">14 Guests</a></li>
+								    <li><a href="#">15 Guests</a></li>
+								    <li><a href="#">16+ Guests</a></li>
+								  </ul>
+								</div>
+			              
 							</div>
 						</div>
-						<select name="guests" class="guest-select" id="guest-select" data-prefill="">
-			                <option value="1">1 Guest</option>
-							<option value="2">2 Guests</option>
-							<option value="3">3 Guests</option>
-							<option value="4">4 Guests</option>
-							<option value="5">5 Guests</option>
-							<option value="6">6 Guests</option>
-							<option value="7">7 Guests</option>
-							<option value="8">8 Guests</option>
-							<option value="9">9 Guests</option>
-							<option value="10">10 Guests</option>
-							<option value="11">11 Guests</option>
-							<option value="12">12 Guests</option>
-							<option value="13">13 Guests</option>
-							<option value="14">14 Guests</option>
-							<option value="15">15 Guests</option>
-							<option value="16">16+ Guests</option>
-			              </select>
-			              <!--Price range slider-->
-			            <div>
-						    <rzslider
-						        rz-slider-model="slider.min"
-							    rz-slider-high="slider.max"
-							    rz-slider-options="slider.options">></rzslider>
+						
+			             <!--Price range slider-->
+			            <div class="row">
+			            	<div class="col-md-2" style="height=15px;padding-top:5px;">
+			            		<center>
+			            			<label style="color:white;font-size:18px;margin-top:15px;">Price Rate</label>
+			            		</center>
+			            	</div>
+			            	<div class="col-md-8">
+							    <rzslider
+							        rz-slider-model="slider.min"
+								    rz-slider-high="slider.max"
+								    rz-slider-options="slider.options">>
+								</rzslider>
+							</div>	
 						</div>
+						<!--End Price range slider-->
+						<!-- Filter Button -->
+						<center><button type="button" class="btn btn-default" style="margin-bottom:15px;"> Filter </button></center>
+						<!--End Filter Button -->
 					</div>
 					<!-- End Hiding Filter Page -->
 				</div>
 			</div>
 			<!-- Button for Expand Hiding Page -->
-			<div style="background-color:black">
-				<center><button id="expandButt" data-toggle="collapse" data-target="#filter_menu" style="background-color:transparent; border:none; padding:0" ng-click="rotate(deg)"><img src="../image/expand.png"></button></center>
+			<div style="background-color:#2f2c49">
+				<center><button id="expandButt" data-toggle="collapse" data-target="#filter_menu" style="background-color:transparent; border:none; padding:0" ng-click="rotate(deg)"><img src="../image/expand_copy.png"></button></center>
 			</div>
 			<!-- End Button for Expand Hiding Page -->
 		</div>
@@ -83,7 +110,7 @@
 					<h2 style="color:#3b3a3a"><center>Packages</center></h2>
 					<div row="row-fluid">
 						<div class="col-md-4 package_item" ng-repeat="package in packages">
-							<div class="package_pic">	
+							<div class="package">	
 								<center>
 									<div class="package_pic">
 										<center><img src="../image/sample_package.png"></center>
