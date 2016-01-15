@@ -4,14 +4,30 @@ var express = require('express');
 var chalk = require('chalk');
 var config = require('./config/environment');
 var mongoose = require('mongoose');
+var seeder = require('mongoose-seed');
+var seedData = require('./migrations/data');
 
-mongoose.connect(config.mongo.uri, config.mongo.options);
+//mongoose.connect(config.mongo.uri, config.mongo.options);
+seeder.connect(config.mongo.uri, function() {
+  
+  // Load Mongoose models 
+  seeder.loadModels([
+    'server/api/package-item/package-item.model.js'
+  ]);
+ 
+  // Clear specified collections 
+  seeder.clearModels(['PackageItem'], function() {
+ 
+    // Callback to populate DB once collections have been cleared 
+    seeder.populateModels(seedData);
+
+  });
+});
 
 var app = express();
 var server = require('http').createServer(app);
 var socket = require('socket.io')(server, { serveClient: true });
 require('./config/sockets.js')(socket);
-
 require('./config/express')(app);
 require('./routes')(app);
 
