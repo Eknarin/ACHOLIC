@@ -1,7 +1,7 @@
 /**
  * package.scss
  */
- .package_item{
+ .package_pic{
  	display: inline-block;
     position: relative;
  }
@@ -12,8 +12,15 @@
 }
 .price{
 	position: absolute;    
-    bottom: 50px;
+    bottom: 30px;
+    float: left;
     background-color: #00ff00;
+    width: 100px;
+    height: 30px; 
+    font-size: 18px;
+}
+.package_item{
+	margin-top:30px;
 }
 
 

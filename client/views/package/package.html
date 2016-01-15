@@ -82,19 +82,21 @@
 				<div class="container">
 					<h2 style="color:#3b3a3a"><center>Packages</center></h2>
 					<div row="row-fluid">
-						<div class="col-md-4" ng-repeat="i in getNumber(n) track by $index">
-							<div class="package_item">	
+						<div class="col-md-4 package_item" ng-repeat="i in getNumber(n) track by $index">
+							<div class="package_pic">	
 								<center>
-									<div class="package_item">
+									<div class="package_pic">
 										<center><img src="../image/test1.png"></center>
-										<input class="like_button" type="image" src="../image/Heart.png" name="image" width="40" height="40">
-										<label class="price"> {{price}} Baht</label>
+										<input id="liked" ng-click="ilike()" class="like_button" type="image" src="../image/Heart.png" name="image" width="40" height="40">
+										<div class="price">
+											<label> {{price}} Baht</label>
+										</div>
 									</div>
 								</center>
-								<div>
-									<a href="#" style="color:#3b3a3a;padding-left:30px">AAAAA</a>
+								<div style="padding-top:5px;">
+									<a href="#" style="color:#3b3a3a;">{{packagename}}</a>
 								</div>
-								<div style="padding-left:30px">
+								<div style="">
 									<img src="../image/star_rated.png">
 									<img src="../image/star_rated.png">
 									<img src="../image/star_rated.png">

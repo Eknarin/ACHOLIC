@@ -19,5 +19,9 @@ angular.module('acholic')
     $scope.getNumber = function(num) {
 	    return new Array(num);   
 	};
+	$scope.packagename = "ล่องแก่ง ไต่เขา eiei";
+	$scope.ilike = function(){
+		
+	};
 
   }]);
