@@ -109,26 +109,28 @@
 				<div class="container">
 					<h2 style="color:#3b3a3a"><center>Packages</center></h2>
 					<div row="row-fluid">
-						<div class="col-md-4 package_item" ng-repeat="package in packages">
-							<div class="package">	
-								<center>
+						<div class="col-md-4 package_item" ng-repeat="package in packages" style="text-align:center">
+							<div class="package"  >	
+								
 									<div class="package_pic">
-										<center><img src="../image/sample_package.png"></center>
+										<img src="../image/sample_package.png">
 										<input id="liked" ng-click="ilike()" class="like_button" type="image" src="../image/Heart.png" name="image" width="40" height="40">
 										<div class="price">
 											<label> {{package.price}} ฿</label>
 										</div>
 									</div>
-								</center>
-								<div style="padding-top:5px;">
-									<a href="#" style="color:#3b3a3a;">{{package.name}}</a>
-								</div>
-								<div style="">
-									<img src="../image/star_rated.png">
-									<img src="../image/star_rated.png">
-									<img src="../image/star_rated.png">
-									<img src="../image/star_rated.png">
-									<img src="../image/star_unrated.png">
+								
+								<div style="text-align:left">
+									<div style="padding-top:5px;">
+										<a href="#" style="color:#3b3a3a;">{{package.name}}</a>
+									</div>
+									<div style="">
+										<img src="../image/star_rated.png">
+										<img src="../image/star_rated.png">
+										<img src="../image/star_rated.png">
+										<img src="../image/star_rated.png">
+										<img src="../image/star_unrated.png">
+									</div>
 								</div>
 							</div>
 						</div>
