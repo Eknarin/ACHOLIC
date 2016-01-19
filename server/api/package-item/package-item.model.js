@@ -21,7 +21,7 @@ var PackageItemSchema = new Schema({
   	note: String
 	},
   availability: Boolean,
-  tag: { type: Schema.Types.ObjectId, ref: 'TagSchema' },
+  tag: [{ type: Schema.Types.ObjectId, ref: 'TagSchema' }],
   created_at: Date,
   updated_at: { type: Date, default: Date.now }
 });
