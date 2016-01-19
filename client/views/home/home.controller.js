@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('HomeCtrl', function (Item) {
+  .controller('HomeCtrl', function () {
 
     var vm = this;
 
