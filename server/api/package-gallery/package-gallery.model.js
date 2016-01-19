@@ -5,8 +5,7 @@ var Schema = mongoose.Schema;
 
 var PackageGallerySchema = new Schema({
   name: String,
-  description: String,
-  image: [String]
+  description: String
 });
 
 module.exports = mongoose.model('PackageGallery', PackageGallerySchema);

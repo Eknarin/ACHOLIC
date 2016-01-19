@@ -2,7 +2,6 @@
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var role = require('../tag/tag.model.js');
 
 var PackageItemSchema = new Schema({
   name: { type: String, required: true, unique: true },
@@ -21,7 +20,7 @@ var PackageItemSchema = new Schema({
   	note: String
 	},
   availability: Boolean,
-  tag: [{ type: Schema.Types.ObjectId, ref: 'TagSchema' }],
+  tag: [{ type: Schema.Types.ObjectId, ref: 'Bookmark' }],
   created_at: Date,
   updated_at: { type: Date, default: Date.now }
 });

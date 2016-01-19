@@ -3,7 +3,6 @@
 var crypto = require('crypto');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var role = require('../role/role.model.js');
 
 var UserSchema = new Schema({
   email: String,
@@ -12,12 +11,13 @@ var UserSchema = new Schema({
   date_of_birth: Date,
   phone_number: String,
   address: {
-    State: String,
-    City: String,
-    Country: String,
-    Postal_code: Number
+    state: String,
+    city: String,
+    country: String,
+    postal_code: Number
   },
-  role: { type: Schema.Types.ObjectId, ref: 'RoleSchema' },
+  role: { type: Schema.Types.ObjectId, ref: 'Role' },
+  bookmark: { type: Schema.Types.ObjectId, ref: 'Bookmark' },
   passwordHash: { type: String, select: false },
   salt: { type: String, select: false },
   created_at: Date,
