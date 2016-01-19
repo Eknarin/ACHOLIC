@@ -1,5 +1,9 @@
 @import "../views/package-item/package-item";
 @import "../views/package/package";
+@import "../bower_components/*;"
+
+@import "./css/*";
+
 body {
   font-family: sans-serif;
 }
