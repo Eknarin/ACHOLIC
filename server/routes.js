@@ -5,6 +5,8 @@ var config = require('./config/environment');
 module.exports = function (app) {
 
   // API
+  app.use('/api/payment-statuss', require('./api/payment-status'));
+  app.use('/api/transactions', require('./api/transaction'));
   app.use('/api/bookmarks', require('./api/bookmark'));
   app.use('/api/images', require('./api/image'));
   app.use('/api/package-gallery', require('./api/package-gallery'));

@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var TagSchema = new Schema({
-  tag: { type: String, required: true, unique: true },
+  tag: String,
   description: String,
   created_at: Date,
   updated_at: { type: Date, default: Date.now }

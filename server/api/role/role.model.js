@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var RoleSchema = new Schema({
-  role: { type: String, required: true, unique: true },
+  role: String,
   created_at: Date,
   updated_at: { type: Date, default: Date.now }
 });
