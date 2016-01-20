@@ -16,8 +16,8 @@
 		<!-- </br></br><h1>Home Empty</h1> -->
 		<div id="myCarousel" class="carousel slide" data-ride="carousel" style="padding-top:30px" >
 		  <!-- Indicators -->
-		  <ol class="carousel-indicators" ng-repeat="picture in sliderpics">
-		    <li data-target="#myCarousel" data-slide-to="$index" class="active"></li>
+		  <ol class="carousel-indicators" >
+		    <li data-target="#myCarousel" data-slide-to="$index" ng-class="{active:!$index}" ng-repeat="picture in sliderpics track by $index"></li>
 		   <!--  <li data-target="#myCarousel" data-slide-to="1"></li>
 		    <li data-target="#myCarousel" data-slide-to="2"></li>
 		    <li data-target="#myCarousel" data-slide-to="3"></li> -->
