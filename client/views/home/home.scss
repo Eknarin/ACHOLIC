@@ -1,0 +1,18 @@
+/*
+* home.scss
+*/
+.center-caption{
+	position: absolute; 
+	top: 50%; 
+	left: 50%; 
+	transform: translate(-50%, -50%);  
+	text-align: center; 
+	color: white;
+}
+
+.slider-picture{
+	background-position: center center; 
+	background-size: cover; 
+	width: auto; 
+	height: 600px;
+}

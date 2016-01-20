@@ -1,6 +1,5 @@
 node_modules/
 client/bower_components/
-client/styles/css/app.css
 .idea/
 dist/
 .sass-cache/

@@ -10,41 +10,32 @@
 	
 	<body>
 
+		<!-- <div ng-repeat="a in sliderpics">
+		  		<p>{{a.name}}</p>
+		</div> -->
 		<!-- </br></br><h1>Home Empty</h1> -->
-		<div id="myCarousel" class="carousel slide" data-ride="carousel" style="padding-top:30px">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel" style="padding-top:30px" >
 		  <!-- Indicators -->
-		  <ol class="carousel-indicators">
-		    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-		    <li data-target="#myCarousel" data-slide-to="1"></li>
+		  <ol class="carousel-indicators" ng-repeat="picture in sliderpics">
+		    <li data-target="#myCarousel" data-slide-to="$index" class="active"></li>
+		   <!--  <li data-target="#myCarousel" data-slide-to="1"></li>
 		    <li data-target="#myCarousel" data-slide-to="2"></li>
-		    <li data-target="#myCarousel" data-slide-to="3"></li>
+		    <li data-target="#myCarousel" data-slide-to="3"></li> -->
 		  </ol>
 
 
 		  <!-- Wrapper for slides -->	
 
 			  <div class="carousel-inner" role="listbox">
-			    <div class="item active" style="background-image:url(../image/TEST.png); background-position:center center; background-size:cover; width: auto; height: 600px;">
 
-					    	<h1 style=" position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; color: white">TTTTTTTT</h1>
-					    	
-			    </div>			   
+			  	<div class="item slider-picture" ng-class="{active:!$index}" ng-repeat="picture in sliderpics"
+			  	ng-style="{'background-image':'url('+ picture.src +')'}">
+			  		<div class="center-caption">
+				  		<h3>Find Your Own</h3><br>
+				  		<h1>"ACTIVITIES"</h1>
+			  		</div>
+			  	</div>
 
-			     <div class="item" style="background-image:url(../image/TEST2.png); background-position:center center; background-size:cover; width: auto; height: 600px;">
-			    	
-					    	<h1 style=" position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; color: white">AAA</h1>
-			    </div>
-			    
-				<div class="item" style="background-image:url(../image/TEST.png); background-position:center center; background-size:cover; width: auto; height: 600px;">
-			    		<!-- <div class="carousel-caption" style=" position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; color: white"> -->
-					    	<h1 style=" position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; color: white">TTTTTTTT</h1>
-					    <!-- </div> -->
-			    </div>			   
-
-			     <div class="item" style="background-image:url(../image/TEST2.png); background-position:center center; background-size:cover; width: auto; height: 600px;">
-			    	
-					    	<h1 style=" position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; color: white">AAA</h1>
-			    </div>
 			  </div>
 		
 		  <!-- Left and right controls -->
@@ -61,8 +52,5 @@
            <a href="/signup">Register new user!!!</a>
         </li>
 
-       
-
 	</body>
-
 </html>
