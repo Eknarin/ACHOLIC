@@ -9,24 +9,14 @@
 	</head>
 	
 	<body>
-
-		<!-- <div ng-repeat="a in sliderpics">
-		  		<p>{{a.name}}</p>
-		</div> -->
-		<!-- </br></br><h1>Home Empty</h1> -->
 		<div id="myCarousel" class="carousel slide" data-ride="carousel" style="padding-top:30px" >
-		  <!-- Indicators -->
-		  <ol class="carousel-indicators" >
-		    <li data-target="#myCarousel" data-slide-to="$index" ng-class="{active:!$index}" ng-repeat="picture in sliderpics track by $index"></li>
-		   <!--  <li data-target="#myCarousel" data-slide-to="1"></li>
-		    <li data-target="#myCarousel" data-slide-to="2"></li>
-		    <li data-target="#myCarousel" data-slide-to="3"></li> -->
-		  </ol>
+		  	<!-- Indicators -->
+		  	<ol class="carousel-indicators" >
+		    	<li data-target="#myCarousel" data-slide-to="$index" ng-class="{active:!$index}" ng-repeat="picture 	in sliderpics track by $index"></li>
+		  	</ol>
 
-
-		  <!-- Wrapper for slides -->	
-
-			  <div class="carousel-inner" role="listbox">
+		  	<!-- Wrapper for slides -->	
+			<div class="carousel-inner" role="listbox">
 
 			  	<div class="item slider-picture" ng-class="{active:!$index}" ng-repeat="picture in sliderpics"
 			  	ng-style="{'background-image':'url('+ picture.src +')'}">
