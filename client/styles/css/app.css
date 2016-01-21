@@ -1,5 +1,5 @@
 .footer {
-  background-color: green;
+  background-color: #232323;
   padding-top: 20px;
   overflow: hidden; }
 
@@ -20,7 +20,8 @@ a:hover {
   text-decoration: none; }
 
 a:visited {
-  text-decoration: none; }
+  text-decoration: none;
+  color: white; }
 
 a:active {
   text-decoration: none;
