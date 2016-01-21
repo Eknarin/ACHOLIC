@@ -9,60 +9,63 @@
 	</head>
 	
 	<body>
+		<div id="myCarousel" class="carousel slide" data-ride="carousel" style="padding-top:30px" >
+		  	<!-- Indicators -->
+		  	<ol class="carousel-indicators" >
+		    	<li data-target="#myCarousel" data-slide-to="$index" ng-class="{active:!$index}" ng-repeat="picture 	in sliderpics track by $index"></li>
+		  	</ol>
 
-		<!-- </br></br><h1>Home Empty</h1> -->
-		<div id="myCarousel" class="carousel slide" data-ride="carousel" style="padding-top:30px">
-		  <!-- Indicators -->
-		  <ol class="carousel-indicators">
-		    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-		    <li data-target="#myCarousel" data-slide-to="1"></li>
-		    <li data-target="#myCarousel" data-slide-to="2"></li>
-		    <li data-target="#myCarousel" data-slide-to="3"></li>
-		  </ol>
+		  	<!-- Wrapper for slides -->	
+			<div class="carousel-inner" role="listbox">
 
+			  	<div class="item center-picture" ng-class="{active:!$index}" ng-repeat="picture in sliderpics"
+			  	ng-style="{'background-image':'url('+ picture.src +')'}">
+			  		<div class="center-caption">
+				  		<h3>Find Your Own</h3><br>
+				  		<h1>"ACTIVITIES"</h1>
+			  		</div>
+			  	</div>
 
-		  <!-- Wrapper for slides -->	
-
-			  <div class="carousel-inner" role="listbox">
-			    <div class="item active" style="background-image:url(../image/TEST.png); background-position:center center; background-size:cover; width: auto; height: 600px;">
-
-					    	<h1 style=" position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; color: white">TTTTTTTT</h1>
-					    	
-			    </div>			   
-
-			     <div class="item" style="background-image:url(../image/TEST2.png); background-position:center center; background-size:cover; width: auto; height: 600px;">
-			    	
-					    	<h1 style=" position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; color: white">AAA</h1>
-			    </div>
-			    
-				<div class="item" style="background-image:url(../image/TEST.png); background-position:center center; background-size:cover; width: auto; height: 600px;">
-			    		<!-- <div class="carousel-caption" style=" position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; color: white"> -->
-					    	<h1 style=" position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; color: white">TTTTTTTT</h1>
-					    <!-- </div> -->
-			    </div>			   
-
-			     <div class="item" style="background-image:url(../image/TEST2.png); background-position:center center; background-size:cover; width: auto; height: 600px;">
-			    	
-					    	<h1 style=" position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; color: white">AAA</h1>
-			    </div>
-			  </div>
+			</div>
 		
-		  <!-- Left and right controls -->
-		  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-		    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-		    <span class="sr-only">Previous</span>
-		  </a>
-		  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-		    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-		    <span class="sr-only">Next</span>
-		  </a>
+		  	<!-- Left and right controls -->
+		  	<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+		    	<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		    	<span class="sr-only">Previous</span>
+		  	</a>
+		  	<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+		    	<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		    	<span class="sr-only">Next</span>
+		  	</a>
 		</div>
 		<li>
            <a href="/signup">Register new user!!!</a>
         </li>
-
-       
+        <!-- Recommended Packages -->
+        <div class="container">
+        	<h2 style="text-align:center">Recommend Packages</h2>
+        	<div row="row-fluid">
+				<div ng-repeat="package in recommendedPackages">
+					<div class="col-md-8 recommended-package-cover" ng-if="($index+1)%10==1">
+						<div class="recommended-package-style center-picture" ng-style="{'background-image':'url('+ package.src +')'}">
+							{{package.name}}
+						</div>
+					</div>
+					<div class="col-md-8 recommended-package-cover" ng-if="($index+1)%10==7">
+						<div class="recommended-package-style">
+							{{package.name}}
+						</div>
+					</div>
+					<div class="col-md-4 recommended-package-cover" ng-if="($index+1)%10!=1 && ($index+1)%10!=7">
+						<div class="recommended-package-style center-picture" ng-style="{'background-image':'url('+ package.src +')'}">
+							{{package.name}}
+						</div>
+					</div>
+				</div>
+        	</div>
+		</div>
+		<!-- End Recommended Packages -->
+        <br>
 
 	</body>
-
 </html>

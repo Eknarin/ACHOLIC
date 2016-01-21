@@ -9,11 +9,11 @@
 	<body>
 	  	<!-- Filter Options -->
 	  	<div>
-			<div class="container-fluid" style="background-color:#5e5994; padding-top: 70px">
+			<div class="container-fluid" style="background-image: url(../image/galaxy.jpg); padding-top: 70px;">
 				<div class="container">
-					<h3 style="color:#ebebeb"><center>Filter Options</center></h3>
+					<h3 style="color:#ebebeb;text-shadow: black 0.2em 0.2em 0.2em;"><center>Filter Options</center></h3>
 					<!-- Hiding Filter Page -->
-					<div id="filter_menu" class="collapse"></br>
+					<div id="filter_menu" class="collapse filter-section"></br>
 						<div class="row">
 							<div class="col-md-4"> 
 							    <div class="col-md-12 col-xs-12 btn-group" style="padding-bottom:5px;">
@@ -89,14 +89,14 @@
 						</div>
 						<!--End Price range slider-->
 						<!-- Filter Button -->
-						<center><button type="button" class="btn btn-default" style="margin-bottom:15px;"> Filter </button></center>
+						<center><button type="button" class="btn btn-warning btn-lg" style="margin-bottom:15px;color:black;"> Filter </button></center>
 						<!--End Filter Button -->
 					</div>
 					<!-- End Hiding Filter Page -->
 				</div>
 			</div>
 			<!-- Button for Expand Hiding Page -->
-			<div style="background-color:#2f2c49">
+			<div style="background-color:#111625">
 				<center><button id="expandButt" data-toggle="collapse" data-target="#filter_menu" style="background-color:transparent; border:none; padding:0" ng-click="rotate(deg)"><img src="../image/expand_copy.png"></button></center>
 			</div>
 			<!-- End Button for Expand Hiding Page -->
@@ -105,24 +105,24 @@
 
 		<!-- Packages -->
 		<div>
-			<div class="container-fluid" style="background-color:#ebebeb;padding-bottom:20px;width:100%;">
+			<div class="container-fluid" style="background-color:#F6E6CE;padding-bottom:20px;width:100%;">
 				<div class="container">
-					<h2 style="color:#3b3a3a"><center>Packages</center></h2>
+					<h2 style="color:#000000;font-family: 'Nunito', sans-serif;margin-top: 40px;"><center style="
+    font-size: 40px;text-shadow: yellow 0.1em 0.1em 0.2em;">Packages</center></h2>
 					<div row="row-fluid">
 						<div class="col-md-4 package_item" ng-repeat="package in packages" style="text-align:center">
 							<div class="package"  >	
-								
-									<div class="package_pic">
-										<img src="../image/sample_package.png">
+								<a href="/packageItem">
+									<div class="package_pic" style="background-image: url(../image/sample_package.png);width:100%;height:200px;">
 										<input id="liked" ng-click="ilike()" class="like_button" type="image" src="../image/Heart.png" name="image" width="40" height="40">
 										<div class="price">
 											<label> {{package.price}} ฿</label>
 										</div>
 									</div>
-								
+								</a>
 								<div style="text-align:left">
 									<div style="padding-top:5px;">
-										<a href="#" style="color:#3b3a3a;">{{package.name}}</a>
+										<a href="/packageItem" style="color:#3b3a3a;">{{package.name}}</a>
 									</div>
 									<div style="">
 										<img src="../image/star_rated.png">
