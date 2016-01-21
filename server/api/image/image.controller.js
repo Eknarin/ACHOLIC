@@ -4,6 +4,7 @@ var _ = require('lodash');
 var Image = require('./image.model');
 var fs = require('fs');
 var multer = require('multer');
+var path = require('path');
 
 function handleError (res, err) {
   return res.status(500).send(err);
@@ -18,6 +19,8 @@ function handleError (res, err) {
 exports.index = function (req, res) {
   Image.find(function (err, images) {
     if (err) { return handleError(res, err); }
+    console.log(images.img);
+
     return res.status(200).json(images);
   });
 };
@@ -32,7 +35,12 @@ exports.show = function (req, res) {
   Image.findById(req.params.id, function (err, image) {
     if (err) { return handleError(res, err); }
     if (!image) { return res.status(404).end(); }
-    return res.status(200).json(image);
+    // res.contentType(image.img.contentType);
+    // res.send(path.resolve(image.img.path));
+    var img = fs.readFileSync(path.resolve(image.img.path));
+    res.writeHead(200, {'Content-Type': image.img.contentType });
+    res.end(img, 'binary');
+    //return res.status(200).json(image);
   });
 };
 
@@ -45,17 +53,13 @@ exports.show = function (req, res) {
 exports.create = function (req, res) {
   console.log('create image');
   console.log(req.file);
-  var img = new Image;
-  img.name = req.file.originalname;
-  img.contentType = req.file.mimetype;
-  img.image_path = req.file.destination;
-  img.save();
+  var image = new Image;
+  image.name = req.file.originalname;
+  image.img.contentType = req.file.mimetype;
+  image.img.path = req.file.path;
+  image.save();
 
-  // Image.create(req.file, function (err, image) {
-  //   if (err) { return handleError(res, err); }
-  //   return res.status(201).json(image);
-  // });
-  return res.status(201).json(img);
+  return res.json(image.id);
 };
 
 
