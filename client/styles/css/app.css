@@ -20,7 +20,8 @@ a:hover {
   text-decoration: none; }
 
 a:visited {
-  text-decoration: none; }
+  text-decoration: none; 
+  color: white;}
 
 a:active {
   text-decoration: none;
