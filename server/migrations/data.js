@@ -5,6 +5,7 @@ var data = [
             {
                 "name": "Package1",
                 "description": "Des pack 1",
+                "rating": "8",
                 "price": "0",
                 "contact": "-",
                 "office_time": "7:00-24:00"
@@ -12,6 +13,7 @@ var data = [
             {
                 "name": "Package2",
                 "description": "Des pack 2",
+                "rating": "10",
                 "price": "0",
                 "contact": "-",
                 "office_time": "7:00-24:00"
@@ -19,6 +21,7 @@ var data = [
             {
                 "name": "Package3",
                 "description": "Des pack 3",
+                "rating": "9",
                 "price": "0",
                 "contact": "-",
                 "office_time": "7:00-24:00"
@@ -26,6 +29,7 @@ var data = [
             {
                 "name": "Package4",
                 "description": "Des pack 4",
+                "rating": "10",
                 "price": "0",
                 "contact": "-",
                 "office_time": "7:00-24:00"
@@ -33,6 +37,7 @@ var data = [
             {
                 "name": "Package5",
                 "description": "Des pack 4",
+                "rating": "6",
                 "price": "0",
                 "contact": "-",
                 "office_time": "7:00-24:00"
