@@ -14,7 +14,7 @@ angular.module('acholic')
 
 	$scope.recommendedPackages = [
 		{
-			name: '1',
+			name: 'AAAAAAAAAAAA',
 			src:'../image/TEST.png'
 		},
 

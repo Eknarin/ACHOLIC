@@ -48,17 +48,23 @@
 				<div ng-repeat="package in recommendedPackages">
 					<div class="col-md-8 recommended-package-cover" ng-if="($index+1)%10==1">
 						<div class="recommended-package-style center-picture" ng-style="{'background-image':'url('+ package.src +')'}">
-							{{package.name}}
+							<div class="center-caption">
+								{{package.name}}
+							</div>
 						</div>
 					</div>
 					<div class="col-md-8 recommended-package-cover" ng-if="($index+1)%10==7">
 						<div class="recommended-package-style">
-							{{package.name}}
+							<div class="center-caption">
+								{{package.name}}
+							</div>
 						</div>
 					</div>
 					<div class="col-md-4 recommended-package-cover" ng-if="($index+1)%10!=1 && ($index+1)%10!=7">
 						<div class="recommended-package-style center-picture" ng-style="{'background-image':'url('+ package.src +')'}">
-							{{package.name}}
+							<div class="center-caption">
+								{{package.name}}
+							</div>
 						</div>
 					</div>
 				</div>
