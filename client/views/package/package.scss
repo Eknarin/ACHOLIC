@@ -16,7 +16,8 @@
     position: relative;
     width: 100%;
     padding: 15px;
-    box-shadow: 2px 0 7px rgba(0, 0, 0, 0.35);
+    box-shadow: 5px 0 7px rgba(0, 0, 0, 0.35);
+    border: 1px solid #BDBDBD;
  }
  .like_button {
     position: absolute;    
@@ -46,6 +47,12 @@
     height: auto;
     max-height: 150px;
     overflow-x: hidden;
+}
+.filter-section{
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 25px;
+    margin-bottom: 15px;
 }
 
 
