@@ -2,6 +2,8 @@
 
 var _ = require('lodash');
 var Image = require('./image.model');
+var fs = require('fs');
+var multer = require('multer');
 
 function handleError (res, err) {
   return res.status(500).send(err);
@@ -41,11 +43,22 @@ exports.show = function (req, res) {
  * @param res
  */
 exports.create = function (req, res) {
-  Image.create(req.body, function (err, image) {
-    if (err) { return handleError(res, err); }
-    return res.status(201).json(image);
-  });
+  console.log('create image');
+  console.log(req.file);
+  var img = new Image;
+  img.name = req.file.originalname;
+  img.contentType = req.file.mimetype;
+  img.image_path = req.file.destination;
+  img.save();
+
+  // Image.create(req.file, function (err, image) {
+  //   if (err) { return handleError(res, err); }
+  //   return res.status(201).json(image);
+  // });
+  return res.status(201).json(img);
 };
+
+
 
 /**
  * Updates an existing Image in the DB.

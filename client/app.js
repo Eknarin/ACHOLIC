@@ -7,7 +7,8 @@ angular.module('acholic', [
   'ngSanitize',
   'ngAnimate',
   'btford.socket-io',
-  'rzModule'
+  'rzModule',
+  'ngFileUpload'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
 
