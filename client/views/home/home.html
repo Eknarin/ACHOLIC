@@ -18,7 +18,7 @@
 		  	<!-- Wrapper for slides -->	
 			<div class="carousel-inner" role="listbox">
 
-			  	<div class="item slider-picture" ng-class="{active:!$index}" ng-repeat="picture in sliderpics"
+			  	<div class="item center-picture" ng-class="{active:!$index}" ng-repeat="picture in sliderpics"
 			  	ng-style="{'background-image':'url('+ picture.src +')'}">
 			  		<div class="center-caption">
 				  		<h3>Find Your Own</h3><br>
@@ -41,43 +41,30 @@
 		<li>
            <a href="/signup">Register new user!!!</a>
         </li>
+        <!-- Recommended Packages -->
         <div class="container">
         	<h2 style="text-align:center">Recommend Packages</h2>
         	<div row="row-fluid">
-				
-				<div class="col-md-8" style="background-color:green">
-					GREEN
+				<div ng-repeat="package in recommendedPackages">
+					<div class="col-md-8 recommended-package-cover" ng-if="($index+1)%10==1">
+						<div class="recommended-package-style center-picture" ng-style="{'background-image':'url('+ package.src +')'}">
+							{{package.name}}
+						</div>
+					</div>
+					<div class="col-md-8 recommended-package-cover" ng-if="($index+1)%10==7">
+						<div class="recommended-package-style">
+							{{package.name}}
+						</div>
+					</div>
+					<div class="col-md-4 recommended-package-cover" ng-if="($index+1)%10!=1 && ($index+1)%10!=7">
+						<div class="recommended-package-style center-picture" ng-style="{'background-image':'url('+ package.src +')'}">
+							{{package.name}}
+						</div>
+					</div>
 				</div>
-				<div class="col-md-4" style="background-color:black">
-					BLACK
-				</div>
-				<div class="col-md-4" style="background-color:red">
-					RED
-				</div>
-				<div class="col-md-4" style="background-color:yellow">
-					YELLOW
-				</div>
-				<div class="col-md-4" style="background-color:blue">
-					BLUE
-				</div>
-				<div class="col-md-4" style="background-color:grey">
-					GREY
-				</div>
-				<div class="col-md-8" style="background-color:purple">
-					PURPLE
-				</div>
-				<div class="col-md-4" style="background-color:red">
-					RED
-				</div>
-				<div class="col-md-4" style="background-color:yellow">
-					YELLOW
-				</div>
-				<div class="col-md-4" style="background-color:blue">
-					BLUE
-				</div>
-
-			</div>
-        </div>
+        	</div>
+		</div>
+		<!-- End Recommended Packages -->
         <br>
 
 	</body>

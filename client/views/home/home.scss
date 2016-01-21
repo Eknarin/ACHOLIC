@@ -10,9 +10,23 @@
 	color: white;
 }
 
-.slider-picture{
+.center-picture{
 	background-position: center center; 
 	background-size: cover; 
 	width: auto; 
 	height: 600px;
+}
+
+.recommended-package-cover{
+	height: 350px;
+	margin-top:8px;
+	margin-bottom:8px;
+}
+
+.recommended-package-style{
+	width:100%; 
+	height:90%; 
+	padding-left:8px; 
+	padding-right:8px;
+	background-color:blue; 
 }
