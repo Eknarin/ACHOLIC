@@ -19,10 +19,10 @@
 			<div class="carousel-inner" role="listbox">
 
 			  	<div class="item center-picture" ng-class="{active:!$index}" ng-repeat="picture in sliderpics"
-			  	ng-style="{'background-image':'url('+ picture.src +')'}">
-			  		<div class="center-caption">
-				  		<h3>Find Your Own</h3><br>
-				  		<h1>"ACTIVITIES"</h1>
+			  	ng-style="{'background-image':'url('+ picture.src +')'}" style="-webkit-filter: grayscale(20%); ">
+			  		<div class="center-caption font-effect-outline">
+				  		<p style="font-size: 30px">Find Your Own</p><br>
+				  		<p style="font-size: 65px">"ACTIVITIES"</p>
 			  		</div>
 			  	</div>
 
@@ -48,21 +48,21 @@
 				<div ng-repeat="package in recommendedPackages">
 					<div class="col-md-8 recommended-package-cover" ng-if="($index+1)%10==1">
 						<div class="recommended-package-style center-picture" ng-style="{'background-image':'url('+ package.src +')'}">
-							<div class="center-caption">
+							<div class="center-caption font-effect-outline" style="font-size: 30px;">
 								{{package.name}}
 							</div>
 						</div>
 					</div>
 					<div class="col-md-8 recommended-package-cover" ng-if="($index+1)%10==7">
 						<div class="recommended-package-style">
-							<div class="center-caption">
+							<div class="center-caption font-effect-outline" style="font-size: 30px;">
 								{{package.name}}
 							</div>
 						</div>
 					</div>
 					<div class="col-md-4 recommended-package-cover" ng-if="($index+1)%10!=1 && ($index+1)%10!=7">
 						<div class="recommended-package-style center-picture" ng-style="{'background-image':'url('+ package.src +')'}">
-							<div class="center-caption">
+							<div class="center-caption font-effect-outline" style="font-size: 30px;">
 								{{package.name}}
 							</div>
 						</div>
