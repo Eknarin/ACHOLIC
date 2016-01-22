@@ -3,9 +3,9 @@
 angular.module('acholic')
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/packageItem', {
-        templateUrl: 'views/package-item/package-item.html',
-        controller: 'PackageItemCtrl',
+      .when('/packageDetail', {
+        templateUrl: 'views/package-detail/package-detail.html',
+        controller: 'PackageDetailCtrl',
         controllerAs: 'vm'
       });
   });

@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('PackageItemCtrl', function () {
+  .controller('PackageDetailCtrl', function () {
 
     angular.extend(this, {
-      name: 'PackageItemCtrl'
+      name: 'PackageDetailCtrl'
     });
 
   });
