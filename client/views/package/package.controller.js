@@ -24,4 +24,9 @@ angular.module('acholic')
 		$('#expandButt').toggleClass('rotate-180deg');
   };
 
+  $scope.provinces = [
+  	{name: 'กรุงเทพ'},
+  	{name: 'นครนายก'}
+  ];
+
   }]);

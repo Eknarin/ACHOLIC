@@ -10,7 +10,7 @@
 	  	<!-- Filter Options -->
 	  	<div>
 			<div class="container-fluid" style="background-image: url(../image/galaxy.jpg); padding-top: 70px;">
-				<div class="container font-effect-outline">
+				<div class="container">
 					<h3 style="color:#ebebeb;text-shadow: black 0.2em 0.2em 0.2em;"><center>Filter Options</center></h3>
 					<!-- Hiding Filter Page -->
 					<div id="filter_menu" class="collapse filter-section"></br>
@@ -23,8 +23,7 @@
 								    <span class="sr-only">Toggle Dropdown</span>
 								  </button>
 								  <ul class="dropdown-menu scrollable-menu" style="width:91.5%;margin-left:17px;">
-								    <li><a href="#">กรุงเทพ</a></li>
-								    <li><a href="#">นครนายก</a></li>
+								    <li ng-repeat="p in provinces" ng-name="p.name" ng-model="p.name"><a href="#">{{p.name}}</a></li>
 								  </ul>
 								</div>
 							</div>
