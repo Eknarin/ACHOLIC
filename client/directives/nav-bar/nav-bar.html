@@ -32,24 +32,34 @@
                   </div>
                 </div>
                 <div class="col-md-3 col-xs-12 col-sm-12">
-                    <div id="navbar" class="navbar-collapse collapse">
+                    <div id="navbar" class="navbar-collapse collapse" style="float:right">
                       <ul class="nav navbar-nav">
-                        <li><a href="/signup" style="color:#ebebeb">Sign up</a></li>
                         <li><a href="/package" style="color:#ebebeb">Packages</a></li>
+                       <!--  <li ng-if="!Auth.isLogged()">
+                          <a href="/signup" style="color:#ebebeb">Sign up</a>
+                        </li>
                         <li ng-if="!Auth.isLogged()">
-                              <a href="/login" style="color:#ebebeb">Sign In</a>
-                            </li>
+                              <a href="/login" style="color:#ebebeb">Log In</a>
+                        </li> -->
+                        <li class="dropdown" ng-if="!Auth.isLogged()">
+                          <a href="#"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#ebebeb">Sign In<span class="caret"></span></a>
+                          
+                          <ul class="dropdown-menu">
+                              <li><a href="/login">Sign In</a></li>
+                              <li><a href="/signup">Sign up</a></li>
+                          </ul>
+                        </li>
                         <li class="dropdown" ng-if="Auth.isLogged()">
                           <a class="dropdown-toggle glyphicon glyphicon-user" href="#"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#ebebeb"><span class="caret"></span></a>
                           <ul class="dropdown-menu">
-                            <li><a href="#">Profile</a></li>
-                            <li><a href="#">My Packages</a></li>
-                            <li><a href="#">My Bookmarks</a></li>
-                            <li><a href="#">My Cart</a></li>
-                            <li><a href="#">My Receipts</a></li>
-                            <li ng-if="Auth.isLogged()">
-                              <a href="" ng-click="Auth.logout()">Sign out</a>
-                            </li>
+                              <li><a href="#">Profile</a></li>
+                              <li><a href="#">My Packages</a></li>
+                              <li><a href="#">My Bookmarks</a></li>
+                              <li><a href="#">My Cart</a></li>
+                              <li><a href="#">My Receipts</a></li>
+                              <li ng-if="Auth.isLogged()">
+                                <a href="" ng-click="Auth.logout()">Sign out</a>
+                              </li>
                            <!--  <li role="separator" class="divider"></li>
                             <li class="dropdown-header">Nav header</li>
                             <li><a href="#">Separated link</a></li>
