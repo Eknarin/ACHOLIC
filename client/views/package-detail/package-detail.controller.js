@@ -1,10 +1,9 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('PackageDetailCtrl', function () {
+  .controller('PackageDetailCtrl',['$scope','itemData',function ($scope , itemData) {
 
-    angular.extend(this, {
-      name: 'PackageDetailCtrl'
-    });
+  	$scope.packageItem = itemData;
+  	console.log($scope.packageItem);
 
-  });
+  }]);
