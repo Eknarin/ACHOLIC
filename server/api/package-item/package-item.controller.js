@@ -41,6 +41,7 @@ exports.show = function (req, res) {
  * @param res
  */
 exports.create = function (req, res) {
+  console.log(req.body);
   PackageItem.create(req.body, function (err, packageItem) {
     if (err) { return handleError(res, err); }
     return res.status(201).json(packageItem);
