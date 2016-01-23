@@ -2,7 +2,7 @@
 
 angular.module('acholic')
   .controller('PackageCtrl',['$scope','PackageItem',function ($scope , PackageItem) {
-  	$scope.packages = PackageItem.query();
+  	$scope.packages = PackageItem.queryAll();
   	console.log($scope.packages);
 	$scope.slider = {
 	  min: 1,

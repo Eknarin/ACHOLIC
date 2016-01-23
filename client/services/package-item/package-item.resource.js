@@ -6,9 +6,12 @@ angular.module('acholic')
       update: {
         method: 'PUT'
       },
-      query: {
+      queryAll: {
       	method: 'GET',
       	isArray: true
+      },
+      query: {
+        method: 'GET',
       },
       delete: {
       	method: 'DELETE'
