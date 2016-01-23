@@ -86,7 +86,7 @@ angular.module('acholic')
     if($scope.decNum != 0){
       $scope.yStar = $scope.nFloor+1;//3
     }
-    return new Array(5-$scope.ywhiteStar);
+    return new Array(5-$scope.yStar);
   };
 
   }]);
