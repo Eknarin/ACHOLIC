@@ -17,30 +17,30 @@
 						<div class="row">
 							<div class="col-md-4"> 
 							    <div class="col-md-12 col-xs-12 btn-group" style="padding-bottom:5px;">
-								  <button type="button" class="btn btn-default" style="width:90%; padding-left:0px"> Province </button>
+								  <button type="button" class="btn btn-default" style="width:89.8%; padding-left:0px" ng-bind='selected'> Province </button>
 								  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width:10%">
 								    <span class="caret"></span>
 								    <span class="sr-only">Toggle Dropdown</span>
 								  </button>
 								  <ul class="dropdown-menu scrollable-menu" style="width:91.5%;margin-left:17px;">
-								    <li ng-repeat="p in provinces" ng-name="p.name" ng-model="p.name"><a href="#">{{p.name}}</a></li>
+								    <li ng-repeat="p in provinces" ng-name="p.name" ng-model="p.name" ng-click="setProvince(p.name)"><a href="#">{{p.name}}</a></li>
+								  </ul>
+								</div>
+							</div> 
+
+							<div class="col-md-4"> 
+							    <div class="col-md-12 col-xs-12 btn-group" style="padding-bottom:5px;">
+								  <button type="button" class="btn btn-default" style="width:90%; padding-left:0px" ng-bind="selectedType"> Type </button>
+								  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width:10%">
+								    <span class="caret"></span>
+								    <span class="sr-only">Toggle Dropdown</span>
+								  </button>
+								  <ul class="dropdown-menu scrollable-menu" style="width:91.5%;margin-left:17px;">
+								    <li ng-repeat="t in types" ng-click="setType(t.name)"><a href="#">{{t.name}}</a></li>
 								  </ul>
 								</div>
 							</div>
 
-							<div class="col-md-4"> 
-							    <div class="col-md-12 col-xs-12 btn-group" style="padding-bottom:5px;">
-								  <button type="button" class="btn btn-default" style="width:90%; padding-left:0px"> Type </button>
-								  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width:10%">
-								    <span class="caret"></span>
-								    <span class="sr-only">Toggle Dropdown</span>
-								  </button>
-								  <ul class="dropdown-menu scrollable-menu" style="width:91.5%;margin-left:17px;">
-								    <li><a href="#">Ski</a></li>
-								    <li><a href="#">ล่องแก่ง</a></li>
-								  </ul>
-								</div>
-							</div>
 							<div class="col-md-4">
 								<div class="col-md-12 col-xs-12 btn-group" style="padding-bottom:5px;">
 								  <button type="button" class="btn btn-default" style="width:90%"> Guest </button>

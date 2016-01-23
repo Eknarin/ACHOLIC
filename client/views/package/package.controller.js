@@ -28,5 +28,26 @@ angular.module('acholic')
   	{name: 'กรุงเทพ'},
   	{name: 'นครนายก'}
   ];
+  $scope.selected = " Province ";
+  $scope.setProvince = function(value){
+    console.log(value);
+    $scope.selected = value;
+  }
+
+  $scope.types = [
+    {name: 'กิจกรรมในร่ม'},
+    {name: 'กิจกรรมกลางแจ้ง'},
+    {name: 'ล่องแก่ง'},
+    {name: 'เดินป่า'},
+    {name: 'เพ้นท์บอล'},
+    {name: 'ขี่ม้า'},
+    {name: 'ATV'}
+  ];
+  $scope.selectedType = " Type "
+  $scope.setType = function(value){
+    $scope.selectedType = value;
+  };
+
+
 
   }]);
