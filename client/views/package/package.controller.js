@@ -15,8 +15,8 @@ angular.module('acholic')
     angular.extend(this, {
       name: 'PackageCtrl'
     });
-    $scope.n = 5;
-    $scope.getNumber = function(num) {
+    $scope.n = 9;
+    $scope.getStar = function(num) {
 	    return new Array(num);   
 	};
 	
@@ -24,6 +24,7 @@ angular.module('acholic')
 		$('#expandButt').toggleClass('rotate-180deg');
   };
 
+  //province filter
   $scope.provinces = [
   	{name: 'กรุงเทพ'},
   	{name: 'นครนายก'}
@@ -34,6 +35,7 @@ angular.module('acholic')
     $scope.selected = value;
   }
 
+  //type filter
   $scope.types = [
     {name: 'กิจกรรมในร่ม'},
     {name: 'กิจกรรมกลางแจ้ง'},
@@ -48,6 +50,7 @@ angular.module('acholic')
     $scope.selectedType = value;
   };
 
+  //guest filter
   $scope.guests = [
     {n: '1 Guest'},
     {n: '2 Guests'},
@@ -71,6 +74,19 @@ angular.module('acholic')
     $scope.guest = value;
   };
 
+  //convert score to star
+  $scope.Math = window.Math;
+  $scope.rate = $scope.n/2;//2.5 //n=5
+  $scope.nFloor = Math.floor($scope.rate);//2
+  $scope.decNum = $scope.rate%1;//0.5
 
+  $scope.yStar = $scope.nFloor;
+
+  $scope.test = function(){
+    if($scope.decNum != 0){
+      $scope.yStar = $scope.nFloor+1;//3
+    }
+    return new Array(5-$scope.ywhiteStar);
+  };
 
   }]);

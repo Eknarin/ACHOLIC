@@ -108,12 +108,11 @@
 									<div style="padding-top:5px;">
 										<a href="/packageItem" style="color:#3b3a3a;"><h4>{{package.name}}</h4></a>
 									</div>
-									<div style="">
-										<img src="../image/star_rated.png">
-										<img src="../image/star_rated.png">
-										<img src="../image/star_rated.png">
-										<img src="../image/star_rated.png">
-										<img src="../image/star_unrated.png">
+									<div><p>Rating : {{n/2}}</p></div>
+									<div style="" ng-app="" ng-init="nstar = 0">
+										<img ng-repeat="i in getStar(nFloor) track by $index" src="../image/star_rated.png" style="padding-left: 3px;">
+										<img ng-if="decNum >= 0.5" src="../image/star_rated_half.png">
+										<img ng-repeat="i in test() track by $index" src="../image/star_unrated.png" style="padding-left: 3px;">
 									</div>
 								</div>
 							</div>
