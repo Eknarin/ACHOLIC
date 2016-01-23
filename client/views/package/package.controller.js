@@ -48,6 +48,29 @@ angular.module('acholic')
     $scope.selectedType = value;
   };
 
+  $scope.guests = [
+    {n: '1 Guest'},
+    {n: '2 Guests'},
+    {n: '3 Guests'},
+    {n: '4 Guests'},
+    {n: '5 Guests'},
+    {n: '6 Guests'},
+    {n: '7 Guests'},
+    {n: '8 Guests'},
+    {n: '9 Guests'},
+    {n: '10 Guests'},
+    {n: '11 Guests'},
+    {n: '12 Guests'},
+    {n: '13 Guests'},
+    {n: '14 Guests'},
+    {n: '15 Guests'},
+    {n: '16+ Guests'}
+  ];
+  $scope.guest = $scope.guests[0].n;
+  $scope.setGuest = function(value){
+    $scope.guest = value;
+  };
+
 
 
   }]);
