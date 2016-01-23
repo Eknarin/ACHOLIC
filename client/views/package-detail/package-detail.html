@@ -10,7 +10,7 @@
 		<!-- <h1 style="color:black; margin-top:70px">kkkkdfbnnbfklbnkldnfklbdnl</h1> -->
 		<!-- Package Details -->
 		<div class="container" style=" margin-top:100px">
-			<h1>Package Name</h1>
+			<h1>Package Name : {{packageItem.name}}</h1>
 			Rating
 			<div>
 				<div class="col-xs-12 col-sm-4 col-md-4 topic-style">
@@ -18,10 +18,10 @@
 				</div>
 				<div class="col-xs-12 col-sm-8 col-md-8 detail-style">
 					<div>
-						08x-xxx-xxxx
+						{{packageItem.contact.phone_number}}
 					</div>
 					<div>
-						xxx@gmail.com
+						{{packageItem.contact.email}}
 					</div>
 				</div>
 			</div>
@@ -32,7 +32,7 @@
 					Price : 
 				</div>
 				<div class="col-xs-12 col-sm-8 col-md-8 detail-style">
-					x,xxx ฿
+					{{packageItem.price}} ฿
 				</div>
 			</div>
 			<HR WIDTH="100%" NOSHADE>
@@ -42,9 +42,7 @@
 					Description : 
 				</div>
 				<div class="col-xs-12 col-sm-8 col-md-8 detail-style">
-					Describe about Package <br>
-					Describe about Package <br>
-					Describe about Package 
+					{{packageItem.description}} 
 				</div>
 			</div>
 			<HR WIDTH="100%" NOSHADE>
@@ -54,7 +52,7 @@
 					People per Package : 
 				</div>
 				<div class="col-xs-12 col-sm-8 col-md-8 detail-style">
-					x people
+					{{packageItem.people}} people
 				</div>
 			</div>
 			<HR WIDTH="100%" NOSHADE>
@@ -64,7 +62,7 @@
 					Office Time : 
 				</div>
 				<div class="col-xs-12 col-sm-8 col-md-8 detail-style">
-					8.00 - 20.00, Mon. - Fri.
+					{{packageItem.office_time.open_time}} - {{packageItem.office_time.close_time}}
 				</div>
 			</div>
 			<HR WIDTH="100%" NOSHADE>
@@ -74,7 +72,7 @@
 					Availability : 
 				</div>
 				<div class="col-xs-12 col-sm-8 col-md-8 detail-style" style="color:green;">
-					Available
+					{{packageItem.availability}}
 				</div>
 			</div>
 			<!-- Bookmark and Add to Cart button -->
