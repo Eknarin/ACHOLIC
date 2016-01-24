@@ -19,7 +19,7 @@ function handleError (res, err) {
 exports.index = function (req, res) {
   Image.find(function (err, images) {
     if (err) { return handleError(res, err); }
-    console.log(images.img);
+    //console.log(images.img);
 
     return res.status(200).json(images);
   });
@@ -51,8 +51,8 @@ exports.show = function (req, res) {
  * @param res
  */
 exports.create = function (req, res) {
-  console.log('create image');
-  console.log(req.file);
+  // console.log('create image');
+  // console.log(req.file);
   var image = new Image;
   image.name = req.file.originalname;
   image.img.contentType = req.file.mimetype;

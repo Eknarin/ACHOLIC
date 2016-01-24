@@ -21,6 +21,7 @@ var PackageItemSchema = new Schema({
 	},
   availability: Boolean,
   tag: [{ type: Schema.Types.ObjectId, ref: 'Bookmark' }],
+  image: { type: Schema.Types.ObjectId, ref: 'Image' },
   created_at: Date,
   updated_at: { type: Date, default: Date.now }
 });
