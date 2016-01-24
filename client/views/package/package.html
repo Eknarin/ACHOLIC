@@ -98,6 +98,9 @@
 							<div class="package"  >	
 								<a href="/packageDetail/{{package._id}}">
 									<div class="package_pic" style="background-image: url(../image/sample_package.png);width:100%;height:200px;">
+									<div ng-if="package.image">
+										<img ng-src="api/images/{{package.image}}" style="width:100%;height:200px;"></img>
+									</div>
 										<input id="liked" ng-click="ilike()" class="like_button" type="image" src="../image/Heart.png" name="image" width="40" height="40">
 										<div class="price">
 											<label> {{package.price}} ฿</label>
@@ -108,7 +111,7 @@
 									<div style="padding-top:5px;">
 										<a href="/packageDetail/{{package._id}}" style="color:#3b3a3a;"><h4>{{package.name}}</h4></a>
 									</div>
-									<div><p>Rating : {{n/2}}</p></div>
+									<div><p>Rating : {{package.rating}}</p></div>
 									<div style="" ng-app="" ng-init="nstar = 0">
 										<img ng-repeat="i in getStar(nFloor) track by $index" src="../image/star_rated.png" style="padding-left: 3px;">
 										<img ng-if="decNum >= 0.5" src="../image/star_rated_half.png">
