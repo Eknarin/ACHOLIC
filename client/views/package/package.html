@@ -9,7 +9,7 @@
 	<body>
 	  	<!-- Filter Options -->
 	  	<div>
-			<div class="container-fluid" style="background-image: url(../image/galaxy.jpg); padding-top: 70px;">
+			<div class="container-fluid" style="background-color:#53798d; padding-top: 70px;">
 				<div class="container">
 					<h3 style="color:#ebebeb;text-shadow: black 0.2em 0.2em 0.2em;"><center>Filter Options</center></h3>
 					<!-- Hiding Filter Page -->
@@ -80,7 +80,7 @@
 				</div>
 			</div>
 			<!-- Button for Expand Hiding Page -->
-			<div style="background-color:#111625">
+			<div style="background-color:#53798d; border-bottom:1px solid black;">
 				<center><button id="expandButt" data-toggle="collapse" data-target="#filter_menu" style="background-color:transparent; border:none; padding:0" ng-click="rotate(deg)"><img src="../image/expand_copy.png"></button></center>
 			</div>
 			<!-- End Button for Expand Hiding Page -->
@@ -89,10 +89,10 @@
 
 		<!-- Packages -->
 		<div>
-			<div class="container-fluid" style="background-color:#F6E6CE;padding-bottom:20px;width:100%;">
+			<div class="container-fluid" style="background-color:#eaedef;padding-bottom:20px;width:100%;">
 				<div class="container">
 					<h2 style="color:#000000;font-family: 'Nunito', sans-serif;margin-top: 40px;"><center style="
-    font-size: 40px;text-shadow: yellow 0.1em 0.1em 0.2em;">Packages</center></h2>
+    font-size: 40px;">Packages</center></h2>
 					<div row="row-fluid">
 						<div class="col-md-4 package_item" ng-repeat="package in packages" style="text-align:center">
 							<div class="package"  >	
@@ -109,7 +109,7 @@
 								</a>
 								<div style="text-align:left;font-family: 'Nunito', sans-serif;font-style:bold;">
 									<div style="padding-top:5px;">
-										<a href="/packageDetail/{{package._id}}" style="color:#3b3a3a;"><h4>{{package.name}}</h4></a>
+										<a href="/packageDetail/{{package._id}}" style="color:#57bdad;"><h3>{{package.name}}</h3></a>
 									</div>
 									<div><p>Rating : {{package.rating}}</p></div>
 									<div style="" ng-app="" ng-init="nstar = 0">
