@@ -14,10 +14,17 @@ function handleError (res, err) {
  * @param res
  */
 exports.index = function (req, res) {
-  PackageItem.find(function (err, packageItems) {
-    if (err) { return handleError(res, err); }
-    return res.status(200).json(packageItems);
-  });
+  if(req.query){
+    PackageItem.find({'name' : new RegExp(req.query.q, 'i')},function (err, packageItems) {
+      if (err) { return handleError(res, err); }
+      return res.status(200).json(packageItems);
+    });
+  } else {
+    PackageItem.find(function (err, packageItems) {
+      if (err) { return handleError(res, err); }
+      return res.status(200).json(packageItems);
+    });
+  }
 };
 
 /**

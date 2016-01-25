@@ -1,9 +1,14 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('PackageCtrl',['$scope','PackageItem',function ($scope , PackageItem) {
-  	$scope.packages = PackageItem.queryAll();
+  .controller('PackageCtrl',['$scope','PackageItem','$location',function ($scope , PackageItem , $location) {
+  if($scope.search){
+     $scope.packages = PackageItem.queryAll({q : $scope.search});
+  }else{
+    $scope.packages = PackageItem.queryAll();
+  }
   	console.log($scope.packages);
+
 	$scope.slider = {
 	  min: 1,
 	  max: 5,
