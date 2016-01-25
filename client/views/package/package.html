@@ -113,9 +113,9 @@
 									</div>
 									<div><p>Rating : {{package.rating}}</p></div>
 									<div style="" ng-app="" ng-init="nstar = 0">
-										<img ng-repeat="i in getStar(nFloor) track by $index" src="../image/star_rated.png" style="padding-left: 3px;">
-										<img ng-if="decNum >= 0.5" src="../image/star_rated_half.png">
-										<img ng-repeat="i in test() track by $index" src="../image/star_unrated.png" style="padding-left: 3px;">
+										<img ng-repeat="i in getStar(package.rating) track by $index" src="../image/star_rated.png" style="padding-left: 3px;">
+										<img ng-if="((package.rating)/2)%1 >= 0.5" src="../image/star_rated_half.png">
+										<img ng-repeat="i in getWhite(package.rating) track by $index" src="../image/star_unrated.png" style="padding-left: 3px;">
 									</div>
 								</div>
 							</div>

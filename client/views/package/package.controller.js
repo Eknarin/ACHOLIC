@@ -15,9 +15,12 @@ angular.module('acholic')
     angular.extend(this, {
       name: 'PackageCtrl'
     });
-    $scope.n = 9;
-    $scope.getStar = function(num) {
-	    return new Array(num);   
+
+  $scope.rate = 0;
+  
+  $scope.getStar = function(num) {
+      $scope.rate = num/2;
+	    return new Array(Math.floor($scope.rate));   
 	};
 	
 	$scope.rotate = function(){
@@ -74,17 +77,13 @@ angular.module('acholic')
     $scope.guest = value;
   };
 
-  //convert score to star
   $scope.Math = window.Math;
-  $scope.rate = $scope.n/2;//2.5 //n=5
-  $scope.nFloor = Math.floor($scope.rate);//2
-  $scope.decNum = $scope.rate%1;//0.5
 
-  $scope.yStar = $scope.nFloor;
-
-  $scope.test = function(){
-    if($scope.decNum != 0){
-      $scope.yStar = $scope.nFloor+1;//3
+  $scope.getWhite = function(val){
+    if((val/2)%1 == 0){
+      $scope.yStar = Math.floor(val/2);
+    } else{
+      $scope.yStar = Math.floor(val/2)+1;
     }
     return new Array(5-$scope.yStar);
   };
