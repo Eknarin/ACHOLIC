@@ -1,11 +1,11 @@
 .footer {
-  background-color: #232323;
+  background-color: #d4d9db;
   padding-top: 20px;
   overflow: hidden; }
 
 .inner-footer {
   padding-top: 40px;
-  color: white; }
+  color: #406a80; }
 
 .footer-choice {
   font-size: 25px;
@@ -13,7 +13,7 @@
 
 a:link {
   text-decoration: none;
-  color: white; }
+  color: #406a80; }
 
 a:hover {
   color: yellow;
@@ -21,11 +21,11 @@ a:hover {
 
 a:visited {
   text-decoration: none;
-  color: white; }
+  color: #406a80; }
 
 a:active {
   text-decoration: none;
-  color: white; }
+  color: #406a80; }
 
 /**
  * package-detail.scss
@@ -47,9 +47,10 @@ a:active {
   color: #a1a1a1;
   padding-left: 10%; }
 
-.detail-style {
+.input-style {
   font-size: 150%;
-  padding-left: 22%; }
+  padding-left: 22%;
+  margin-bottom: 3%; }
 
 /**
  * package.scss

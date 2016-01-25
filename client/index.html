@@ -71,11 +71,11 @@
 
 </head>
 <body>
-<nav-bar></nav-bar>
+<nav-bar ng-hide="hideit"></nav-bar>
 
 <div ng-view></div>
 
-<footer-bar></footer-bar>
+<footer-bar ng-hide="hideit"></footer-bar>
 
 <script src="socket.io/socket.io.js"></script>
 

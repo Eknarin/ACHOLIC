@@ -47,6 +47,17 @@ angular.module('acholic', [
     };
   })
 
+.run(function($rootScope, $location){
+  $rootScope.$on('$routeChangeStart', function(event, next, current){
+    if ($location.path() == '/login') {
+      $rootScope.hideit = true;
+    }
+    else {
+      $rootScope.hideit = false;
+    }
+  });
+})
+
   .run(function ($rootScope, $location, Auth) {
 
     $rootScope.Auth = Auth;
