@@ -10,11 +10,11 @@ angular.module('acholic')
   	console.log($scope.packages);
 
 	$scope.slider = {
-	  min: 1,
-	  max: 5,
+	  min: 200,
+	  max: 1500,
 	  options: {
-	    floor: 0,
-	    ceil: 20
+	    floor: 170,//should find min price of package
+	    ceil: 2500//should find max price of package
 	  }
 	};
     angular.extend(this, {
@@ -48,10 +48,17 @@ angular.module('acholic')
     {name: 'กิจกรรมในร่ม'},
     {name: 'กิจกรรมกลางแจ้ง'},
     {name: 'ล่องแก่ง'},
-    {name: 'เดินป่า'},
+    {name: 'ล่องเรือ'},
+    {name: 'Walk Rally'},
+    {name: 'ผจญภัย'},
+    {name: 'โรยตัว'},
     {name: 'เพ้นท์บอล'},
-    {name: 'ขี่ม้า'},
-    {name: 'ATV'}
+    {name: 'ATV'},
+    {name: 'กระโดด'},
+    {name: 'โต้คลื่น'},
+    {name: 'คายัค'},
+    {name: 'โกคาร์ท'}
+
   ];
   $scope.selectedType = " Type "
   $scope.setType = function(value){

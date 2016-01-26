@@ -22,7 +22,8 @@ var data = [
                 ,
                 "people": "10-15",
                 "availability": "true",
-                "tag": ["กระโดด","กิจกรรมในร่ม"]
+                "tag": ["กระโดด","กิจกรรมในร่ม"],
+                "location":"กรุงเทพฯ"
                 
             },
             {
@@ -45,7 +46,8 @@ var data = [
                 ,
                 "people": "1-5",
                 "availability": "true",
-                "tag": ["โต้คลื่น","กิจกรรมกลางแจ้ง"]
+                "tag": ["โต้คลื่น","กิจกรรมกลางแจ้ง"],
+                "location":"กรุงเทพฯ"
 
             },
             {
@@ -68,7 +70,8 @@ var data = [
                 ,
                 "people": "20-25",
                 "availability": "true",
-                "tag": ["ล่องแก่ง","ATV"]
+                "tag": ["ล่องแก่ง","ATV"],
+                "location":"นครนายก"
             },
             {
                 "name": "กิจกรรมเพ้นท์บอล",
@@ -90,7 +93,8 @@ var data = [
                 ,
                 "people": "6",
                 "availability": "false",
-                "tag": ["เพ้นท์บอล"]          
+                "tag": ["เพ้นท์บอล"],
+                "location":"นครนายก"          
             },
             {
                 "name": "ล่องแก่งเรือยาง",
@@ -112,7 +116,8 @@ var data = [
                 ,
                 "people": "5-10",
                 "availability": "true",
-                "tag": ["ล่องแก่ง"]
+                "tag": ["ล่องแก่ง"],
+                "location":"นครนายก"
             },
             {//6
                 "name": "ล่องแก่งคายัค",
@@ -134,7 +139,8 @@ var data = [
                 ,
                 "people": "2",
                 "availability": "false",
-                "tag": ["ล่องแก่ง","คายัค"]
+                "tag": ["ล่องแก่ง","คายัค"],
+                "location":"นครนายก"
             },
             {//7
                 "name": "ศูนย์ผจญภัยเขาหล่น",
@@ -156,7 +162,8 @@ var data = [
                 ,
                 "people": "10+",
                 "availability": "true",
-                "tag":["ผจญภัย"]
+                "tag":["ผจญภัย"],
+                "location":"นครนายก"
             },
             {//8
                 "name": "ล่องเรือ และ Adventure",
@@ -178,7 +185,8 @@ var data = [
                 ,
                 "people": "8+",
                 "availability": "true",
-                "tag":["ผจญภัย","ล่องเรือ","โรยตัว"]
+                "tag":["ผจญภัย","ล่องเรือ","โรยตัว"],
+                "location":"นครนายก"
             },
             {//9
                 "name": "One Day : นครนายก",
@@ -200,7 +208,8 @@ var data = [
                 ,
                 "people": "8+",
                 "availability": "true",
-                "tag":["ล่องแก่ง","เพ้นท์บอล","โรยตัว", "ATV"]
+                "tag":["ล่องแก่ง","เพ้นท์บอล","โรยตัว", "ATV"],
+                "location":"นครนายก"
             },
             {//10
                 "name": "ล่องแก่ง เพนท์บอล",
@@ -222,7 +231,8 @@ var data = [
                 ,
                 "people": "5-10",
                 "availability": "true",
-                "tag":["ล่องแก่ง","เพ้นท์บอล","ล่องเรือ"]
+                "tag":["ล่องแก่ง","เพ้นท์บอล","ล่องเรือ"],
+                "location":"นครนายก"
             },
             {
                 "name": "ล่องเรือ และ Adventure 2 วัน",
@@ -244,7 +254,8 @@ var data = [
                 ,
                 "people": "8+",
                 "availability": "true",
-                "tag":["ผจญภัย","โรยตัว","ล่องเรือ"]
+                "tag":["ผจญภัย","โรยตัว","ล่องเรือ"],
+                "location":"นครนายก"
             },
             {//12
                 "name": "2วัน 1คืน Walk Rally",
@@ -266,7 +277,8 @@ var data = [
                 ,
                 "people": "30+",
                 "availability": "true",
-                "tag":["Walk Rally","ล่องแก่ง"]
+                "tag":["Walk Rally","ล่องแก่ง"],
+                "location":"นครนายก"
             },
             {//13
                 "name": "2วัน 1คืน ชมทะเลหมอก",
@@ -288,7 +300,8 @@ var data = [
                 ,
                 "people": "8+",
                 "availability": "true",
-                "tag":["ผจญภัย","ล่องแก่ง","ATV"]
+                "tag":["ผจญภัย","ล่องแก่ง","ATV"],
+                "location":"นครนายก"
             },
             {//14
                 "name": "นครนายก โกคาร์ท",
@@ -310,7 +323,8 @@ var data = [
                 ,
                 "people": "1",
                 "availability": "true",
-                "tag":["โกคาร์ท"]
+                "tag":["โกคาร์ท"],
+                "location":"นครนายก"
             },
             {//15
                 "name": "ขี่รถ เอทีวี ATV-Adventure",
@@ -332,7 +346,8 @@ var data = [
                 ,
                 "people": "1",
                 "availability": "true",
-                "tag":["ผจญภัย","ATV"]
+                "tag":["ผจญภัย","ATV"],
+                "location":"นครนายก"
             },
             {//16
                 "name": "ยิงปืนเพ้นบอล Paintball",
@@ -354,7 +369,8 @@ var data = [
                 ,
                 "people": "1",
                 "availability": "true",
-                "tag":["เพ้นท์บอล"]
+                "tag":["เพ้นท์บอล"],
+                "location":"นครนายก"
             },
         ]
     },
