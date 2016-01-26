@@ -146,3 +146,23 @@ body {
   -ms-transform: rotate(180deg);
   -o-transform: rotate(180deg);
   transform: rotate(180deg); }
+
+a:link {
+  text-decoration: none;
+  color: #406a80; }
+
+a:hover {
+  text-decoration: underline; 
+}
+
+a:visited {
+  text-decoration: none;
+  color: #406a80; }
+
+a:active {
+  text-decoration: none;
+  color: #406a80; }
+
+.text-padding {
+  padding-left: 5%;
+  padding-right: 5%; }
