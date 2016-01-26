@@ -15,3 +15,28 @@ body {
   -o-transform: rotate(180deg);       //Opera 10.5-12.00  
   transform: rotate(180deg);          //Firefox 16+, Opera 12.50+  
 }
+
+a:link {
+  text-decoration: none;
+  color: #406a80; 
+}
+
+a:hover {
+  color: yellow;
+  text-decoration: none; 
+}
+
+a:visited {
+  text-decoration: none;
+  color: #406a80; 
+}
+
+a:active {
+  text-decoration: none;
+  color: #406a80; 
+}
+
+.text-padding{
+	padding-left:5%; 
+	padding-right:5%;
+}

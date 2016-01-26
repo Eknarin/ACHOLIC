@@ -88,41 +88,52 @@
 		<!-- End Filter Options -->
 
 		<!-- Packages -->
-		<div>
-			<div class="container-fluid" style="background-color:#eaedef;padding-bottom:20px;width:100%;">
-				<div class="container">
-					<h2 style="color:#000000;font-family: 'Nunito', sans-serif;margin-top: 40px;"><center style="
-    font-size: 40px;">Packages</center></h2>
-					<div row="row-fluid">
-						<div class="col-md-4 package_item" ng-repeat="package in packages" style="text-align:center">
-							<div class="package"  >	
-								<a href="/packageDetail/{{package._id}}">
-									<div class="package_pic" style="background-image: url(../image/sample_package.png);width:100%;height:200px;">
-									<div ng-if="package.image">
-										<img ng-src="api/images/{{package.image}}" style="width:100%;height:200px;"></img>
-									</div>
-										<input id="liked" ng-click="ilike()" class="like_button" type="image" src="../image/Heart.png" name="image" width="40" height="40">
-										<div class="price">
-											<label> {{package.price}} ฿</label>
-										</div>
-									</div>
-								</a>
-								<div style="text-align:left;font-family: 'Nunito', sans-serif;font-style:bold;">
-									<div style="padding-top:5px;">
-										<a href="/packageDetail/{{package._id}}" style="color:#57bdad;"><h3>{{package.name}}</h3></a>
-									</div>
-									<div><p>Rating : {{package.rating}}</p></div>
-									<div style="" ng-app="" ng-init="nstar = 0">
-										<img ng-repeat="i in getStar(package.rating) track by $index" src="../image/star_rated.png" style="padding-left: 3px;">
-										<img ng-if="((package.rating)/2)%1 >= 0.5" src="../image/star_rated_half.png">
-										<img ng-repeat="i in getWhite(package.rating) track by $index" src="../image/star_unrated.png" style="padding-left: 3px;">
-									</div>
-								</div>
+		<div class="container-fluid" style="background-color:#eaedef">
+			<h2 style="color:#000000;font-family: 'Nunito', sans-serif;margin-top: 40px; font-size: 40px; text-align:center;">Packages</h2>
+			<div class="row">
+				<div ng-repeat="package in packages">
+					<!-- First Package Template -->
+					<div class="col-xs-12 col-sm-6 col-md-4 package-cover">
+						<div class="package-style">
+							<input id="liked" ng-click="ilike()" class="like_button" type="image" src="../image/Heart.png" name="image" width="40" height="40">
+							<!-- Package Name -->
+							<div class="text-padding">
+								<h2 class="text-overflow">{{package.name}}</h2>
 							</div>
+
+							<!-- Package Rating -->
+							<div class="text-padding" style="" ng-app="" ng-init="nstar = 0">
+								<img ng-repeat="i in getStar(package.rating) track by $index" src="../image/star_rated.png" style="padding-left: 3px;">
+								<img ng-if="((package.rating)/2)%1 >= 0.5" src="../image/star_rated_half.png">
+								<img ng-repeat="i in getWhite(package.rating) track by $index" src="../image/star_unrated.png" style="padding-left: 3px;">
+							</div>
+								
+							<!-- Package Image -->
+							<div class="package-picture" ng-style="{'background-image':'url(../image/sample_package.png)'}" style="margin-top:30px;">
+							</div>
+
+							<div class="text-padding" style="margin-top:30px;">
+								<div class="col-xs-8 col-sm-8 col-md-8">
+									 <p style="font-size:27px">{{package.price}} ฿<p>
+								</div>
+								<div class="col-xs-4 col-sm-4 col-md-4">
+								<button type="button" class="btn btn-primary" style="background-color:#f9f9fa; color:#57bdad; border-color:#57bdad"><a href="/packageDetail/{{package._id}}">Read More</a></button>
+							</div>
+							</div>
+
+							<!-- Read More button -->
+							<div class="text-padding" style="margin-top:30px;">
+								
+							</div>
+						</div>
+
+						<!-- Package Publish Date  -->
+						<div class="package-footer-style text-padding">
+								<span class="glyphicon glyphicon-calendar"> DD/MM/YY</span>
 						</div>
 					</div>
 				</div>
-			</div>
+		</div>
 		</div>
 		<!-- End Packages -->
 	</body>

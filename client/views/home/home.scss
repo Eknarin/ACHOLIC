@@ -15,6 +15,7 @@
 	background-size: cover; 
 	width: 100%; 
 	height: 540px;
+	box-shadow: 5px 0 7px rgba(0, 0, 0, 0.35);
 }
 
 .center-normal-picture{
@@ -38,6 +39,7 @@
 	border-top-left-radius: 20px;
 	border-top-right-radius: 20px;
 	height:500px;
+	box-shadow: 5px 0 7px rgba(0, 0, 0, 0.35);
 }
 .recommend-package-cover{
 	margin-top:50px; 
@@ -55,9 +57,7 @@
 	background-color: #f4f4f5;
 	color: #b3b3b3; 
 	height: 40px;
+	box-shadow: 5px 0 7px rgba(0, 0, 0, 0.35);
 }
-.text-padding{
-	padding-left:5%; 
-	padding-right:5%;
-}
+
 
