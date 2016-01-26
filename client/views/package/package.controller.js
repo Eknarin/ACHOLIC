@@ -90,12 +90,17 @@ angular.module('acholic')
   };
 
   $scope.Math = window.Math;
+  $scope.yStar = 0;
 
   $scope.getWhite = function(val){
     if((val/2)%1 == 0){
       $scope.yStar = Math.floor(val/2);
     } else{
-      $scope.yStar = Math.floor(val/2)+1;
+      if(((val)/2)%1 >= 0.5){
+        $scope.yStar = Math.floor(val/2)+1;
+      }else{
+        $scope.yStar = Math.floor(val/2);
+      }
     }
     return new Array(5-$scope.yStar);
   };
