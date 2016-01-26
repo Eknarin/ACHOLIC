@@ -7,6 +7,7 @@
 	</head>
 	
 	<body>
+		<!-- Image Slider -->
 		<div id="myCarousel" class="carousel slide" data-ride="carousel" style="padding-top:30px" >
 		  	<!-- Indicators -->
 		  	<ol class="carousel-indicators" >
@@ -36,39 +37,94 @@
 		    	<span class="sr-only">Next</span>
 		  	</a>
 		</div>
-        <!-- Recommended Packages -->
-        <div class="container">
-        	<br>
-        	<h2 style="text-align:center; font-size: 30px;" >Recommend Packages</h2>
-        	<br>
-        	<div row="row-fluid">
+
+		<!-- Recommend Package -->
+		<div class="container-fluid" style="background-color:#eaedef">
+			<div class="row">
 				<div ng-repeat="package in recommendedPackages">
-					<div class="col-md-8 recommended-package-cover" ng-if="($index+1)%10==1">
-						<div class="recommended-package-style center-picture" ng-style="{'background-image':'url('+ package.src +')'}">
-							<div class="center-caption font-effect-outline" style="font-size: 30px;">
-								{{package.name}}
+					<!-- First Package Template -->
+					<div class="col-xs-12 col-sm-6 col-md-4 recommend-package-cover" ng-if="($index+1)%2==1 && ($index+1)!=5">
+						<div class="recommend-package-style">
+							<!-- Package Name -->
+							<div class="text-padding">
+								<h2>{{package.name}}</h2>	
+							</div>
+							
+							<!-- Package Image -->
+							<div class="center-normal-picture" ng-style="{'background-image':'url('+ package.src +')'}" style="margin-top:30px;">
+							</div>
+
+							<!-- Package Description -->
+							<div class="text-padding" style="margin-top:30px; width:100%;">
+								<p>	package description package description package description package description package description</p>
+							</div>	
+
+							<!-- Read More button -->
+							<div class="text-padding" style="margin-top:30px;">
+								<button type="button" class="btn btn-primary" style="background-color:#f9f9fa; color:#57bdad; border-color:#57bdad">Read More</button>
 							</div>
 						</div>
-					</div>
-					<div class="col-md-8 recommended-package-cover" ng-if="($index+1)%10==7">
-						<div class="recommended-package-style">
-							<div class="center-caption font-effect-outline" style="font-size: 30px;">
-								{{package.name}}
-							</div>
+
+						<!-- Package Publish Date  -->
+						<div class="recommend-package-footer-style text-padding">
+								<span class="glyphicon glyphicon-calendar"> DD/MM/YY</span>
 						</div>
 					</div>
-					<div class="col-md-4 recommended-package-cover" ng-if="($index+1)%10!=1 && ($index+1)%10!=7">
-						<div class="recommended-package-style center-picture" ng-style="{'background-image':'url('+ package.src +')'}">
-							<div class="center-caption font-effect-outline" style="font-size: 30px;">
-								{{package.name}}
+
+					<!-- Second Package -->
+					<div class="col-xs-12 col-sm-6 col-md-4 recommend-package-cover" ng-if="($index+1)%2==0">
+						<div class="recommend-package-style">
+							<div class="text-padding">
+								<h2>{{package.name}}</h2>	
+							</div>
+							<div style="margin-top:30px">
+								<div id="Carousel{{$index}}" class="carousel slide" data-ride="carousel" style="padding-top:0px; width:100%" >
+								  	<!-- Indicators -->
+								  	<ol class="carousel-indicators" >
+								    	<li data-target="#Carousel{{$index}}" data-slide-to="$index" ng-class="{active:!$index}" ng-repeat="picture 	in sliderpics track by $index"></li>
+								  	</ol>
+
+								  	<!-- Wrapper for slides -->	
+									<div class="carousel-inner" role="listbox">
+
+									  	<div class="item center-picture-slider" ng-class="{active:!$index}" ng-repeat="picture in sliderpics" ng-style="{'background-image':'url('+ picture.src +')'}" style="-webkit-filter: grayscale(20%);" style="height: 200px;">
+									  		
+									  	</div>
+
+									</div>
+								
+								  	<!-- Left and right controls -->
+								  	<a class="left carousel-control" data-target="#Carousel{{$index}}" role="button" data-slide="prev">
+								    	<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+								    	<span class="sr-only">Previous</span>
+								  	</a>
+								  	<a class="right carousel-control" data-target="#Carousel{{$index}}" role="button" data-slide="next">
+								    	<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+								    	<span class="sr-only">Next</span>
+								  	</a>
+								</div>
+							</div>
+						</div>
+						<div class="recommend-package-footer-style text-padding" >
+								<span class="glyphicon glyphicon-calendar"> DD/MM/YY</span>
+						</div>
+					</div>
+
+					<!-- Third Package Template -->
+					<div class="col-xs-12 col-sm-6 col-md-4 recommend-package-cover" ng-if="($index+1)==5">
+						<div>
+							<div class="center-picture" style="background-image: url('../../image/TEST.png'); border-radius:20px;">
+								<div class="center-caption font-effect-outline">
+									<p style="font-size: 50px">{{package.name}}</p>
+				  				</div>
 							</div>
 						</div>
 					</div>
 				</div>
-        	</div>
+			</div>
+			<br>
 		</div>
-		<!-- End Recommended Packages -->
-        <br>
+        <!-- <br> -->
 
 	</body>
 </html>

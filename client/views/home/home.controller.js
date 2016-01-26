@@ -14,45 +14,48 @@ angular.module('acholic')
 
 	$scope.recommendedPackages = [
 		{
-			name: 'AAAAAAAAAAAA',
+			name: 'Package 1',
 			src:'../image/TEST.png'
 		},
 
 		{
-			name: '2',
+			name: 'Package 2',
 			src:'../image/TEST2.png'
 		},
 
 		{
-			name: '3'
+			name: 'Package 3',
+			src:'../image/TEST.png'
 		},
 
 		{
-			name: '4'
+			name: 'Package 4',
+			src:'../image/TEST2.png'
 		},
 
 		{
-			name: '5'
+			name: 'Package 5',
+			src:'../image/TEST.png'
 		},
 
 		{
-			name: '6'
+			name: 'Package 6',
+			src:'../image/TEST2.png'
 		},
 
 		{
-			name: '7'
+			name: 'Package 7',
+			src:'../image/TEST.png'
 		},
 
 		{
-			name: '8'
+			name: 'Package 8',
+			src:'../image/TEST2.png'
 		},
 
 		{
-			name: '9'
-		},
-
-		{
-			name: '10'
+			name: 'Package 9',
+			src:'../image/TEST.png'
 		}
 	]
 }]);

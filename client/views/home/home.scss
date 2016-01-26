@@ -13,40 +13,51 @@
 .center-picture{
 	background-position: center center; 
 	background-size: cover; 
-	width: auto; 
-	height: 600px;
+	width: 100%; 
+	height: 540px;
 }
 
-.recommended-package-cover{
-	height: 350px;
-	margin-top:8px;
-	margin-bottom:8px;
+.center-normal-picture{
+	background-position: center center; 
+	background-size: cover; 
+	width: 100%; 
+	height: 200px;
 }
 
-.recommended-package-style{
-	width:100%; 
-	height:90%; 
-	padding-left:8px; 
-	padding-right:8px;
-	background-color:blue; 
-	-webkit-filter: grayscale(30%); 
+.center-picture-slider{
+	background-position: center center; 
+	background-size: cover; 
+	width: 100%; 
+	height: 392px;
 }
 
-// .recommend-package-style{
-// 	background-color: #f9f9fa;
-// 	padding-top:5%; 
-// 	padding-bottom:5%;
-// }
-// .recommend-package-cover{
-// 	margin-top:50px; 
-// 	padding-left:1.5%; 
-// 	padding-right:1.5%; 
-// 	padding-top:1.5%; 
-// 	padding-bottom:1.5%; 
-// 	// background-color:red;
-// }
-// .text-padding{
-// 	padding-left:5%; 
-// 	padding-right:5%;
-// }
+.recommend-package-style{
+	background-color: #f9f9fa;
+	padding-top:5%; 
+	padding-bottom:5%;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	height:500px;
+}
+.recommend-package-cover{
+	margin-top:50px; 
+	padding-left:1.5%; 
+	padding-right:1.5%; 
+	padding-top:1.5%; 
+	padding-bottom:1.5%; 
+}
+.recommend-package-footer-style{
+	background-color: #f9f9fa;
+	padding-top:10px; 
+	padding-bottom:10px;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	background-color: #f4f4f5;
+	color: #b3b3b3; 
+	height: 40px;
+}
+.text-padding{
+	padding-left:5%; 
+	padding-right:5%;
+}
 
