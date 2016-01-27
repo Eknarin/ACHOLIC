@@ -103,9 +103,9 @@
 
 							<!-- Package Rating -->
 							<div class="text-padding" style="" ng-app="" ng-init="nstar = 0">
-								<img ng-repeat="i in getStar(package.rating) track by $index" src="../image/star_rated.png" style="padding-left: 3px;">
-								<img ng-if="((package.rating)/2)%1 >= 0.5" src="../image/star_rated_half.png">
-								<img ng-repeat="i in getWhite(package.rating) track by $index" src="../image/star_unrated.png" style="padding-left: 3px;">
+								<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getStar(package.rating) track by $index" src="../image/star_rated.png">
+								<img style="width:20px;height:20px;margin-left: 3px;" ng-if="((package.rating)/2)%1 >= 0.5" src="../image/star_rated_half.png">
+								<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getWhite(package.rating) track by $index" src="../image/star_unrated.png">
 							</div>
 								
 							<!-- Package Image -->
