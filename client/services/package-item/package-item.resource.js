@@ -18,6 +18,11 @@ angular.module('acholic')
       },
       save: {
       	method: 'POST'
+      },
+      filter: {
+        method: 'GET',
+        url: '/api/packageItem/filter',
+        isArray: true
       }
     });
   });

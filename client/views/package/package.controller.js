@@ -10,11 +10,11 @@ angular.module('acholic')
   	console.log($scope.packages);
 
 	$scope.slider = {
-	  min: 200,
-	  max: 1500,
+	  min: 0,
+	  max: 10000,
 	  options: {
-	    floor: 170,//should find min price of package
-	    ceil: 2500//should find max price of package
+	    floor: 0,//should find min price of package
+	    ceil: 10000//should find max price of package
 	  }
 	};
     angular.extend(this, {
@@ -22,6 +22,17 @@ angular.module('acholic')
     });
 
   $scope.rate = 0;
+
+  $scope.filtering = function(){
+    $scope.filter = {};
+    $scope.filter.priceMin = $scope.slider.min;
+    $scope.filter.priceMax = $scope.slider.max;
+    $scope.filter.location = $scope.selected;
+    $scope.filter.tag = $scope.selectedType;
+    $scope.filter.people = $scope.guest;
+    $scope.packages = PackageItem.filter($scope.filter);
+    console.log($scope.filter);
+  };
   
   $scope.getStar = function(num) {
     if(num == null){
@@ -40,10 +51,10 @@ angular.module('acholic')
 
   //province filter
   $scope.provinces = [
-  	{name: 'กรุงเทพ'},
+  	{name: 'กรุงเทพฯ'},
   	{name: 'นครนายก'}
   ];
-  $scope.selected = " Province ";
+  $scope.selected = " Location ";
   $scope.setProvince = function(value){
     console.log(value);
     $scope.selected = value;
@@ -66,29 +77,18 @@ angular.module('acholic')
     {name: 'โกคาร์ท'}
 
   ];
-  $scope.selectedType = " Type "
+  $scope.selectedType = " Tag "
   $scope.setType = function(value){
     $scope.selectedType = value;
   };
 
   //guest filter
   $scope.guests = [
-    {n: '1 Guest'},
-    {n: '2 Guests'},
-    {n: '3 Guests'},
-    {n: '4 Guests'},
-    {n: '5 Guests'},
-    {n: '6 Guests'},
-    {n: '7 Guests'},
-    {n: '8 Guests'},
-    {n: '9 Guests'},
-    {n: '10 Guests'},
-    {n: '11 Guests'},
-    {n: '12 Guests'},
-    {n: '13 Guests'},
-    {n: '14 Guests'},
-    {n: '15 Guests'},
-    {n: '16+ Guests'}
+    {n: 1},
+    {n: 2},
+    {n: 3},
+    {n: 4},
+    {n: 5}
   ];
   $scope.guest = $scope.guests[0].n;
   $scope.setGuest = function(value){
