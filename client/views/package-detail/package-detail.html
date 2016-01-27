@@ -10,8 +10,19 @@
 		<!-- <h1 style="color:black; margin-top:70px">kkkkdfbnnbfklbnkldnfklbdnl</h1> -->
 		<!-- Package Details -->
 		<div class="container" style=" margin-top:100px">
-			<h1>Package Name : {{packageItem.name}}</h1>
-			Rating
+			<h1 class="col-xs-12 col-sm-12 col-md-12">{{packageItem.name}}</h1>
+			<!-- Package Rating -->
+			<div class="col-xs-12 col-sm-12 col-md-12" style="" ng-app="" ng-init="nstar = 0" >
+				<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getStar(packageItem.rating) track by $index" src="../image/star_rated.png">
+				<img style="width:20px;height:20px;margin-left: 3px;" ng-if="((packageItem.rating)/2)%1 >= 0.5" src="../image/star_rated_half.png">
+				<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getWhite(packageItem.rating) track by $index" src="../image/star_unrated.png">
+			</div>
+
+			<!-- Package Image -->
+			<div class="package-detail-picture col-xs-12 col-sm-12 col-md-12" ng-style="{'background-image':'url(api/images/{{packageItem.image}})'}" style="margin-top:30px;">
+			</div>
+			<HR WIDTH="100%" NOSHADE>
+
 			<div>
 				<div class="col-xs-12 col-sm-4 col-md-4 topic-style">
 					Contact : 

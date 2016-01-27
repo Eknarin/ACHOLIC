@@ -7,7 +7,8 @@ angular.module('acholic')
   }else{
     $scope.packages = PackageItem.queryAll();
   }
-  	console.log($scope.packages);
+
+  console.log(PackageItem.queryAll());
 
 	$scope.slider = {
 	  min: 0,
