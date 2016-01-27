@@ -20,7 +20,10 @@ var data = [
                         "phone_number": "081-111-1111"
                     }
                 ,
-                "people": "10-15",
+                "people":{
+                    "min": "1",
+                    "max": "15"
+                },
                 "availability": "true",
                 "tag": ["กระโดด","กิจกรรมในร่ม"],
                 "location":"กรุงเทพฯ"

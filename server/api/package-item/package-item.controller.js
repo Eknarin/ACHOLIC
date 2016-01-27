@@ -28,6 +28,26 @@ exports.index = function (req, res) {
 };
 
 /**
+ * Get list of PackageItem filter
+ *
+ * @param req
+ * @param res
+ */
+exports.filter = function (req, res) {
+ console.log(req.query);
+
+  PackageItem.find({"$and": [{'location' : { $eq: req.query.location, $exists: true }}, 
+                  {'tag' : { $eq : req.query.tag , $exists: true}},
+                  {'people.min' : { $lte : req.query.people , $exists: true}},
+                  {'people.max' : { $gte : req.query.people , $exists: true}},
+                  {'price' : { $gte : req.query.priceMin , $lte : req.query.priceMax}}]
+  },function (err, packageItems) {
+      if (err) { return handleError(res, err); }
+      return res.status(200).json(packageItems);
+    });
+};
+
+/**
  * Get a single PackageItem
  *
  * @param req

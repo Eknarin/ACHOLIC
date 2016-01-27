@@ -7,7 +7,10 @@ var PackageItemSchema = new Schema({
   name: { type: String, required: true, unique: true },
   description: String,
   rating: { type: Number, min: 0, max: 10 },
-  people: String,
+  people: {
+    min: Number,
+    max: Number,
+  },
   price: Number,
   contact: {
   	email: String,
