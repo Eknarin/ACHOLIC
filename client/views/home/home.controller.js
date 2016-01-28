@@ -45,12 +45,17 @@ angular.module('acholic')
 	$scope.sliderpics = [
 		{
 			name: 'A',
-			src:'../image/TEST.png'  
+			src:'../image/SaveWall-9.jpg'  
 		},	 
 		{
 		  	name: 'B',
-		  	src:'../image/TEST2.png'
+		  	src:'../image/SaveWall-2.jpg'
+		},	 
+		{
+		  	name: 'C',
+		  	src:'../image/SaveWall-15.jpg'
 		}
+
 	]
 
 	$scope.recommendedPackages = [
