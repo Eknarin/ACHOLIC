@@ -6,6 +6,7 @@ var controller = require('./package-item.controller');
 
 router.get('/', controller.index);
 router.get('/filter', controller.filter);
+router.get('/recommend', controller.recommend);
 router.get('/:id', controller.show);
 
 router.post('/', controller.create);

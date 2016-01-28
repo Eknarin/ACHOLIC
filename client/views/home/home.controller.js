@@ -1,8 +1,10 @@
 'use strict';
 angular.module('acholic')
-	.controller('HomeCtrl', function ($scope, Auth) {
+	.controller('HomeCtrl',['$scope','Auth','PackageItem',function ($scope, Auth ,PackageItem) {
 
 	var vm = this;
+	$scope.packageItems = PackageItem.recommend();
+	console.log($scope.packageItems);
 
     angular.extend(vm, {
 
@@ -43,12 +45,17 @@ angular.module('acholic')
 	$scope.sliderpics = [
 		{
 			name: 'A',
-			src:'../image/TEST.png'  
+			src:'../image/SaveWall-9.jpg'  
 		},	 
 		{
 		  	name: 'B',
-		  	src:'../image/TEST2.png'
+		  	src:'../image/SaveWall-2.jpg'
+		},	 
+		{
+		  	name: 'C',
+		  	src:'../image/SaveWall-15.jpg'
 		}
+
 	]
 
 	$scope.recommendedPackages = [
@@ -97,4 +104,4 @@ angular.module('acholic')
 			src:'../image/TEST.png'
 		}
 	]
-});
+}]);
