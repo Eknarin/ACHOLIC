@@ -23,6 +23,11 @@ angular.module('acholic')
         method: 'GET',
         url: '/api/packageItem/filter',
         isArray: true
+      },
+      recommend: {
+        method: 'GET',
+        url: '/api/packageItem/recommend',
+        isArray: true
       }
     });
   });

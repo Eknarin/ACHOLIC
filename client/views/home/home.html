@@ -41,7 +41,7 @@
 		<!-- Recommend Package -->
 		<div class="container-fluid" style="background-color:#eaedef">
 			<div class="row">
-				<div ng-repeat="package in recommendedPackages">
+				<div ng-repeat="package in packageItems">
 					<!-- First Package Template -->
 					<div class="col-xs-12 col-sm-6 col-md-4 recommend-package-cover" ng-if="($index+1)%2==1 && ($index+1)!=5">
 						<div class="recommend-package-style">
@@ -51,12 +51,12 @@
 							</div>
 							
 							<!-- Package Image -->
-							<div class="center-normal-picture" ng-style="{'background-image':'url('+ package.src +')'}" style="margin-top:30px;">
+							<div class="center-normal-picture" ng-style="{'background-image':'url(api/images/{{package.image}})'}" style="margin-top:30px;">
 							</div>
 
 							<!-- Package Description -->
 							<div class="text-padding" style="margin-top:30px; width:100%;">
-								<p>	package description package description package description package description package description</p>
+								<p>	{{packge.description}}</p>
 							</div>	
 
 							<!-- Read More button -->

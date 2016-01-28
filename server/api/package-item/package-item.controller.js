@@ -48,6 +48,19 @@ exports.filter = function (req, res) {
 };
 
 /**
+ * Get list of PackageItem
+ *
+ * @param req
+ * @param res
+ */
+exports.recommend = function (req, res) {
+    PackageItem.find({}).sort({'rating': -1}).limit(6).exec(function (err, packageItems) {
+      if (err) { return handleError(res, err); }
+      return res.status(200).json(packageItems);
+    });
+};
+
+/**
  * Get a single PackageItem
  *
  * @param req
