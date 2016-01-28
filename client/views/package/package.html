@@ -89,7 +89,7 @@
 
 		<!-- Packages -->
 		<div class="container-fluid" style="background-color:#eaedef">
-			<h2 style="color:#000000;font-family: 'Nunito', sans-serif;margin-top: 40px; font-size: 40px; text-align:center;">Packages</h2>
+			<h2 style="color:#406A80;font-family: 'Nunito', sans-serif;margin-top: 40px; font-size: 40px; text-align:center;">Packages</h2>
 			<div class="row">
 				<div ng-repeat="package in packages">
 					<!-- First Package Template -->
@@ -98,7 +98,7 @@
 							<input id="liked" ng-click="ilike()" class="like_button" type="image" src="../image/Heart.png" name="image" width="40" height="40">
 							<!-- Package Name -->
 							<div class="text-padding">
-								<h2 class="text-overflow">{{package.name}}</h2>
+								<h2 class="text-overflow" style="color:#406A80">{{package.name}}</h2>
 							</div>
 
 							<!-- Package Rating -->
@@ -115,7 +115,7 @@
 
 							<div class="text-padding" style="margin-top:30px;">
 								<div class="col-xs-8 col-sm-8 col-md-8">
-									 <p style="font-size:27px">{{package.price}} ฿<p>
+									 <p style="font-size:27px; color:#406A80">{{package.price}} ฿<p>
 								</div>
 								<div class="col-xs-4 col-sm-4 col-md-4">
 								<button type="button" class="btn btn-primary" style="background-color:#f9f9fa; color:#57bdad; border-color:#57bdad"><a href="/packageDetail/{{package._id}}">Read More</a></button>
