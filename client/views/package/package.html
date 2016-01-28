@@ -87,10 +87,8 @@
 		</div>
 		<!-- End Filter Options -->
 
-		<!-- If not found search word -->
-		<div class="col-xs-12 col-sm-12 col-md-12" ng-show="packages.length == 0">
-			<center><h2>No results found</h2></center>
-		</div> 
+		<!-- If no search result  -->
+		<center><div ng-show="packages.length == 0" style="padding:50px;"><h2>No results found</h2></div></center>
 		<!-- Packages -->
 		<div ng-show="packages.length" class="container-fluid" style="background-color:#eaedef">
 			<h2 style="color:#406A80;font-family: 'Nunito', sans-serif;margin-top: 40px; font-size: 40px; text-align:center;">Packages</h2>
