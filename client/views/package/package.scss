@@ -63,6 +63,19 @@
     border-top-right-radius: 20px;
     height:500px;
     box-shadow: 5px 0 7px rgba(0, 0, 0, 0.35);
+    a:link {
+        text-decoration: none;
+        color: #406a80; }
+    a:hover {
+      text-decoration: underline; }
+
+    a:visited {
+      text-decoration: none;
+      color: #406a80; }
+
+    a:active {
+      text-decoration: none;
+      color: #406a80; }
 }
 .package-cover{
     margin-top:50px; 
