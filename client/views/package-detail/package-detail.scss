@@ -14,8 +14,12 @@
  }
 
  .package-detail-picture{
- 	background-position: center center; 
-	background-size: cover; 
+	margin-top: 30px;
+	margin-bottom: 30px;
 	width: 100%; 
-	height: 500px;
+	min-height: 200px;
+	max-height: 570px;
+	position: relative;
+    left: 50%;
+    transform: translate(-50%,0)
  }
