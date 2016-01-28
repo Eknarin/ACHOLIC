@@ -49,7 +49,7 @@ angular.module('acholic')
 		},	 
 		{
 		  	name: 'B',
-		  	src:'../image/SaveWall-2.jpg'
+		  	src:'../image/SaveWall-12.jpg'
 		},	 
 		{
 		  	name: 'C',

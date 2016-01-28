@@ -52,8 +52,15 @@ angular.module('acholic')
 
   //province filter
   $scope.provinces = [
-  	{name: 'กรุงเทพฯ'},
-  	{name: 'นครนายก'}
+  	{name: 'ภูเก็ต'},
+  	{name: 'พังงา'},
+    {name: 'เชียงใหม่'},
+    {name: 'กระบี่'},
+    {name: 'เพชรบูรณ์'},
+    {name: 'ตาก'},
+    {name: 'ปราจีนบุรี'},
+    {name: 'เลย'}
+
   ];
   $scope.selected = " Location ";
   $scope.setProvince = function(value){
@@ -63,20 +70,9 @@ angular.module('acholic')
 
   //type filter
   $scope.types = [
-    {name: 'กิจกรรมในร่ม'},
-    {name: 'กิจกรรมกลางแจ้ง'},
+    {name: 'ดำน้ำ'},
     {name: 'ล่องแก่ง'},
-    {name: 'ล่องเรือ'},
-    {name: 'Walk Rally'},
-    {name: 'ผจญภัย'},
-    {name: 'โรยตัว'},
-    {name: 'เพ้นท์บอล'},
-    {name: 'ATV'},
-    {name: 'กระโดด'},
-    {name: 'โต้คลื่น'},
-    {name: 'คายัค'},
-    {name: 'โกคาร์ท'}
-
+    {name: 'ปีนเขา'}
   ];
   $scope.selectedType = " Tag "
   $scope.setType = function(value){
