@@ -16,15 +16,13 @@
 
 		  	<!-- Wrapper for slides -->	
 			<div class="carousel-inner" role="listbox">
-
 			  	<div class="item center-picture" ng-class="{active:!$index}" ng-repeat="picture in sliderpics"
-			  	ng-style="{'background-image':'url('+ picture.src +')'}" style="-webkit-filter: grayscale(20%); ">
+			  	ng-style="{'background-image':'url('+ picture.src +')'}" style="-webkit-filter: grayscale(20%); height:710px;">
 			  		<div class="center-caption font-effect-outline">
 				  		<p style="font-size: 30px">Find Your Own</p><br>
 				  		<p style="font-size: 65px">"ACTIVITIES"</p>
 			  		</div>
 			  	</div>
-
 			</div>
 		
 		  	<!-- Left and right controls -->
@@ -38,8 +36,41 @@
 		  	</a>
 		</div>
 
+		<!-- Welcome -->
+		<div class="container-fluid center-picture" style="background-image:url('../../image/welcome-background.png'); height: 350px;">
+			<div class="center-caption col-xs-12 col-sm-12 col-md-12">		  		
+				  		<p style="font-size: 50px">WELCOME TO MOSTMARK</p><br>
+				  		<p style="font-size: 25px"> Website for Buying & Selling Adventure Packages</p>
+			</div>
+		</div>
+
+		<!-- About Us -->
+		<div class="center-picture col-xs-12 col-sm-12 col-md-12" style="background-image:url('../../image/aboutUs-background.png'); max-height: 700px; color:white;">
+			<div class="container" style="padding-top:5%; padding-bottom:5%">
+				<p style="font-size: 50px; text-align:center;">About Us</p>
+				<div class="container about-service-style about-service-boder col-xs-12 col-sm-6 col-md-6 ">
+					<p style="font-size: 20px; text-align:center;">Customer Service</p>
+					<div class="text-padding">
+						Description Customer Service. Description Customer Service. Description Customer Service. Description Customer Service. Description Customer Service. Description Customer Service.
+					</div>
+					<div style="text-align:center; padding-top:10%;">
+						<button type="button" class="btn btn-success">Sign Up as Customer</button>
+					</div>
+				</div>
+				<div class="container about-service-style col-xs-12 col-sm-6 col-md-6">
+					<p style="font-size: 20px; text-align:center;">Vendor Service</p>
+					<div>
+						Description Vendor Service. Description Vendor Service. Description Vendor Service. Description Vendor Service. Description Vendor Service. Description Vendor Service.
+					</div>
+					<div style="text-align:center; padding-top:10%;">
+						<button type="button" class="btn btn-warning">Sign Up as Vendor</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<!-- Recommend Package -->
-		<div class="container-fluid" style="background-color:#eaedef">
+		<div class="container-fluid" style = "background-color:rgba(0,0,0,0.9);">
 			
 			<div style="text-align:center; margin-top:50px;">
 			<h1 style="color:#57bdad;">High Rate Packages</h1>

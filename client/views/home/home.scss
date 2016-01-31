@@ -9,12 +9,12 @@
 	text-align: center; 
 	color: white;
 }
-
 .center-picture{
+	position: relative;
 	background-position: center center; 
 	background-size: cover; 
 	width: 100%; 
-	height: 540px;
+	// height: 540px;
 	box-shadow: 5px 0 7px rgba(0, 0, 0, 0.35);
 }
 
@@ -30,6 +30,19 @@
 	background-size: cover; 
 	width: 100%; 
 	height: 392px;
+}
+
+.about-service-style{
+	background-color:rgba(0,0,0,0.65); 
+	margin-top:5px;
+	padding-top:2%;
+	padding-bottom:2%;
+	height: 250px;
+}
+@media(min-width:767px){
+	.about-service-boder{
+		border-right: 1px solid;
+	}
 }
 
 .recommend-package-style{

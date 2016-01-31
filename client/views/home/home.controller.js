@@ -42,20 +42,30 @@ angular.module('acholic')
       }
     });
 
+	// $scope.sliderpics = [
+	// 	{
+	// 		name: 'A',
+	// 		src:'../image/SaveWall-9.jpg'  
+	// 	},	 
+	// 	{
+	// 	  	name: 'B',
+	// 	  	src:'../image/SaveWall-12.jpg'
+	// 	},	 
+	// 	{
+	// 	  	name: 'C',
+	// 	  	src:'../image/SaveWall-15.jpg'
+	// 	}
+
+	// ]
 	$scope.sliderpics = [
 		{
 			name: 'A',
-			src:'../image/SaveWall-9.jpg'  
+			src:'../image/TEST.png'
 		},	 
 		{
 		  	name: 'B',
-		  	src:'../image/SaveWall-12.jpg'
-		},	 
-		{
-		  	name: 'C',
-		  	src:'../image/SaveWall-15.jpg'
+		  	src:'../image/TEST2.png'
 		}
-
 	]
 
 	$scope.recommendedPackages = [
