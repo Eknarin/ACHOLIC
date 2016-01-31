@@ -14,7 +14,6 @@
 	background-position: center center; 
 	background-size: cover; 
 	width: 100%; 
-	// height: 540px;
 	box-shadow: 5px 0 7px rgba(0, 0, 0, 0.35);
 }
 
@@ -43,6 +42,15 @@
 	.about-service-boder{
 		border-right: 1px solid;
 	}
+}
+.crop-image{
+	height: auto;
+    width: 200px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
 }
 
 .recommend-package-style{
