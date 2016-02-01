@@ -8,213 +8,199 @@
 	
 	<body>
 		<div>
-		<!-- Image Slider -->
-		<div id="myCarousel" class="carousel slide" data-ride="carousel" style="padding-top:30px" >
-		  	<!-- Indicators -->
-		  	<ol class="carousel-indicators" >
-		    	<li data-target="#myCarousel" data-slide-to="$index" ng-class="{active:!$index}" ng-repeat="picture 	in sliderpics track by $index"></li>
-		  	</ol>
+			<!-- Image Slider -->
+			<div id="myCarousel" class="carousel slide" data-ride="carousel" style="padding-top:30px" >
+			  	<!-- Indicators -->
+			  	<ol class="carousel-indicators" >
+			    	<li data-target="#myCarousel" data-slide-to="$index" ng-class="{active:!$index}" ng-repeat="picture 	in sliderpics track by $index"></li>
+			  	</ol>
 
-		  	<!-- Wrapper for slides -->	
-			<div class="carousel-inner" role="listbox">
-			  	<div class="item center-picture" ng-class="{active:!$index}" ng-repeat="picture in sliderpics"
-			  	ng-style="{'background-image':'url('+ picture.src +')'}" style="-webkit-filter: grayscale(20%); height:710px;">
-			  		<div class="center-caption font-effect-outline">
-				  		<p style="font-size: 30px">Find Your Own</p><br>
-				  		<p style="font-size: 65px">"ACTIVITIES"</p>
-			  		</div>
-			  	</div>
-			</div>
-		
-		  	<!-- Left and right controls -->
-		  	<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-		    	<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-		    	<span class="sr-only">Previous</span>
-		  	</a>
-		  	<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-		    	<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-		    	<span class="sr-only">Next</span>
-		  	</a>
-		</div>
-
-		<!-- Welcome -->
-		<div class="container-fluid center-picture" style="background-image:url('../../image/welcome-background.png'); height: 350px;">
-			<div class="center-caption col-xs-12 col-sm-12 col-md-12">		  		
-				  		<p style="font-size: 50px">WELCOME TO MOSTMARK</p><br>
-				  		<p style="font-size: 25px"> Website for Buying & Selling Adventure Packages</p>
-			</div>
-		</div>
-
-		<!-- About Us -->
-		<div class="center-picture col-xs-12 col-sm-12 col-md-12" style="background-image:url('../../image/aboutUs-background.png'); max-height: 700px; color:white;">
-			<div class="container" style="padding-top:5%; padding-bottom:5%">
-				<p style="font-size: 50px; text-align:center;">About Us</p>
-				<div class="container about-service-style about-service-boder col-xs-12 col-sm-6 col-md-6 ">
-					<p style="font-size: 20px; text-align:center;">Customer Service</p>
-					<div class="text-padding">
-						Description Customer Service. Description Customer Service. Description Customer Service. Description Customer Service. Description Customer Service. Description Customer Service.
-					</div>
-					<div style="text-align:center; padding-top:10%;">
-						<button type="button" class="btn btn-success">Sign Up as Customer</button>
-					</div>
+			  	<!-- Wrapper for slides -->	
+				<div class="carousel-inner" role="listbox">
+				  	<div class="item center-picture" ng-class="{active:!$index}" ng-repeat="picture in sliderpics"
+				  	ng-style="{'background-image':'url('+ picture.src +')'}" style="-webkit-filter: grayscale(20%); height:710px;">
+				  		<div class="center-caption font-effect-outline">
+					  		<p style="font-size: 30px">Find Your Own</p><br>
+					  		<p style="font-size: 65px">"ACTIVITIES"</p>
+				  		</div>
+				  	</div>
 				</div>
-				<div class="container about-service-style col-xs-12 col-sm-6 col-md-6">
-					<p style="font-size: 20px; text-align:center;">Vendor Service</p>
-					<div>
-						Description Vendor Service. Description Vendor Service. Description Vendor Service. Description Vendor Service. Description Vendor Service. Description Vendor Service.
-					</div>
-					<div style="text-align:center; padding-top:10%;">
-						<button type="button" class="btn btn-warning">Sign Up as Vendor</button>
-					</div>
+			
+			  	<!-- Left and right controls -->
+			  	<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+			    	<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			    	<span class="sr-only">Previous</span>
+			  	</a>
+			  	<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+			    	<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			    	<span class="sr-only">Next</span>
+			  	</a>
+			</div>
+
+			<!-- Welcome -->
+			<div class="container-fluid center-picture" style="background-image:url('../../image/welcome-background.png'); height: 350px;">
+				<div class="center-caption col-xs-12 col-sm-12 col-md-12">		  		
+					  		<p style="font-size: 50px">WELCOME TO MOSTMARK</p><br>
+					  		<p style="font-size: 25px"> Website for Buying & Selling Adventure Packages</p>
 				</div>
 			</div>
-		</div>
 
-		<!-- Recommended -->
-		<div class="center-picture col-xs-12 col-sm-12 col-md-12" style="background-image:url('../../image/recommended-background.png');">
-			<div class="container" style="padding-top:5%; width:100%;">
-				<p style="font-size: 50px; text-align:center;">Recommended</p>
-			</div>
-			<div class="container">
-				<div ng-repeat="package in packageItems">
-					<!-- First Package Template -->
-					<div class="col-xs-12 col-sm-6 col-md-4 recommend-package-cover" ng-if="($index+1)%2==1 && ($index+1)!=5">
-						<div class="recommend-package-style">
-							<!-- Package Name -->
-							<div class="text-padding">
-								<h2><a href="/packageDetail/{{package._id}}" style="color:#57bdad">{{package.name}}</a></h2>	
-							</div>
-							
-							<!-- Package Image -->
-							<div class="center-normal-picture" ng-style="{'background-image':'url(api/images/{{package.image}})'}" style="margin-top:30px;">
-							</div>
-
-							<!-- Package Description -->
-							<div class="text-padding" style="margin-top:30px; width:100%;">
-								<p>	{{packge.description}}</p>
-							</div>	
-
-							<!-- Read More button -->
-							<div class="text-padding" style="margin-top:30px;">
-								<button type="button" class="btn btn-primary" style="background-color:#f9f9fa; color:#57bdad; border-color:#57bdad"><a href="/packageDetail/{{package._id}}" style="color:#57bdad">Read More</a></button>
-							</div>
+			<!-- About Us -->
+			<div class="center-picture col-xs-12 col-sm-12 col-md-12" style="background-image:url('../../image/aboutUs-background.png'); max-height: 700px; color:white;">
+				<div class="container" style="padding-top:5%; padding-bottom:5%">
+					<p style="font-size: 50px; text-align:center;">About Us</p>
+					<div class="container about-service-style about-service-boder col-xs-12 col-sm-6 col-md-6 ">
+						<p style="font-size: 20px; text-align:center;">Customer Service</p>
+						<div class="text-padding">
+							Description Customer Service. Description Customer Service. Description Customer Service. Description Customer Service. Description Customer Service. Description Customer Service.
 						</div>
-
-						<!-- Package Publish Date  -->
-						<div class="recommend-package-footer-style text-padding">
-								<span class="glyphicon glyphicon-calendar"> DD/MM/YY</span>
+						<div style="text-align:center; padding-top:10%;">
+							<button type="button" class="btn btn-success">Sign Up as Customer</button>
 						</div>
 					</div>
+					<div class="container about-service-style col-xs-12 col-sm-6 col-md-6">
+						<p style="font-size: 20px; text-align:center;">Vendor Service</p>
+						<div>
+							Description Vendor Service. Description Vendor Service. Description Vendor Service. Description Vendor Service. Description Vendor Service. Description Vendor Service.
+						</div>
+						<div style="text-align:center; padding-top:10%;">
+							<button type="button" class="btn btn-warning">Sign Up as Vendor</button>
+						</div>
+					</div>
+				</div>
+			</div>
 
-					<!-- Second Package -->
-					<div class="col-xs-12 col-sm-6 col-md-4 recommend-package-cover" ng-if="($index+1)%2==0">
-						<div class="recommend-package-style">
-							<div class="text-padding">
-								<h2><a href="/packageDetail/{{package._id}}" style="color:#57bdad">{{package.name}}</a></h2>	
-							</div>
-							<div style="margin-top:30px">
-								<div id="Carousel{{$index}}" class="carousel slide" data-ride="carousel" style="padding-top:0px; width:100%" >
-								  	<!-- Indicators -->
-								  	<ol class="carousel-indicators" >
-								    	<li data-target="#Carousel{{$index}}" data-slide-to="$index" ng-class="{active:!$index}" ng-repeat="picture 	in sliderpics track by $index"></li>
-								  	</ol>
+			<!-- Slogan -->
+			<div class="container-fluid center-picture col-xs-12 col-sm-12 col-md-12" style="background-image:url('../../image/slogan-background.png'); height: 350px; color:white;">
+				<div class="center-caption col-xs-12 col-sm-12 col-md-12">
+					<p style="font-size: 40px">Time for a</p><br>
+					<p style="font-size: 42px">NEW ADVENTURE</p><br>
+				</div>
+			</div>
+			<!-- Recommended -->
+			<div class="center-picture col-xs-12 col-sm-12 col-md-12" style="background-image:url('../../image/recommended-background.png'); padding-top:5%; padding-bottom:5%; ">
+				<div class="container" style="width:100%; color:white">
+					<p style="font-size: 50px; text-align:center;">Recommended</p>
+				</div>
+				<div class="container">
+					<div ng-repeat="package in packageItems">
+						<!-- First Recommended template -->
+						<div class="col-xs-12 col-sm-6 col-md-4 recommend-package-cover"  ng-if="($index+1)%2==1 && ($index+1)!=5">
+							<div class="recommend-package-style">
+								<!-- Package Image -->
+								<div class="center-normal-picture" ng-style="{'background-image':'url(api/images/{{package.image}})'}" style="height:230px">
+								</div>
 
-								  	<!-- Wrapper for slides -->	
-									<div class="carousel-inner" role="listbox">
-									  	<div class="item center-picture-slider" ng-class="{active:!$index}" ng-repeat="picture in sliderpics" ng-style="{'background-image':'url(api/images/{{package.image}})'}" style="-webkit-filter: grayscale(20%);" style="height: 200px;">
-									  		
-									  	</div>
-									</div>
-								
-								  	<!-- Left and right controls -->
-								  	<a class="left carousel-control" data-target="#Carousel{{$index}}" role="button" data-slide="prev">
-								    	<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-								    	<span class="sr-only">Previous</span>
-								  	</a>
-								  	<a class="right carousel-control" data-target="#Carousel{{$index}}" role="button" data-slide="next">
-								    	<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-								    	<span class="sr-only">Next</span>
-								  	</a>
+								<!-- Package Name -->
+								<div class="text-padding" style="padding-top:10px">
+									<p style="font-size: 25px;"><a href="/packageDetail/{{package._id}}" style="color:white">{{package.name}}</a></p>	
+								</div>
+
+								<!-- Package Description -->
+								<div class="text-padding" style="padding-top:10px">
+									<p style="color:#888888; overflow: hidden;">{{package.description}}</p>	
 								</div>
 							</div>
+							<!-- Package Publish Date  -->
+							<div class="recommend-package-footer-style text-padding">
+									<span class="glyphicon glyphicon-calendar"> DD/MM/YY</span>
+							</div>
 						</div>
-						<div class="recommend-package-footer-style text-padding" >
-								<span class="glyphicon glyphicon-calendar"> DD/MM/YY</span>
-						</div>
-					</div>
 
-					<!-- Third Package Template -->
-					<div class="col-xs-12 col-sm-6 col-md-4 recommend-package-cover" ng-if="($index+1)==5">
-						<div>
-							<div class="center-picture" ng-style="{'background-image':'url(api/images/{{package.image}})'}" style=" border-radius:20px; height: 540px;">
-								<div class="center-caption font-effect-outline">
-									<p style="font-size: 50px; color:#57bdad;"><a href="/packageDetail/{{package._id}}" style="color:#57bdad">{{package.name}}</a></p>
-				  				</div>
+						<!-- Second Recommended template -->
+						<div class="col-xs-12 col-sm-6 col-md-4 recommend-package-cover" ng-if="($index+1)%2==0">
+							<div class="recommend-package-style">
+								<!-- Package Image -->
+								<div class="center-normal-picture" ng-style="{'background-image':'url(api/images/{{package.image}})'}" style="height:300px">
+								</div>
+
+								<!-- Package Name -->
+								<div class="text-padding" style="padding-top:10px">
+									<p style="font-size: 25px;"><a href="/packageDetail/{{package._id}}" style="color:white">{{package.name}}</a></p>	
+								</div>
+							</div>
+							<!-- Package Publish Date  -->
+							<div class="recommend-package-footer-style text-padding">
+									<span class="glyphicon glyphicon-calendar"> DD/MM/YY</span>
+							</div>
+						</div>
+						
+						<!-- Third Package Template -->
+						<div class="col-xs-12 col-sm-6 col-md-4 recommend-package-cover" ng-if="($index+1)==5">
+							<div>
+								<!-- Package Image -->
+								<div class="center-picture" ng-style="{'background-image':'url(api/images/{{package.image}})'}" style="height: 400px;">
+									<!-- Package Name -->
+									<div class="center-caption font-effect-outline">
+										<p style="font-size: 50px; color:#57bdad;"><a href="/packageDetail/{{package._id}}" style="color:white">{{package.name}}</a></p>
+					  				</div>
+								</div>
+							</div>
+							<!-- Package Publish Date  -->
+							<div class="recommend-package-footer-style text-padding">
+									<span class="glyphicon glyphicon-calendar"> DD/MM/YY</span>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 
-        <!-- Our Team -->
-		<div class="center-picture col-xs-12 col-sm-12 col-md-12" style="background-image:url('../../image/ourTeam-background.png'); max-height: 700px; color:white;">
-			<div class="container" style="padding-top:5%; width:100%;">
-				<p style="font-size: 50px; text-align:center;">Our Team</p>
+	        <!-- Our Team -->
+			<div class="center-picture col-xs-12 col-sm-12 col-md-12" style="background-image:url('../../image/ourTeam-background.png'); max-height: 700px; color:white;">
+				<div class="container" style="padding-top:5%; width:100%;">
+					<p style="font-size: 50px; text-align:center;">Our Team</p>
+				</div>
+				<br>
 			</div>
-			<br>
-		</div>
+	    </div>
+
+    <!-- Sign in Modal -->
+    <div class="modal fade" id="signin-modal" role="dialog" >
+    	<div class="modal-dialog">            
+        	<!-- Modal content-->
+	        <div class="modal-content">
+	          <form ng-submit="vm.login()">
+	            <div class="modal-header">
+	              <button type="button" class="close" data-dismiss="modal">&times;</button>
+	              <h2 class="modal-title" style="color:#57bdad">Sign in</h2>
+	            </div>
+	            <div class="modal-body">
+	        		<pre ng-if="vm.error">{{ vm.error | json }}</pre>  
+		      		<input type="email" ng-model="vm.user.email" placeholder="email">
+		      		<input type="password" ng-model="vm.user.password" placeholder="password">
+	            </div>
+	            <div class="modal-footer">
+	              	<button type="submit" class="btn btn-primary" style="background-color:#406A80">Submit</button>
+	              	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	            </div>
+	        </form>
+	        </div>
+      	</div>
     </div>
 
-       <!-- Sign in Modal -->
-          <div class="modal fade" id="signin-modal" role="dialog" >
+    <!-- Sign up Modal -->
+    	<div class="modal fade" id="signup-modal" role="dialog">
             <div class="modal-dialog">
-            
-              <!-- Modal content-->
-              <div class="modal-content">
-                <form ng-submit="vm.login()">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h2 class="modal-title" style="color:#57bdad">Sign in</h2>
-                  </div>
-                  <div class="modal-body">
-              <pre ng-if="vm.error">{{ vm.error | json }}</pre>  
-            <input type="email" ng-model="vm.user.email" placeholder="email">
-            <input type="password" ng-model="vm.user.password" placeholder="password">
-                  </div>
-                  <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" style="background-color:#406A80">Submit</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  </div>
-              </form>
-              </div>
+              	<!-- Modal content-->
+              	<div class="modal-content">
+	                <form ng-submit="vm.signup()">
+	                  	<div class="modal-header">
+	                    	<button type="button" class="close" data-dismiss="modal">&times;</button>
+	                    	<h2 class="modal-title" style="color:#57bdad">Sign up</h2>
+	                  	</div>
+	                  	<div class="modal-body">  
+	                    	<pre ng-if="vm.error">{{ vm.error | json }}</pre>    
+	            			<input type="email" ng-model="vm.user.email" placeholder="email">
+	            			<input type="password" ng-model="vm.user.password" placeholder="password">
+	                  	</div>
+	                  	<div class="modal-footer">
+	                    	<button type="submit" class="btn btn-primary" style="background-color:#406A80">Submit</button>
+	                    	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	                  	</div>
+	                </form>
+              	</div>
             </div>
-          </div>
-
-          <!-- Sign up Modal -->
-          <div class="modal fade" id="signup-modal" role="dialog">
-            <div class="modal-dialog">
-            
-              <!-- Modal content-->
-              <div class="modal-content">
-                <form ng-submit="vm.signup()">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h2 class="modal-title" style="color:#57bdad">Sign up</h2>
-                  </div>
-                  <div class="modal-body">  
-                    <pre ng-if="vm.error">{{ vm.error | json }}</pre>    
-            <input type="email" ng-model="vm.user.email" placeholder="email">
-            <input type="password" ng-model="vm.user.password" placeholder="password">
-                  </div>
-                  <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" style="background-color:#406A80">Submit</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
+    	</div>
 
 	</body>
 </html>
