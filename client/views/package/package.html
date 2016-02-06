@@ -90,54 +90,58 @@
 		<!-- If no search result  -->
 		<center><div ng-show="packages.length == 0" style="padding:50px;"><h2 style="color:#B3B3B3">No results found</h2></div></center>
 		<!-- Packages -->
-		<div ng-show="packages.length" class="container-fluid" style="background-color:#eaedef">
-			<h2 style="color:#406A80;font-family: 'Nunito', sans-serif;margin-top: 40px; font-size: 40px; text-align:center;">Packages</h2>
+		<div style="background-image:url('../../image/package-background.png'); padding-top:5%; padding-bottom:5%;">
+		<div ng-show="packages.length" class="container">
+			<div class="container" style="width:100%; color:white">
+				<p style="font-size: 50px; text-align:center;">Packages</p>
+			</div>
 			<div class="row">
 				<div ng-repeat="package in packages">
-					<!-- First Package Template -->
-					<div class="col-xs-12 col-sm-6 col-md-4 package-cover">
+					<!-- Package -->
+					<div class="col-xs-12 col-sm-6 col-md-4 package-cover"  ng-if="($index+1)%2==1 && ($index+1)!=5">
 						<div class="package-style">
-							<input id="liked" ng-click="ilike()" class="like_button" type="image" src="../image/Heart.png" name="image" width="40" height="40">
-							<!-- Package Name -->
-							<div class="text-padding">
-								<h2 class="text-overflow" style="color:#406A80">{{package.name}}</h2>
+							<!-- Package Image -->
+							<div class="center-normal-picture" ng-style="{'background-image':'url(api/images/{{package.image}})'}" style="height:230px">
 							</div>
 
+							<div>
+								<!-- Package Name -->
+								<div class="text-padding" style="padding-top:10px">
+									<p style="font-size: 25px;"><a href="/packageDetail/{{package._id}}" style="color:white">{{package.name}}</a></p>	
+								</div>
+
+								<!-- Like button -->
+								<input id="liked" ng-click="ilike()" class="like_button" type="image" src="../image/Heart.png" name="image">
+							</div>
+
+							<!-- Package Price -->
+							<!-- <div class="text-padding" style="margin-top:30px;">
+								<div class="col-xs-8 col-sm-8 col-md-8">
+									 <p style="font-size:27px; color:#406A80">{{package.price}} ฿<p>
+								</div>
+							</div>
+ -->
 							<!-- Package Rating -->
 							<div class="text-padding" style="" ng-app="" ng-init="nstar = 0">
 								<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getStar(package.rating) track by $index" src="../image/star_rated.png">
 								<img style="width:20px;height:20px;margin-left: 3px;" ng-if="((package.rating)/2)%1 >= 0.5" src="../image/star_rated_half.png">
 								<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getWhite(package.rating) track by $index" src="../image/star_unrated.png">
 							</div>
-								
-							<!-- Package Image -->
-							<div class="package-picture" ng-style="{'background-image':'url(api/images/{{package.image}})'}" style="margin-top:30px;">
-							<!-- <div class="package-picture" ng-style="{'background-image':'url({{../image/sample_package.png}})'}" style="margin-top:30px;"> -->
-							</div>
 
-							<div class="text-padding" style="margin-top:30px;">
-								<div class="col-xs-8 col-sm-8 col-md-8">
-									 <p style="font-size:27px; color:#406A80">{{package.price}} ฿<p>
-								</div>
-								<div class="col-xs-4 col-sm-4 col-md-4">
-								<button type="button" class="btn btn-primary" style="background-color:#f9f9fa; color:#57bdad; border-color:#57bdad"><a href="/packageDetail/{{package._id}}">Read More</a></button>
-							</div>
-							</div>
-
-							<!-- Read More button -->
-							<div class="text-padding" style="margin-top:30px;">
-								
+							<!-- Package Description -->
+							<div class="text-padding" style="padding-top:10px">
+								<p style="color:#888888; overflow: hidden;">{{package.description}}</p>	
 							</div>
 						</div>
-
 						<!-- Package Publish Date  -->
-						<div class="package-footer-style text-padding">
-								<span class="glyphicon glyphicon-calendar"> DD/MM/YY</span>
+						<div class="recommend-package-footer-style text-padding">
+							<span class="glyphicon glyphicon-calendar"> DD/MM/YY</span>
 						</div>
-					</div>
+					</div>	
 				</div>
+			</div>
 		</div>
-		</div>
-		<!-- End Packages -->
+	</div>
+	<!-- End Packages -->
 	</body>
 </html>
