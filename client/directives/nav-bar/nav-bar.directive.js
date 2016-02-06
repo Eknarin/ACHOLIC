@@ -5,7 +5,7 @@ angular.module('acholic')
     return {
       restrict: 'E',
       templateUrl: 'directives/nav-bar/nav-bar.html',
-      controller: ['$scope' , '$location', '$route' ,function($scope , $location , $route) {
+      controller: ['$scope' , '$location', '$route' ,'Auth' ,function($scope , $location , $route , Auth) {
       	$scope.search = '';
 
       	$scope.searchPage = function(){

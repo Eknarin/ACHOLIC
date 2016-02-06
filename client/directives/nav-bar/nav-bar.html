@@ -36,7 +36,7 @@
                       <ul class="nav navbar-nav">
                         <li><a href="/package" style="color:#57bdad">Packages</a></li>
                         <!-- Dropdown SignIn/SignUp menu -->
-                        <li class="dropdown" ng-if="!Auth.isLogged()">
+                        <li class="dropdown" ng-show="!Auth.isLogged()">
                           <a href="#"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#57bdad">Sign In <span class="caret"></span></a>
                           <ul class="dropdown-menu">
                               <li><a data-toggle="modal" data-target="#signin-modal" style="color:#57bdad">Sign In</a></li>

@@ -12,7 +12,7 @@ angular.module('acholic')
           _user = res.data;
         })
         .finally(function () {
-          _ready.resolve();
+          _ready.resolve(true);
         });
     } else {
       _ready.resolve();
@@ -72,7 +72,7 @@ angular.module('acholic')
      * @returns {boolean}
      */
     this.isLogged = function () {
-      return _user.hasOwnProperty('_id');
+        return _user.hasOwnProperty('_id');
     };
 
     /**
@@ -90,6 +90,7 @@ angular.module('acholic')
         }
       });
       return def.promise;
+      // 0 = pending, 1 = resolve , 2 reject
     };
 
     /**

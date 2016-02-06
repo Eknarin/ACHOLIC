@@ -62,17 +62,16 @@ angular.module('acholic', [
 
     $rootScope.Auth = Auth;
     $rootScope.$on('$routeChangeStart', function (event, next) {
-      // if (next.access.roleCheck) {
-      //   if(next.access.roleCheck.indexOf("admin") > -1 && Auth.isLogged()){
-      //     console.log('admin cgeck');
-      //   } else {
-      //     //$location.path('/');
-      //   }
-      // } 
-      Auth.isReadyLogged().catch(function () {
+      console.log(next);
+      Auth.isReadyLogged().then(function (){
+        console.log('login');
+      }).catch(function () {
+        console.log('not login');
         if (next.authenticate) {
           $location.path('/');
         }
+        // if(next.access.roleCheck.indexOf("admin") > -1){
+        // }
       });
     });
 
