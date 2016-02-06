@@ -61,8 +61,14 @@ angular.module('acholic', [
   .run(function ($rootScope, $location, Auth) {
 
     $rootScope.Auth = Auth;
-
     $rootScope.$on('$routeChangeStart', function (event, next) {
+      // if (next.access.roleCheck) {
+      //   if(next.access.roleCheck.indexOf("admin") > -1 && Auth.isLogged()){
+      //     console.log('admin cgeck');
+      //   } else {
+      //     //$location.path('/');
+      //   }
+      // } 
       Auth.isReadyLogged().catch(function () {
         if (next.authenticate) {
           $location.path('/');

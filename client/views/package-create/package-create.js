@@ -5,6 +5,7 @@ angular.module('acholic')
     $routeProvider
      .when('/package/create', {
         templateUrl: 'views/package-create/package-create.html',
-        controller: 'PackageCreateCtrl'
+        controller: 'PackageCreateCtrl',
+	    access: {roleCheck: ['admin','vendor']}
       })
   });
