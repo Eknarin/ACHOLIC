@@ -85,15 +85,12 @@
   position: absolute;
   top: 200px;
   float: left;
-  color: #406A80;
+  color: white;
   background-color: #202121;
   width: 110px;
   height: 32px;
-  font-size: 27px;
+  font-size: 25px;
   display: none; }
-
-.package_item_upper:hover .price {
-  display: block; }
 
 .package_item {
   margin-top: 30px;
@@ -132,6 +129,9 @@
   .package-style a:active {
     text-decoration: none;
     color: #406a80; }
+
+.package-style:hover .price {
+  display: block; }
 
 .package-cover {
   margin-top: 50px;
