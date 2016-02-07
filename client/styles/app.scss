@@ -42,3 +42,12 @@ a:active {
 	padding-left:5%; 
 	padding-right:5%;
 }
+
+.center-picture{
+  position: relative;
+  background-position: center center; 
+  background-size: cover; 
+  width: 100%; 
+  box-shadow: 5px 0 7px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
