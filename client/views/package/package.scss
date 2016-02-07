@@ -103,10 +103,29 @@
     height: 40px;
     box-shadow: 5px 0 7px rgba(0, 0, 0, 0.35);
 }
-.text-overflow{
-    white-space: nowrap;
-    width:10em; 
-    overflow:hidden; 
-    text-overflow: ellipsis;    
-} 
+// .text-overflow{
+//     white-space: nowrap;
+//     width:10em; 
+//     overflow:hidden; 
+//     text-overflow: ellipsis;    
+// } 
+.package-header-overflow{
+   overflow: hidden;
+   color:white;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 1; /* number of lines to show */
+   line-height: 1.2;        /* fallback */
+   max-height: 1.2;       /* fallback */
+}
+.package-description-overflow{
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 2; /* number of lines to show */
+   line-height: 2;        /* fallback */
+   max-height: 4;       /* fallback */
+}
 
