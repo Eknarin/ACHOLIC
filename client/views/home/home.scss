@@ -66,7 +66,7 @@
     z-index:5;
     -webkit-box-sizing:border-box;
     -moz-box-sizing:border-box;
-    box-sizing:border-box
+    box-sizing:border-box;
 }
 .recommended-package-header{
 	padding-top: 20px;
@@ -75,7 +75,6 @@
 }
 .recommended-package-detail{
 	font-size: 15px;
-	padding-top: 10px;
 }
 .recommend-package-style figure figcaption {
     top:0;
@@ -91,23 +90,42 @@
     transform:rotateY(-180deg);
     -webkit-transition:all .5s;
     -moz-transition:all .5s;
-    transition:all .5s
+    transition:all .5s;
 }
 .recommend-package-style figure img {
     backface-visibility:hidden;
     -webkit-transition:all .5s;
     -moz-transition:all .5s;
-    transition:all .5s
+    transition:all .5s;
 }
 .recommend-package-style figure:hover img,figure.hover img {
     -webkit-transform:rotateY(180deg);
     -moz-transform:rotateY(180deg);
-    transform:rotateY(180deg)
+    transform:rotateY(180deg);
 }
 .recommend-package-style figure:hover figcaption,figure.hover figcaption {
     -webkit-transform:rotateY(0);
     -moz-transform:rotateY(0);
-    transform:rotateY(0)
+    transform:rotateY(0);
+}
+.recommended-header-overflow{
+   overflow: hidden;
+   color:white;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 1; /* number of lines to show */
+   line-height: 2;        /* fallback */
+   max-height: 2;       /* fallback */
+}
+.recommended-description-overflow{
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 4; /* number of lines to show */
+   line-height: 2;        /* fallback */
+   max-height: 8;       /* fallback */
 }
 .ourteam-style{
 	margin-top: 2%;
