@@ -76,7 +76,7 @@
     padding:29px 44px;
     background-color:rgba(0,0,0,0.65);
     text-align:center;
-    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
     -webkit-transform:rotateY(-180deg);
     -moz-transform:rotateY(-180deg);
     transform:rotateY(-180deg);
@@ -85,7 +85,7 @@
     transition:all .5s;
 }
 .recommend-package-style figure img {
-    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
     -webkit-transition:all .5s;
     -moz-transition:all .5s;
     transition:all .5s;
