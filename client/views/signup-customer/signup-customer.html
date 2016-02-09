@@ -30,14 +30,14 @@
 					<!-- Tab Menu -->
 					<div class="col-xs-12 col-sm-12 col-md-12 tab-menu-style"> 
 					  <ul class="nav nav-tabs">
-					    <li class="col-xs-3 col-sm-3 col-md-3 tab-item-menu-style"><a data-toggle="tab" href="#account" style="color: white;"><img src="../../image/account.png" style="width:50px; height:50px;"></img></a></li>
-					    <li class="col-xs-3 col-sm-3 col-md-3 tab-item-menu-style"><a data-toggle="tab" href="#security" style="color: white;"><img src="../../image/security.png" style="width:50px; height:50px;"></img></a></li>
-					    <li class="col-xs-3 col-sm-3 col-md-3 tab-item-menu-style"><a data-toggle="tab" href="#contact" style="color: white;"><img src="../../image/contact.png" style="width:50px; height:50px;"></img></a></li>
-					    <li class="col-xs-3 col-sm-3 col-md-3 tab-item-menu-style"><a data-toggle="tab" href="#menu3"style="color: white;"><img src="../../image/image.png" style="width:50px; height:50px;"></img></a></li>
+					    <li class="col-xs-3 col-sm-3 col-md-3 tab-item-menu-style"><a data-toggle="tab" href="#account" role="tab" aria-controls="account" style="color: white;"><img src="../../image/account.png" style="width:50px; height:50px;"></img></a></li>
+					    <li class="col-xs-3 col-sm-3 col-md-3 tab-item-menu-style"><a data-toggle="tab" href="#security" role="tab" aria-controls="security" style="color: white;"><img src="../../image/security.png" style="width:50px; height:50px;"></img></a></li>
+					    <li class="col-xs-3 col-sm-3 col-md-3 tab-item-menu-style"><a data-toggle="tab" href="#contact" role="tab" aria-controls="contact" style="color: white;"><img src="../../image/contact.png" style="width:50px; height:50px;"></img></a></li>
+					    <li class="col-xs-3 col-sm-3 col-md-3 tab-item-menu-style"><a data-toggle="tab" href="#menu3" role="tab" aria-controls="menu3" style="color: white;"><img src="../../image/image.png" style="width:50px; height:50px;"></img></a></li>
 					  </ul>
 					</div>  
 				  	<div class="tab-content col-xs-12 col-sm-12 col-md-12" style="background-color:rgba(0,0,0,0.65); ; padding-top:20px">
-				    	<div id="account" class="tab-pane fade in active">
+				    	<div role="tabpanel" id="account" class="tab-pane active">
 				      		<center>
 					      		<form>
 
@@ -72,7 +72,7 @@
 				    	</div>
 
 
-				    	<div id="security" class="tab-pane fade">
+				    	<div role="tabpanel" id="security" class="tab-pane">
 				      		<center>
 					      		<form>
 
@@ -93,7 +93,7 @@
 								</form>
 							</center>
 				    	</div>
-				    	<div id="contact" class="tab-pane fade">
+				    	<div role="tabpanel" id="contact" class="tab-pane">
 				      		<center>
 					      		<form>
 
@@ -114,7 +114,7 @@
 								</form>
 							</center>
 				    	</div>
-				    	<div id="menu3" class="tab-pane fade">
+				    	<div role="tabpanel" id="menu3" class="tab-pane">
 				      		<center>
 					      		<form>
 					      			ADD IMAGE
