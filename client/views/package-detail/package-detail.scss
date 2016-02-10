@@ -2,15 +2,18 @@
  * package-detail.scss
  */
 
- .topic-style{
- 	font-size:140%;
- 	color:#a1a1a1;
- 	padding-left:10%;
+ .package-detail-topic-style{
+ 	font-size:12px;
+ 	color:white;
+ 	text-align: right;
+ 	padding-bottom:15px;
  }
 
- .detail-style{
- 	font-size:150%; 
- 	padding-left:22%;
+ .package-detail-detail-style{
+ 	font-size:12px; 
+ 	color:white;
+ 	padding-left:7%;
+ 	padding-bottom:15px;
  }
 
  .package-detail-picture{
@@ -18,8 +21,33 @@
 	margin-bottom: 30px;
 	width: 100%; 
 	min-height: 200px;
-	max-height: 570px;
+	max-height: 400px;
 	position: relative;
     left: 50%;
     transform: translate(-50%,0)
  }
+
+.package-detail-header{
+	font-size:40px; 
+	color:white;
+}
+
+.package-detail-header-overflow{
+   overflow: hidden;
+   color:white;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 1; /* number of lines to show */
+   line-height: 1.6;        /* fallback */
+   max-height: 1.6;       /* fallback */
+}
+
+@media(min-width:767px){
+	.package-detail-topic-style{
+ 		font-size:15px;
+ 	}
+	.package-detail-detail-style{
+ 		font-size:15px; 
+ 	}
+}
