@@ -4,6 +4,51 @@
 /**
  * signup-customer.scss
  */
+body { 
+    padding-top: 20px; 
+}
+@media screen and (max-width: 768px) {
+    body { padding-top: 40px; }
+}
+.customer-header-size {
+  font-size: 37px; }
+
+.tab-item-menu-style {
+  padding-left: 0px;
+  padding-right: 0px;
+  font-size: 15px;
+  text-align: center; }
+
+.tab-menu-style {
+  padding-left: 0px;
+  padding-right: 0px;
+  background-color: rgba(100, 100, 100, 0.65); }
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+  background-color: rgba(0, 0, 0, 0.85); }
+
+.inputbox-style {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  height: 35px;
+  font-size: 17px;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  padding-left: 15px;
+  color: black; }
+
+.input-width {
+  width: 250px; }
+
+.radio-style {
+  margin-left: 100px; }
+
+@media (min-width: 767px) {
+  .customer-header-size {
+    font-size: 50px; }
+  .input-width {
+    width: 300px; } }
+
 /*
 *footer.scss
 */
