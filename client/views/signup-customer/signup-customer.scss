@@ -13,7 +13,10 @@
 .tab-menu-style{
 	padding-left:0px; 
 	padding-right:0px; 
-	background-color:rgba(0,0,0,0.65);
+	background-color:rgba(100,100,100,0.65); 
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+	background-color:rgba(0,0,0,0.85);
 }
 
 .inputbox-style{
