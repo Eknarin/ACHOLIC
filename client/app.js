@@ -8,7 +8,8 @@ angular.module('acholic', [
   'ngAnimate',
   'btford.socket-io',
   'rzModule',
-  'ngFileUpload'
+  'ngFileUpload',
+  '720kb.datepicker'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
 
@@ -70,7 +71,7 @@ angular.module('acholic', [
         if (next.authenticate) {
           $location.path('/');
         }
-        // if(next.access.roleCheck.indexOf("admin") > -1){
+        // if(next.access.roleCheck.indexOf("admin") > -1 || next.access.roleCheck.indexOf("vendor") > -1){
         // }
       });
     });
