@@ -62,7 +62,7 @@ angular.module('acholic', [
 
     $rootScope.Auth = Auth;
     $rootScope.$on('$routeChangeStart', function (event, next) {
-      console.log(next);
+      //console.log(next);
       Auth.isReadyLogged().then(function (){
         console.log('login');
       }).catch(function () {

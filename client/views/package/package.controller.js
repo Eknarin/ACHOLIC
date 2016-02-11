@@ -1,14 +1,10 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('PackageCtrl',['$scope','PackageItem','$location',function ($scope , PackageItem , $location) {
-  if($scope.search){
-     $scope.packages = PackageItem.queryAll({q : $scope.search});
-  }else{
-    $scope.packages = PackageItem.queryAll();
-  }
-
-  console.log(PackageItem.queryAll());
+  .controller('PackageCtrl',['$scope','PackageItem','$location' ,'itemData',function ($scope , PackageItem , $location , itemData) {
+  
+  $scope.packages = itemData;
+  console.log(itemData);
 
 	$scope.slider = {
 	  min: 0,
@@ -18,9 +14,6 @@ angular.module('acholic')
 	    ceil: 10000//should find max price of package
 	  }
 	};
-    angular.extend(this, {
-      name: 'PackageCtrl'
-    });
 
   $scope.rate = 0;
 

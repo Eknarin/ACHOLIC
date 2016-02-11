@@ -6,6 +6,10 @@ angular.module('acholic')
       .when('/package', {
         templateUrl: 'views/package/package.html',
         controller: 'PackageCtrl',
-        controllerAs: 'vm'
+        resolve:{
+        	itemData:['PackageItem','$location' ,function(PackageItem , $location){
+			       return PackageItem.queryAll({q: $location.search().q});
+        	}]
+        }
       });
   });

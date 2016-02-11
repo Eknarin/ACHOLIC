@@ -9,11 +9,9 @@ angular.module('acholic')
       	$scope.search = '';
 
       	$scope.searchPage = function(){
-      		if($location.path() != "/package"){
-      				$location.path("/package");
-      		} else {
-      			$route.reload();
-      		};
+          var temp = $scope.search;
+          $scope.search = '';
+      		$location.path("/package").search({q: temp});
       	};
       }]
 	    
