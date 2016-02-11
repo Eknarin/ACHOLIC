@@ -5,8 +5,145 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 	<body>
-		<div class="container" style=" margin-top:100px">
-			<h1>Sigup Vendor</h1>
-		</div>
+		<div class="container-fluid center-picture" style="background-image:url('../../image/vendor-signup-background.png'); height: 700px; margin-top:50px;">
+			<!-- blank div for make vertical space -->
+			<div class="container" style="margin-top:70px">
+			</div>
+
+			<!-- Customer Header -->
+			<div class="container">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<p class="customer-header-size" style=" text-align:center; color:white;">Vendor SignUp</p>
+				</div>
+			</div>			
+
+			<!-- Customer SignUp -->
+			<div class="container" style="color:white;">
+
+				<!-- Blank div for left space -->
+				<div class="col-xs-12 col-sm-12 col-md-2">
+				</div>
+
+				<!-- SignUP -->
+				<div class="col-xs-12 col-sm-12 col-md-8" style="margin-top:15px;">
+
+					<!-- Tab Menu -->
+					<div class="col-xs-12 col-sm-12 col-md-12 tab-menu-style"> 
+					  <ul class="nav nav-tabs" id="myTab">
+					    <li role="presentation" class="col-xs-3 col-sm-3 col-md-3 tab-item-menu-style active"><a data-toggle="tab" data-target="#account" role="tab" aria-controls="account"><img src="../../image/account.png" style="width:50px; height:50px;"></img></a></li>
+					    <li role="presentation" class="col-xs-3 col-sm-3 col-md-3 tab-item-menu-style"><a data-toggle="tab" data-target="#security" role="tab" aria-controls="security" style="color: white;"><img src="../../image/security.png" style="width:50px; height:50px;"></img></a></li>
+					    <li role="presentation" class="col-xs-3 col-sm-3 col-md-3 tab-item-menu-style"><a data-toggle="tab" data-target="#contact" role="tab" aria-controls="contact" style="color: white;"><img src="../../image/contact.png" style="width:50px; height:50px;"></img></a></li>
+					    <li role="presentation" class="col-xs-3 col-sm-3 col-md-3 tab-item-menu-style"><a data-toggle="tab" data-target="#addimage" role="tab" aria-controls="addimage" style="color: white;"><img src="../../image/image.png" style="width:50px; height:50px;"></img></a></li>
+					  </ul>
+					</div>  
+				  	<div class="tab-content col-xs-12 col-sm-12 col-md-12" style="background-color:rgba(0,0,0,0.65); ; padding-top:20px">
+				    	<div role="tabpanel" id="account" class="tab-pane active">
+				      		<center>
+					      		<form>
+
+					      			<!-- First Name -->
+									<input required class="inputbox-style input-width" type="text" name="FirstName" placeholder="First Name"><br>
+
+									<!-- Last Name -->
+									<input required class="inputbox-style input-width" type="text" name="LastName" placeholder="Last Name"><br>
+
+									<!-- Gender -->
+									<div class="input-width" style="margin-top:15px; margin-bottom:15px; text-align:left">
+										<p style="font-size:20px; margin-bottom:0px;">Gender</p>
+										<div style="padding-left:50px;">
+											<input type="radio" name="gender"> MEN<br>								
+											<input type="radio" name="gender"> WOMEN<br>
+											<input type="radio" name="gender"> OTHER<br>
+										</div>
+									</div>	
+
+									<!-- ฺBirth Date -->
+									<div class="input-width" style="margin-top:15px; margin-bottom:15px; text-align:left">
+										<p style="font-size:20px; margin-bottom:0px;">Birth Date</p>
+										<!-- Date Picker -->
+										<!-- https://tarruda.github.io/bootstrap-datetimepicker/ -->
+									</div>	
+
+									<!-- Button -->
+									<div class="input-width" style="margin-top:15px; margin-bottom:15px;">
+										<button type="button" class="btn btn-success">Next</button>
+									</div>	
+
+								</form>
+							</center>
+				    	</div>
+
+
+				    	<div role="tabpanel" id="security" class="tab-pane">
+				      		<center>
+					      		<form>
+
+					      			<!-- Email -->
+									<input required class="inputbox-style input-width" type="text" name="email" placeholder="Email"><br>
+
+									<!-- Password -->
+									<input required class="inputbox-style input-width" type="text" name="password" placeholder="Password"><br>
+
+									<!-- Confirm Password -->
+									<input required class="inputbox-style input-width" type="text" name="confirm-password" placeholder="Confirm Password"><br>	
+
+									<!-- ID Number -->
+									<input required class="inputbox-style input-width" type="text" name="confirm-password" placeholder="Identification Number"><br>	
+
+									<!-- Provider Number -->
+									<input required class="inputbox-style input-width" type="text" name="confirm-password" placeholder="Provider Number"><br>	
+
+									<!-- Button -->
+									<div class="input-width" style="margin-top:15px; margin-bottom:15px;">
+										<button type="button" class="btn btn-danger">Back</button>
+										<button type="button" class="btn btn-success">Next</button>
+									</div>	
+
+								</form>
+							</center>
+				    	</div>
+				    	<div role="tabpanel" id="contact" class="tab-pane">
+				      		<center>
+					      		<form>
+
+					      			<!-- Address -->
+									<textarea class="form-control inputbox-style input-width" rows="5" name="address" placeholder="Address"></textarea>
+
+									<!-- Zip Code -->
+									<input class="inputbox-style input-width" type="text" name="zipcode" placeholder="Zip Code"><br>
+
+									<!-- Phone -->
+									<input required class="inputbox-style input-width" type="text" name="phone" placeholder="Phone"><br>
+
+									<!-- Button -->
+									<div class="input-width" style="margin-top:15px; margin-bottom:15px;">
+										<button type="button" class="btn btn-danger">Back</button>
+										<button type="button" class="btn btn-success">Next</button>
+									</div>	
+								</form>
+							</center>
+				    	</div>
+				    	<div role="tabpanel" id="addimage" class="tab-pane">
+				      		<center>
+					      		<form>
+					      			<!-- //required -->
+					      			<div class="col-xs-12 col-sm-12 col-md-12">
+					      				<p style="font-size:20px">ADD IMAGE</p>
+					      			</div>
+					      			<div class="col-xs-12 col-sm-12 col-md-12 upload-image-style center-picture">
+										<upload-image image="packageItem.image"></upload-image>
+									</div>
+					      			<!-- Button -->
+									<div class="col-xs-12 col-sm-12 col-md-12" style="margin-top:15px; margin-bottom:15px;">
+										<button type="button" class="btn btn-danger">Back</button>
+										<button type="button" class="btn btn-success">Submit</button>
+									</div>	
+								</form>								
+							</center>
+				    	</div>
+				  	</div>
+				</div>
+			</div>
+		</div>	
 	</body>
 </html>
