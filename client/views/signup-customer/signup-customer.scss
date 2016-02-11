@@ -22,6 +22,7 @@
 .inputbox-style{
 	margin-top:15px; 
 	margin-bottom:15px; 
+	width: 250px;
 	height:35px; 
 	font-size:17px;
 	border-radius: 4px;
@@ -31,9 +32,13 @@
 	
 }
 
-.input-width{
-	width: 250px;
+.upload-image-style{
+	margin-top: 15px;
+	margin-bottom: 15px;
+	padding-left: 0px;
+	padding-right: 0px;
 }
+
 .radio-style{
 	margin-left: 100px;
 }

@@ -42,10 +42,10 @@
 					      		<form>
 
 					      			<!-- First Name -->
-									<input class="inputbox-style input-width" type="text" name="FirstName" placeholder="First Name"><br>
+									<input required class="inputbox-style input-width" type="text" name="FirstName" placeholder="First Name"><br>
 
 									<!-- Last Name -->
-									<input class="inputbox-style input-width" type="text" name="LastName" placeholder="Last Name"><br>
+									<input required class="inputbox-style input-width" type="text" name="LastName" placeholder="Last Name"><br>
 
 									<!-- Gender -->
 									<div class="input-width" style="margin-top:15px; margin-bottom:15px; text-align:left">
@@ -53,6 +53,7 @@
 										<div style="padding-left:50px;">
 											<input type="radio" name="gender"> MEN<br>								
 											<input type="radio" name="gender"> WOMEN<br>
+											<input type="radio" name="gender"> OTHER<br>
 										</div>
 									</div>	
 
@@ -63,10 +64,6 @@
 										<!-- https://tarruda.github.io/bootstrap-datetimepicker/ -->
 									</div>	
 
-									<!-- Button -->
-									<div class="input-width" style="margin-top:15px; margin-bottom:15px;">
-										<button type="button" class="btn btn-success" data-target="#security">Next</button>
-									</div>	
 								</form>
 							</center>
 				    	</div>
@@ -77,19 +74,14 @@
 					      		<form>
 
 					      			<!-- Email -->
-									<input class="inputbox-style input-width" type="text" name="email" placeholder="Email"><br>
+									<input required class="inputbox-style input-width" type="text" name="email" placeholder="Email"><br>
 
 									<!-- Password -->
-									<input class="inputbox-style input-width" type="text" name="password" placeholder="Password"><br>
+									<input required class="inputbox-style input-width" type="text" name="password" placeholder="Password"><br>
 
 									<!-- Confirm Password -->
-									<input class="inputbox-style input-width" type="text" name="confirm-password" placeholder="Confirm Password"><br>									
+									<input required class="inputbox-style input-width" type="text" name="confirm-password" placeholder="Confirm Password"><br>									
 
-									<!-- Button -->
-									<div class="input-width" style="margin-top:15px; margin-bottom:15px;">
-										<button type="button" class="btn btn-danger">Back</button>
-										<button type="button" class="btn btn-success">Next</button>
-									</div>	
 								</form>
 							</center>
 				    	</div>
@@ -104,24 +96,24 @@
 									<input class="inputbox-style input-width" type="text" name="zipcode" placeholder="Zip Code"><br>
 
 									<!-- Phone -->
-									<input class="inputbox-style input-width" type="text" name="phone" placeholder="Phone"><br>									
+									<input required class="inputbox-style input-width" type="text" name="phone" placeholder="Phone"><br>									
 
-									<!-- Button -->
-									<div class="input-width" style="margin-top:15px; margin-bottom:15px;">
-										<button type="button" class="btn btn-danger">Back</button>
-										<button type="button" class="btn btn-success">Next</button>
-									</div>	
 								</form>
 							</center>
 				    	</div>
 				    	<div role="tabpanel" id="addimage" class="tab-pane">
 				      		<center>
 					      		<form>
-					      			ADD IMAGE
+					      			<!-- //required -->
+					      			<div class="col-xs-12 col-sm-12 col-md-12">
+					      				<p style="font-size:20px">ADD IMAGE</p>
+					      			</div>
+					      			<div class="col-xs-12 col-sm-12 col-md-12 upload-image-style">
+										<upload-image image="packageItem.image"></upload-image>
+									</div>
 					      			<!-- Button -->
-									<div class="input-width" style="margin-top:15px; margin-bottom:15px;">
-										<button type="button" class="btn btn-danger">Back</button>
-										<button type="button" class="btn btn-success">Sign Up</button>
+									<div class="col-xs-12 col-sm-12 col-md-12" style="margin-top:15px; margin-bottom:15px;">
+										<button type="button" class="btn btn-success">Submit</button>
 									</div>	
 								</form>								
 							</center>
