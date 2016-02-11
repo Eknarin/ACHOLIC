@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('SignupVendorCtrl', function () {
+  .controller('SignupVendorCtrl', function ($scope) {
 
     angular.extend(this, {
       name: 'SignupVendorCtrl',
@@ -16,5 +16,11 @@ angular.module('acholic')
           });
       }
     });
-
+    
+      $scope.tabs = ["active", "", "", ""];
+      $scope.activeTab = function(goto){
+        $scope.tabs = ["", "", "", ""];
+        $scope.tabs[goto] = "active";
+        console.log($scope.tabs);
+      }
   });
