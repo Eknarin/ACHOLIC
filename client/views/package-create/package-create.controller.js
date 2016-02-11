@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('PackageCreateCtrl',['$scope','PackageItem','$location',function ($scope , PackageItem , $location) {
-
+  .controller('PackageCreateCtrl',['$scope','PackageItem','$location','tagData',function ($scope , PackageItem , $location , tagData) {
+    $scope.tags = tagData;
   	$scope.packageItem = new PackageItem;
   	$scope.images = [];
   
