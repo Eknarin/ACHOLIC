@@ -1,9 +1,9 @@
 'use strict';
 angular.module('acholic')
-	.controller('HomeCtrl',['$scope','Auth','PackageItem',function ($scope, Auth ,PackageItem) {
+	.controller('HomeCtrl',['$scope','Auth','itemData',function ($scope, Auth , itemData) {
 
 	var vm = this;
-	$scope.packageItems = PackageItem.recommend();
+	$scope.packageItems =itemData;
 	console.log($scope.packageItems);
 
     angular.extend(vm, {
