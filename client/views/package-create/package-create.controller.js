@@ -13,5 +13,12 @@ angular.module('acholic')
   		});
   	};
 
+     $scope.tabs = ["active", "", "", ""];
+      $scope.activeTab = function(goto){
+        $scope.tabs = ["", "", "", ""];
+        $scope.tabs[goto] = "active";
+        console.log($scope.tabs);
+      }
+
   }]);
 

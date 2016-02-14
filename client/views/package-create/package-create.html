@@ -6,9 +6,7 @@
 	</head>
 	<body>
 		
-		<div class="container" style=" margin-top:50px">
-
-
+		<div class="container" style=" margin-top:50px">		
 			<!-- blank div for make vertical space -->
 			<div class="container" style="margin-top:70px">
 			</div>
@@ -18,183 +16,87 @@
 					<p class="create-package-header-size" style=" text-align:center;">Create Package</p>
 				</div>
 			</div>
-				
-			<!-- Input Package Details -->
-			<div class="col-xs-12 col-sm-7 col-md-7">
-				<!-- Input Name -->
-				<div style="padding-top:3%;">
-					<div class="col-xs-12 col-sm-4 col-md-4 topic-style">
-						Name :				
-					</div>
-					<div class="col-xs-12 col-sm-8 col-md-8 input-style">
-						<input type="text" ng-model="packageItem.name" required style="width:100%;" placeholder="Package Name">
-					</div>
-				</div>
+		</div>			
 
-				<HR WIDTH="100%" NOSHADE>
-
-				<!-- Tag -->
-				<div style="padding-top:3%;">
-					<div class="col-xs-12 col-sm-4 col-md-4 topic-style">
-						Tag :				
-					</div>
-					<div class="col-xs-12 col-sm-8 col-md-8 input-style">
-						<div  ng-repeat="tag in tags">
-						 <input type="checkbox" ng-model="checkboxModel.value1">
-						  <label>{{tag.tag}}</label>
-						</div>
-					</div>
-				</div>	
-
-				<HR WIDTH="100%" NOSHADE>
-
-				<!-- Input Contact -->
-				<div>
-					<div class="col-xs-12 col-sm-4 col-md-4 topic-style">
-						Contact : 
-					</div>
-					<div class="col-xs-12 col-sm-8 col-md-8 input-style">
-						<div>
-							<input type="text" ng-model="packageItem.contact.phone_number" style="width:100%; margin-bottom:3%;" placeholder="Telephone">
-						</div>
-						<div>
-							<input type="text" ng-model="packageItem.contact.email" style="width:100%; margin-top:3%" placeholder="Email">
-						</div>
-					</div>
-				</div>
-				<HR WIDTH="100%" NOSHADE>
-
-				<!-- Input Price -->
-				<div>
-					<div class="col-xs-12 col-sm-4 col-md-4 topic-style">
-						Price (฿) : 
-					</div>
-					<div class="col-xs-12 col-sm-8 col-md-8 input-style">
-						<input type="text" ng-model="packageItem.price" style="width:100%" placeholder="Package Price">
-					</div>
-				</div>
-				<HR WIDTH="100%" NOSHADE>
-
-				<!-- Input Location -->
-				<div>
-					<div class="col-xs-12 col-sm-4 col-md-4 topic-style">
-						Location : 
-					</div>
-					<div class="col-xs-12 col-sm-8 col-md-8 input-style">
-						<input type="text" ng-model="packageItem.location" style="width:100%" placeholder="Province">
-					</div>
-				</div>
-				<HR WIDTH="100%" NOSHADE>
-
-				<!-- Input Description -->
-				<div>
-					<div class="col-xs-12 col-sm-4 col-md-4 topic-style">
-						Description : 
-					</div>
-					<div class="col-xs-12 col-sm-8 col-md-8 input-style">
-						<input type="text" ng-model="packageItem.description" style="width:100%; height:200px" placeholder="Package Description">
-					</div>
-				</div>
-				<HR WIDTH="100%" NOSHADE>
-
-				<!-- Input amount of people per package -->
-				<div>
-					<div class="col-xs-12 col-sm-4 col-md-4 topic-style">
-						People : 
-					</div>
-					<div class="col-xs-12 col-sm-8 col-md-8 input-style">
-		<!-- 				<div style="margin-bottom:3%;">
-							<input type="text" ng-model="packageItem.people" style="width:100%" placeholder="People per Package">
-						</div> -->
-						<div style="padding-top:3%;">
-							<input type="text" ng-model="packageItem.people.min" style="width:45%;" placeholder="minimum"> -
-							<input type="text" ng-model="packageItem.people.max" style="width:45%;" placeholder="maximum">
-						</div>
-					</div>
-				</div>
-				<HR WIDTH="100%" NOSHADE>
-
-				<!-- Input Office time -->
-				<div>
-					<div class="col-xs-12 col-sm-4 col-md-4 topic-style">
-						Office Time : 
-					</div>
-					<div class="col-xs-12 col-sm-8 col-md-8 input-style">
-						<div style="margin-bottom:3%;">
-							<input type="text" style="width:100%;" placeholder="Date">
-						</div>
-
-						<div style="padding-top:3%;">
-							<input type="text" ng-model="packageItem.office_time.open_time" style="width:45%;" placeholder="Start Time"> -
-							<input type="text" ng-model="packageItem.office_time.close_time" style="width:45%;" placeholder="End Time">
-						</div>
-						
-					</div>
-				</div>
-				<HR WIDTH="100%" NOSHADE>
-				
-				<!-- Input Availability -->
-				<div>
-					<div class="col-xs-12 col-sm-4 col-md-4 topic-style">
-						Availability : 
-					</div>
-					<div class="col-xs-12 col-sm-8 col-md-8 input-style" style="color:green;">
-						<select class="form-control" ng-model="packageItem.availability" style="width:100%">    
-			            	<option value="true">Active</option>
-			            	<option value="false">Inactive</option>
-			            </select>
-					</div>
-				</div>
-				<HR WIDTH="100%" NOSHADE>
-
-				<!-- Input rating-->
-				<div>
-					<div class="col-xs-12 col-sm-4 col-md-4 topic-style">
-						Rating : 
-					</div>
-					<div class="col-xs-12 col-sm-8 col-md-8 input-style">
-						<div style="margin-bottom:3%;">
-							<input type="text" ng-model="packageItem.rating" style="width:100%;" placeholder="Rate up to 10">
-						</div>
-					</div>
-				</div>
-
-				</div>
-
-				<!-- End Input Package Details -->
-
-				<!-- Insert Package Image -->
-				<div class="col-xs-12 col-sm-5 col-md-5">
-					<div>
-						<div class="col-xs-12 col-sm-4 col-md-4 topic-style">
-							Image : 
-						</div>
-						<div class="col-xs-12 col-sm-8 col-md-8 input-style">
-							<!-- <upload-multi-images images="images"></upload-multi-images> -->
-							<upload-image image="packageItem.image"></upload-image>
-						</div>
-					</div>
-				</div>
-
-
-			<!-- Create and Cancel button -->
-			<div class="col-md-12" style="text-align:center; padding-top:5%; padding-bottom:5%;">
-				<div class="col-xs-12 col-sm-3 col-md-3" ></div>
-				<div class="col-xs-12 col-sm-3 col-md-3" style="padding-top:3%;">
-					<button type="button" class="btn btn-primary" ng-click="onSubmit()">Create</button>
-				</div>
-				<div class="col-xs-12 col-sm-3 col-md-3" style="padding-top:3%;">
-					<button type="button" class="btn btn-primary" style="background-color:red">Cancel</button>
-				</div>
-				<div class="col-xs-12 col-sm-3 col-md-3" styel="right"></div>
-			</div>
-		</div>
-		
-		
 		<div class="container">
-			
-		</div>
+			<div class="col-md-2">
+			</div>
+			<div class="col-md-8" style="padding-left:0px; padding-right:0px; margin-bottom:50px;">
+				<!-- tabs left -->
+	      		<div class="tabs-left" style=" margin-top:50px;">
+	        		<ul class="nav nav-tabs col-xs-3 col-sm-2 col-md-2 package-create-tab-style" style="text-align:center;">
+	        		  <li class="{{tabs[0]}}" ng-click="activeTab(0)"><a class="create-package-tab-style" data-toggle="tab" data-target="#general" role="tab" aria-controls="general" style="margin-right: 0px; border-right-width:0px;">General</a></li>
+	        		  <li class="{{tabs[1]}}" ng-click="activeTab(1)"><a class="create-package-tab-style" data-toggle="tab" data-target="#insight" role="tab" aria-controls="insight" style="margin-right: 0px; border-right-width:0px;">Insight</a></li>
+	        		  <li class="{{tabs[2]}}" ng-click="activeTab(2)"><a class="create-package-tab-style" data-toggle="tab" data-target="#office" role="tab" aria-controls="office" style="margin-right: 0px; border-right-width:0px;">Office</a></li>
+	        		  <li class="{{tabs[3]}}" ng-click="activeTab(3)"><a class="create-package-tab-style" data-toggle="tab" data-target="#addimage" role="tab" aria-controls="addimage" style="margin-right: 0px; border-right-width:0px;">Image</a></li>
+	        		</ul>
 
+	        		<div class="tab-content package-create-pane-style col-xs-9 col-sm-10 col-md-10">
+		        		<!-- Package General Information -->
+		        		<div  id="general" class="tab-pane active" style="text-align:center">
+							<!--  ng-model="packageItem.name"  -->
+							<!-- rating -->
+							<input class="package-create-inputbox-style" type="text" required placeholder="Package Name">
+							<input class="package-create-inputbox-style" type="text" required placeholder="Provider Name">
+							<input class="package-create-inputbox-style" type="text" required placeholder="Price">
+							<input class="package-create-inputbox-style" type="text" required placeholder="Province">
+							<input class="package-create-inputbox-style" type="text" required placeholder="Place">
+						</div>
 
+			     		<!-- Package Insight Information -->
+			        	<div id="insight" class="tab-pane" style="text-align:center">
+			        		<input class="package-create-inputbox-style" type="text" required placeholder="Hard Rate">
+							<input class="package-create-inputbox-style" type="text" required placeholder="Duration Time">
+							<input class="package-create-inputbox-style" type="text" required placeholder="Number of people">
+							<input class="package-create-inputbox-style" type="text" required placeholder="Distance">
+							<input class="package-create-inputbox-style" type="text" required placeholder="Width">
+							<input class="package-create-inputbox-style" type="text" required placeholder="Depth">
+							<input class="package-create-inputbox-style" type="text" required placeholder="Age Limit">
+							<input class="package-create-inputbox-style" type="text" required placeholder="Start Point">
+							<input class="package-create-inputbox-style" type="text" required placeholder="End Point">
+							<input class="package-create-inputbox-style" type="text" required placeholder="Number of Stage">
+							<input class="package-create-inputbox-style" type="text" required placeholder="Stage Type">
+							<input class="package-create-inputbox-style" type="text" required placeholder="View">
+							<input class="package-create-inputbox-style" type="text" required placeholder="Season">
+							<input class="package-create-inputbox-style" type="text" required placeholder="Type of Boat">
+							<input class="package-create-inputbox-style" type="text" required placeholder="Provided Things">
+							<input class="package-create-inputbox-style" type="text" required placeholder="Unprovided Things">
+							<input class="package-create-inputbox-style" type="text" required placeholder="Required Skills">
+							<input class="package-create-inputbox-style" type="text" required placeholder="Include Activities">
+							<input class="package-create-inputbox-style" type="text" required placeholder="Amount Available">
+							<input class="package-create-inputbox-style" type="text" required placeholder="Package Schedule">
+							<input class="package-create-inputbox-style" type="text" required placeholder="Note">
+			     		</div>
+			       		
+			       		<!-- Contact  -->
+			       		<div id="office" class="tab-pane" style="text-align:center">
+			       			<input class="package-create-inputbox-style" type="text" required placeholder="Email">
+			       			<input class="package-create-inputbox-style" type="text" required placeholder="Phone">
+			       			<input class="package-create-inputbox-style" type="text" required placeholder="Office Time">
+			       			<input class="package-create-inputbox-style" type="text" required placeholder="Date Create Package">
+			       			<input class="package-create-inputbox-style" type="text" required placeholder="Date Package Expire">
+			     		</div>
+
+			     		<!-- Add Image -->
+			   			<div id="addimage" class="tab-pane">
+			   				<center>
+			   					<div class="col-xs-12 col-sm-12 col-md-12">
+					  				<p style="font-size:20px; color:white; margin-top:15px; margin-bottom:15px;">ADD IMAGE</p>
+					      		</div>
+			   					<div class="col-xs-12 col-sm-12 col-md-12 upload-image-style center-picture">
+									<upload-image image="packageItem.image"></upload-image>
+								</div>
+							</center>
+		   				</div>
+	       			</div>
+	      		</div>
+	    	</div>
+	    </div>
+	    <div class="container">
+	    	<div class="col-xs-12 col-sm-12 col-md-12" style="margin-top:15px; margin-bottom:20px; text-align:center;">
+				<button type="button" class="btn btn-danger" ng-click="activeTab(2)" data-toggle="tab" data-target="#contact">Clear</button>
+				<button type="button" class="btn btn-success">Create</button>
+			</div>	
+	    </div>
 	</body>
 </html>
