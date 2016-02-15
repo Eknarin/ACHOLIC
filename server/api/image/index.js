@@ -10,7 +10,7 @@ var uploading = multer({
         fieldNameSize: 50,
         files: 1,
         fields: 5,
-        fileSize: 5242880
+        fileSize: 8388608
     },
     rename: function(fieldname, filename) {
         return filename;
