@@ -11,9 +11,9 @@ var TrailRunSchema = new Schema({
 		price: Number,
 		distance: Number
 	},
-	detail:{
-		salogan: String,
-		gift: String,
+	promote:{
+		slogan: String,
+		souvenir: String,
 		purpose: String,
 		prize: String
 	}
