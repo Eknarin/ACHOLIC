@@ -9,7 +9,8 @@ var PackageItemSchema = new Schema({
   rating: { type: Number, min: 0, max: 10 },
   created_at: { type: Date, default: Date.now },
   map_id: Schema.Types.ObjectId,
-  image: { type: Schema.Types.ObjectId, ref: 'Image' }
+  image: { type: Schema.Types.ObjectId, ref: 'Image' },
+  user_id: Schema.Types.ObjectId
 });
 
 module.exports = mongoose.model('PackageItem', PackageItemSchema);

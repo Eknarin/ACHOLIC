@@ -11,11 +11,11 @@ var seedData = require('./migrations/data.js');
 seeder.connect(config.mongo.uri, function() {
   
   // Load Mongoose models 
-  seeder.loadModels([
-    //'server/api/package-item/package-item.model.js',
-    'server/api/role/role.model.js',
-    'server/api/tag/tag.model.js'
-  ]);
+  // seeder.loadModels([
+  //   //'server/api/package-item/package-item.model.js',
+  //   'server/api/role/role.model.js',
+  //   'server/api/tag/tag.model.js'
+  // ]);
  
   // Clear specified collections 
   // seeder.clearModels(['Role','Tag'], function() {

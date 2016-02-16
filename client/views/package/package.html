@@ -87,11 +87,9 @@
 		</div>
 		<!-- End Filter Options -->
 
-		<!-- If no search result  -->
-		<center><div ng-show="packages.length == 0" style="padding:50px;"><h2 style="color:#B3B3B3">No results found</h2></div></center>
 		<!-- Packages -->
 		<div style="background-image:url('../../image/package-background.png'); padding-top:5%; padding-bottom:5%;">
-		<div ng-show="packages.length" class="container">
+		<div class="container">
 			<div class="container" style="width:100%; color:white">
 				<p style="font-size: 50px; text-align:center;">Packages</p>
 			</div>
@@ -131,6 +129,8 @@
 						</div>
 					</div>	
 				</div>
+				<!-- If no search result  -->
+				<center><div ng-show="!packages.length" style="padding:50px;"><h2 style="color:#B3B3B3">No results found</h2></div></center>
 			</div>
 		</div>
 	</div>

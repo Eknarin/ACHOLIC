@@ -5,7 +5,6 @@ var Schema = mongoose.Schema;
 
 var DivingSchema = new Schema({
 	location: String,
-	user_id: Schema.Types.ObjectId,
 	river_line: String,
 	info:{
 		type: String,
