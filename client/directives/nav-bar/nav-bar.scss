@@ -1,14 +1,17 @@
+.modal-vertical-centered {
+  transform: translate(0, 30%) !important;
+  -ms-transform: translate(0, 30%) !important; /* IE 9 */
+  -webkit-transform: translate(0, 30%) !important; /* Safari and Chrome */
+}
+
 .modal-content{
 	-webkit-border-radius: 10px !important;
     -moz-border-radius: 10px !important;
     border-radius: 10px !important; 
 }
 
-.modal-header{
-	background-color:cadetblue;
-}
-
 .modal-body{
+	overflow-y:auto;
 	padding-left:50px;
 	padding-right:50px;
 	padding-top:20px;
