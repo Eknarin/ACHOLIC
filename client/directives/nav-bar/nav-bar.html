@@ -72,5 +72,33 @@
         </nav>
         <!-- End Navigation Bar -->
 
+       <!-- Modal -->
+       <div class="modal fade" ng-controller="ItemController" id="signin-modal" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content" style="-webkit-border-radius: 10px !important;
+        -moz-border-radius: 10px !important;
+        border-radius: 10px !important; ">
+            <form ng-submit="login()">
+              <div class="modal-header" style="background-color:cadetblue;">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h2 class="modal-title">Sign in</h2>
+              </div>
+              <div class="modal-body" style="padding-left:50px;padding-right:50px;padding-top:20px;padding-bottom:60px">
+                <pre ng-if="vm.error">{{ vm.error | json }}</pre>  
+                <label><span class="glyphicon glyphicon-user"></span> Username</label></br>
+                <input class="col-md-8 col-xs-10 col-sm-10" type="email" ng-model="user.email" placeholder="email"></br></br></br>
+                <label><span class="glyphicon glyphicon-eye-open"></span> Password</label></br>
+                <input class="col-md-8 col-xs-10 col-sm-10" type="password" ng-model="user.password" placeholder="password">
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </form>
+          </div>   
+        </div>
+      </div> 
+
   </body>
   </html>
