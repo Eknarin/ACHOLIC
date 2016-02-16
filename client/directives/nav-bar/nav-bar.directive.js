@@ -20,14 +20,17 @@ var myNav = angular.module('acholic');
   myNav.controller('ItemController', ['$scope','Auth',function ($scope, Auth) {
     var vm = this;
 
+     $scope.showAlert = false;
      $scope.user = { email: 'test@test.com', password: 'test' };
 
      $scope.login = function () {
+      $scope.showAlert = false;
           Auth.login($scope.user)
             .then(function () {
               $('#signin-modal').modal('hide');
             })
             .catch(function (err) {
+              $scope.showAlert = true;
               vm.error = err;
             });
         };
