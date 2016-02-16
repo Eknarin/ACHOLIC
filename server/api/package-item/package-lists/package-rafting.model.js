@@ -22,7 +22,7 @@ var RaftingSchema = new Schema({
 	prepration: String,
 	skills_require: String,
 	schedule: String,
-	note: String,s
+	note: String,
 	office_time: {
 		open_time: String,
 		close_time: String,

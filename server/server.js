@@ -18,12 +18,12 @@ seeder.connect(config.mongo.uri, function() {
   ]);
  
   // Clear specified collections 
-  seeder.clearModels(['Role','Tag'], function() {
+  // seeder.clearModels(['Role','Tag'], function() {
  
-    // Callback to populate DB once collections have been cleared 
-    seeder.populateModels(seedData);
+  //   // Callback to populate DB once collections have been cleared 
+  //   seeder.populateModels(seedData);
 
-  });
+  // });
 });
 
 var app = express();

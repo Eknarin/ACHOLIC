@@ -16,7 +16,7 @@ var TrailRunSchema = new Schema({
 		souvenir: String,
 		purpose: String,
 		prize: String
-	}
+	},
 	equipments_provide: [String],
 	equipments_require: [String],
 	prepration: String,

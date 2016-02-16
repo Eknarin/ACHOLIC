@@ -2,6 +2,11 @@
 
 var _ = require('lodash');
 var PackageItem = require('./package-item.model');
+var PackageMap = require('./package-map.model');
+var PackageDiving = require('./package-lists/package-diving.model');
+var PackageRafting = require('./package-lists/package-rafting.model');
+var PackageTrailRun = require('./package-lists/package-trailRun.model');
+
 
 function handleError (res, err) {
   return res.status(500).send(err);
