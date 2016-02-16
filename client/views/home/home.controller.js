@@ -6,41 +6,19 @@ angular.module('acholic')
 	$scope.packageItems =itemData;
 	console.log($scope.packageItems);
 
-    angular.extend(vm, {
-
-      name: 'HomeCtrl',
-
-      /**
-       * User credentials
-       */
-      user: { email: 'test@test.com', password: 'test' },
-
-      /**
-       * Login method
-       */
-      login: function () {
-        Auth.login(vm.user)
-          .then(function () {
-            $('#signin-modal').modal('hide');
-          })
-          .catch(function (err) {
-            vm.error = err;
-          });
-      },
-
        /**
        * Signup
        */
-      signup: function () {
-        Auth.signup(vm.user)
-          .then(function () {
-            $('#signup-modal').modal('hide');
-          })
-          .catch(function (err) {
-            vm.error = err;
-          });
-      }
-    });
+    //   signup: function () {
+    //     Auth.signup(vm.user)
+    //       .then(function () {
+    //         $('#signup-modal').modal('hide');
+    //       })
+    //       .catch(function (err) {
+    //         vm.error = err;
+    //       });
+    //   }
+    // });
 
 	// $scope.sliderpics = [
 	// 	{
