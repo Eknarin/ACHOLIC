@@ -12,7 +12,7 @@
 			<!-- Create Package Header -->
 			<div class="container">
 				<div class="col-xs-12 col-sm-12 col-md-12">
-					<p class="create-package-header-size" style=" text-align:center;">Create Package</p>
+					<p class="create-package-header-size" style=" text-align:center;">Whitewater Package</p>
 				</div>
 			</div>
 		</div>			
@@ -28,6 +28,7 @@
 			                    <p class="list-group-item-text">General Information</p>
 		                	</a>
 		            	</li>
+		            	<!-- disabled  -->
 		                <li class="col-xs-12 col-sm-3 col-md-3">
 		                	<a href="#step-2">
 		                    	<p class="list-group-item-heading">Step 2</p>
@@ -40,8 +41,7 @@
 		                    	<p class="list-group-item-text">Contact Information</p>
 		                	</a>
 		                </li>
-		                <!-- disabled -->
-		                 <li class=" col-xs-12 col-sm-3 col-md-3">
+		                 <li class="col-xs-12 col-sm-3 col-md-3">
 		                	<a href="#step-4">
 		                    	<p class="list-group-item-heading">Step 4</p>
 		                    	<p class="list-group-item-text">Image Gallery</p>
@@ -69,7 +69,7 @@
 
 		            </div>
 		            <div style="text-align: center;">
-						<button type="button" class="btn btn-success">Next</button>
+						<button id="activate-step-2" type="button" class="btn btn-success">Next</button>
 		            </div>
 		            
 		        </div>
@@ -78,11 +78,23 @@
 		    <!-- Package Insight Information -->
 		    <div class="row setup-content" id="step-2">
 		   		<div class="col-xs-12 col-sm-12 col-md-12 fillform-content-style">
-		        	<div  style="text-align: center;">
+		        	<div  class="col-xs-12 col-sm-12 col-md-12" style="text-align: center;">
 		            	<p class="fillform-content-header"> Insight Information</p>
 		        	</div>
-		        	<div style="text-align: center;">
+		        	<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center;">
 		        		<input class="package-create-inputbox-style" type="text" required placeholder="Hard Rate">
+		        	</div>
+		        	<div class="col-xs-12 col-sm-12 col-md-12 btn-group" style="position:relative; vertical-align:middle; text-align:center">
+						<button type="button" class="btn btn-default" style="width:50%; padding-left:0px; text-align:left"> Province </button>
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width:10%">
+							<span class="caret"></span>
+							<span class="sr-only">Toggle Dropdown</span>
+						</button>
+						<ul class="dropdown-menu scrollable-menu" style="width:50%;margin-left:17px;">
+							<li ng-click="setType(t.name)"><a href="#">กรุงเทพ</a></li>
+						</ul>
+					</div>
+				
 						<input class="package-create-inputbox-style" type="text" required placeholder="Duration Time">
 						<input class="package-create-inputbox-style" type="text" required placeholder="Number of people">
 						<input class="package-create-inputbox-style" type="text" required placeholder="Distance">
