@@ -34,6 +34,19 @@
 	background-color: rgba(0,0,0,0.65);
 	color: white;
 }
+.package-create-dropdown-input-style{
+	color:grey;
+	height:27px; 
+	font-size:14px;
+	width:85%;
+	text-align:left;
+}
+.package-create-dropdown-button-style{
+	height:27px; 
+	font-size:14px;
+	width:15%
+}
+
 
 
  .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
@@ -94,6 +107,14 @@
  // 	height:55px; 
  // 	font-size:20px; 
 	// }
+	.package-create-dropdown-input-style{
+		height:35px; 
+		font-size:17px;
+	}
+	.package-create-dropdown-button-style{
+		height:35px; 
+		font-size:17px;
+	}
 	 .package-create-inputbox-style{
 		height:35px; 
 		font-size:17px;
