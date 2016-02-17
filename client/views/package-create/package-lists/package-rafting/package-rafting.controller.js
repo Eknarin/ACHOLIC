@@ -1,7 +1,10 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('PackageRaftingCtrl',['$scope',function ($scope) {
+  .controller('PackageRaftingCtrl',['$scope','packageData',function ($scope ,packageData) {
+    $scope.packages = packageData;
+    $scope.packages.info = [];
+    console.log($scope.packages);
  	var navListItems = $('ul.setup-panel li a'),
     allWells = $('.setup-content');
 

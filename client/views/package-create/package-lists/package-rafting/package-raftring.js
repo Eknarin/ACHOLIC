@@ -8,6 +8,9 @@ angular.module('acholic')
         controller: 'PackageRaftingCtrl',
 	    access: {roleCheck: ['admin','vendor']},
 	    resolve: {
+        packageData:['PackageItem' ,function(PackageItem){
+             return new PackageItem;
+          }]
 	    }
       })
   });
