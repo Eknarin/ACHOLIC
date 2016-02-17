@@ -5,11 +5,11 @@ module.exports = function (app) {
 
   // API
   app.use('/api/tags', require('./api/tag'));
-  app.use('/api/payment-statuss', require('./api/payment-status'));
+  app.use('/api/paymentStatus', require('./api/payment-status'));
   app.use('/api/transactions', require('./api/transaction'));
   app.use('/api/bookmarks', require('./api/bookmark'));
   app.use('/api/images', require('./api/image'));
-  app.use('/api/package-gallery', require('./api/package-gallery'));
+  app.use('/api/packageGallery', require('./api/package-gallery'));
   app.use('/api/packageItem', require('./api/package-item'));
   app.use('/api/users', require('./api/user'));
 

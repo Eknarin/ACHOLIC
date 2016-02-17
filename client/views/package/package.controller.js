@@ -3,8 +3,8 @@
 angular.module('acholic')
   .controller('PackageCtrl',['$scope','PackageItem','$location' ,'itemData',function ($scope , PackageItem , $location , itemData) {
   
-  $scope.packages = itemData;
-  console.log(itemData);
+  $scope.packages = itemData.docs;
+  console.log($scope.packages);
 
 	$scope.slider = {
 	  min: 0,

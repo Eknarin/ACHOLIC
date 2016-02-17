@@ -1,6 +1,7 @@
 'use strict';
 
 var mongoose = require('mongoose');
+var mongoosePaginate = require('mongoose-paginate');
 var Schema = mongoose.Schema;
 
 var PackageItemSchema = new Schema({
@@ -12,6 +13,8 @@ var PackageItemSchema = new Schema({
   image: { type: Schema.Types.ObjectId, ref: 'Image' },
   user_id: Schema.Types.ObjectId
 });
+
+PackageItemSchema.plugin(mongoosePaginate);
 
 module.exports = mongoose.model('PackageItem', PackageItemSchema);
 

@@ -5,7 +5,6 @@ var Schema = mongoose.Schema;
 
 var TrailRunSchema = new Schema({
   	location: String,
-	user_id: Schema.Types.ObjectId,
 	info:{
 		type: String,
 		price: Number,

@@ -19,17 +19,9 @@ function handleError (res, err) {
  * @param res
  */
 exports.index = function (req, res) {
-  if(req.query){
-    PackageItem.find({'name' : new RegExp(req.query.q, 'i')},function (err, packageItems) {
-      if (err) { return handleError(res, err); }
-      return res.status(200).json(packageItems);
+    PackageItem.paginate({'name' : new RegExp(req.query.q, 'i')}, { page: 1, limit: 9 }, function(err, result) {
+        return res.status(200).json(result);
     });
-  } else {
-    PackageItem.find(function (err, packageItems) {
-      if (err) { return handleError(res, err); }
-      return res.status(200).json(packageItems);
-    });
-  }
 };
 
 /**
@@ -39,8 +31,6 @@ exports.index = function (req, res) {
  * @param res
  */
 exports.filter = function (req, res) {
- console.log(req.query);
-
   PackageItem.find({"$and": [{'location' : { $eq: req.query.location, $exists: true }}, 
                   {'tag' : { $eq : req.query.tag , $exists: true}},
                   {'people.min' : { $lte : req.query.people , $exists: true}},
