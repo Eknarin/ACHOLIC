@@ -14,7 +14,7 @@
             <img class="img-responsive package_img" ng-src="/api/images/{{images[$index]}}"/>
           </td>
           <td>{{f.name}} {{f.$errorParam}} </td>
-          <td><button type="button" class="btn btn-danger" ng-click=""><a href="/signup/customer" style="color:white">Delete</a></button></td>
+          <td><button type="button" value="Remove" class="btn btn-danger" data-ng-click="removeRow($index)">Delete</button></td>
         </tr>
       </tbody>
     </table>
