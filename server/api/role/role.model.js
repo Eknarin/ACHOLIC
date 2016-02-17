@@ -9,4 +9,4 @@ var RoleSchema = new Schema({
   updated_at: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('Role', RoleSchema);
+module.exports = mongoose.model('Role', RoleSchema ,'Role');

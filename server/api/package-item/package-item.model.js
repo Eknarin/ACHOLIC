@@ -10,14 +10,14 @@ var PackageItemSchema = new Schema({
   price: Number,
   rating: { type: Number, min: 0, max: 10 },
   created_at: { type: Date, default: Date.now },
-  map_id: Schema.Types.ObjectId,
+  map_id: { type: Schema.Types.ObjectId, ref: 'PackageMap' },
   image: { type: Schema.Types.ObjectId, ref: 'Image' },
   user_id: Schema.Types.ObjectId
 });
 
 PackageItemSchema.plugin(mongoosePaginate);
 
-module.exports = mongoose.model('PackageItem', PackageItemSchema);
+module.exports = mongoose.model('PackageItem', PackageItemSchema ,'PackageItem');
 
   // people: {
   //   min: Number,

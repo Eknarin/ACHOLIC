@@ -8,4 +8,4 @@ var ImageSchema = new Schema({
   img: { path: String, contentType: String }
 });
 
-module.exports = mongoose.model('Image', ImageSchema);
+module.exports = mongoose.model('Image', ImageSchema ,'Image');

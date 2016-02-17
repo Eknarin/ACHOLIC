@@ -8,4 +8,4 @@ var PackageGallerySchema = new Schema({
   description: String
 });
 
-module.exports = mongoose.model('PackageGallery', PackageGallerySchema);
+module.exports = mongoose.model('PackageGallery', PackageGallerySchema , 'PackageGallery');

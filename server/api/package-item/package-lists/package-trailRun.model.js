@@ -34,4 +34,4 @@ var TrailRunSchema = new Schema({
 	image_gallery: Schema.Types.ObjectId
 });
 
-module.exports = mongoose.model('PackageTrailRun', TrailRunSchema);
+module.exports = mongoose.model('PackageTrailRun', TrailRunSchema , 'PackageTrailRun');

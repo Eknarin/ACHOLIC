@@ -12,4 +12,4 @@ var TransactionSchema = new Schema({
   updated_at: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('Transaction', TransactionSchema);
+module.exports = mongoose.model('Transaction', TransactionSchema ,'Transaction');

@@ -7,4 +7,4 @@ var PaymentStatusSchema = new Schema({
   status: String
 });
 
-module.exports = mongoose.model('PaymentStatus', PaymentStatusSchema);
+module.exports = mongoose.model('PaymentStatus', PaymentStatusSchema ,'PaymentStatus');

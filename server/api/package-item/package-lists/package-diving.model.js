@@ -33,4 +33,4 @@ var DivingSchema = new Schema({
 	image_gallery: Schema.Types.ObjectId
 });
 
-module.exports = mongoose.model('PackageDiving', DivingSchema);
+module.exports = mongoose.model('PackageDiving', DivingSchema ,'PackageDiving');

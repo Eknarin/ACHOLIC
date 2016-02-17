@@ -10,4 +10,4 @@ var TagSchema = new Schema({
   updated_at: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('Tag', TagSchema);
+module.exports = mongoose.model('Tag', TagSchema ,'Tag');

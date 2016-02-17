@@ -8,4 +8,4 @@ var PackageMapSchema = new Schema({
   map_id: Schema.Types.ObjectId
 });
 
-module.exports = mongoose.model('PackageMap', PackageMapSchema);
+module.exports = mongoose.model('PackageMap', PackageMapSchema , 'PackageMap');

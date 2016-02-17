@@ -40,4 +40,4 @@ var RaftingSchema = new Schema({
 	image_gallery: Schema.Types.ObjectId
 });
 
-module.exports = mongoose.model('PackageRafting', RaftingSchema);
+module.exports = mongoose.model('PackageRafting', RaftingSchema ,'PackageRafting');

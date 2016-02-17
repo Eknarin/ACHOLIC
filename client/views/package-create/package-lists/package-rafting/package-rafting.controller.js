@@ -5,7 +5,7 @@ angular.module('acholic')
     $scope.packages = packageData;
     $scope.images = [];
     $scope.packages.info = {};
-    $scope.packages.type = "Rafting";
+    $scope.packages.type = "PackageRafting";
 
     $scope.onSubmit = function(){
         console.log($scope.packages);

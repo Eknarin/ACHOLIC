@@ -12,13 +12,12 @@ function handleError (res, err) {
   return res.status(500).send(err);
 }
 
-function checkPackage (req) {
-  if(req.body.type == "Diving"){
+function checkPackage (type) {
+  if(type == "Diving"){
     return PackageDiving;
-  }else if(req.body.type == "Rafting"){
-    console.log(req.body.type);
+  }else if(type == "Rafting"){
     return PackageRafting;
-  }else if(req.body.type == "TrailRun"){
+  }else if(type == "TrailRun"){
     return PackageTrailRun;
   }
 }
@@ -72,10 +71,19 @@ exports.recommend = function (req, res) {
  * @param res
  */
 exports.show = function (req, res) {
-  PackageItem.findById(req.params.id, function (err, packageItem) {
+  PackageItem.findById(req.params.id).populate('map_id').exec(function (err, packageItem) {
     if (err) { return handleError(res, err); }
     if (!packageItem) { return res.status(404).end(); }
-    return res.status(200).json(packageItem);
+    var Obj = checkPackage(packageItem.map_id.map_table);
+
+    var options = {
+      path: 'map_id.map_id',
+      model: packageItem.map_id.map_table
+    };
+
+    PackageItem.populate(packageItem ,options, function (err, packageDetail) {
+     return res.status(200).json(packageDetail);
+    });
   });
 };
 
@@ -89,11 +97,10 @@ exports.create = function (req, res) {
   console.log(req.body.info);
   PackageItem.create(req.body, function (err, packageItem) {
     if (err) { return handleError(res, err); }
-    var Obj = checkPackage(req);
+    var Obj = checkPackage(req.body.type);
     Obj.create(req.body.info, function (err, packageDetail){
         var map = new PackageMap;
         map.map_table = req.body.type;
-        // console.log(packageDetail_id);
         map.map_id = packageDetail._id;
         map.save();
         packageItem.map_id = map._id;
