@@ -16,7 +16,6 @@ angular.module('acholic')
 		      	$scope.files = files;
 		        $scope.errFiles = errFiles;
 		        if(files != null){
-			       	console.log($scope.files.length);
 
 			       	if(i < $scope.files.length){ 
 			       		Upload.upload({
@@ -25,7 +24,7 @@ angular.module('acholic')
 				            file: $scope.files[i]
 				        }).then(function(img){
 				        	i++;
-				        	$scope.images.push(img.data);
+					        $scope.images.push(img.data);
 				        	$scope.uploadFiles($scope.files, $scope.errFiles);
 				        });
 			       	}

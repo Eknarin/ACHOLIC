@@ -10,8 +10,9 @@
     <table class="table" style="text-align:center;">
       <tbody>
         <tr ng-repeat="f in files">
-          <!-- <td><img class="package_img" src="../../image/ourTeam-kf.png"></td> -->
-          <td>เทสๆ {{f.image}}</td>
+          <td>
+            <img class="img-responsive package_img" ng-src="/api/images/{{images[$index]}}"/>
+          </td>
           <td>{{f.name}} {{f.$errorParam}} </td>
           <td><button type="button" class="btn btn-danger" ng-click=""><a href="/signup/customer" style="color:white">Delete</a></button></td>
         </tr>
@@ -19,15 +20,3 @@
     </table>
   </div>
 </div>
-
-  <!-- <ul>
-    <li ng-repeat="f in files" style="font:smaller">{{f.name}} {{f.$errorParam}} -->
-      <!-- <span class="progress" ng-show="f.progress >= 0">
-        <div style="width:{{f.progress}}%"  
-            ng-bind="f.progress + '%'"></div>
-      </span> -->
-    <!-- </li> -->
-    <!-- <li ng-repeat="f in errFiles" style="font:smaller">{{f.name}} {{f.$error}} {{f.$errorParam}}
-    </li>  -->
-  <!-- </ul> -->
-  <!-- {{errorMsg}} -->
