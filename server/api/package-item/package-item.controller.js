@@ -86,7 +86,7 @@ exports.show = function (req, res) {
  * @param res
  */
 exports.create = function (req, res) {
-  //console.log(req.body.info);
+  console.log(req.body.info);
   PackageItem.create(req.body, function (err, packageItem) {
     if (err) { return handleError(res, err); }
     var Obj = checkPackage(req);

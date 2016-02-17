@@ -4,28 +4,27 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var DivingSchema = new Schema({
-	location: String,
-	river_line: String,
+	location: {
+		province: String,
+		place: String
+	},
 	info:{
 		type: String,
-		boat_type: String,
-		people: Number,
-		distance: String,
 		price: Number
 	},
-	river_width: Number,
-	river_depth: Number,
+	sight: Number,
+	sea_depth: Number,
 	level: Number,
-	views: String,
-	stages: [String],
-	stage_type: String,
-	end_location: String,
+	season: String,
+	sea: String,
 	age_limit: Number,
 	activites: String,
 	equipments_provide: [String],
 	equipments_require: [String],
 	prepration: String,
 	skills_require: String,
+	schedule: String,
+	note: String,
 	office_time: {
 		open_time: String,
 		close_time: String,

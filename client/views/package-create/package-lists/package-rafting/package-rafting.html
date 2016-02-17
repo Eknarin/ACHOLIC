@@ -83,14 +83,14 @@
 								<span class="caret"></span>
 								<span class="sr-only">Toggle Dropdown</span>
 								</button>
-								<ul class="dropdown-menu scrollable-menu package-create-dropdown-list-style" ng-model="packages.info.province" >
+								<ul class="dropdown-menu scrollable-menu package-create-dropdown-list-style" ng-model="packages.info.location.province" >
 									<li><a href="#">กรุงเทพ</a></li>
 								</ul>
 		        			</div>
 
 		        			<!-- Place -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<input ng-model="packages.info.location"  class="package-create-inputbox-style" type="text" required placeholder="Place">
+		        				<input ng-model="packages.info.location.place"  class="package-create-inputbox-style" type="text" required placeholder="Place">
 		        			</div>
 
 		        			<!-- Description -->
@@ -156,7 +156,7 @@
 
 		        			<!-- Depth -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<input ng-model="packages.info.depth" class="package-create-inputbox-style" type="text" required placeholder="Depth">
+		        				<input ng-model="packages.info.sea_depth" class="package-create-inputbox-style" type="text" required placeholder="Depth">
 		        			</div>
 
 		        			<!-- Sight -->
@@ -166,23 +166,23 @@
 
 		        			<!-- Age Limit -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<input ng-model="packages.info.age" class="package-create-inputbox-style" type="text" required placeholder="Age Limit">
+		        				<input ng-model="packages.info.age_limit" class="package-create-inputbox-style" type="text" required placeholder="Age Limit">
 		        			</div>
 
 		        			<!-- Start Point -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<input ng-model="packages.info.start_point" class="package-create-inputbox-style" type="text" required placeholder="Start Point">
+		        				<input ng-model="packages.info.start_location" class="package-create-inputbox-style" type="text" required placeholder="Start Point">
 						
 		        			</div>
 
 		        			<!-- End Point -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<input ng-model="packages.info.end_point" class="package-create-inputbox-style" type="text" required placeholder="End Point">
+		        				<input ng-model="packages.info.end_location" class="package-create-inputbox-style" type="text" required placeholder="End Point">
 		        			</div>
 
 		        			<!-- Number of Stage -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<input ng-model="packages.info.stage" class="package-create-inputbox-style" type="text" required placeholder="Number of Stage">
+		        				<input ng-model="packages.info.stages" class="package-create-inputbox-style" type="text" required placeholder="Number of Stage">
 		        			</div>
 
 		        			<!-- Stage Type -->
@@ -192,7 +192,7 @@
 
 		        			<!-- View along 2 sides -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<input ng-model="packages.info.view" class="package-create-inputbox-style" type="text" required placeholder="View">
+		        				<input ng-model="packages.info.views" class="package-create-inputbox-style" type="text" required placeholder="View">
 		        			</div>
 
 		        			<!-- Season -->
@@ -217,7 +217,7 @@
 
 		        			<!-- Required Skills -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<textarea ng-model="packages.info.skill" class="package-create-inputbox-style form-control" rows="5" required placeholder="Required Skills"></textarea>
+		        				<textarea ng-model="packages.info.skills_require" class="package-create-inputbox-style form-control" rows="5" required placeholder="Required Skills"></textarea>
 		        			</div>
 
 		        			<!-- Include Activities -->
