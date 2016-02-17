@@ -53,7 +53,7 @@
                               <li><a href="#">My Cart</a></li>
                               <li><a href="#">My Receipts</a></li>
                               <li ng-if="Auth.isLogged()">
-                                <a href="" ng-click="Auth.logout()">Sign out</a>
+                                <a data-toggle="modal" data-target="#signout-modal" >Sign out</a>
                               </li>
                            <!--  <li role="separator" class="divider"></li>
                             <li class="dropdown-header">Nav header</li>
@@ -129,5 +129,28 @@
         </div>
       </div> 
 
+      <!-- Signout Modal -->
+       <div class="modal fade" ng-controller="OutController" id="signout-modal" role="dialog">
+        <div class="modal-dialog modal-vertical-centered">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <form ng-submit="logout()">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h2 class="modal-title">MostMark...</h2>
+              </div>
+              <div class="modal-body">
+                <pre ng-if="vg.error">{{ vm.error | json }}</pre>  
+                <h4>Are you sure you want to logout ?</h4>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary"> OK </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </form>
+          </div>   
+        </div>
+      </div> 
+      
   </body>
   </html>

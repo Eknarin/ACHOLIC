@@ -1,10 +1,16 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('PackageRaftingCtrl',['$scope','packageData',function ($scope ,packageData) {
+  .controller('PackageRaftingCtrl',['$scope','packageData','PackageItem','$location',function ($scope ,packageData, PackageItem ,$location) {
     $scope.packages = packageData;
     $scope.packages.info = [];
-    console.log($scope.packages);
+
+    $scope.onSubmit = function(){
+        $scope.packages.$save().then(function(){
+             $location.path("/package");
+        });
+    };
+
  	var navListItems = $('ul.setup-panel li a'),
     allWells = $('.setup-content');
 
