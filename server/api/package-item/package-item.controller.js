@@ -12,6 +12,16 @@ function handleError (res, err) {
   return res.status(500).send(err);
 }
 
+function checkPackage (req) {
+  if(req.body.type == "Diving"){
+    return PackageDiving;
+  }else if(req.body.type == "Rafting"){
+    console.log(req.body.type);
+    return PackageRafting;
+  }else if(req.body.type == "TrailRun"){
+    return PackageTrailRun;
+  }
+}
 /**
  * Get list of PackageItem
  *
@@ -76,11 +86,22 @@ exports.show = function (req, res) {
  * @param res
  */
 exports.create = function (req, res) {
-  console.log(req.body);
+  //console.log(req.body.info);
   PackageItem.create(req.body, function (err, packageItem) {
     if (err) { return handleError(res, err); }
+    var Obj = checkPackage(req);
+    Obj.create(req.body.info, function (err, packageDetail){
+        var map = new PackageMap;
+        map.map_table = req.body.type;
+        // console.log(packageDetail_id);
+        map.map_id = packageDetail._id;
+        map.save();
+        packageItem.map_id = map._id;
+        packageItem.save();
+    })
     return res.status(201).json(packageItem);
   });
+
 };
 
 /**

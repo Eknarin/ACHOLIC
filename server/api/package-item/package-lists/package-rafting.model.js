@@ -4,7 +4,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var RaftingSchema = new Schema({
-	location: String,
+	location: {
+		province: String,
+		place: String
+	},
 	info:{
 		type: String,
 		price: Number

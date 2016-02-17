@@ -7,6 +7,7 @@ var Schema = mongoose.Schema;
 var PackageItemSchema = new Schema({
   name: { type: String, required: true, unique: true },
   description: String,
+  price: Number,
   rating: { type: Number, min: 0, max: 10 },
   created_at: { type: Date, default: Date.now },
   map_id: Schema.Types.ObjectId,

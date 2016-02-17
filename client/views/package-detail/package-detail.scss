@@ -1,53 +1,94 @@
 /**
  * package-detail.scss
  */
-
- .package-detail-topic-style{
- 	font-size:12px;
- 	color:white;
- 	text-align: right;
- 	padding-bottom:15px;
- }
-
- .package-detail-detail-style{
- 	font-size:12px; 
- 	color:white;
- 	padding-left:7%;
- 	padding-bottom:15px;
- }
-
- .package-detail-picture{
-	margin-top: 30px;
-	margin-bottom: 30px;
+.package-detail-picture{
 	width: 100%; 
-	min-height: 200px;
-	max-height: 400px;
-	position: relative;
+	min-height: 400px;
+	max-height: 550px;
     left: 50%;
     transform: translate(-50%,0)
- }
-
-.package-detail-header{
-	font-size:40px; 
-	color:white;
+}
+.package-header-box{
+	background-color: rgba(0,0,0,0.85);
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	// text-align: center;
+}
+.package-name-style{
+	font-size: 22px;
+	color: white;
+}
+.package-location-style{
+	font-size: 14px;
+	color: white;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.package-price-style{
+	font-size: 20px;
+	color: white;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.package-rating-style{
+	text-align: right;
+	// padding-right: 0px;
+}
+.package-group-tag-style{
+	text-align: center;
+}
+.package-button-style{
+	width:200px; 
+	margin-top:15px; 
+	margin-bottom:15px;
 }
 
-.package-detail-header-overflow{
-   overflow: hidden;
-   color:white;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-box-orient: vertical;
-   -webkit-line-clamp: 1; /* number of lines to show */
-   line-height: 1.6;        /* fallback */
-   max-height: 1.6;       /* fallback */
-}
+
+
+
+//  .package-detail-topic-style{
+//  	font-size:12px;
+//  	color:white;
+//  	text-align: right;
+//  	padding-bottom:15px;
+//  }
+
+//  .package-detail-detail-style{
+//  	font-size:12px; 
+//  	color:white;
+//  	padding-left:7%;
+//  	padding-bottom:15px;
+//  }
+
+// .package-detail-header{
+// 	font-size:40px; 
+// 	color:white;
+// }
+
+// .package-detail-header-overflow{
+//    overflow: hidden;
+//    color:white;
+//    text-overflow: ellipsis;
+//    display: -webkit-box;
+//    -webkit-box-orient: vertical;
+//    -webkit-line-clamp: 1; /* number of lines to show */
+//    line-height: 1.6;        /* fallback */
+//    max-height: 1.6;       /* fallback */
+// }
 
 @media(min-width:767px){
-	.package-detail-topic-style{
- 		font-size:15px;
- 	}
-	.package-detail-detail-style{
- 		font-size:15px; 
- 	}
+	.package-name-style{
+		font-size: 24px;
+	}
+	.package-group-tag-style{
+		text-align: center;
+	}
+	// .package-detail-topic-style{
+ // 		font-size:15px;
+ // 	}
+	// .package-detail-detail-style{
+ // 		font-size:15px; 
+ // 	}
 }
