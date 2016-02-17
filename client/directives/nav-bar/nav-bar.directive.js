@@ -17,6 +17,18 @@ var myNav = angular.module('acholic');
         $scope.hideModal = function(){
           $('#signup-modal').modal('hide');
         };
+
+        $scope.logout = function(){
+          console.log("I'm logging out");
+          $('#signout-modal').modal('hide');
+          // Auth.logout()
+          // .then(function () {
+          //     $('#signout-modal').modal('hide');
+          //   })
+          //   .catch(function (err) {
+          //     vm.error = err;
+          //   });
+        };
     
       }],      
     };
@@ -37,5 +49,13 @@ var myNav = angular.module('acholic');
               $scope.showAlert = true;
               vm.error = err;
             });
+        };
+  }]);
+  myNav.controller('OutController', ['$scope','Auth',function ($scope, Auth) {
+    var vg = this;
+
+     $scope.logout = function () {
+          Auth.logout();
+          $('#signout-modal').modal('hide');
         };
   }]);
