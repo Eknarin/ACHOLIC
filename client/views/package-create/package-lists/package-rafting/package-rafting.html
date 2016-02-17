@@ -68,12 +68,12 @@
 
 		        			<!-- Package Name -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<input class="package-create-inputbox-style" type="text" required placeholder="Package Name">
+		        				<input ng-model="packages.name" class="package-create-inputbox-style" type="text" required placeholder="Package Name">
 		        			</div>		        			
 
 		        			<!-- Package Price -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<input class="package-create-inputbox-style" type="text" required placeholder="Package Price">
+		        				<input ng-model="packages.info.price" class="package-create-inputbox-style" type="text" required placeholder="Package Price">
 		        			</div>
 
 		        			<!-- Province -->
@@ -83,19 +83,19 @@
 								<span class="caret"></span>
 								<span class="sr-only">Toggle Dropdown</span>
 								</button>
-								<ul class="dropdown-menu scrollable-menu package-create-dropdown-list-style">
+								<ul class="dropdown-menu scrollable-menu package-create-dropdown-list-style" ng-model="packages.info.province" >
 									<li><a href="#">กรุงเทพ</a></li>
 								</ul>
 		        			</div>
 
 		        			<!-- Place -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<input class="package-create-inputbox-style" type="text" required placeholder="Place">
+		        				<input ng-model="packages.info.location"  class="package-create-inputbox-style" type="text" required placeholder="Place">
 		        			</div>
 
 		        			<!-- Description -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<textarea class="package-create-inputbox-style form-control" rows="5" required placeholder="Description"></textarea>
+		        				<textarea ng-model="packages.description" class="package-create-inputbox-style form-control" rows="5" required placeholder="Description"></textarea>
 		        			</div>
 
 		        		</div>
@@ -124,7 +124,7 @@
 								<span class="caret"></span>
 								<span class="sr-only">Toggle Dropdown</span>
 								</button>
-								<ul class="dropdown-menu scrollable-menu package-create-dropdown-list-style">
+								<ul ng-model="packages.info.level" class="dropdown-menu scrollable-menu package-create-dropdown-list-style">
 									<li ng-click=""><a href="#">Level 1</a></li>
 									<li><a href="#">Level 2</a></li>
 									<li><a href="#">Level 3</a></li>
@@ -136,93 +136,93 @@
 
 		        			<!-- Duration Time -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<input class="package-create-inputbox-style" type="text" required placeholder="Duration Time">
+		        				<input ng-model="packages.info.time" class="package-create-inputbox-style" type="text" required placeholder="Duration Time">
 		        			</div>
 
 		        			<!-- Amount of People -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<input class="package-create-inputbox-style" type="text" required placeholder="Number of people">
+		        				<input ng-model="packages.info.people" class="package-create-inputbox-style" type="text" required placeholder="Number of people">
 		        			</div>
 
 		        			<!-- Distance -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<input class="package-create-inputbox-style" type="text" required placeholder="Distance">
+		        				<input ng-model="packages.info.distance" class="package-create-inputbox-style" type="text" required placeholder="Distance">
 		        			</div>
 
 		        			<!-- Width -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<input class="package-create-inputbox-style" type="text" required placeholder="Width">
+		        				<input ng-model="packages.info.width" class="package-create-inputbox-style" type="text" required placeholder="Width">
 		        			</div>
 
 		        			<!-- Depth -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<input class="package-create-inputbox-style" type="text" required placeholder="Depth">
+		        				<input ng-model="packages.info.depth" class="package-create-inputbox-style" type="text" required placeholder="Depth">
 		        			</div>
 
 		        			<!-- Sight -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<input class="package-create-inputbox-style" type="text" required placeholder="Sight">
+		        				<input ng-model="packages.info.sight" class="package-create-inputbox-style" type="text" required placeholder="Sight">
 		        			</div>
 
 		        			<!-- Age Limit -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<input class="package-create-inputbox-style" type="text" required placeholder="Age Limit">
+		        				<input ng-model="packages.info.age" class="package-create-inputbox-style" type="text" required placeholder="Age Limit">
 		        			</div>
 
 		        			<!-- Start Point -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<input class="package-create-inputbox-style" type="text" required placeholder="Start Point">
+		        				<input ng-model="packages.info.start_point" class="package-create-inputbox-style" type="text" required placeholder="Start Point">
 						
 		        			</div>
 
 		        			<!-- End Point -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<input class="package-create-inputbox-style" type="text" required placeholder="End Point">
+		        				<input ng-model="packages.info.end_point" class="package-create-inputbox-style" type="text" required placeholder="End Point">
 		        			</div>
 
 		        			<!-- Number of Stage -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<input class="package-create-inputbox-style" type="text" required placeholder="Number of Stage">
+		        				<input ng-model="packages.info.stage" class="package-create-inputbox-style" type="text" required placeholder="Number of Stage">
 		        			</div>
 
 		        			<!-- Stage Type -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<input class="package-create-inputbox-style" type="text" required placeholder="Stage Type">
+		        				<input ng-model="packages.info.stage_type" class="package-create-inputbox-style" type="text" required placeholder="Stage Type">
 		        			</div>
 
 		        			<!-- View along 2 sides -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<input class="package-create-inputbox-style" type="text" required placeholder="View">
+		        				<input ng-model="packages.info.view" class="package-create-inputbox-style" type="text" required placeholder="View">
 		        			</div>
 
 		        			<!-- Season -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<input class="package-create-inputbox-style" type="text" required placeholder="Season">
+		        				<input ng-model="packages.info.season" class="package-create-inputbox-style" type="text" required placeholder="Season">
 		        			</div>
 
 		        			<!-- Boat Type -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<input class="package-create-inputbox-style" type="text" required placeholder="Boat Type">
+		        				<input ng-model="packages.info.boat" class="package-create-inputbox-style" type="text" required placeholder="Boat Type">
 		        			</div>
 
 		        			<!-- Provided Things -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<textarea class="package-create-inputbox-style form-control" rows="5" required placeholder="Provided Things"></textarea>
+		        				<textarea ng-model="packages.info.equipments_provide" class="package-create-inputbox-style form-control" rows="5" required placeholder="Provided Things"></textarea>
 		        			</div>
 
 		        			<!-- Unprovided Things -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<textarea class="package-create-inputbox-style form-control" rows="5" required placeholder="Unprovided Things"></textarea>
+		        				<textarea ng-model="packages.info.equipments_require" class="package-create-inputbox-style form-control" rows="5" required placeholder="Unprovided Things"></textarea>
 		        			</div>
 
 		        			<!-- Required Skills -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<textarea class="package-create-inputbox-style form-control" rows="5" required placeholder="Required Skills"></textarea>
+		        				<textarea ng-model="packages.info.skill" class="package-create-inputbox-style form-control" rows="5" required placeholder="Required Skills"></textarea>
 		        			</div>
 
 		        			<!-- Include Activities -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<textarea class="package-create-inputbox-style form-control" rows="5" required placeholder="Include Activities"></textarea>
+		        				<textarea ng-model="packages.info.activities" class="package-create-inputbox-style form-control" rows="5" required placeholder="Include Activities"></textarea>
 		        			</div>
 
 		        			<!-- Amount Available -->
@@ -232,12 +232,12 @@
 
 		        			<!-- Package Schedule -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<textarea class="package-create-inputbox-style form-control" rows="5" required placeholder="Package Schedule"></textarea>
+		        				<textarea ng-model="packages.info.schedule" class="package-create-inputbox-style form-control" rows="5" required placeholder="Package Schedule"></textarea>
 		        			</div>
 
 		        			<!-- Note -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
-		        				<textarea class="package-create-inputbox-style form-control" rows="5" required placeholder="Note"></textarea>
+		        				<textarea ng-model="packages.info.note" class="package-create-inputbox-style form-control" rows="5" required placeholder="Note"></textarea>
 		        			</div>
 		        		</div>		        		
 		        	</div>
@@ -332,13 +332,13 @@
 				  				<p style="font-size:20px; color:white; margin-top:15px; margin-bottom:15px;">ADD IMAGE</p>
 				      		</div>
 			   				<div class="col-xs-12 col-sm-12 col-md-12 upload-image-style center-picture">
-								<upload-image image="packageItem.image"></upload-image>
+								<upload-image image="packages.image"></upload-image>
 							</div>
 						</center>
 		            </div>
 		            <div style="text-align: center;">
 		            	<button type="button" class="btn btn-danger">Back</button>
-						<button type="button" class="btn btn-success">Create</button>
+						<button type="button" class="btn btn-success" ng-click="onSubmit()">Create</button>
 		            </div>		            
 		        </div>
 		    </div>
