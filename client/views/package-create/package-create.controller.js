@@ -7,10 +7,10 @@ angular.module('acholic')
   	$scope.images = [];
   
   	$scope.onSubmit = function(){
-  		//console.log($scope.packageItem);
-  		$scope.packageItem.$save().then(function(){
-  			 $location.path("/package");
-  		});
+  		console.log($scope.packageItem);
+  		// $scope.packageItem.$save().then(function(){
+  		// 	 $location.path("/package");
+  		// });
   	};
 
      $scope.tabs = ["active", "", "", ""];

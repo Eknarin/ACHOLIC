@@ -3,11 +3,13 @@
 angular.module('acholic')
   .controller('PackageRaftingCtrl',['$scope','packageData','PackageItem','$location',function ($scope ,packageData, PackageItem ,$location) {
     $scope.packages = packageData;
-    $scope.packages.info = [];
+    $scope.packages.info = {};
+    $scope.packages.type = "Rafting";
 
     $scope.onSubmit = function(){
+        console.log($scope.packages);
         $scope.packages.$save().then(function(){
-             $location.path("/package");
+             //$location.path("/package");
         });
     };
 
