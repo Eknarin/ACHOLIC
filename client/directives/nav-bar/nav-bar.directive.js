@@ -13,6 +13,10 @@ var myNav = angular.module('acholic');
           $scope.search = '';
       		$location.path("/package").search({q: temp});
       	};
+
+        $scope.hideModal = function(){
+          $('#signup-modal').modal('hide');
+        };
     
       }],      
     };
