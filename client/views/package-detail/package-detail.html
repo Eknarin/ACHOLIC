@@ -1,5 +1,3 @@
-<!-- </br></br></br><upload-image></upload-image>
-<img src="/api/images/56a0af5740e954941845e476"></img> -->
 <html>
 	<head>
 		<title>ACHOLIC</title>
@@ -7,8 +5,26 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 	<body>
+
+		<!-- Package Image -->
+		<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:0px; padding-right:0px;">
+			<img class="center-picture package-detail-picture" src=api/images/{{packageItem.image}}></img>
+		</div>
+
+		<!-- Package Header -->
+		<div class="col-xs-12 col-sm-12 col-md-12 package-header-box">
+			<div class="col-md-7">
+				<!-- Package Name -->
+				<div class="col-xs-12 col-sm-12 col-md-12 package-detail-header-overflow" style="background-color:yellow"> 
+					<p class="package-name-style">{{packageItem.name}}</p>
+				</div>
+			</div>
+			
+
+		</div>
+
 		<!-- Package Details -->
-		<div class="center-picture" style="background-image:url('../../image/packageDetail-background.png'); margin-top:50px;">
+		<!-- <div class="center-picture" style="background-image:url('../../image/packageDetail-background.png');"> -->
 			
 			<div class="container-fluid col-xs-12 col-sm-12 col-md-12" style="background-color:rgba(0,0,0,0.55); padding-top:15px; padding-bottom:15px; padding-left:5%; padding-right:5%;">
 				<!-- Package Name -->
