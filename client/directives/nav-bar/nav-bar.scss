@@ -1,7 +1,7 @@
 .modal-vertical-centered {
-  transform: translate(0, 30%) !important;
-  -ms-transform: translate(0, 30%) !important; /* IE 9 */
-  -webkit-transform: translate(0, 30%) !important; /* Safari and Chrome */
+  transform: translate(0, 40%) !important;
+  -ms-transform: translate(0, 40%) !important; /* IE 9 */
+  -webkit-transform: translate(0, 40%) !important; /* Safari and Chrome */
 }
 
 .modal-content{
@@ -21,4 +21,24 @@
 	padding-top: 25px;
 	color: red;
 	font-size: 18px;
+}
+
+.ads{
+	text-align:center;
+	font-size:25px;
+	font-style:bold;
+	margin-bottom:15px;
+}
+
+.vendor{
+	text-align:center;
+}
+
+.cus_icon{
+	width:120px;
+	height:110px;
+}
+
+.cus_butt{
+	margin-top:20px;
 }
