@@ -9,10 +9,11 @@
     transform: translate(-50%,0)
 }
 .package-header-box{
-	background-color: red;
+	background-color: rgba(0,0,0,0.85);
 	padding-left: 5%;
 	padding-right: 5%;
 	padding-top: 15px;
+	padding-bottom: 15px;
 	// text-align: center;
 }
 .package-name-style{
@@ -22,8 +23,27 @@
 .package-location-style{
 	font-size: 14px;
 	color: white;
+	padding-left: 0px;
+	padding-right: 0px;
 }
-
+.package-price-style{
+	font-size: 20px;
+	color: white;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.package-rating-style{
+	text-align: right;
+	// padding-right: 0px;
+}
+.package-group-tag-style{
+	text-align: center;
+}
+.package-button-style{
+	width:200px; 
+	margin-top:15px; 
+	margin-bottom:15px;
+}
 
 
 
@@ -61,6 +81,9 @@
 @media(min-width:767px){
 	.package-name-style{
 		font-size: 24px;
+	}
+	.package-group-tag-style{
+		text-align: center;
 	}
 	// .package-detail-topic-style{
  // 		font-size:15px;

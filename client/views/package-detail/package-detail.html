@@ -13,13 +13,62 @@
 
 		<!-- Package Header -->
 		<div class="col-xs-12 col-sm-12 col-md-12 package-header-box">
-			<div class="col-md-7">
-				<!-- Package Name -->
-				<div class="col-xs-12 col-sm-12 col-md-12 package-detail-header-overflow" style="background-color:yellow"> 
-					<p class="package-name-style">{{packageItem.name}}</p>
+			<div class="container">
+				<div class="col-xs-12 col-sm-7 col-md-7">
+					<!-- Package Name -->
+					<div class="col-xs-12 col-sm-12 col-md-12 package-detail-header-overflow"> 
+						<p class="package-name-style">{{packageItem.name}}</p>
+					</div>
+					
+					<div class="col-xs-12 col-sm-12 col-md-12" style="padding-right:0px;">
+						<!-- Price -->
+						<div class="col-xs-5 col-sm-5 col-md-5 package-price-style">
+							{{packageItem.price}} ฿
+						</div>
+						<!-- Rating -->
+						<div class="col-xs-7 col-sm-7 col-md-7 package-rating-style">
+							<div class="col-xs-12 col-sm-12 col-md-12" style="" ng-app="" ng-init="nstar = 0" >
+								<img style="width:15px;height:15px;margin-left: 3px;" ng-repeat="i in getStar(packageItem.rating) track by $index" src="../image/star_rated.png">
+								<img style="width:15px;height:15px;margin-left: 3px;" ng-if="((packageItem.rating)/2)%1 >= 0.5" src="../image/star_rated_half.png">
+								<img style="width:15px;height:15px;margin-left: 3px;" ng-repeat="i in getWhite(packageItem.rating) track by $index" src="../image/star_unrated.png">
+							</div>
+						</div>
+					</div>
+
+					<!-- Location -->
+					<div class="col-xs-12 col-sm-12 col-md-12 package-location-style">
+						<div class="col-xs-12 col-sm-7 col-md-7">
+							Location : {{packageItem.location}}
+						</div>
+						<div class="col-xs-12 col-sm-5 col-md-5 package-group-tag-style">
+							<!-- Tag -->
+							<div class="col-xs-4 col-ms-4 col-md-4" style="padding-left:0px; padding-right:0px;">
+								<img style="width:40px; height:40px;" src="../image/rafting.png">
+							</div>
+							<!-- Number of People -->
+							<div class="col-xs-4 col-ms-4 col-md-4" style="padding-left:0px; padding-right:0px;">
+								3
+								<img style="width:20px; height:40px;" src="../image/people.png">
+							</div>
+							<!-- Age Limit -->
+							<div class="col-xs-4 col-ms-4 col-md-4" style="padding-left:0px; padding-right:0px;">
+								18+
+								<img style="width:40px; height:40px;" src="../image/age.png">
+							</div>
+						</div>
+					</div>	
+				</div>
+				<!-- "Bookmark" and "Add to Cart" button -->
+				<div class="col-xs-12 col-sm-5 col-md-5" style="text-align:center;">
+					<div class="col-xs-12 col-sm-12 col-md-12">
+						<button type="button" class="btn package-button-style" style="background-color:#fb5858; color:white;">BookMark</button>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-12">
+						<button type="button" class="btn package-button-style" style="background-color:#5cb85c; color:white;">Add to Cart</button>
+					</div>
 				</div>
 			</div>
-			
+
 
 		</div>
 
@@ -28,17 +77,17 @@
 			
 			<div class="container-fluid col-xs-12 col-sm-12 col-md-12" style="background-color:rgba(0,0,0,0.55); padding-top:15px; padding-bottom:15px; padding-left:5%; padding-right:5%;">
 				<!-- Package Name -->
-				<div class="col-xs-12 col-sm-8 col-md-9 package-detail-header-overflow" style="text-align:left;">
+				<!-- <div class="col-xs-12 col-sm-8 col-md-9 package-detail-header-overflow" style="text-align:left;">
 					<p class="package-detail-header">{{packageItem.name}}</p>
-				</div>
+				</div> -->
 				<!-- Package Rating -->
-				<div class="col-xs-12 col-sm-4 col-md-3" style="text-align:center; line-height:4.5;">
+				<!-- <div class="col-xs-12 col-sm-4 col-md-3" style="text-align:center; line-height:4.5;">
 					<div class="col-xs-12 col-sm-12 col-md-12" style="" ng-app="" ng-init="nstar = 0" >
 						<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getStar(packageItem.rating) track by $index" src="../image/star_rated.png">
 						<img style="width:20px;height:20px;margin-left: 3px;" ng-if="((packageItem.rating)/2)%1 >= 0.5" src="../image/star_rated_half.png">
 						<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getWhite(packageItem.rating) track by $index" src="../image/star_unrated.png">
 					</div>
-				</div>
+				</div> -->
 			</div>
 
 
