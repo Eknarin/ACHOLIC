@@ -8,7 +8,7 @@ angular.module('acholic')
         controller: 'PackageDetailCtrl',
         resolve:{
         	itemData:['PackageItem','$route', function(PackageItem , $route){
-        		return PackageItem.query({id : $route.current.params.id});
+        		return PackageItem.query({id : $route.current.params.id}).$promise;
         	}]
         }
       })
