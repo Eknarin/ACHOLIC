@@ -4,6 +4,7 @@ angular.module('acholic')
   .controller('PackageRaftingCtrl',['$scope','packageData','PackageItem','$location',function ($scope ,packageData, PackageItem ,$location) {
     $scope.packages = packageData;
     $scope.packages.info = [];
+    $scope.images = [];
 
     $scope.onSubmit = function(){
         $scope.packages.$save().then(function(){

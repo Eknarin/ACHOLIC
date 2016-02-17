@@ -1,19 +1,33 @@
 <div>
 <h4>Upload on file select</h4>
-  <button ngf-select="uploadFiles($files, $invalidFiles)" multiple
+  <button class="btn btn-warning" ngf-select="uploadFiles($files, $invalidFiles)" multiple
           accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
       Select Files</button>
   <br><br>
-  Files:
-  <ul>
-    <li ng-repeat="f in files" style="font:smaller">{{f.name}} {{f.$errorParam}}
-      <span class="progress" ng-show="f.progress >= 0">
+  <h3>Files:</h3>
+
+  <div class="table_container">
+    <table class="table" style="text-align:center;">
+      <tbody>
+        <tr ng-repeat="f in files">
+          <!-- <td><img class="package_img" src="../../image/ourTeam-kf.png"></td> -->
+          <td>เทสๆ {{f.image}}</td>
+          <td>{{f.name}} {{f.$errorParam}} </td>
+          <td><button type="button" class="btn btn-danger" ng-click=""><a href="/signup/customer" style="color:white">Delete</a></button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+  <!-- <ul>
+    <li ng-repeat="f in files" style="font:smaller">{{f.name}} {{f.$errorParam}} -->
+      <!-- <span class="progress" ng-show="f.progress >= 0">
         <div style="width:{{f.progress}}%"  
             ng-bind="f.progress + '%'"></div>
-      </span>
-    </li>
-    <li ng-repeat="f in errFiles" style="font:smaller">{{f.name}} {{f.$error}} {{f.$errorParam}}
-    </li> 
-  </ul>
-  {{errorMsg}}
-</div>
+      </span> -->
+    <!-- </li> -->
+    <!-- <li ng-repeat="f in errFiles" style="font:smaller">{{f.name}} {{f.$error}} {{f.$errorParam}}
+    </li>  -->
+  <!-- </ul> -->
+  <!-- {{errorMsg}} -->
