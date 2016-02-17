@@ -10,7 +10,7 @@ angular.module('acholic')
     $scope.onSubmit = function(){
         console.log($scope.packages);
         $scope.packages.$save().then(function(){
-             //$location.path("/package");
+             $location.path("/package");
         });
     };
 
