@@ -32,9 +32,9 @@ angular.module('acholic')
 		 };
 
 		 $scope.removeRow = function(idx){
-		 	console.log("delete row "+idx);
 		 	$scope.images.splice(idx, 1);
 		 	$scope.files.splice(idx, 1);
+		 	i--;
 		 	// delete choosen image from db;
 		 };
 
