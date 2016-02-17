@@ -17,18 +17,6 @@ var myNav = angular.module('acholic');
         $scope.hideModal = function(){
           $('#signup-modal').modal('hide');
         };
-
-        $scope.logout = function(){
-          console.log("I'm logging out");
-          $('#signout-modal').modal('hide');
-          // Auth.logout()
-          // .then(function () {
-          //     $('#signout-modal').modal('hide');
-          //   })
-          //   .catch(function (err) {
-          //     vm.error = err;
-          //   });
-        };
     
       }],      
     };
