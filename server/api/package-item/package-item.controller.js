@@ -13,11 +13,11 @@ function handleError (res, err) {
 }
 
 function checkPackage (type) {
-  if(type == "Diving"){
+  if(type == "PackageDiving"){
     return PackageDiving;
-  }else if(type == "Rafting"){
+  }else if(type == "PackageRafting"){
     return PackageRafting;
-  }else if(type == "TrailRun"){
+  }else if(type == "PackageTrailRun"){
     return PackageTrailRun;
   }
 }
@@ -105,7 +105,7 @@ exports.create = function (req, res) {
         map.save();
         packageItem.map_id = map._id;
         packageItem.save();
-    })
+    });
     return res.status(201).json(packageItem);
   });
 
