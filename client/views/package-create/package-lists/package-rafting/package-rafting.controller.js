@@ -3,6 +3,7 @@
 angular.module('acholic')
   .controller('PackageRaftingCtrl',['$scope','packageData','PackageItem','$location',function ($scope ,packageData, PackageItem ,$location) {
     $scope.packages = packageData;
+    $scope.images = [];
     $scope.packages.info = {};
     $scope.packages.type = "Rafting";
 
