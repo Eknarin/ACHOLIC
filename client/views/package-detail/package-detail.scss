@@ -44,6 +44,33 @@
 	margin-top:15px; 
 	margin-bottom:15px;
 }
+.package-detail-box{
+	background-color: rgba(0,0,0,0.65);
+	padding-top: 15px;
+	padding-bottom: 15px;
+	color: white;
+}
+.package-detail-title-style{
+	font-size: 18px;
+	text-align:center;
+	// padding-left: 15%;
+}
+.package-detail-topic-group-style{
+	font-size: 16px;
+	color:#A9A9A9;
+}
+.package-detail-detail-style{
+	font-size: 14px;
+	color: white;
+}
+.package-detail-moredetail-box-style{
+	padding-left: 0px;
+	font-size: 14px;
+}
+.package-detail-moredetail-topic-style{
+	color:#fb5858;
+}
+
 
 
 
@@ -84,6 +111,9 @@
 	}
 	.package-group-tag-style{
 		text-align: center;
+	}
+	.package-detail-title-style{
+	text-align:left;
 	}
 	// .package-detail-topic-style{
  // 		font-size:15px;

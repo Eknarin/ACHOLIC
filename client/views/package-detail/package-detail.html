@@ -68,138 +68,120 @@
 					</div>
 				</div>
 			</div>
-
-
 		</div>
 
 		<!-- Package Details -->
-		<!-- <div class="center-picture" style="background-image:url('../../image/packageDetail-background.png');"> -->
-			
-			<div class="container-fluid col-xs-12 col-sm-12 col-md-12" style="background-color:rgba(0,0,0,0.55); padding-top:15px; padding-bottom:15px; padding-left:5%; padding-right:5%;">
-				<!-- Package Name -->
-				<!-- <div class="col-xs-12 col-sm-8 col-md-9 package-detail-header-overflow" style="text-align:left;">
-					<p class="package-detail-header">{{packageItem.name}}</p>
-				</div> -->
-				<!-- Package Rating -->
-				<!-- <div class="col-xs-12 col-sm-4 col-md-3" style="text-align:center; line-height:4.5;">
-					<div class="col-xs-12 col-sm-12 col-md-12" style="" ng-app="" ng-init="nstar = 0" >
-						<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getStar(packageItem.rating) track by $index" src="../image/star_rated.png">
-						<img style="width:20px;height:20px;margin-left: 3px;" ng-if="((packageItem.rating)/2)%1 >= 0.5" src="../image/star_rated_half.png">
-						<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getWhite(packageItem.rating) track by $index" src="../image/star_unrated.png">
-					</div>
-				</div> -->
-			</div>
-
-
-			<div class="container">				
-					<div class="col-xs-12 col-sm-7 col-md-7">
-						<!-- Package Image -->
-						<div class="col-xs-12 col-sm-12 col-md-12">
-							<img class="center-picture package-detail-picture" src=api/images/{{packageItem.image}}></img>
-						</div>
-						<!-- Bookmark and Add to Cart button -->
-						<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center; padding-bottom:15px;">
-							<div class="col-xs-6 col-sm-6 col-md-6">
-								<button type="button" class="btn btn-primary" style="background-color:red">Bookmarks</button>
-							</div>
-							<div class="col-xs-6 col-sm-6 col-md-6">
-								<button type="button" class="btn btn-primary">Add to Cart</button>
-							</div>
-						</div>
+		<div class="container" style="margin-bottom:30px;">
+			<div class="col-xs-12 col-sm-12 col-md-12 package-detail-box">
+				<div class="col-xs-12 col-sm-1 col-md-1">
+				</div>
+				<div class="col-xs-12 col-sm-10 col-md-10">
+					<div class="col-xs-12 col-sm-12 col-md-12">
+						<p class="package-detail-title-style">About Package</p>
 					</div>
 
-					<!-- Detail -->
-					<div class="col-xs-12 col-sm-5 col-md-5" style="margin-top:30px; background-color:rgba(0,0,0,0.65); margin-bottom:30px; ">
-						<HR WIDTH="100%" NOSHADE>
-						<!-- Package Tag -->
-						<div class="col-xs-12 col-sm-12 col-md-12">
-							<div class="col-xs-4 col-sm-4 col-md-4 package-detail-topic-style">
-								About : 
-							</div>
-							<div class="col-xs-8 col-sm-8 col-md-8 package-detail-detail-style">
-								<div>
-									{{packageItem.tag}}
-								</div>								
-							</div>
+					<!-- Package Description -->
+					<div class="col-xs-12 col-sm-12 col-md-12">
+						<p class="package-detail-detail-style">{{packageItem.description}} </p>
+					</div>
+					<HR WIDTH="95%" NOSHADE>
+
+					<!-- Level, Distance, Width, Depth -->
+					<div class="col-xs-12 col-sm-12 col-md-12">
+						<div class="col-xs-12 col-sm-2 col-md-2" style="padding-left:0px;">
+							<p class="package-detail-topic-group-style">River</p>
 						</div>
-						<HR WIDTH="100%" NOSHADE>
-						<!-- Package Price -->
-						<div class="col-xs-12 col-sm-12 col-md-12">
-							<div class="col-xs-4 col-sm-4 col-md-4 package-detail-topic-style">
-								Price : 
-							</div>
-							<div class="col-xs-8 col-sm-8 col-md-8 package-detail-detail-style">
-								{{packageItem.price}} ฿
-							</div>
+						<div class="col-xs-6 col-sm-5 col-md-5">
+							<p class="package-detail-detail-style"> Level :  </p>
+							<p class="package-detail-detail-style"> Distance :  </p>
 						</div>
-						<!-- Package Location -->
-						<div class="col-xs-12 col-sm-12 col-md-12">
-							<div class="col-xs-4 col-sm-4 col-md-4 package-detail-topic-style">
-								Location : 
-							</div>
-							<div class="col-xs-8 col-sm-8 col-md-8 package-detail-detail-style">
-								{{packageItem.location}}
-							</div>
+						<div class="col-xs-6 col-sm-5 col-md-5">
+							<p class="package-detail-detail-style"> Width :  </p>
+							<p class="package-detail-detail-style"> Depth :  </p>
 						</div>
-						<!-- People per Package -->
-						<div class="col-xs-12 col-sm-12 col-md-12">
-							<div class="col-xs-4 col-sm-4 col-md-4 package-detail-topic-style">
-								Suitable for : 
-							</div>
-							<div class="col-xs-8 col-sm-8 col-md-8 package-detail-detail-style">
-								{{packageItem.people.min}} - {{packageItem.people.max}} people
-							</div>
+					</div>
+					<HR WIDTH="95%" NOSHADE>
+
+					<!-- Amount, Type, StartPoint, EndPoint -->
+					<div class="col-xs-12 col-sm-12 col-md-12">
+						<div class="col-xs-12 col-sm-2 col-md-2" style="padding-left:0px;">
+							<p class="package-detail-topic-group-style">Stage</p>
 						</div>
-						<HR WIDTH="100%" NOSHADE>
-						<!-- Package Description -->
-						<div class="col-xs-12 col-sm-12 col-md-12">
-							<div class="col-xs-4 col-sm-4 col-md-4 package-detail-topic-style">
-								Description : 
-							</div>
-							<div class="col-xs-8 col-sm-8 col-md-8 package-detail-detail-style">
-								{{packageItem.description}} 
-							</div>
+						<div class="col-xs-12 col-sm-5 col-md-5">
+							<p class="package-detail-detail-style"> Amount :  </p>
+							<p class="package-detail-detail-style"> Type :  </p>
+							<!-- <p class="package-detail-detail-style"> View :  <p> -->
 						</div>
-						<HR WIDTH="100%" NOSHADE>
-						<!-- Office Time -->
-						<div class="col-xs-12 col-sm-12 col-md-12">
-							<div class="col-xs-4 col-sm-4 col-md-4 package-detail-topic-style">
-								Office Time : 
-							</div>
-							<div class="col-xs-8 col-sm-8 col-md-8 package-detail-detail-style">
-								{{packageItem.office_time.open_time}} - {{packageItem.office_time.close_time}}
-							</div>
+						<div class="col-xs-12 col-sm-5 col-md-5">
+							<p class="package-detail-detail-style"> Start Point :  </p>
+							<p class="package-detail-detail-style"> End Point :  </p>
 						</div>
-						<!-- Email -->
-						<div class="col-xs-12 col-sm-12 col-md-12">
-							<div class="col-xs-4 col-sm-4 col-md-4 package-detail-topic-style">
-								Email : 
-							</div>
-							<div class="col-xs-8 col-sm-8 col-md-8 package-detail-detail-style">
-									{{packageItem.contact.email}}
-							</div>
+					</div>
+					<HR WIDTH="95%" NOSHADE>
+
+					<!-- Boat Type -->
+					<div class="col-xs-12 col-sm-12 col-md-12">
+						<div class="col-xs-12 col-sm-2 col-md-2" style="padding-left:0px;">
+							<p class="package-detail-topic-group-style">Boat Type</p>
 						</div>
-						<!-- Phone -->
-						<div class="col-xs-12 col-sm-12 col-md-12">
-							<div class="col-xs-4 col-sm-4 col-md-4 package-detail-topic-style">
-								Phone : 
-							</div>
-							<div class="col-xs-8 col-sm-8 col-md-8 package-detail-detail-style">
-									{{packageItem.contact.phone_number}}
-							</div>
+						<div class="col-xs-12 col-sm-5 col-md-5">
+							<p class="package-detail-detail-style"> Canoe </p>
 						</div>
-						<HR WIDTH="100%" NOSHADE>
-						<div class="col-xs-12 col-sm-12 col-md-12">
-							<div class="col-xs-4 col-sm-4 col-md-4 package-detail-topic-style">
-								Availability : 
+						<div class="col-xs-12 col-sm-5 col-md-5">
+							<p class="package-detail-detail-style"> Rubber  </p>
+						</div>
+					</div>
+					<HR WIDTH="95%" NOSHADE>
+
+					<!-- More Details -->
+					<div class="col-xs-12 col-sm-12 col-md-12">
+						<div class="col-xs-12 col-sm-2 col-md-2" style="padding-left:0px;">
+							<p class="package-detail-topic-group-style" style="">More Details</p>
+						</div>
+						<div class="col-xs-12 col-sm-7 col-md-7">
+							<!-- Provide Things -->
+							<div class="col-xs-12 col-sm-12 col-md-12 package-detail-moredetail-box-style">
+								<p class="package-detail-moredetail-topic-style"> Provide Things </p>
+								<p class="package-detail-detail-style"> Provide Things oifsnl lsnnfs lknsdvnsdv pinlv , dns  sf sfo sdo sdop sdov sfo dsv s osdvnosd sdnp sdnbdsl bs sd sf ps p fsb fbpisfbks  sfpn  </p>
 							</div>
-							<div class="col-xs-8 col-sm-8 col-md-8 package-detail-detail-style">
-								{{packageItem.availability}}
+							<!-- Unprovide Things -->
+							<div class="col-xs-12 col-sm-12 col-md-12 package-detail-moredetail-box-style">
+								<p class="package-detail-moredetail-topic-style"> Unprovide Things </p>
+								<p class="package-detail-detail-style"> Provide Things oifsnl lsnnfs lknsdvnsdv pinlv , dns  sf sfo sdo sdop sdov sfo dsv s osdvnosd sdnp sdnbdsl bs sd sf ps p fsb fbpisfbks  sfpn  </p>
+							</div>
+
+							<!-- Skill Require -->
+							<div class="col-xs-12 col-sm-12 col-md-12 package-detail-moredetail-box-style">
+								<p class="package-detail-moredetail-topic-style"> Skill Required </p>
+								<p class="package-detail-detail-style"> Provide Things oifsnl lsnnfs lknsdvnsdv pinlv , dns  sf sfo sdo sdop sdov sfo dsv s osdvnosd sdnp sdnbdsl bs sd sf ps p fsb fbpisfbks  sfpn  </p>
+							</div>
+
+							<!-- Include Activity -->
+							<div class="col-xs-12 col-sm-12 col-md-12 package-detail-moredetail-box-style">
+								<p class="package-detail-moredetail-topic-style"> Include Activity </p>
+								<p class="package-detail-detail-style"> Provide Things oifsnl lsnnfs lknsdvnsdv pinlv , dns  sf sfo sdo sdop sdov sfo dsv s osdvnosd sdnp sdnbdsl bs sd sf ps p fsb fbpisfbks  sfpn  </p>
+							</div>
+
+							<!-- Note -->
+							<div class="col-xs-12 col-sm-12 col-md-12 package-detail-moredetail-box-style">
+								<p class="package-detail-moredetail-topic-style"> Note </p>
+								<p class="package-detail-detail-style"> Provide Things oifsnl lsnnfs lknsdvnsdv pinlv , dns  sf sfo sdo sdop sdov sfo dsv s osdvnosd sdnp sdnbdsl bs sd sf ps p fsb fbpisfbks  sfpn  </p>
 							</div>
 						</div>
 					</div>
+					<HR WIDTH="95%" NOSHADE>
+
+					<!-- Schedule -->
+					<div class="col-xs-12 col-sm-12 col-md-12">
+						<div class="col-xs-12 col-sm-2 col-md-2" style="padding-left:0px;">
+							<p class="package-detail-topic-group-style">Schedule</p>
+						</div>
+						<div class="col-xs-12 col-sm-7 col-md-7">
+							<p class="package-detail-detail-style">Schedule</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-		<!-- End Package Details -->
 	</body>
 </html>
