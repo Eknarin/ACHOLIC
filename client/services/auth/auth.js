@@ -24,9 +24,29 @@ angular.module('acholic')
      * @param user
      * @returns {promise}
      */
-    this.signup = function (user) {
+    this.signupVendor = function (user) {
       var deferred = $q.defer();
-      $http.post('/api/users', user)
+      $http.post('/api/users/vendor', user)
+        .then(function (res) {
+          _user = res.data.user;
+          $cookieStore.put('token', res.data.token);
+          deferred.resolve();
+        })
+        .catch(function (err) {
+          deferred.reject(err.data);
+        });
+      return deferred.promise;
+    };
+
+    /**
+     * Signup
+     *
+     * @param user
+     * @returns {promise}
+     */
+    this.signupCustomer = function (user) {
+      var deferred = $q.defer();
+      $http.post('/api/users/customer', user)
         .then(function (res) {
           _user = res.data.user;
           $cookieStore.put('token', res.data.token);

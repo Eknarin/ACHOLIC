@@ -32,11 +32,6 @@ var RaftingSchema = new Schema({
 	equipments_require: [String],
 	prepration: String,
 	skills_require: String,
-	office_time: {
-		open_time: String,
-		close_time: String,
-		note: String
-	},
 	image_gallery: Schema.Types.ObjectId
 });
 

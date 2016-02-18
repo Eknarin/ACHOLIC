@@ -1,25 +1,19 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('SignupCustomerCtrl', function ($scope) {
+  .controller('SignupCustomerCtrl',['$scope' , 'Auth', '$location', function ($scope , Auth , $location) {
+    $scope.user = {};
 
-    angular.extend(this, {
-      name: 'SignupCustomerCtrl',
-
-      /**
-       * Signup
-       */
-      signup: function () {
-        Auth.signup(vm.user)
+    $scope.onSubmit= function(){
+      console.log($scope.user);
+      Auth.signupCustomer($scope.user)
           .then(function () {
             $location.path('/');
           })
           .catch(function (err) {
-            vm.error = err;
+            console.log(err);
           });
-      }
-
-    });
+    };
 
       $scope.tabs = ["active", "", "", ""];
       $scope.activeTab = function(goto){
@@ -28,4 +22,4 @@ angular.module('acholic')
         console.log($scope.tabs);
       }
 
-  });
+  }]);

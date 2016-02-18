@@ -8,14 +8,14 @@ var UserSchema = new Schema({
   email: String,
   first_name: String,
   last_name: String,
+  gender: String,
   date_of_birth: Date,
   phone_number: String,
   address: {
-    state: String,
-    city: String,
-    country: String,
-    postal_code: Number
+    address: String,
+    zip_code: Number
   },
+  image: { type: Schema.Types.ObjectId, ref: 'Image' }, 
   role: { type: Schema.Types.ObjectId, ref: 'Role' },
   bookmark: { type: Schema.Types.ObjectId, ref: 'Bookmark' },
   passwordHash: { type: String, select: false },

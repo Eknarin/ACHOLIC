@@ -6,6 +6,7 @@ var controller = require('./user.controller');
 var auth = require('../../auth/auth.service');
 
 router.get('/me', auth.isAuthenticated(), controller.getMe);
-router.post('/', controller.create);
-
+router.post('/customer', controller.createCustomer);
+router.post('/vendor', controller.createVendor);
+router.get('/test', controller.test);
 module.exports = router;

@@ -53,11 +53,11 @@ exports.show = function (req, res) {
 exports.create = function (req, res) {
   // console.log('create image');
   // console.log(req.file);
-  var image = new Image;
-  image.name = req.file.originalname;
-  image.img.contentType = req.file.mimetype;
-  image.img.path = req.file.path;
-  image.save();
+    var image = new Image;
+    image.name = req.file.originalname;
+    image.img.contentType = req.file.mimetype;
+    image.img.path = req.file.path;
+    image.save();
 
   return res.json(image.id);
 };

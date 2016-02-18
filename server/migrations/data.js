@@ -387,7 +387,7 @@ var data = [
                 "role": "Vendor"
             },
             {
-                "name": "Customer"
+                "role": "Customer"
             }
         ]
     },
