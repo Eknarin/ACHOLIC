@@ -15,6 +15,8 @@ var UserSchema = new Schema({
     address: String,
     zip_code: Number
   },
+  identification_num: Number,
+  provider_num: String,
   image: { type: Schema.Types.ObjectId, ref: 'Image' }, 
   role: { type: Schema.Types.ObjectId, ref: 'Role' },
   bookmark: { type: Schema.Types.ObjectId, ref: 'Bookmark' },
