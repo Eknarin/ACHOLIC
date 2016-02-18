@@ -78,13 +78,13 @@
 
 		        			<!-- Province -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12 btn-group package-create-dropdown-cover-style">
-		        				<button type="button" class="btn btn-default package-create-dropdown-input-style"> Province </button>
+		        				<button type="button" class="btn btn-default package-create-dropdown-input-style" ng-bind='selected'> Province </button>
 								<button type="button" class="btn btn-default dropdown-toggle package-create-dropdown-button-style" data-toggle="dropdown">
 								<span class="caret"></span>
 								<span class="sr-only">Toggle Dropdown</span>
 								</button>
 								<ul class="dropdown-menu scrollable-menu package-create-dropdown-list-style" ng-model="packages.info.location.province" >
-									<li><a href="#">กรุงเทพ</a></li>
+									<li ng-repeat="p in provinces" ng-name="p.name" ng-model="p.name" ng-click="setProvince(p.name)"><a href="#">{{p.name}}</a></li>
 								</ul>
 		        			</div>
 
@@ -119,18 +119,13 @@
 		        		<div class="col-xs-12 col-sm-8 col-md-8">
 		        			<!-- Level -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12 btn-group package-create-dropdown-cover-style">
-		        				<button type="button" class="btn btn-default package-create-dropdown-input-style"> Rafting Level </button>
+		        				<button type="button" class="btn btn-default package-create-dropdown-input-style" ng-bind='selectedLevel'> Rafting Level </button>
 								<button type="button" class="btn btn-default dropdown-toggle package-create-dropdown-button-style" data-toggle="dropdown">
 								<span class="caret"></span>
 								<span class="sr-only">Toggle Dropdown</span>
 								</button>
 								<ul ng-model="packages.info.level" class="dropdown-menu scrollable-menu package-create-dropdown-list-style">
-									<li ng-click=""><a href="#">Level 1</a></li>
-									<li><a href="#">Level 2</a></li>
-									<li><a href="#">Level 3</a></li>
-									<li><a href="#">Level 4</a></li>
-									<li><a href="#">Level 5</a></li>
-									<li><a href="#">Level 6</a></li>
+									<li ng-repeat="l in levels" ng-name="l.name" ng-model="l.name" ng-click="setLevel(l.name)"><a href="#">{{l.name}}</a></li>
 								</ul>
 		        			</div>
 
@@ -160,9 +155,9 @@
 		        			</div>
 
 		        			<!-- Sight -->
-		        			<div class="col-xs-12 col-sm-12 col-md-12">
+		<!--         			<div class="col-xs-12 col-sm-12 col-md-12">
 		        				<input ng-model="packages.info.sight" class="package-create-inputbox-style" type="text" required placeholder="Sight">
-		        			</div>
+		        			</div> -->
 
 		        			<!-- Age Limit -->
 		        			<div class="col-xs-12 col-sm-12 col-md-12">
