@@ -14,6 +14,35 @@ angular.module('acholic')
         });
     };
 
+    $scope.addMore = function(){
+        console.log('FF');
+    };
+
+    // Add more input box
+    var next = 1;
+    $(".add-more").click(function(e){
+        e.preventDefault();
+        var addto = "#field" + next;
+        var addRemove = "#field" + (next);
+        next = next + 1;
+        var newIn = '<input autocomplete="off" class="package-create-inputbox-style" style="width:80%;" id="field' + next + '" name="field' + next + '" type="text">';
+        var newInput = $(newIn);
+        var removeBtn = '<button id="remove' + (next - 1) + '" class="btn btn-danger remove-me package-create-add-delete-button-style">-</button></div><div id="field">';
+        var removeButton = $(removeBtn);
+        $(addto).after(newInput);
+        $(addRemove).after(removeButton);
+        $("#field" + next).attr('data-source',$(addto).attr('data-source'));
+        $("#count").val(next);  
+        
+        $('.remove-me').click(function(e){
+            e.preventDefault();
+            var fieldNum = this.id.charAt(this.id.length-1);
+            var fieldID = "#field" + fieldNum;
+            $(this).remove();
+            $(fieldID).remove();
+        });
+    });
+
  	var navListItems = $('ul.setup-panel li a'),
     allWells = $('.setup-content');
 
@@ -121,7 +150,7 @@ angular.module('acholic')
     {name: 'อุบลราชธานี'},
     {name: 'อำนาจเจริญ'}
   ];
-  $scope.selected = " Location ";
+  $scope.selected = "Province";
   $scope.setProvince = function(value){
     console.log(value);
     $scope.selected = value;
