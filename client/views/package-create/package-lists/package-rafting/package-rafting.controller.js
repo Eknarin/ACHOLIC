@@ -64,12 +64,19 @@ angular.module('acholic')
     
     $('ul.setup-panel li.active a').trigger('click');
     
-    // DEMO ONLY //
-    $('#activate-step-2').on('click', function(e) {
-        $('ul.setup-panel li:eq(1)').removeClass('disabled');
-        $('ul.setup-panel li a[href="#step-2"]').trigger('click');
-        $(this).remove();
-    });
+   
+    //next and previous tab
+    var state = [0, 1, 2, 3];
+    var currenstate = 0;     
+    $scope.activeNextTab = function(){
+        $('ul.setup-panel li:eq('+ (state[currenstate+1]) +')').removeClass('disabled');  
+        $('ul.setup-panel li a[href=\"#step-' + state[currenstate+1] + '\"]').trigger('click'); 
+        currenstate += 1;
+    }
+    $scope.previousTab = function(){
+        $('ul.setup-panel li a[href=\"#step-' + state[currenstate-1] + '\"]').trigger('click'); 
+        currenstate -= 1;
+    }
 
     $scope.provinces = [
     {name: 'กรุงเทพมหานคร'},
