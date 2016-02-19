@@ -14,35 +14,87 @@ angular.module('acholic')
         });
     };
 
-    $scope.addMore = function(){
-        console.log('FF');
+    // Add more input box
+    var stage_next = 1;
+    var boat_next = 1;
+    $scope.addMore = function(e){
+        //e.preventDefault();
+        var id_button = "";
+        if(e == "stage"){
+            console.log("SSSS");
+            id_button = "stage";
+
+            var addto = "#stage" + stage_next;
+            var addRemove = "#stage" + (stage_next);
+            stage_next = stage_next + 1;
+            var newIn = '<input autocomplete="off" class="package-create-inputbox-style" style="width:80%;" id="stage' + stage_next + '" name="stage' + stage_next + '" type="text">';
+            var newInput = $(newIn);
+            var removeBtn = '<button id="remove_stage' + (stage_next - 1) + '" class="btn btn-danger remove-stage package-create-add-delete-button-style">-</button>';
+            var removeButton = $(removeBtn);
+            $(addto).after(newInput);
+            $(addRemove).after(removeButton);
+            $("#stage" + stage_next).attr('data-source',$(addto).attr('data-source'));
+            $("#count").val(stage_next);  
+            
+            $('.remove-stage').click(function(e){
+                e.preventDefault();
+                var fieldNum = this.id.substring(12);
+                var fieldID = "#stage" + fieldNum;
+                console.log(fieldID);
+                $(this).remove();
+                $(fieldID).remove();
+            });
+        }
+        else if(e == "boat"){
+            console.log("BBBB");
+            id_button = "boat";
+
+            var addto = "#boat" + boat_next;
+            var addRemove = "#boat" + (boat_next);
+            boat_next = boat_next + 1;
+            var newIn = '<input autocomplete="off" class="package-create-inputbox-style" style="width:80%;" id="boat' + boat_next + '" name="boat' + boat_next + '" type="text">';
+            var newInput = $(newIn);
+            var removeBtn = '<button id="remove_boat' + (boat_next - 1) + '" class="btn btn-danger remove-boat package-create-add-delete-button-style">-</button>';
+            var removeButton = $(removeBtn);
+            $(addto).after(newInput);
+            $(addRemove).after(removeButton);
+            $("#boat" + boat_next).attr('data-source',$(addto).attr('data-source'));
+            $("#count").val(boat_next);  
+            
+            $('.remove-boat').click(function(e){
+                e.preventDefault();
+                var fieldNum = this.id.substring(11);
+                console.log(fieldNum);
+                var fieldID = "#boat" + fieldNum;
+                // console.log(fieldID);
+                $(this).remove();
+                $(fieldID).remove();
+            });
+        }
+
+
+        // var addto = "#"+id_button+"field" + next;
+        // var addRemove = "#"+id_button+"field" + (next);
+        // next = next + 1;
+        // var newIn = '<input autocomplete="off" class="package-create-inputbox-style" style="width:80%;" id='+id_button+'"-field' + next + '" name="field' + next + '" type="text">';
+        // var newInput = $(newIn);
+        // var removeBtn = '<button id='+id_button+'"remove' + (next - 1) + '" class="btn btn-danger remove-me package-create-add-delete-button-style">-</button></div><div id="field">';
+        // var removeButton = $(removeBtn);
+        // $(addto).after(newInput);
+        // $(addRemove).after(removeButton);
+        // $("#"+id_button+"field" + next).attr('data-source',$(addto).attr('data-source'));
+        // $("#"+id_button+"count").val(next);  
+        
+        // $('.remove-me').click(function(e){
+        //     e.preventDefault();
+        //     var fieldNum = this.id.charAt(this.id.length-1);
+        //     var fieldID = "#"+id_button+"field" + fieldNum;
+        //     $(this).remove();
+        //     $(fieldID).remove();
+        // });
     };
 
-    // Add more input box
-    var next = 1;
-    $(".add-more").click(function(e){
-        e.preventDefault();
-        var addto = "#field" + next;
-        var addRemove = "#field" + (next);
-        next = next + 1;
-        var newIn = '<input autocomplete="off" class="package-create-inputbox-style" style="width:80%;" id="field' + next + '" name="field' + next + '" type="text">';
-        var newInput = $(newIn);
-        var removeBtn = '<button id="remove' + (next - 1) + '" class="btn btn-danger remove-me package-create-add-delete-button-style">-</button></div><div id="field">';
-        var removeButton = $(removeBtn);
-        $(addto).after(newInput);
-        $(addRemove).after(removeButton);
-        $("#field" + next).attr('data-source',$(addto).attr('data-source'));
-        $("#count").val(next);  
-        
-        $('.remove-me').click(function(e){
-            e.preventDefault();
-            var fieldNum = this.id.charAt(this.id.length-1);
-            var fieldID = "#field" + fieldNum;
-            $(this).remove();
-            $(fieldID).remove();
-        });
-    });
-
+    // menu-bar function
  	var navListItems = $('ul.setup-panel li a'),
     allWells = $('.setup-content');
 
