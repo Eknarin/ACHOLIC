@@ -8,7 +8,7 @@ angular.module('acholic')
         controller: 'PackageCtrl',
         resolve:{
         	itemData:['PackageItem','$location' ,function(PackageItem , $location){
-			       return PackageItem.query({q: $location.search().q}).$promise;
+			       return PackageItem.query({q: $location.search().q , page: 1}).$promise;
         	}]
         }
       });

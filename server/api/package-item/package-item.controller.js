@@ -28,7 +28,7 @@ function checkPackage (type) {
  * @param res
  */
 exports.index = function (req, res) {
-    PackageItem.paginate({'name' : new RegExp(req.query.q, 'i')}, { page: 1, limit: 9 }, function(err, result) {
+    PackageItem.paginate({'name' : new RegExp(req.query.q, 'i')}, { page: req.query.page, limit: 9}, function(err, result) {
         return res.status(200).json(result);
     });
 };

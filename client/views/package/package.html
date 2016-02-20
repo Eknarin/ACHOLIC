@@ -132,8 +132,10 @@
 				<!-- If no search result  -->
 				<center><div ng-show="!packages.length" style="padding:50px;"><h2 style="color:#B3B3B3">No results found</h2></div></center>
 			</div>
+			 <uib-pagination total-items="totalItems" items-per-page="limit" ng-change="pageChanged(currentPage)" ng-model="currentPage" max-size="maxSize" class="pagination-lg" boundary-links="true" rotate="false"></uib-pagination>
 		</div>
 	</div>
+
 	<!-- End Packages -->
 	</body>
 </html>
