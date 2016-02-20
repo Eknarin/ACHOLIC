@@ -93,6 +93,7 @@
 			<div class="container" style="width:100%; color:white">
 				<p style="font-size: 50px; text-align:center;">Packages</p>
 			</div>
+			 <uib-pagination total-items="totalItems" items-per-page="limit" ng-change="pageChanged(currentPage)" ng-model="currentPage" max-size="maxSize" class="pagination-lg" boundary-links="true" rotate="false"></uib-pagination>
 			<div class="row">
 				<div ng-repeat="package in packages">
 					<!-- Package -->
