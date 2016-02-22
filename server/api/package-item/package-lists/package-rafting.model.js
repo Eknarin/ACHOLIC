@@ -17,6 +17,7 @@ var RaftingSchema = new Schema({
 		distance: String,
 		price: Number
 	},
+	duration: String,
 	river_width: Number,
 	river_depth: Number,
 	level: Number,
