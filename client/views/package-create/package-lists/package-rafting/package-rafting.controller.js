@@ -14,6 +14,34 @@ angular.module('acholic')
         });
     };
 
+    // add Price template
+    var price_next = 1;
+    $scope.addPrice = function(e){
+        console.log("add");
+        var $template = $('#priceTemplate'),
+        $clone    = $template
+                        .clone()
+                        .removeClass('hide')
+                        .removeAttr('id')
+                        .attr('price-index', price_next)
+                        .insertBefore($template);
+        // Update the name attributes
+        $clone
+            .find('[name="price"]').attr('name', 'price'+price_next).end()
+            .find('[name="people"]').attr('name', 'people'+price_next).end()
+            .find('[name="distance"]').attr('name', 'distance'+price_next).end()
+            .find('[name="duration"]').attr('name', 'duration'+price_next).end()
+            .find('[name="boat"]').attr('name', 'boatZ'+price_next).end();
+    };
+    // delete Price template
+    $scope.removePrice = function(e){
+         console.log("remove");
+         var $row  = $(this).parents('.form-group');
+            // index = $row.attr('price-index');
+            $row.remove();
+    };
+
+
     // Add more input box
     var stage_next = 1;
     var boat_next = 1;
@@ -71,27 +99,6 @@ angular.module('acholic')
                 $(fieldID).remove();
             });
         }
-
-
-        // var addto = "#"+id_button+"field" + next;
-        // var addRemove = "#"+id_button+"field" + (next);
-        // next = next + 1;
-        // var newIn = '<input autocomplete="off" class="package-create-inputbox-style" style="width:80%;" id='+id_button+'"-field' + next + '" name="field' + next + '" type="text">';
-        // var newInput = $(newIn);
-        // var removeBtn = '<button id='+id_button+'"remove' + (next - 1) + '" class="btn btn-danger remove-me package-create-add-delete-button-style">-</button></div><div id="field">';
-        // var removeButton = $(removeBtn);
-        // $(addto).after(newInput);
-        // $(addRemove).after(removeButton);
-        // $("#"+id_button+"field" + next).attr('data-source',$(addto).attr('data-source'));
-        // $("#"+id_button+"count").val(next);  
-        
-        // $('.remove-me').click(function(e){
-        //     e.preventDefault();
-        //     var fieldNum = this.id.charAt(this.id.length-1);
-        //     var fieldID = "#"+id_button+"field" + fieldNum;
-        //     $(this).remove();
-        //     $(fieldID).remove();
-        // });
     };
 
     // menu-bar function
