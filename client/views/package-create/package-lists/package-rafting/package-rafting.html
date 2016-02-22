@@ -72,16 +72,6 @@
 				       		</div>
 			        	</div>		        			
 
-			        	<!-- Package Price -->
-			       		<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
-			       			<div class="col-xs-12 col-sm-12 col-md-4">
-			   					<p class="package-create-topic-style">Price (฿) : </p>
-		    				</div>
-		    				<div class="col-xs-12 col-sm-12 col-md-8">
-				        		<input ng-model="packages.price" class="package-create-inputbox-style" type="text" required>
-				        	</div>
-			       		</div>
-
 			        	<!-- Province -->
 			        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 			        		<div class="col-xs-12 col-sm-12 col-md-4">
@@ -192,16 +182,7 @@
 											</div>
 										</div>
 		        				</div>
-				        	</div>
-				        	<!-- Duration -->
-				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
-				       			<div class="col-xs-12 col-sm-12 col-md-4">
-				   					<p class="package-create-topic-style">Duration : </p>
-			    				</div>
-				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="" class="package-create-inputbox-style" type="text" required>
-					       		</div>
-				        	</div>
+				        	</div>				        				        
 				        	<!-- Age Limit -->
 				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
@@ -209,6 +190,54 @@
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
 					        		<input ng-model="packages.info.age_limit" class="package-create-inputbox-style" type="text" required>
+					       		</div>
+				        	</div>	
+		   				</div>
+		   				<!-- River Information -->
+		   				<div class="col-xs-12 col-sm-12 col-md-12 fillform-content-style">
+		   					<div  class="col-xs-12 col-sm-12 col-md-12" style="text-align: center;">
+					           	<p class="fillform-content-sub-header">River</p>
+					        </div>
+					        <!-- River Name -->
+				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
+				       			<div class="col-xs-12 col-sm-12 col-md-4">
+				   					<p class="package-create-topic-style">River Name : </p>
+			    				</div>
+				      			<div class="col-xs-12 col-sm-12 col-md-8">
+					        		<input ng-model="packages.info.river_line" class="package-create-inputbox-style" type="text" required>
+					       		</div>
+				        	</div>
+				        	<!-- River Width -->
+				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
+				       			<div class="col-xs-12 col-sm-12 col-md-4">
+				   					<p class="package-create-topic-style">Width (m) : </p>
+			    				</div>
+				      			<div class="col-xs-12 col-sm-12 col-md-8">
+					        		<input ng-model="packages.info.river_width" class="package-create-inputbox-style" type="text" required>
+					       		</div>
+				        	</div>	
+				        	<!-- River Depth -->
+				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
+				       			<div class="col-xs-12 col-sm-12 col-md-4">
+				   					<p class="package-create-topic-style">Depth (m) : </p>
+			    				</div>
+				      			<div class="col-xs-12 col-sm-12 col-md-8">
+					        		<input ng-model="packages.info.river_depth" class="package-create-inputbox-style" type="text" required>
+					       		</div>
+				        	</div>	
+				        	
+					        <!-- Level -->
+				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
+				       			<div class="col-xs-12 col-sm-12 col-md-4">
+				   					<p class="package-create-topic-style">Level : </p>
+			    				</div>
+				      			<div class="col-xs-12 col-sm-12 col-md-8 package-create-bullet-group-style">
+									<input type="radio" name="level"> Level 1 : Easy<br>
+									<input type="radio" name="level"> Level 2 : Normal<br>
+									<input type="radio" name="level"> Level 3 : Moderate<br>
+									<input type="radio" name="level"> Level 4 : Hard<br>	
+									<input type="radio" name="level"> Level 5 : Expert<br>
+									<input type="radio" name="level"> Level 6 : Danger<br>
 					       		</div>
 				        	</div>	
 		   				</div>
@@ -257,39 +286,31 @@
 		        	</div>
 		        	
 		        	<div class="col-xs-12 col-sm-6 col-md6">
-		        		<!-- River Information -->
+		        		
+		   				<!-- Price Information -->
 		   				<div class="col-xs-12 col-sm-12 col-md-12 fillform-content-style">
 		   					<div  class="col-xs-12 col-sm-12 col-md-12" style="text-align: center;">
-					           	<p class="fillform-content-sub-header">River</p>
+					           	<p class="fillform-content-sub-header">Pricing</p>
 					        </div>
-					        <!-- River Name -->
-				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
+					        <!-- Package Price -->
+				       		<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
-				   					<p class="package-create-topic-style">River Name : </p>
+				   					<p class="package-create-topic-style">Price (฿) : </p>
 			    				</div>
-				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.info.river_line" class="package-create-inputbox-style" type="text" required>
-					       		</div>
-				        	</div>
-				        	<!-- River Width -->
-				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
+			    				<div class="col-xs-12 col-sm-12 col-md-8">
+					        		<input ng-model="packages.price" class="package-create-inputbox-style" type="text" required>
+					        	</div>
+				       		</div>
+				       		<!-- Amount People -->
+				       		<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
-				   					<p class="package-create-topic-style">Width (m) : </p>
+				   					<p class="package-create-topic-style">Peopel : </p>
 			    				</div>
-				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.info.river_width" class="package-create-inputbox-style" type="text" required>
-					       		</div>
-				        	</div>	
-				        	<!-- River Depth -->
-				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
-				       			<div class="col-xs-12 col-sm-12 col-md-4">
-				   					<p class="package-create-topic-style">Depth (m) : </p>
-			    				</div>
-				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.info.river_depth" class="package-create-inputbox-style" type="text" required>
-					       		</div>
-				        	</div>	
-				        	<!-- River Distance -->
+			    				<div class="col-xs-12 col-sm-12 col-md-8">
+					        		<input ng-model="packages.info.info.price" class="package-create-inputbox-style" type="text" required>
+					        	</div>
+				       		</div>
+				       		<!-- River Distance -->
 				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
 				   					<p class="package-create-topic-style">Distance (km) : </p>
@@ -298,27 +319,15 @@
 					        		<input ng-model="packages.info.info.distance" class="package-create-inputbox-style" type="text" required>
 					       		</div>
 				        	</div>	
-					        <!-- Level -->
+				        	<!-- Duration -->
 				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
-				   					<p class="package-create-topic-style">Level : </p>
+				   					<p class="package-create-topic-style">Duration : </p>
 			    				</div>
-				      			<div class="col-xs-12 col-sm-12 col-md-8 package-create-bullet-group-style">
-									<input type="radio" name="level"> Level 1 : Easy<br>
-									<input type="radio" name="level"> Level 2 : Normal<br>
-									<input type="radio" name="level"> Level 3 : Moderate<br>
-									<input type="radio" name="level"> Level 4 : Hard<br>	
-									<input type="radio" name="level"> Level 5 : Expert<br>
-									<input type="radio" name="level"> Level 6 : Danger<br>
+				      			<div class="col-xs-12 col-sm-12 col-md-8">
+					        		<input ng-model="" class="package-create-inputbox-style" type="text" required>
 					       		</div>
-				        	</div>	
-		   				</div>
-
-		   				<!-- Boat Information -->
-		   				<div class="col-xs-12 col-sm-12 col-md-12 fillform-content-style">
-		   					<div  class="col-xs-12 col-sm-12 col-md-12" style="text-align: center;">
-					           	<p class="fillform-content-sub-header">Boat</p>
-					        </div>
+				        	</div>
 				        	<!-- Boat Type -->
 				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
