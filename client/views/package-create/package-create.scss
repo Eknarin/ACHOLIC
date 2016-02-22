@@ -118,6 +118,15 @@
 	width: 100px;
 	margin-left: 17px;
 }
+.package-create-type-button-style{
+	background-image:url('../../image/button-background.png');  
+	margin-top:20px; 
+	height:50px; 
+	width:70%;
+	font-size: 17px;
+	color:white;
+}
+
 @media(min-width:767px){
 	.create-package-header-size{
 		font-size: 50px;
@@ -146,5 +155,8 @@
 	}
 	.package-create-topic-style{
 		font-size: 17px;
+	}
+	.package-create-type-button-style{
+		font-size: 20px;
 	}
 }
