@@ -207,7 +207,7 @@
 				   					<p class="package-create-topic-style">Age Limit : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="" class="package-create-inputbox-style" type="text" required>
+					        		<input ng-model="packages.info.age_limit" class="package-create-inputbox-style" type="text" required>
 					       		</div>
 				        	</div>	
 		   				</div>
@@ -222,7 +222,7 @@
 				   					<p class="package-create-topic-style">Start Point : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="" class="package-create-inputbox-style" type="text" required>
+					        		<input ng-model="packages.info.start_location" class="package-create-inputbox-style" type="text" required>
 					       		</div>
 				        	</div>
 				        	<!-- End Point -->
@@ -231,7 +231,7 @@
 				   					<p class="package-create-topic-style">End Point : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="" class="package-create-inputbox-style" type="text" required>
+					        		<input ng-model="packages.info.end_location" class="package-create-inputbox-style" type="text" required>
 					       		</div>
 				        	</div>
 				        	<!-- Stage Amount -->
@@ -240,7 +240,7 @@
 				   					<p class="package-create-topic-style">Stage Amount : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="" class="package-create-inputbox-style" type="text" required>
+					        		<input ng-model="packages.info.stages.length" class="package-create-inputbox-style" type="text" required>
 					       		</div>
 				        	</div>
 				        	<!-- Stage Type -->
@@ -249,7 +249,7 @@
 				   					<p class="package-create-topic-style">Stage Type : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8"> 
-						            <input ng-model="" id="stage1" class="package-create-inputbox-style" type="text" required style="width:80%"><button id="stage-b1" class="btn package-create-add-delete-button-style" type="button" ng-click="addMore('stage')">+</button>
+						            <input ng-model="packages.info.stages" id="stage1" class="package-create-inputbox-style" type="text" required style="width:80%"><button id="stage-b1" class="btn package-create-add-delete-button-style" type="button" ng-click="addMore('stage')">+</button>
 					       		</div>
 				        	</div>
 		   				</div>		   				
@@ -267,7 +267,7 @@
 				   					<p class="package-create-topic-style">River Name : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="" class="package-create-inputbox-style" type="text" required>
+					        		<input ng-model="packages.info.river_line" class="package-create-inputbox-style" type="text" required>
 					       		</div>
 				        	</div>
 				        	<!-- River Width -->
@@ -276,7 +276,7 @@
 				   					<p class="package-create-topic-style">Width (m) : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="" class="package-create-inputbox-style" type="text" required>
+					        		<input ng-model="packages.info.river_width" class="package-create-inputbox-style" type="text" required>
 					       		</div>
 				        	</div>	
 				        	<!-- River Depth -->
@@ -285,7 +285,7 @@
 				   					<p class="package-create-topic-style">Depth (m) : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="" class="package-create-inputbox-style" type="text" required>
+					        		<input ng-model="packages.info.river_depth" class="package-create-inputbox-style" type="text" required>
 					       		</div>
 				        	</div>	
 				        	<!-- River Distance -->
@@ -294,7 +294,7 @@
 				   					<p class="package-create-topic-style">Distance (km) : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="" class="package-create-inputbox-style" type="text" required>
+					        		<input ng-model="packages.info.info.distance" class="package-create-inputbox-style" type="text" required>
 					       		</div>
 				        	</div>	
 					        <!-- Level -->
@@ -324,7 +324,7 @@
 				   					<p class="package-create-topic-style">Boat Type : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8"> 
-						            <input ng-model="" id="boat1" class="package-create-inputbox-style" type="text" required style="width:80%"><button id="boat-b2" class="btn package-create-add-delete-button-style" type="button" ng-click="addMore('boat')">+</button>
+						            <input ng-model="packages.info.info.boat_type" id="boat1" class="package-create-inputbox-style" type="text" required style="width:80%"><button id="boat-b2" class="btn package-create-add-delete-button-style" type="button" ng-click="addMore('boat')">+</button>
 					       		</div>
 				        	</div>
 		   				</div>
@@ -358,7 +358,7 @@
 				       				<p class="package-create-topic-style">Provided : </p>
 				       			</div>
 				       			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<textarea  ng-model=""  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Helmet, Life jacket"></textarea >
+					        		<textarea  ng-model="packages.info.equipments_provide"  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Helmet, Life jacket"></textarea >
 					        	</div>
 				        	</div>
 				        	<!-- Require -->
@@ -367,7 +367,7 @@
 				       				<p class="package-create-topic-style">Required : </p>
 				       			</div>
 				       			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<textarea  ng-model=""  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Wetable suit"></textarea >
+					        		<textarea  ng-model="packages.info.equipments_require"  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Wetable suit"></textarea >
 					        	</div>
 				        	</div>
 					    </div>
@@ -382,18 +382,18 @@
 				       				<p class="package-create-topic-style">Activity : </p>
 				       			</div>
 				       			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<textarea  ng-model=""  class="package-create-inputbox-style form-control" rows="5" placeholder="Include Activity e.x. Lunch, Sight Seeing"></textarea >
+					        		<textarea  ng-model="packages.info.activites"  class="package-create-inputbox-style form-control" rows="5" placeholder="Include Activity e.x. Lunch, Sight Seeing"></textarea >
 					        	</div>
 				        	</div>
 				        	<!-- Note -->
-				       		<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
+				       		<!-- <div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
 				       				<p class="package-create-topic-style">Note : </p>
 				       			</div>
 				       			<div class="col-xs-12 col-sm-12 col-md-8">
 					        		<textarea  ng-model=""  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Wetable suit"></textarea >
 					        	</div>
-				        	</div>
+				        	</div> -->
 					    </div>
 			        </div>
 
@@ -409,7 +409,7 @@
 				       				<p class="package-create-topic-style">Skill Required : </p>
 				       			</div>
 				       			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<textarea  ng-model=""  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Boating, Balance"></textarea >
+					        		<textarea  ng-model="packages.info.skills_require"  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Boating, Balance"></textarea >
 					        	</div>
 				        	</div>
 				        	<!-- Preparation -->
@@ -418,7 +418,7 @@
 				       				<p class="package-create-topic-style">Preparation : </p>
 				       			</div>
 				       			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<textarea  ng-model=""  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Wear comforable suit"></textarea >
+					        		<textarea  ng-model="packages.info.prepration"  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Wear comforable suit"></textarea >
 					        	</div>
 				        	</div>
 					    </div>
