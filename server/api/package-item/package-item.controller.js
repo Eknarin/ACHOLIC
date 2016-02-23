@@ -97,11 +97,15 @@ exports.show = function (req, res) {
  * @param res
  */
 exports.create = function (req, res) {
-  console.log(req.body.info);
+  //console.log(req.body.info);
   PackageItem.create(req.body, function (err, packageItem) {
     if (err) { return handleError(res, err); }
     var Obj = checkPackage(req.body.type);
     Obj.create(req.body.info, function (err, packageDetail){
+      if(err){
+        console.log(err);
+      }
+      //console.log(packageDetail);
         var map = new PackageMap;
         map.map_table = req.body.type;
         map.map_id = packageDetail._id;

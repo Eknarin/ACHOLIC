@@ -15,7 +15,7 @@ angular.module('acholic')
           _ready.resolve(true);
         });
     } else {
-      _ready.resolve();
+      _ready.reject();
     }
 
     /**
@@ -119,7 +119,15 @@ angular.module('acholic')
      * @returns {object}
      */
     this.getUser = function () {
-      return _user;
+      var def = $q.defer();
+      _ready.promise.then(function () {
+        if (_user.hasOwnProperty('_id')) {
+          def.resolve(_user);
+        } else {
+          def.reject();
+        }
+      });
+      return def.promise;
     };
 
-  });
+});

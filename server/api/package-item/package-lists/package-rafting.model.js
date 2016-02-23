@@ -23,7 +23,7 @@ var RaftingSchema = new Schema({
 	level: Number,
 	views: String,
 	stages: [String],
-	stage_type: String,
+	stage_type: [String],
 	season: String,
 	start_location: String,
 	end_location: String,
@@ -32,7 +32,7 @@ var RaftingSchema = new Schema({
 	equipments_provide: [String],
 	equipments_require: [String],
 	prepration: String,
-	skills_require: String,
+	skills_require: [String],
 	image_gallery: Schema.Types.ObjectId
 });
 

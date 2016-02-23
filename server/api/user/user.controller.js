@@ -19,7 +19,7 @@ function handleError (res, err) {
 exports.createCustomer = function (req, res) {
   User.create(req.body, function (err, user) {
     if (err) { return handleError(res, err); }
-    Role.findOne({role: "Customer"}, function(err,role){
+    Role.findOne({role:"Customer"}, function(err,role){
         //console.log(role._id);
         user.role = role._id;
         user.save();
@@ -43,7 +43,7 @@ exports.test = function (req, res) {
 exports.createVendor = function (req, res) {
   User.create(req.body, function (err, user) {
     if (err) { return handleError(res, err); }
-    Role.findOne({role: "Vendor"}, function(err,role){
+    Role.findOne({role:"Vendor"}, function(err,role){
         //console.log(role._id);
         user.role = role._id;
         user.save();
@@ -62,9 +62,10 @@ exports.createVendor = function (req, res) {
  * @param res
  */
 exports.getMe = function (req, res) {
-  User.findById(req.user._id, function (err, user) {
+  User.findById(req.user._id).populate('role').exec(function (err, user) {
     if (err) { return handleError(res, err); }
     if (!user) { return res.json(401); }
+    console.log(user);
     res.status(200).json(user);
   });
 };

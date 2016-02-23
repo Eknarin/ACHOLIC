@@ -6,6 +6,10 @@ angular.module('acholic')
       .when('/profile', {
         templateUrl: 'views/profile/profile.html',
         controller: 'ProfileCtrl',
-        controllerAs: 'vm'
+        resolve:{
+        	userData:['Auth', function(Auth){
+        		return Auth.getUser();
+        	}]
+        }
       });
   });
