@@ -134,8 +134,8 @@
 				   					<p class="package-create-topic-style">Season : </p>
 			    				</div>
 			    				<div class="col-xs-12 col-sm-12 col-md-8 package-create-bullet-group-style">
-		        						<input type="radio" name="season"> Whole Year<br>						
-										<input type="radio" name="season"> From 
+		        					<input type="radio" name="season" ng-model="seas" value="Whole Year"> Whole Year<br>
+									<input type="radio" name="season" ng-model="seas" value="From "> From 
 										<div class="col-xs-12 col-sm-12 col-md-12">
 											<div class="btn-group">
 												<button type="button" class="btn btn-default package-create-season-select"> Start Month </button>
@@ -143,19 +143,8 @@
 												<span class="caret"></span>
 												<span class="sr-only">Toggle Dropdown</span>
 												</button>
-												<ul ng-model="packages.info.level" class="dropdown-menu scrollable-menu package-create-dropdown-list-style">
-													<li ng-click=""><a href="#">January</a></li>
-													<li><a href="#">Febuary</a></li>
-													<li><a href="#">March</a></li>
-													<li><a href="#">May</a></li>
-													<li><a href="#">April</a></li>
-													<li><a href="#">June</a></li>
-													<li><a href="#">July</a></li>
-													<li><a href="#">August</a></li>
-													<li><a href="#">September</a></li>
-													<li><a href="#">October</a></li>
-													<li><a href="#">November</a></li>
-													<li><a href="#">December</a></li>
+												<ul class="dropdown-menu scrollable-menu package-create-dropdown-list-style">
+													<li ng-repeat="m in months" ng-model="month1" ng-click="setMonth1(m.name)"><a href="#">{{m.name}}</a></li>
 												</ul>
 											</div>
 											to
@@ -166,18 +155,7 @@
 												<span class="sr-only">Toggle Dropdown</span>
 												</button>
 												<ul ng-model="packages.info.level" class="dropdown-menu scrollable-menu package-create-dropdown-list-style">
-													<li ng-click=""><a href="#">January</a></li>
-													<li><a href="#">Febuary</a></li>
-													<li><a href="#">March</a></li>
-													<li><a href="#">May</a></li>
-													<li><a href="#">April</a></li>
-													<li><a href="#">June</a></li>
-													<li><a href="#">July</a></li>
-													<li><a href="#">August</a></li>
-													<li><a href="#">September</a></li>
-													<li><a href="#">October</a></li>
-													<li><a href="#">November</a></li>
-													<li><a href="#">December</a></li>
+													<li ng-repeat="m in months" ng-model="month2" ng-click="setMonth2(m.name)"><a href="#">{{m.name}}</a></li>
 												</ul>
 											</div>
 										</div>
@@ -433,7 +411,7 @@
 				       				<p class="package-create-topic-style">Provided : </p>
 				       			</div>
 				       			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<textarea  ng-model="packages.info.equipments_provide"  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Helmet, Life jacket"></textarea >
+					        		<textarea  ng-model="provide"  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Helmet, Life jacket"></textarea >
 					        	</div>
 				        	</div>
 				        	<!-- Require -->
@@ -442,7 +420,7 @@
 				       				<p class="package-create-topic-style">Required : </p>
 				       			</div>
 				       			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<textarea  ng-model="packages.info.equipments_require"  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Wetable suit"></textarea >
+					        		<textarea  ng-model="require"  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Wetable suit"></textarea >
 					        	</div>
 				        	</div>
 					    </div>
@@ -484,7 +462,7 @@
 				       				<p class="package-create-topic-style">Skill Required : </p>
 				       			</div>
 				       			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<textarea  ng-model="packages.info.skills_require"  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Boating, Balance"></textarea >
+					        		<textarea  ng-model="skill"  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Boating, Balance"></textarea >
 					        	</div>
 				        	</div>
 				        	<!-- Preparation -->
