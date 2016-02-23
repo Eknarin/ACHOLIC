@@ -298,16 +298,16 @@
 				   					<p class="package-create-topic-style">Price (฿) : </p>
 			    				</div>
 			    				<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.price" class="package-create-inputbox-style" type="text" required>
+					        		<input ng-model="packages.price" class="package-create-inputbox-style" name="price0" type="text" required>
 					        	</div>
 				       		</div>
 				       		<!-- Amount People -->
 				       		<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
-				   					<p class="package-create-topic-style">Peopel : </p>
+				   					<p class="package-create-topic-style">People : </p>
 			    				</div>
 			    				<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.info.info.price" class="package-create-inputbox-style" type="text" required>
+					        		<input ng-model="packages.info.info.price" class="package-create-inputbox-style" name="people0" type="text" required>
 					        	</div>
 				       		</div>
 				       		<!-- River Distance -->
@@ -316,7 +316,7 @@
 				   					<p class="package-create-topic-style">Distance (km) : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.info.info.distance" class="package-create-inputbox-style" type="text" required>
+					        		<input ng-model="packages.info.info.distance" class="package-create-inputbox-style" name="distance0"type="text" required>
 					       		</div>
 				        	</div>	
 				        	<!-- Duration -->
@@ -325,7 +325,11 @@
 				   					<p class="package-create-topic-style">Duration : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
+<<<<<<< HEAD
 					        		<input ng-model="packages.info.info.duration" class="package-create-inputbox-style" type="text" required>
+=======
+					        		<input ng-model="" class="package-create-inputbox-style" name="duration0"type="text" required>
+>>>>>>> 904c692b5f5821cbf6b640b4b8be7adc5f22cd80
 					       		</div>
 				        	</div>
 				        	<!-- Boat Type -->
@@ -334,8 +338,78 @@
 				   					<p class="package-create-topic-style">Boat Type : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8"> 
+<<<<<<< HEAD
 						            <input ng-model="packages.info.info.boat_type" id="boat1" class="package-create-inputbox-style" type="text" required style="width:80%"><button id="boat-b2" class="btn package-create-add-delete-button-style" type="button" ng-click="addMoreBoat('boat')">+</button>
+=======
+						           <!--  <input ng-model="packages.info.info.boat_type" id="boat1" class="package-create-inputbox-style" type="text" required style="width:80%"><button id="boat-b2" class="btn package-create-add-delete-button-style" type="button" ng-click="addMore('boat')">+</button> -->
+						           <input ng-model="packages.info.info.boat_type" class="package-create-inputbox-style" name="boat0"type="text" required>
+>>>>>>> 904c692b5f5821cbf6b640b4b8be7adc5f22cd80
 					       		</div>
+				        	</div>
+
+				        	<!-- Add more price -->
+				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
+				        		<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center">
+				        			<button type="button" class="btn" style="width:30%;" ng-click="addPrice(e)">+</button>
+				        		</div>
+				        	</div>
+		   				</div>
+		   				<!-- Price Information (Hide) -->
+		   				<div class="col-xs-12 col-sm-12 col-md-12 fillform-content-style form-group hide" id="priceTemplate">
+		   					<div  class="col-xs-12 col-sm-12 col-md-12" style="text-align: center;">
+					           	<p class="fillform-content-sub-header">Pricing</p>
+					        </div>
+					        <!-- Package Price -->
+				       		<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
+				       			<div class="col-xs-12 col-sm-12 col-md-4">
+				   					<p class="package-create-topic-style">Price (฿) : </p>
+			    				</div>
+			    				<div class="col-xs-12 col-sm-12 col-md-8">
+					        		<input ng-model="packages.price" class="package-create-inputbox-style" name="price" type="text" required>
+					        	</div>
+				       		</div>
+				       		<!-- Amount People -->
+				       		<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
+				       			<div class="col-xs-12 col-sm-12 col-md-4">
+				   					<p class="package-create-topic-style">People : </p>
+			    				</div>
+			    				<div class="col-xs-12 col-sm-12 col-md-8">
+					        		<input ng-model="packages.info.info.price" class="package-create-inputbox-style" name="people" type="text" required>
+					        	</div>
+				       		</div>
+				       		<!-- River Distance -->
+				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
+				       			<div class="col-xs-12 col-sm-12 col-md-4">
+				   					<p class="package-create-topic-style">Distance (km) : </p>
+			    				</div>
+				      			<div class="col-xs-12 col-sm-12 col-md-8">
+					        		<input ng-model="packages.info.info.distance" class="package-create-inputbox-style" name="distance" type="text" required>
+					       		</div>
+				        	</div>	
+				        	<!-- Duration -->
+				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
+				       			<div class="col-xs-12 col-sm-12 col-md-4">
+				   					<p class="package-create-topic-style">Duration : </p>
+			    				</div>
+				      			<div class="col-xs-12 col-sm-12 col-md-8">
+					        		<input ng-model="" class="package-create-inputbox-style" name="duration" type="text" required>
+					       		</div>
+				        	</div>
+				        	<!-- Boat Type -->
+				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
+				       			<div class="col-xs-12 col-sm-12 col-md-4">
+				   					<p class="package-create-topic-style">Boat Type : </p>
+			    				</div>
+				      			<div class="col-xs-12 col-sm-12 col-md-8"> 
+						           <!--  <input ng-model="packages.info.info.boat_type" id="boat1" class="package-create-inputbox-style" type="text" required style="width:80%"><button id="boat-b2" class="btn package-create-add-delete-button-style" type="button" ng-click="addMore('boat')">+</button> -->
+						            <input ng-model="packages.info.info.boat_type" class="package-create-inputbox-style" name="boat"type="text" required>
+					       		</div>
+				        	</div>
+				        	<!-- Delete price -->
+				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
+				        		<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center">
+				        			<button type="button" class="btn btn-danger" style="width:30%;"ng-click="removePrice(e)">-</button>
+				        		</div>
 				        	</div>
 		   				</div>
 		        	</div>		        		
