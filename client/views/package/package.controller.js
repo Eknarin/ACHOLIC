@@ -4,7 +4,7 @@ angular.module('acholic')
   .controller('PackageCtrl',['$scope','PackageItem','$location' ,'itemData',function ($scope , PackageItem , $location , itemData) {
   
   $scope.packages = itemData.docs;
-  console.log(itemData);
+  //console.log(itemData);
   $scope.maxSize = 5;
   $scope.limit = itemData.limit;
   $scope.totalItems = itemData.total;
@@ -15,9 +15,9 @@ angular.module('acholic')
   };
 
   $scope.pageChanged = function() {
-    console.log($scope.currentPage);
+    //console.log($scope.currentPage);
     PackageItem.query({q: $location.search().q , page: $scope.currentPage}).$promise.then(function(result){
-      console.log(result);
+      //console.log(result);
       $scope.packages = result.docs;
     });
     //PackageItem.query()
@@ -43,7 +43,7 @@ angular.module('acholic')
     $scope.filter.tag = $scope.selectedType;
     $scope.filter.people = $scope.guest;
     $scope.packages = PackageItem.filter($scope.filter);
-    console.log($scope.filter);
+    //console.log($scope.filter);
   };
   
   $scope.getStar = function(num) {

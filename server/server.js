@@ -12,15 +12,15 @@ seeder.connect(config.mongo.uri, function() {
   
   //Load Mongoose models 
   // seeder.loadModels([
-  //   // 'server/api/role/role.model.js',
-  //   // 'server/api/tag/tag.model.js'
+  //   'server/api/role/role.model.js',
+  //   'server/api/tag/tag.model.js'
   // ]);
  
-  // Clear specified collections 
+  // //Clear specified collections 
   // seeder.clearModels(['Role','Tag'], function() {
  
   //   // Callback to populate DB once collections have been cleared 
-  //   //seeder.populateModels(seedData);
+  //   seeder.populateModels(seedData);
 
   // });
 });

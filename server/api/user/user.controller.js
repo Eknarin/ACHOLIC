@@ -30,10 +30,6 @@ exports.createCustomer = function (req, res) {
     });
   });
 };
-
-exports.test = function (req, res) {
-
-};
 /**
  * Creates a new user in the DB.
  *
@@ -65,7 +61,6 @@ exports.getMe = function (req, res) {
   User.findById(req.user._id).populate('role').exec(function (err, user) {
     if (err) { return handleError(res, err); }
     if (!user) { return res.json(401); }
-    console.log(user);
-    res.status(200).json(user);
+    return res.status(200).json(user);
   });
 };

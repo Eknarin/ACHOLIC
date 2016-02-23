@@ -52,7 +52,7 @@
 							</div>
 							<!-- Age Limit -->
 							<div class="col-xs-4 col-ms-4 col-md-4" style="padding-left:0px; padding-right:0px;">
-								18+
+								{{packageItem.map_id.map_id.age_limit}}
 								<img style="width:40px; height:40px;" src="../image/age.png">
 							</div>
 						</div>
@@ -92,12 +92,12 @@
 							<p class="package-detail-topic-group-style">River</p>
 						</div>
 						<div class="col-xs-6 col-sm-5 col-md-5">
-							<p class="package-detail-detail-style"> Level :  {{packageItem.level}}</p>
+							<p class="package-detail-detail-style"> Level :  {{packageItem.map_id.map_id.level}}</p>
 							<p class="package-detail-detail-style"> Distance :  </p>
 						</div>
 						<div class="col-xs-6 col-sm-5 col-md-5">
-							<p class="package-detail-detail-style"> Width :  </p>
-							<p class="package-detail-detail-style"> Depth :  </p>
+							<p class="package-detail-detail-style"> Width : {{packageItem.map_id.map_id.river_width}} m</p>
+							<p class="package-detail-detail-style"> Depth :  {{packageItem.map_id.map_id.river_depth}} m</p>
 						</div>
 					</div>
 					<HR WIDTH="95%" NOSHADE>
@@ -113,8 +113,8 @@
 							<!-- <p class="package-detail-detail-style"> View :  <p> -->
 						</div>
 						<div class="col-xs-12 col-sm-5 col-md-5">
-							<p class="package-detail-detail-style"> Start Point :  </p>
-							<p class="package-detail-detail-style"> End Point :  </p>
+							<p class="package-detail-detail-style"> Start Point :  {{packageItem.map_id.map_id.start_location}}</p>
+							<p class="package-detail-detail-style"> End Point : {{packageItem.map_id.map_id.end_location}} </p>
 						</div>
 					</div>
 					<HR WIDTH="95%" NOSHADE>
@@ -142,24 +142,24 @@
 							<!-- Provide Things -->
 							<div class="col-xs-12 col-sm-12 col-md-12 package-detail-moredetail-box-style">
 								<p class="package-detail-moredetail-topic-style"> Provide Things </p>
-								<p class="package-detail-detail-style"> Provide Things oifsnl lsnnfs lknsdvnsdv pinlv , dns  sf sfo sdo sdop sdov sfo dsv s osdvnosd sdnp sdnbdsl bs sd sf ps p fsb fbpisfbks  sfpn  </p>
+								<p class="package-detail-detail-style"> {{packageItem.map_id.map_id.equipments_provide[0]}}  </p>
 							</div>
 							<!-- Unprovide Things -->
 							<div class="col-xs-12 col-sm-12 col-md-12 package-detail-moredetail-box-style">
 								<p class="package-detail-moredetail-topic-style"> Unprovide Things </p>
-								<p class="package-detail-detail-style"> Provide Things oifsnl lsnnfs lknsdvnsdv pinlv , dns  sf sfo sdo sdop sdov sfo dsv s osdvnosd sdnp sdnbdsl bs sd sf ps p fsb fbpisfbks  sfpn  </p>
+								<p class="package-detail-detail-style"> {{packageItem.map_id.map_id.equipments_require[0]}}  </p>
 							</div>
 
 							<!-- Skill Require -->
 							<div class="col-xs-12 col-sm-12 col-md-12 package-detail-moredetail-box-style">
 								<p class="package-detail-moredetail-topic-style"> Skill Required </p>
-								<p class="package-detail-detail-style"> Provide Things oifsnl lsnnfs lknsdvnsdv pinlv , dns  sf sfo sdo sdop sdov sfo dsv s osdvnosd sdnp sdnbdsl bs sd sf ps p fsb fbpisfbks  sfpn  </p>
+								<p class="package-detail-detail-style"> {{packageItem.map_id.map_id.skills_require}}  </p>
 							</div>
 
 							<!-- Include Activity -->
 							<div class="col-xs-12 col-sm-12 col-md-12 package-detail-moredetail-box-style">
 								<p class="package-detail-moredetail-topic-style"> Include Activity </p>
-								<p class="package-detail-detail-style"> Provide Things oifsnl lsnnfs lknsdvnsdv pinlv , dns  sf sfo sdo sdop sdov sfo dsv s osdvnosd sdnp sdnbdsl bs sd sf ps p fsb fbpisfbks  sfpn  </p>
+								<p class="package-detail-detail-style"> {{packageItem.map_id.map_id.activites}}  </p>
 							</div>
 
 							<!-- Note -->
