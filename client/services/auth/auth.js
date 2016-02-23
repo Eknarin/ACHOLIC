@@ -5,7 +5,7 @@ angular.module('acholic')
 
     var _user = {};
     var _ready = $q.defer();
-
+   
     if ($cookieStore.get('token')) {
       $http.get('/api/users/me')
         .then(function (res) {
@@ -121,7 +121,7 @@ angular.module('acholic')
     this.getUser = function () {
       var def = $q.defer();
       _ready.promise.then(function () {
-         def.resolve(_user);
+         def.resolve(_user);                 
       });
       return def.promise;
     };

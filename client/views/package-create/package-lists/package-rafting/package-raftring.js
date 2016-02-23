@@ -10,6 +10,9 @@ angular.module('acholic')
 	    resolve: {
         packageData:['PackageItem' ,function(PackageItem){
              return new PackageItem;
+          }],
+        userData:['Auth', function(Auth){
+            return Auth.getUser();
           }]
 	    }
       })

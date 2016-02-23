@@ -105,7 +105,7 @@ exports.create = function (req, res) {
       if(err){
         console.log(err);
       }
-      console.log(packageDetail);
+      //console.log(packageDetail);
         var map = new PackageMap;
         map.map_table = req.body.type;
         map.map_id = packageDetail._id;

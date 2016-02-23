@@ -12,7 +12,7 @@ var PackageItemSchema = new Schema({
   created_at: { type: Date, default: Date.now },
   map_id: { type: Schema.Types.ObjectId, ref: 'PackageMap' },
   image: { type: Schema.Types.ObjectId, ref: 'Image' },
-  user_id: Schema.Types.ObjectId
+  user_id: { type: Schema.Types.ObjectId, ref:'User'}
 });
 
 PackageItemSchema.plugin(mongoosePaginate);
