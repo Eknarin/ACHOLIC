@@ -5,11 +5,11 @@ var Schema = mongoose.Schema;
 
 var TrailRunSchema = new Schema({
   	location: String,
-	info:{
+	info:[{
 		type: String,
 		price: Number,
 		distance: Number
-	},
+	}],
 	promote:{
 		slogan: String,
 		souvenir: String,

@@ -8,10 +8,10 @@ var DivingSchema = new Schema({
 		province: String,
 		place: String
 	},
-	info:{
+	info:[{
 		type: String,
 		price: Number
-	},
+	}],
 	sight: Number,
 	sea_depth: Number,
 	level: Number,
