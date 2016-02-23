@@ -138,7 +138,7 @@
 									<input type="radio" name="season" ng-model="seas" value="From "> From 
 										<div class="col-xs-12 col-sm-12 col-md-12">
 											<div class="btn-group">
-												<button type="button" class="btn btn-default package-create-season-select"> Start Month </button>
+												<button type="button" class="btn btn-default package-create-season-select" ng-bind='month1'> Start Month </button>
 												<button type="button" class="btn btn-default dropdown-toggle package-create-season-button" data-toggle="dropdown">
 												<span class="caret"></span>
 												<span class="sr-only">Toggle Dropdown</span>
@@ -149,7 +149,7 @@
 											</div>
 											to
 											<div class="btn-group">
-												<button type="button" class="btn btn-default package-create-season-select"> End Month </button>
+												<button type="button" class="btn btn-default package-create-season-select" ng-bind='month2'> End Month </button>
 												<button type="button" class="btn btn-default dropdown-toggle package-create-season-button" data-toggle="dropdown">
 												<span class="caret"></span>
 												<span class="sr-only">Toggle Dropdown</span>

@@ -280,8 +280,8 @@ angular.module('acholic')
   };
 
   $scope.seas = "Whole year";
-  $scope.month1 = "";
-  $scope.month2 = "";
+  $scope.month1 = "Start Month";
+  $scope.month2 = "End Month";
 
   $scope.months = [
     {name: 'January'},
