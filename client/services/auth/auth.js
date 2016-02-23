@@ -121,11 +121,7 @@ angular.module('acholic')
     this.getUser = function () {
       var def = $q.defer();
       _ready.promise.then(function () {
-        if (_user.hasOwnProperty('_id')) {
-          def.resolve(_user);
-        } else {
-          def.reject();
-        }
+         def.resolve(_user);
       });
       return def.promise;
     };

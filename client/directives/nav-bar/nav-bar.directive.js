@@ -39,11 +39,12 @@ var myNav = angular.module('acholic');
             });
         };
   }]);
-  myNav.controller('OutController', ['$scope','Auth',function ($scope, Auth) {
+  myNav.controller('OutController', ['$scope','Auth','$location',function ($scope, Auth ,$location) {
     var vg = this;
 
      $scope.logout = function () {
           Auth.logout();
           $('#signout-modal').modal('hide');
+          $location.path('/');
         };
   }]);

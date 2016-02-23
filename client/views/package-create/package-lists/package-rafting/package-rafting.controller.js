@@ -6,14 +6,37 @@ angular.module('acholic')
     $scope.images = [];
     $scope.packages.info = {};
     $scope.packages.info.stages = [];
+    $scope.packages.info.equipments_provide = [];
     $scope.packages.type = "PackageRafting";
 
+    $scope.provide = "";
+    $scope.require = "";
+    $scope.skill = "";
+
     $scope.onSubmit = function(){
+        //provide
+        $scope.packages.info.equipments_provide = $scope.provide.split(",");
+        //require
+        $scope.packages.info.equipments_require = $scope.require.split(",");
+        //skill
+        $scope.packages.info.skills_require = $scope.skill.split(",");
+
+        //province
+        $scope.packages.info.location.province = $scope.selected;
+
+        //season
+        $scope.packages.info.season = $scope.seas+$scope.month1+$scope.month2;
+
+        //stage type
+        $scope.packages.info.stage_type = $scope.stageType;
+
+        // console.log("stages="+$scope.stageType);
         console.log($scope.packages);
         $scope.packages.$save().then(function(){
              $location.path("/package");
         });
     };
+
 
     $scope.stages = [];
   
@@ -147,20 +170,33 @@ angular.module('acholic')
     $scope.selected = value;
   };
 
-  $scope.levels = [
-    {name: 'Level1'},
-    {name: 'Level2'},
-    {name: 'Level3'},
-    {name: 'Level4'},
-    {name: 'Level5'},
-    {name: 'Level6'}
+  $scope.seas = "Whole year";
+  $scope.month1 = "Start Month";
+  $scope.month2 = "End Month";
+
+  $scope.months = [
+    {name: 'January'},
+    {name: 'February'},
+    {name: 'March'},
+    {name: 'May'},
+    {name: 'April'},
+    {name: 'June'},
+    {name: 'July'},
+    {name: 'August'},
+    {name: 'September'},
+    {name: 'October'},
+    {name: 'November'},
+    {name: 'December'}
   ];
-  $scope.selectedLevel = " Level ";
-  $scope.setLevel = function(value){
-    console.log(value);
-    $scope.selectedLevel = value;
+  $scope.setMonth1 = function(value){
+    console.log("Month1 ="+value);
+    $scope.month1 = " "+value;
   };
-  
+
+  $scope.setMonth2 = function(value){
+    console.log("Month2 ="+value);
+    $scope.month2 = " to "+value;
+  };
 
   $scope.priceArrs = [];
   $scope.addPrice = function(){
