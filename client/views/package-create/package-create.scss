@@ -126,6 +126,9 @@
 	font-size: 17px;
 	color:white;
 }
+.package-create-table-header{
+	font-size: 10px;
+}
 
 @media(min-width:767px){
 	.create-package-header-size{
@@ -158,5 +161,8 @@
 	}
 	.package-create-type-button-style{
 		font-size: 20px;
+	}
+	.package-create-table-header{
+		font-size: 12px;
 	}
 }
