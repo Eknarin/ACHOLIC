@@ -21,8 +21,16 @@ angular.module('acholic')
         //skill
         $scope.packages.info.skills_require = $scope.skill.split(",");
 
+        //province
+        $scope.packages.info.location.province = $scope.selected;
+
         //season
         $scope.packages.info.season = $scope.seas+$scope.month1+$scope.month2;
+
+        //stage type
+        $scope.packages.info.stage_type = $scope.stageType;
+
+        // console.log("stages="+$scope.stageType);
         console.log($scope.packages);
         $scope.packages.$save().then(function(){
              $location.path("/package");
@@ -86,6 +94,7 @@ angular.module('acholic')
     //         index = $row.attr('stage-index');
     //     $row.remove();
     // };
+    $scope.stageType = [];
 
     $scope.choices = [{id: 'choice1'}, {id: 'choice2'}];
   
@@ -290,7 +299,7 @@ angular.module('acholic')
   ];
   $scope.setMonth1 = function(value){
     console.log("Month1 ="+value);
-    $scope.month1 = value;
+    $scope.month1 = " "+value;
   };
   $scope.setMonth2 = function(value){
     console.log("Month2 ="+value);

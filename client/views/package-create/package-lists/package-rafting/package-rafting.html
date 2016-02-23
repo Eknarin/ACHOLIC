@@ -250,7 +250,7 @@
 			    				<div class="col-xs-12 col-sm-12 col-md-8"> 					      			
 						       		<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:0px; padding-right:0px;"> 
 							       		<fieldset  data-ng-repeat="choice in choices">									     
-										      <input type="text" class="package-create-inputbox-style" ng-model="choice.name" name="" required style="width:80%">
+										      <input type="text" class="package-create-inputbox-style" data-ng-model="stageType[$index]" name="" required style="width:80%">
 										      <button class="btn btn-danger package-create-add-delete-button-style" style="width:18.5%" ng-click="removeChoice()">-</button>
 										</fieldset>
 									</div>
