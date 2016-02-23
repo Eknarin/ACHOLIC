@@ -5,6 +5,7 @@ angular.module('acholic')
     $scope.packages = packageData;
     $scope.images = [];
     $scope.packages.info = {};
+    $scope.packages.info.stages = [];
     $scope.packages.type = "PackageRafting";
 
     $scope.onSubmit = function(){
@@ -14,14 +15,16 @@ angular.module('acholic')
         });
     };
 
+    $scope.nStage = "";
+
     // Add more input box
     var stage_next = 1;
     var boat_next = 1;
-    $scope.addMore = function(e){
+    $scope.addMoreStage = function(){
         //e.preventDefault();
         var id_button = "";
-        if(e == "stage"){
-            console.log("SSSS");
+        // if(e == "stage"){
+            console.log($scope.nStage);
             id_button = "stage";
 
             var addto = "#stage" + stage_next;
@@ -44,8 +47,11 @@ angular.module('acholic')
                 $(this).remove();
                 $(fieldID).remove();
             });
-        }
-        else if(e == "boat"){
+            $scope.packages.info.stages.push($scope.nStage);
+    }
+
+        $scope.addMoreBoat = function(e){
+        // else if(e == "boat"){
             console.log("BBBB");
             id_button = "boat";
 
@@ -58,20 +64,20 @@ angular.module('acholic')
             var removeButton = $(removeBtn);
             $(addto).after(newInput);
             $(addRemove).after(removeButton);
-            $("#boat" + boat_next).attr('data-source',$(addto).attr('data-source'));
-            $("#count").val(boat_next);  
-            
-            $('.remove-boat').click(function(e){
-                e.preventDefault();
-                var fieldNum = this.id.substring(11);
-                console.log(fieldNum);
-                var fieldID = "#boat" + fieldNum;
-                // console.log(fieldID);
-                $(this).remove();
-                $(fieldID).remove();
-            });
-        }
+                $("#boat" + boat_next).attr('data-source',$(addto).attr('data-source'));
+                $("#count").val(boat_next);  
+                
+                $('.remove-boat').click(function(e){
+                    e.preventDefault();
+                    var fieldNum = this.id.substring(11);
+                    console.log(fieldNum);
+                    var fieldID = "#boat" + fieldNum;
+                    // console.log(fieldID);
+                    $(this).remove();
+                    $(fieldID).remove();
+                });
 
+            }
 
         // var addto = "#"+id_button+"field" + next;
         // var addRemove = "#"+id_button+"field" + (next);
@@ -92,7 +98,7 @@ angular.module('acholic')
         //     $(this).remove();
         //     $(fieldID).remove();
         // });
-    };
+    // }
 
     // menu-bar function
  	var navListItems = $('ul.setup-panel li a'),
@@ -230,4 +236,3 @@ angular.module('acholic')
   };
 
   }]);
-

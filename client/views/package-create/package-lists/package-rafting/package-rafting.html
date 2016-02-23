@@ -83,8 +83,8 @@
 									<span class="caret"></span>
 									<span class="sr-only">Toggle Dropdown</span>
 								</button>
-								<ul class="dropdown-menu scrollable-menu package-create-dropdown-list-style" ng-model="packages.info.location.province" >
-									<li ng-repeat="p in provinces" ng-name="p.name" ng-model="p.name" ng-click="setProvince(p.name)"><a href="#">{{p.name}}</a></li>
+								<ul class="dropdown-menu scrollable-menu package-create-dropdown-list-style">
+									<li ng-repeat="p in provinces" ng-model="packages.info.location.province" ng-click="setProvince(p.name)" value="p.name"><a href="#">{{p.name}}</a></li>
 								</ul>
 							</div>
 			        	</div>
@@ -232,12 +232,12 @@
 				   					<p class="package-create-topic-style">Level : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8 package-create-bullet-group-style">
-									<input type="radio" name="level"> Level 1 : Easy<br>
-									<input type="radio" name="level"> Level 2 : Normal<br>
-									<input type="radio" name="level"> Level 3 : Moderate<br>
-									<input type="radio" name="level"> Level 4 : Hard<br>	
-									<input type="radio" name="level"> Level 5 : Expert<br>
-									<input type="radio" name="level"> Level 6 : Danger<br>
+									<input type="radio" name="level" ng-model="packages.info.level" value="Level 1"> Level 1 : Easy<br>
+									<input type="radio" name="level" ng-model="packages.info.level" value="Level 2"> Level 2 : Normal<br>
+									<input type="radio" name="level" ng-model="packages.info.level" value="Level 3"> Level 3 : Moderate<br>
+									<input type="radio" name="level" ng-model="packages.info.level" value="Level 4"> Level 4 : Hard<br>	
+									<input type="radio" name="level" ng-model="packages.info.level" value="Level 5"> Level 5 : Expert<br>
+									<input type="radio" name="level" ng-model="packages.info.level" value="Level 6"> Level 6 : Danger<br>
 					       		</div>
 				        	</div>	
 		   				</div>
@@ -265,21 +265,21 @@
 					       		</div>
 				        	</div>
 				        	<!-- Stage Amount -->
-				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
+				        	<!-- <div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
 				   					<p class="package-create-topic-style">Stage Amount : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.info.stages.length" class="package-create-inputbox-style" type="text" required>
+					        		<input ng-model="nStage" class="package-create-inputbox-style" type="text" required>
 					       		</div>
-				        	</div>
+				        	</div> -->
 				        	<!-- Stage Type -->
 				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
 				   					<p class="package-create-topic-style">Stage Type : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8"> 
-						            <input ng-model="packages.info.stages" id="stage1" class="package-create-inputbox-style" type="text" required style="width:80%"><button id="stage-b1" class="btn package-create-add-delete-button-style" type="button" ng-click="addMore('stage')">+</button>
+						            <input id="stage1" ng-model="nStage" class="package-create-inputbox-style" type="text" required style="width:80%"><button id="stage-b1" class="btn package-create-add-delete-button-style" type="button" ng-click="addMoreStage()">+</button>
 					       		</div>
 				        	</div>
 		   				</div>		   				
@@ -325,7 +325,7 @@
 				   					<p class="package-create-topic-style">Duration : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="" class="package-create-inputbox-style" type="text" required>
+					        		<input ng-model="packages.info.info.duration" class="package-create-inputbox-style" type="text" required>
 					       		</div>
 				        	</div>
 				        	<!-- Boat Type -->
@@ -334,7 +334,7 @@
 				   					<p class="package-create-topic-style">Boat Type : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8"> 
-						            <input ng-model="packages.info.info.boat_type" id="boat1" class="package-create-inputbox-style" type="text" required style="width:80%"><button id="boat-b2" class="btn package-create-add-delete-button-style" type="button" ng-click="addMore('boat')">+</button>
+						            <input ng-model="packages.info.info.boat_type" id="boat1" class="package-create-inputbox-style" type="text" required style="width:80%"><button id="boat-b2" class="btn package-create-add-delete-button-style" type="button" ng-click="addMoreBoat('boat')">+</button>
 					       		</div>
 				        	</div>
 		   				</div>
@@ -433,12 +433,12 @@
 				        	</div>
 					    </div>
 					    <!-- Schedule -->
-		   				<div class="col-xs-12 col-sm-12 col-md-12 fillform-content-style">
+		   				<!-- <div class="col-xs-12 col-sm-12 col-md-12 fillform-content-style">
 		   					<div  class="col-xs-12 col-sm-12 col-md-12" style="text-align: center;">
 					           	<p class="fillform-content-sub-header">Schedule</p>
-					        </div>
+					        </div> -->
 						    <!-- Include Activity -->
-				       		<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
+				       		<!-- <div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
 				       				<p class="package-create-topic-style">Activity : </p>
 				       			</div>
@@ -446,7 +446,7 @@
 					        		<textarea  ng-model=""  class="package-create-inputbox-style form-control" rows="5" placeholder="Under Construction"></textarea >
 					        	</div>
 				        	</div>
-					    </div>
+					    </div> -->
 			        </div>
 			        <div class="col-xs-12 col-sm-12 col-md-12" style="text-align: center; margin-top:20px;">
 			           	<button type="button" class="btn btn-danger" ng-click="previousTab()">Back</button>
