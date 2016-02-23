@@ -15,69 +15,104 @@ angular.module('acholic')
         });
     };
 
-    $scope.nStage = "";
+    // $scope.nStage = "";
 
-    // Add more input box
-    var stage_next = 1;
-    var boat_next = 1;
-    $scope.addMoreStage = function(){
-        //e.preventDefault();
-        var id_button = "";
-        // if(e == "stage"){
-            console.log($scope.nStage);
-            id_button = "stage";
+    // // Add more input box
+    // var stage_next = 1;
+    // var boat_next = 1;
+    // $scope.addMoreStage = function(){
+    //     //e.preventDefault();
+    //     var id_button = "";
+    //     // if(e == "stage"){
+    //         console.log($scope.nStage);
+    //         id_button = "stage";
 
-            var addto = "#stage" + stage_next;
-            var addRemove = "#stage" + (stage_next);
-            stage_next = stage_next + 1;
-            var newIn = '<input autocomplete="off" class="package-create-inputbox-style" style="width:80%;" id="stage' + stage_next + '" name="stage' + stage_next + '" type="text">';
-            var newInput = $(newIn);
-            var removeBtn = '<button id="remove_stage' + (stage_next - 1) + '" class="btn btn-danger remove-stage package-create-add-delete-button-style">-</button>';
-            var removeButton = $(removeBtn);
-            $(addto).after(newInput);
-            $(addRemove).after(removeButton);
-            $("#stage" + stage_next).attr('data-source',$(addto).attr('data-source'));
-            $("#count").val(stage_next);  
+    //         var addto = "#stage" + stage_next;
+    //         var addRemove = "#stage" + (stage_next);
+    //         stage_next = stage_next + 1;
+    //         var newIn = '<input autocomplete="off" class="package-create-inputbox-style" style="width:80%;" id="stage' + stage_next + '" name="stage' + stage_next + '" type="text">';
+    //         var newInput = $(newIn);
+    //         var removeBtn = '<button id="remove_stage' + (stage_next - 1) + '" class="btn btn-danger remove-stage package-create-add-delete-button-style">-</button>';
+    //         var removeButton = $(removeBtn);
+    //         $(addto).after(newInput);
+    //         $(addRemove).after(removeButton);
+    //         $("#stage" + stage_next).attr('data-source',$(addto).attr('data-source'));
+    //         $("#count").val(stage_next);  
             
-            $('.remove-stage').click(function(e){
-                e.preventDefault();
-                var fieldNum = this.id.substring(12);
-                var fieldID = "#stage" + fieldNum;
-                console.log(fieldID);
-                $(this).remove();
-                $(fieldID).remove();
-            });
-            $scope.packages.info.stages.push($scope.nStage);
-    }
+    //         $('.remove-stage').click(function(e){
+    //             e.preventDefault();
+    //             var fieldNum = this.id.substring(12);
+    //             var fieldID = "#stage" + fieldNum;
+    //             console.log(fieldID);
+    //             $(this).remove();
+    //             $(fieldID).remove();
+    //         });
+    //         $scope.packages.info.stages.push($scope.nStage);
+    // }
 
-        $scope.addMoreBoat = function(e){
-        // else if(e == "boat"){
-            console.log("BBBB");
-            id_button = "boat";
-
-            var addto = "#boat" + boat_next;
-            var addRemove = "#boat" + (boat_next);
-            boat_next = boat_next + 1;
-            var newIn = '<input autocomplete="off" class="package-create-inputbox-style" style="width:80%;" id="boat' + boat_next + '" name="boat' + boat_next + '" type="text">';
-            var newInput = $(newIn);
-            var removeBtn = '<button id="remove_boat' + (boat_next - 1) + '" class="btn btn-danger remove-boat package-create-add-delete-button-style">-</button>';
-            var removeButton = $(removeBtn);
-            $(addto).after(newInput);
-            $(addRemove).after(removeButton);
-                $("#boat" + boat_next).attr('data-source',$(addto).attr('data-source'));
-                $("#count").val(boat_next);  
+    // var stageIndex = 1;
+    // $scope.addStage = function(e){
+    //     console.log("add");
+    //     var $template = $('#stage-template'),
+    //         $clone = $template
+    //                     .clone()
+    //                     .removeClass('hide')
+    //                     .removeAttr('id')
+    //                     .attr('stage-index', stageIndex)
+    //                     .insertBefore($template);
+    //          $clone
+    //             .find('[id="stage"]').attr('id', 'stage' + stageIndex).end()
+    //             .find('[id="deleteStage"]').attr('id', 'deleteStage' + stageIndex).end();
                 
-                $('.remove-boat').click(function(e){
-                    e.preventDefault();
-                    var fieldNum = this.id.substring(11);
-                    console.log(fieldNum);
-                    var fieldID = "#boat" + fieldNum;
-                    // console.log(fieldID);
-                    $(this).remove();
-                    $(fieldID).remove();
-                });
+    //         stageIndex += 1;
+    // };
+    // $scope.removeStage = function(e){
+    //     console.log("delete");
+    //     var $row  = $(this).parents('.form-group'),
+    //         index = $row.attr('stage-index');
+    //     $row.remove();
+    // };
 
-            }
+    $scope.choices = [{id: 'choice1'}, {id: 'choice2'}];
+  
+    $scope.addNewChoice = function() {
+        var newItemNo = $scope.choices.length+1;
+        $scope.choices.push({'id':'choice'+newItemNo});
+    };
+        
+    $scope.removeChoice = function() {
+        var lastItem = $scope.choices.length-1;
+        $scope.choices.splice(lastItem);
+    };
+
+        // $scope.addMoreBoat = function(e){
+        // // else if(e == "boat"){
+        //     console.log("BBBB");
+        //     id_button = "boat";
+
+        //     var addto = "#boat" + boat_next;
+        //     var addRemove = "#boat" + (boat_next);
+        //     boat_next = boat_next + 1;
+        //     var newIn = '<input autocomplete="off" class="package-create-inputbox-style" style="width:80%;" id="boat' + boat_next + '" name="boat' + boat_next + '" type="text">';
+        //     var newInput = $(newIn);
+        //     var removeBtn = '<button id="remove_boat' + (boat_next - 1) + '" class="btn btn-danger remove-boat package-create-add-delete-button-style">-</button>';
+        //     var removeButton = $(removeBtn);
+        //     $(addto).after(newInput);
+        //     $(addRemove).after(removeButton);
+        //         $("#boat" + boat_next).attr('data-source',$(addto).attr('data-source'));
+        //         $("#count").val(boat_next);  
+                
+        //         $('.remove-boat').click(function(e){
+        //             e.preventDefault();
+        //             var fieldNum = this.id.substring(11);
+        //             console.log(fieldNum);
+        //             var fieldID = "#boat" + fieldNum;
+        //             // console.log(fieldID);
+        //             $(this).remove();
+        //             $(fieldID).remove();
+        //         });
+
+        //     }
 
         // var addto = "#"+id_button+"field" + next;
         // var addRemove = "#"+id_button+"field" + (next);

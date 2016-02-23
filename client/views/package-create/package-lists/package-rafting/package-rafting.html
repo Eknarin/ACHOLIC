@@ -263,24 +263,23 @@
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
 					        		<input ng-model="packages.info.end_location" class="package-create-inputbox-style" type="text" required>
 					       		</div>
-				        	</div>
-				        	<!-- Stage Amount -->
-				        	<!-- <div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
-				       			<div class="col-xs-12 col-sm-12 col-md-4">
-				   					<p class="package-create-topic-style">Stage Amount : </p>
-			    				</div>
-				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="nStage" class="package-create-inputbox-style" type="text" required>
-					       		</div>
-				        	</div> -->
+				        	</div>				        
 				        	<!-- Stage Type -->
 				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
-				   					<p class="package-create-topic-style">Stage Type : </p>
+				   					<p class="package-create-topic-style">Stage Type : </p>			    				
 			    				</div>
-				      			<div class="col-xs-12 col-sm-12 col-md-8"> 
-						            <input id="stage1" ng-model="nStage" class="package-create-inputbox-style" type="text" required style="width:80%"><button id="stage-b1" class="btn package-create-add-delete-button-style" type="button" ng-click="addMoreStage()">+</button>
-					       		</div>
+			    				<div class="col-xs-12 col-sm-12 col-md-8"> 					      			
+						       		<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:0px; padding-right:0px;"> 
+							       		<fieldset  data-ng-repeat="choice in choices">									     
+										      <input type="text" class="package-create-inputbox-style" ng-model="choice.name" name="" required style="width:80%">
+										      <button class="btn btn-danger package-create-add-delete-button-style" style="width:18.5%" ng-click="removeChoice()">-</button>
+										</fieldset>
+									</div>
+									<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:0px; padding-right:0px;"> 
+										<button class="btn btn-success addfields" ng-click="addNewChoice()">Add fields</button>
+									</div>
+						       	</div>
 				        	</div>
 		   				</div>		   				
 		        	</div>
