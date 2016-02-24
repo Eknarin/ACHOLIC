@@ -215,7 +215,7 @@ angular.module('acholic')
         people: addPeople, 
         distance: addDistance, 
         duration: addDuration, 
-        boat: addBoat};
+        boat_type: addBoat};
 
     $scope.priceArrs.push(priceObj);
     console.log($scope.priceArrs);
