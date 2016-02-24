@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('PackageRaftingCtrl',['$scope','packageData','PackageItem','$location',function ($scope ,packageData, PackageItem ,$location) {
+  .controller('PackageRaftingCtrl',['$scope','packageData','PackageItem','$location','$rootScope',function ($scope ,packageData, PackageItem ,$location , $rootScope) {
     $scope.packages = packageData;
     $scope.images = [];
     $scope.packages.info = {};
     $scope.packages.info.stages = [];
     $scope.packages.info.equipments_provide = [];
     $scope.packages.type = "PackageRafting";
-    //$scope.packages.user_id = userData._id;
+    $scope.packages.user_id = $rootScope._user._id;
 
     $scope.provide = "";
     $scope.require = "";
@@ -214,7 +214,7 @@ angular.module('acholic')
         people: addPeople, 
         distance: addDistance, 
         duration: addDuration, 
-        boat: addBoat};
+        boat_type: addBoat};
 
     $scope.priceArrs.push(priceObj);
     console.log($scope.priceArrs);

@@ -5,11 +5,6 @@ angular.module('acholic')
     $routeProvider
       .when('/profile', {
         templateUrl: 'views/profile/profile.html',
-        controller: 'ProfileCtrl',
-        resolve:{
-        	userData:['Auth', function(Auth){
-        		return Auth.getUser();
-        	}]
-        }
+        controller: 'ProfileCtrl'
       });
   });
