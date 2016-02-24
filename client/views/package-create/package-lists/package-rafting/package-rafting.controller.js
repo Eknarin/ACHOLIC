@@ -31,6 +31,8 @@ angular.module('acholic')
         //stage type
         $scope.packages.info.stage_type = $scope.stageType;
 
+        //infos
+        $scope.packages.info.info = $scope.priceArrs;
         // console.log("stages="+$scope.stageType);
         console.log($scope.packages);
         $scope.packages.$save().then(function(){
@@ -38,6 +40,7 @@ angular.module('acholic')
         });
     };
 
+    $scope.stageType = [];
 
     $scope.stages = [];
   
@@ -172,8 +175,8 @@ angular.module('acholic')
   };
 
   $scope.seas = "Whole year";
-  $scope.month1 = "Start Month";
-  $scope.month2 = "End Month";
+  $scope.month1 = "";
+  $scope.month2 = "";
 
   $scope.months = [
     {name: 'January'},
@@ -202,7 +205,7 @@ angular.module('acholic')
   $scope.priceArrs = [];
   $scope.addPrice = function(){
     console.log("ADD Price");
-    var addPrice = $scope.packages.price;
+    var addPrice = $scope.packages.info.info.price;
     var addPeople = $scope.packages.info.info.people;
     var addDistance = $scope.packages.info.info.distance;
     var addDuration = $scope.packages.info.info.duration;

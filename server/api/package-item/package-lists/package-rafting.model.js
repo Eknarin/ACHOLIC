@@ -10,7 +10,7 @@ var RaftingSchema = new Schema({
 	},
 	river_line: String,
 	boat: String,
-	infos:[{
+	info:[{
 		type: String,
 		boat_type: String,
 		people: String,
