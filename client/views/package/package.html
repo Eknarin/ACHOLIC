@@ -7,136 +7,122 @@
 	</head>
 	
 	<body>
-	  	<!-- Filter Options -->
-	  	<div>
-			<div class="container-fluid" style="background-color:#53798d; padding-top: 70px;">
-				<div class="container">
-					<h3 style="color:#ebebeb;text-shadow: black 0.2em 0.2em 0.2em;"><center>Filter Options</center></h3>
-					<!-- Hiding Filter Page -->
-					<div id="filter_menu" class="collapse filter-section"></br>
-						<div class="row">
-							<div class="col-md-4"> 
-							    <div class="col-md-12 col-xs-12 btn-group" style="padding-bottom:5px;">
-								  <button type="button" class="btn btn-default" style="width:89.8%; padding-left:0px" ng-bind='selected'> Province </button>
-								  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width:10%">
-								    <span class="caret"></span>
-								    <span class="sr-only">Toggle Dropdown</span>
-								  </button>
-								  <ul class="dropdown-menu scrollable-menu" style="width:91.5%;margin-left:17px;">
-								    <li ng-repeat="p in provinces" ng-name="p.name" ng-model="p.name" ng-click="setProvince(p.name)"><a href="#">{{p.name}}</a></li>
-								  </ul>
-								</div>
-							</div> 
+		  	
+		<div class="container-fluid" style="padding-left:0px; padding-right:0px; background-color:rgba(0,0,0,0.85);">
 
-							<div class="col-md-4"> 
-							    <div class="col-md-12 col-xs-12 btn-group" style="padding-bottom:5px;">
-								  <button type="button" class="btn btn-default" style="width:90%; padding-left:0px" ng-bind="selectedType"> Type </button>
-								  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width:10%">
-								    <span class="caret"></span>
-								    <span class="sr-only">Toggle Dropdown</span>
-								  </button>
-								  <ul class="dropdown-menu scrollable-menu" style="width:91.5%;margin-left:17px;">
-								    <li ng-repeat="t in types" ng-click="setType(t.name)"><a href="#">{{t.name}}</a></li>
-								  </ul>
-								</div>
-							</div>
-
-							<div class="col-md-4">
-								<div class="col-md-12 col-xs-12 btn-group" style="padding-bottom:5px;">
-								  <button type="button" class="btn btn-default" style="width:90%" ng-bing="guest"> {{guest}} </button>
-								  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width:10%">
-								    <span class="caret"></span>
-								    <span class="sr-only">Toggle Dropdown</span>
-								  </button>
-								  <ul class="dropdown-menu scrollable-menu" style="width:91.5%;margin-left:17px;">
-								    <li ng-repeat="g in guests" ng-click="setGuest(g.n)"><a href="#">{{g.n}}</a></li>
-								  </ul>
-								</div>
-			              
-							</div>
-						</div>
-						
-			             <!--Price range slider-->
-			            <div class="row">
-			            	<div class="col-md-2 font-effect-outline" style="height=15px;padding-top:5px;">
-			            		<center>
-			            			<label style="color:white;font-size:18px;margin-top:15px;">Price Rate</label>
-			            		</center>
-			            	</div>
-			            	<div class="col-md-8">
-							    <rzslider
-							        rz-slider-model="slider.min"
-								    rz-slider-high="slider.max"
-								    rz-slider-options="slider.options">
-								</rzslider>
-							</div>	
-						</div>
-						<!--End Price range slider-->
-						<!-- Filter Button -->
-						<center><button type="button" class="btn btn-warning btn-lg" style="margin-bottom:15px;color:black;border: 1px solid black;" ng-click="filtering()"> Filter </button></center>
-						<!--End Filter Button -->
-					</div>
-					<!-- End Hiding Filter Page -->
+			<!-- filter -->
+			<div class="col-xs-12 col-sm-12 col-md-3 filter-cover-style" style="padding-top:70px;">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<p style="font-size:30px;">Filter Options</p>
 				</div>
-			</div>
-			<!-- Button for Expand Hiding Page -->
-			<div style="background-color:#406a80; border-bottom:1px solid #525556;border-top:1px solid #525556;">
-				<center><button id="expandButt" data-toggle="collapse" data-target="#filter_menu" style="background-color:transparent; border:none; padding:0" ng-click="rotate(deg)"><img src="../image/expand_copy.png"></button></center>
-			</div>
-			<!-- End Button for Expand Hiding Page -->
-		</div>
-		<!-- End Filter Options -->
-
-		<!-- Packages -->
-		<div style="background-image:url('../../image/package-background.png'); padding-top:5%; padding-bottom:5%;">
-		<div class="container">
-			<div class="container" style="width:100%; color:white">
-				<p style="font-size: 50px; text-align:center;">Packages</p>
-			</div>
-			 <uib-pagination total-items="totalItems" items-per-page="limit" ng-change="pageChanged(currentPage)" ng-model="currentPage" max-size="maxSize" class="pagination-lg" boundary-links="true" rotate="false"></uib-pagination>
-			<div class="row">
-				<div ng-repeat="package in packages">
-					<!-- Package -->
-					<div class="col-xs-12 col-sm-6 col-md-4 package-cover">
-						<div class="package-style">
-							<div class="package_item_upper">
-								<!-- Package Image -->
-								<div class="center-picture" ng-style="{'background-image':'url(api/images/{{package.image}})'}" style="height:230px">
-								</div>
- 								<!-- Package Price -->
-								<p class="price">&nbsp{{package.price}} ฿<p>
-								<!-- Like button -->
-								<input id="liked" ng-click="ilike()" class="like_button" type="image" src="../image/Heart.png" name="image">
-							</div>
-							<!-- Package Name -->
-							<div class="text-padding package-header-overflow" style="padding-top:10px">
-								<p style="font-size: 25px;"><a href="/packageDetail/{{package._id}}" style="color:white">{{package.name}}</a></p>	
-							</div>
-							<!-- Package Rating -->
-							<div class="text-padding" style="" ng-app="" ng-init="nstar = 0">
-								<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getStar(package.rating) track by $index" src="../image/star_rated.png">
-								<img style="width:20px;height:20px;margin-left: 3px;" ng-if="((package.rating)/2)%1 >= 0.5" src="../image/star_rated_half.png">
-								<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getWhite(package.rating) track by $index" src="../image/star_unrated.png">
-							</div>
-
-							<!-- Package Description -->
-							<div class="text-padding package-description-overflow" style="padding-top:10px">
-								<p style="color:#888888; overflow: hidden;">{{package.description}}</p>	
-							</div>
-						</div>
-						<!-- Package Publish Date  -->
-						<div class="package-footer-style text-padding">
-							<span class="glyphicon glyphicon-calendar"> DD/MM/YY</span>
-						</div>
+				<!-- filter location -->
+				<div class="col-xs-12 col-sm-12 col-md-12 btn-group filter-dropdownbtn-style">
+					<button type="button" class="btn btn-default" style="width:89.8%; padding-left:0px" ng-bind='selected'> Province </button>
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width:10%">
+						<span class="caret"></span>
+						<span class="sr-only">Toggle Dropdown</span>
+					</button>
+					<ul class="dropdown-menu scrollable-menu" style="width:91.5%;margin-left:17px;">
+					    <li ng-repeat="p in provinces" ng-name="p.name" ng-model="p.name" ng-click="setProvince(p.name)"><a href="#">{{p.name}}</a></li>
+					</ul>
+				</div>
+				<!-- filter tag -->
+				<div class="col-xs-12 col-sm-12 col-md-12 btn-group filter-dropdownbtn-style">
+					<button type="button" class="btn btn-default" style="width:90%; padding-left:0px" ng-bind="selectedType"> Type </button>
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width:10%">
+						<span class="caret"></span>
+						<span class="sr-only">Toggle Dropdown</span>
+					</button>
+					<ul class="dropdown-menu scrollable-menu" style="width:91.5%;margin-left:17px;">
+					    <li ng-repeat="t in types" ng-click="setType(t.name)"><a href="#">{{t.name}}</a></li>
+					</ul>
+				</div>
+				<!-- filter people amount -->
+				<div class="col-xs-12 col-sm-12 col-md-12 btn-group filter-dropdownbtn-style">
+					<button type="button" class="btn btn-default" style="width:90%" ng-bing="guest"> {{guest}} </button>
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width:10%">
+						<span class="caret"></span>
+					    <span class="sr-only">Toggle Dropdown</span>
+				  	</button>
+					<ul class="dropdown-menu scrollable-menu" style="width:91.5%;margin-left:17px;">
+						<li ng-repeat="g in guests" ng-click="setGuest(g.n)"><a href="#">{{g.n}}</a></li>
+					</ul>
+				</div>
+				<!-- filter price -->
+				<div class="col-xs-12 col-sm-12 col-md-12 filter-dropdownbtn-style">
+					<div class="col-md-2 font-effect-outline" style="height=15px;padding-top:5px;">
+			            <center>
+			       			<label style="color:white;font-size:18px;margin-top:15px;">Price Rate</label>
+			       		</center>
+			        </div>
+			       	<div class="col-md-8">
+						<rzslider
+					        rz-slider-model="slider.min"
+						    rz-slider-high="slider.max"
+						    rz-slider-options="slider.options">
+						</rzslider>
 					</div>	
 				</div>
-				<!-- If no search result  -->
-				<center><div ng-show="!packages.length" style="padding:50px;"><h2 style="color:#B3B3B3">No results found</h2></div></center>
+				<!-- filter button -->
+				<div class="col-xs-12 col-sm-12 col-md-12 filter-dropdownbtn-style">
+					<button type="button" class="btn btn-warning btn-lg" style="margin-bottom:15px;color:black;border: 1px solid black;" ng-click="filtering()"> Filter </button>
+				</div>
 			</div>
-			 <uib-pagination total-items="totalItems" items-per-page="limit" ng-change="pageChanged(currentPage)" ng-model="currentPage" max-size="maxSize" class="pagination-lg" boundary-links="true" rotate="false"></uib-pagination>
-		</div>
-	</div>
 
-	<!-- End Packages -->
+			<div class="col-xs-12 col-sm-12  col-md-9" style="padding-left:0px; padding-right:0px;">
+				<!-- Packages -->
+				<div style="background-image:url('../../image/package-background.png'); padding-top:5%; padding-bottom:15%; padding-left:15px; padding-right:15px;">
+					<!-- <div class="container"> -->
+						<!-- <div class="container" style="width:100%; color:white">
+							<p style="font-size: 50px; text-align:center;">Packages</p>
+						</div> -->
+						<!--  <uib-pagination total-items="totalItems" items-per-page="limit" ng-change="pageChanged(currentPage)" ng-model="currentPage" max-size="maxSize" class="pagination-lg" boundary-links="true" rotate="false"></uib-pagination> -->
+						<div class="row">
+							<div ng-repeat="package in packages">
+								<!-- Package -->
+								<div class="col-xs-12 col-sm-6 col-md-4 package-cover" style="">
+									<div class="package-style">
+										<div class="package_item_upper">
+											<!-- Package Image -->
+											<div class="center-picture" ng-style="{'background-image':'url(api/images/{{package.image}})'}" style="height:230px">
+											</div>
+			 								<!-- Package Price -->
+											<p class="price">&nbsp{{package.price}} ฿</p>
+											<!-- Like button -->
+											<input id="liked" ng-click="ilike()" class="like_button" type="image" src="../image/Heart.png" name="image">
+										</div>
+										<!-- Package Name -->
+										<div class="text-padding package-header-overflow" style="padding-top:10px">
+											<p style="font-size: 25px;"><a href="/packageDetail/{{package._id}}" style="color:white">{{package.name}}</a></p>	
+										</div>
+										<!-- Package Rating -->
+										<div class="text-padding" style="" ng-app="" ng-init="nstar = 0">
+											<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getStar(package.rating) track by $index" src="../image/star_rated.png">
+											<img style="width:20px;height:20px;margin-left: 3px;" ng-if="((package.rating)/2)%1 >= 0.5" src="../image/star_rated_half.png">
+											<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getWhite(package.rating) track by $index" src="../image/star_unrated.png">
+										</div>
+
+										<!-- Package Description -->
+										<div class="text-padding package-description-overflow" style="padding-top:10px">
+											<p style="color:#888888; overflow: hidden;">{{package.description}}</p>	
+										</div>
+									</div>
+									<!-- Package Publish Date  -->
+									<div class="package-footer-style text-padding">
+										<span class="glyphicon glyphicon-calendar"> DD/MM/YY</span>
+									</div>
+								</div>	
+							</div>
+							<!-- If no search result  -->
+							<center><div ng-show="!packages.length" style="padding:50px;"><h2 style="color:#B3B3B3">No results found</h2></div></center>
+						</div>
+						<div class="col-md-12" style="text-align:center; margin-top:15px;">
+						 	<uib-pagination total-items="totalItems" items-per-page="limit" ng-change="pageChanged(currentPage)" ng-model="currentPage" max-size="maxSize" class="pagination-lg" boundary-links="true" rotate="false"></uib-pagination>
+						</div>
+					<!-- </div> -->
+				</div>
+			</div>
+		</div>
+
 	</body>
 </html>

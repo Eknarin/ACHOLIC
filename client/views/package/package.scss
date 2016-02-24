@@ -42,6 +42,19 @@
 	margin-top:30px;
     overflow: auto;
 }
+.filter-cover-style{
+  background-color:rgba(0,0,0,0); 
+  color:white; 
+  padding-left:0px; 
+  padding-right:0px; 
+  padding-top:50px; 
+  padding-bottom:50px;
+  text-align:center;
+}
+.filter-dropdownbtn-style{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
 .dropdown_filter{
     width:90%; 
     text-align:left; 
@@ -118,7 +131,7 @@
    display: -webkit-box;
    -webkit-box-orient: vertical;
    -webkit-line-clamp: 1; /* number of lines to show */
-   line-height: 1.2;        /* fallback */
+   line-height: 1.5;        /* fallback */
    max-height: 1.2;       /* fallback */
 }
 .package-description-overflow{
