@@ -33,7 +33,7 @@ angular.module('acholic')
 
         //infos
         $scope.packages.info.info = $scope.priceArrs;
-        console.log("info="+$scope.packages);
+
         console.log($scope.packages);
         $scope.packages.$save().then(function(){
              $location.path("/package");
@@ -46,7 +46,6 @@ angular.module('acholic')
   
     $scope.addNewStage = function() {
         $scope.stages.push($scope.stages.length);
-        console.log($scope.stages.length);
     };
         
     $scope.removeStage = function(index) {
@@ -170,7 +169,6 @@ angular.module('acholic')
   ];
   $scope.selected = "Province";
   $scope.setProvince = function(value){
-    console.log(value);
     $scope.selected = value;
   };
 
@@ -193,12 +191,10 @@ angular.module('acholic')
     {name: 'December'}
   ];
   $scope.setMonth1 = function(value){
-    console.log("Month1 ="+value);
     $scope.month1 = " "+value;
   };
 
   $scope.setMonth2 = function(value){
-    console.log("Month2 ="+value);
     $scope.month2 = " to "+value;
   };
 
@@ -217,7 +213,13 @@ angular.module('acholic')
         boat_type: addBoat};
 
     $scope.priceArrs.push(priceObj);
-    console.log($scope.priceArrs);
+
+    //empty input fields
+    $scope.packages.info.info.price = "";
+    $scope.packages.info.info.people = "";
+    $scope.packages.info.info.distance = "";
+    $scope.packages.info.info.duration = "";
+    $scope.packages.info.info.boat_type = "";
   };
     $scope.deleteRow = function(index) {
         console.log('delete');
