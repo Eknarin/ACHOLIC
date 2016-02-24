@@ -3,13 +3,13 @@
 angular.module('acholic')
   .service('Auth', function ($rootScope, $cookieStore, $q, $http) {
 
-    var _user = {};
+    $rootScope._user = {};
     var _ready = $q.defer();
-   
+  
     if ($cookieStore.get('token')) {
       $http.get('/api/users/me')
         .then(function (res) {
-          _user = res.data;
+          $rootScope._user = res.data;
         })
         .finally(function () {
           _ready.resolve(true);
@@ -28,7 +28,7 @@ angular.module('acholic')
       var deferred = $q.defer();
       $http.post('/api/users/vendor', user)
         .then(function (res) {
-          _user = res.data.user;
+          $rootScope._user = res.data.user;
           $cookieStore.put('token', res.data.token);
           deferred.resolve();
         })
@@ -48,7 +48,7 @@ angular.module('acholic')
       var deferred = $q.defer();
       $http.post('/api/users/customer', user)
         .then(function (res) {
-          _user = res.data.user;
+          $rootScope._user = res.data.user;
           $cookieStore.put('token', res.data.token);
           deferred.resolve();
         })
@@ -68,7 +68,7 @@ angular.module('acholic')
       var deferred = $q.defer();
       $http.post('/auth/local', user)
         .then(function (res) {
-          _user = res.data.user;
+          $rootScope._user = res.data.user;
           $cookieStore.put('token', res.data.token);
           deferred.resolve();
         })
@@ -83,7 +83,7 @@ angular.module('acholic')
      */
     this.logout = function () {
       $cookieStore.remove('token');
-      _user = {};
+      $rootScope._user = {};
     };
 
     /**
@@ -92,7 +92,7 @@ angular.module('acholic')
      * @returns {boolean}
      */
     this.isLogged = function () {
-        return _user.hasOwnProperty('_id');
+        return $rootScope._user.hasOwnProperty('_id');
     };
 
     /**
@@ -103,7 +103,7 @@ angular.module('acholic')
     this.isReadyLogged = function () {
       var def = $q.defer();
       _ready.promise.then(function () {
-        if (_user.hasOwnProperty('_id')) {
+        if ($rootScope._user.hasOwnProperty('_id')) {
           def.resolve();
         } else {
           def.reject();
@@ -121,7 +121,7 @@ angular.module('acholic')
     this.getUser = function () {
       var def = $q.defer();
       _ready.promise.then(function () {
-         def.resolve(_user);                 
+         def.resolve($rootScope._user);                 
       });
       return def.promise;
     };
