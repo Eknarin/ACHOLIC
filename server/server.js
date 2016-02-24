@@ -10,7 +10,7 @@ var seedData = require('./migrations/data.js');
 //mongoose.connect(config.mongo.uri, config.mongo.options);
 seeder.connect(config.mongo.uri, function() {
   
-  //Load Mongoose models 
+  //  //Load Mongoose models 
   // seeder.loadModels([
   //   'server/api/role/role.model.js',
   //   'server/api/tag/tag.model.js'
@@ -18,7 +18,6 @@ seeder.connect(config.mongo.uri, function() {
  
   // //Clear specified collections 
   // seeder.clearModels(['Role','Tag'], function() {
- 
   //   // Callback to populate DB once collections have been cleared 
   //   seeder.populateModels(seedData);
 
