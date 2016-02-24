@@ -33,7 +33,7 @@ angular.module('acholic')
 
         //infos
         $scope.packages.info.info = $scope.priceArrs;
-        // console.log("stages="+$scope.stageType);
+        console.log("info="+$scope.packages);
         console.log($scope.packages);
         $scope.packages.$save().then(function(){
              $location.path("/package");
@@ -204,7 +204,6 @@ angular.module('acholic')
 
   $scope.priceArrs = [];
   $scope.addPrice = function(){
-    console.log("ADD Price");
     var addPrice = $scope.packages.info.info.price;
     var addPeople = $scope.packages.info.info.people;
     var addDistance = $scope.packages.info.info.distance;

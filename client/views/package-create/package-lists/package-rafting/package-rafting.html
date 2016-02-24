@@ -167,7 +167,7 @@
 				   					<p class="package-create-topic-style">Age Limit : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.info.age_limit" class="package-create-inputbox-style" type="text" required>
+					        		<input ng-model="packages.info.age_limit" class="package-create-inputbox-style" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
 					       		</div>
 				        	</div>	
 		   				</div>
@@ -191,7 +191,7 @@
 				   					<p class="package-create-topic-style">Width (m) : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.info.river_width" class="package-create-inputbox-style" type="text" required>
+					        		<input ng-model="packages.info.river_width" class="package-create-inputbox-style" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
 					       		</div>
 				        	</div>	
 				        	<!-- River Depth -->
@@ -200,7 +200,7 @@
 				   					<p class="package-create-topic-style">Depth (m) : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.info.river_depth" class="package-create-inputbox-style" type="text" required>
+					        		<input ng-model="packages.info.river_depth" class="package-create-inputbox-style" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
 					       		</div>
 				        	</div>	
 				        	
@@ -275,7 +275,7 @@
 				   					<p class="package-create-topic-style">Price (฿) : </p>
 			    				</div>
 			    				<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.info.info.price" class="package-create-inputbox-style" name="price0" type="text" required>
+					        		<input ng-model="packages.info.info.price" class="package-create-inputbox-style" name="price0" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
 					        	</div>
 				       		</div>
 				       		<!-- Amount People -->
@@ -284,7 +284,7 @@
 				   					<p class="package-create-topic-style">People : </p>
 			    				</div>
 			    				<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.info.info.people" class="package-create-inputbox-style" name="people0" type="text" required>
+					        		<input ng-model="packages.info.info.people" class="package-create-inputbox-style" name="people0" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
 					        	</div>
 				       		</div>
 				       		<!-- River Distance -->
@@ -293,7 +293,7 @@
 				   					<p class="package-create-topic-style">Distance (km) : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.info.info.distance" class="package-create-inputbox-style" name="distance0"type="text" required>
+					        		<input ng-model="packages.info.info.distance" class="package-create-inputbox-style" name="distance0" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
 					       		</div>
 				        	</div>	
 				        	<!-- Duration -->
@@ -302,7 +302,7 @@
 				   					<p class="package-create-topic-style">Duration : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.info.info.duration" class="package-create-inputbox-style" type="text" required>					        		
+					        		<input ng-model="packages.info.info.duration" class="package-create-inputbox-style" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>					        		
 					       		</div>
 				        	</div>
 				        	<!-- Boat Type -->
@@ -311,7 +311,7 @@
 				   					<p class="package-create-topic-style">Boat Type : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8"> 						            
-						           <input ng-model="packages.info.info.boat_type" class="package-create-inputbox-style" name="boat0"type="text" required>
+						           <input ng-model="packages.info.info.boat_type" class="package-create-inputbox-style" name="boat0" type="text" required>
 					       		</div>
 				        	</div>
 
