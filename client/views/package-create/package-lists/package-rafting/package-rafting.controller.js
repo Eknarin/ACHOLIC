@@ -38,126 +38,17 @@ angular.module('acholic')
         });
     };
 
-    // $scope.nStage = "";
 
-    // // Add more input box
-    // var stage_next = 1;
-    // var boat_next = 1;
-    // $scope.addMoreStage = function(){
-    //     //e.preventDefault();
-    //     var id_button = "";
-    //     // if(e == "stage"){
-    //         console.log($scope.nStage);
-    //         id_button = "stage";
-
-    //         var addto = "#stage" + stage_next;
-    //         var addRemove = "#stage" + (stage_next);
-    //         stage_next = stage_next + 1;
-    //         var newIn = '<input autocomplete="off" class="package-create-inputbox-style" style="width:80%;" id="stage' + stage_next + '" name="stage' + stage_next + '" type="text">';
-    //         var newInput = $(newIn);
-    //         var removeBtn = '<button id="remove_stage' + (stage_next - 1) + '" class="btn btn-danger remove-stage package-create-add-delete-button-style">-</button>';
-    //         var removeButton = $(removeBtn);
-    //         $(addto).after(newInput);
-    //         $(addRemove).after(removeButton);
-    //         $("#stage" + stage_next).attr('data-source',$(addto).attr('data-source'));
-    //         $("#count").val(stage_next);  
-            
-    //         $('.remove-stage').click(function(e){
-    //             e.preventDefault();
-    //             var fieldNum = this.id.substring(12);
-    //             var fieldID = "#stage" + fieldNum;
-    //             console.log(fieldID);
-    //             $(this).remove();
-    //             $(fieldID).remove();
-    //         });
-    //         $scope.packages.info.stages.push($scope.nStage);
-    // }
-
-    // var stageIndex = 1;
-    // $scope.addStage = function(e){
-    //     console.log("add");
-    //     var $template = $('#stage-template'),
-    //         $clone = $template
-    //                     .clone()
-    //                     .removeClass('hide')
-    //                     .removeAttr('id')
-    //                     .attr('stage-index', stageIndex)
-    //                     .insertBefore($template);
-    //          $clone
-    //             .find('[id="stage"]').attr('id', 'stage' + stageIndex).end()
-    //             .find('[id="deleteStage"]').attr('id', 'deleteStage' + stageIndex).end();
-                
-    //         stageIndex += 1;
-    // };
-    // $scope.removeStage = function(e){
-    //     console.log("delete");
-    //     var $row  = $(this).parents('.form-group'),
-    //         index = $row.attr('stage-index');
-    //     $row.remove();
-    // };
-    $scope.stageType = [];
-
-    $scope.choices = [{id: 'choice1'}, {id: 'choice2'}];
+    $scope.stages = [];
   
-    $scope.addNewChoice = function() {
-        var newItemNo = $scope.choices.length+1;
-        $scope.choices.push({'id':'choice'+newItemNo});
+    $scope.addNewStage = function() {
+        $scope.stages.push($scope.stages.length);
+        console.log($scope.stages.length);
     };
         
-    $scope.removeChoice = function() {
-        var lastItem = $scope.choices.length-1;
-        $scope.choices.splice(lastItem);
+    $scope.removeStage = function(index) {
+        $scope.stages.splice(index,1);
     };
-
-        // $scope.addMoreBoat = function(e){
-        // // else if(e == "boat"){
-        //     console.log("BBBB");
-        //     id_button = "boat";
-
-        //     var addto = "#boat" + boat_next;
-        //     var addRemove = "#boat" + (boat_next);
-        //     boat_next = boat_next + 1;
-        //     var newIn = '<input autocomplete="off" class="package-create-inputbox-style" style="width:80%;" id="boat' + boat_next + '" name="boat' + boat_next + '" type="text">';
-        //     var newInput = $(newIn);
-        //     var removeBtn = '<button id="remove_boat' + (boat_next - 1) + '" class="btn btn-danger remove-boat package-create-add-delete-button-style">-</button>';
-        //     var removeButton = $(removeBtn);
-        //     $(addto).after(newInput);
-        //     $(addRemove).after(removeButton);
-        //         $("#boat" + boat_next).attr('data-source',$(addto).attr('data-source'));
-        //         $("#count").val(boat_next);  
-                
-        //         $('.remove-boat').click(function(e){
-        //             e.preventDefault();
-        //             var fieldNum = this.id.substring(11);
-        //             console.log(fieldNum);
-        //             var fieldID = "#boat" + fieldNum;
-        //             // console.log(fieldID);
-        //             $(this).remove();
-        //             $(fieldID).remove();
-        //         });
-
-        //     }
-
-        // var addto = "#"+id_button+"field" + next;
-        // var addRemove = "#"+id_button+"field" + (next);
-        // next = next + 1;
-        // var newIn = '<input autocomplete="off" class="package-create-inputbox-style" style="width:80%;" id='+id_button+'"-field' + next + '" name="field' + next + '" type="text">';
-        // var newInput = $(newIn);
-        // var removeBtn = '<button id='+id_button+'"remove' + (next - 1) + '" class="btn btn-danger remove-me package-create-add-delete-button-style">-</button></div><div id="field">';
-        // var removeButton = $(removeBtn);
-        // $(addto).after(newInput);
-        // $(addRemove).after(removeButton);
-        // $("#"+id_button+"field" + next).attr('data-source',$(addto).attr('data-source'));
-        // $("#"+id_button+"count").val(next);  
-        
-        // $('.remove-me').click(function(e){
-        //     e.preventDefault();
-        //     var fieldNum = this.id.charAt(this.id.length-1);
-        //     var fieldID = "#"+id_button+"field" + fieldNum;
-        //     $(this).remove();
-        //     $(fieldID).remove();
-        // });
-    // }
 
     // menu-bar function
  	var navListItems = $('ul.setup-panel li a'),
@@ -302,10 +193,32 @@ angular.module('acholic')
     console.log("Month1 ="+value);
     $scope.month1 = " "+value;
   };
+
   $scope.setMonth2 = function(value){
     console.log("Month2 ="+value);
     $scope.month2 = " to "+value;
   };
 
+  $scope.priceArrs = [];
+  $scope.addPrice = function(){
+    console.log("ADD Price");
+    var addPrice = $scope.packages.price;
+    var addPeople = $scope.packages.info.info.people;
+    var addDistance = $scope.packages.info.info.distance;
+    var addDuration = $scope.packages.info.info.duration;
+    var addBoat = $scope.packages.info.info.boat_type;
+    var priceObj = {
+        price: addPrice, 
+        people: addPeople, 
+        distance: addDistance, 
+        duration: addDuration, 
+        boat: addBoat};
 
+    $scope.priceArrs.push(priceObj);
+    console.log($scope.priceArrs);
+  };
+    $scope.deleteRow = function(index) {
+        console.log('delete');
+        $scope.priceArrs.splice(index,1);
+      }; 
   }]);
