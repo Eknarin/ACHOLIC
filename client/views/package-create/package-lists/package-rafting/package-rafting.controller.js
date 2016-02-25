@@ -90,11 +90,15 @@ angular.module('acholic')
         $('ul.setup-panel li:eq('+ (state[currenstate+1]) +')').removeClass('disabled');  
         $('ul.setup-panel li a[href=\"#step-' + state[currenstate+1] + '\"]').trigger('click'); 
         currenstate += 1;
-    }
+    };
     $scope.previousTab = function(){
         $('ul.setup-panel li a[href=\"#step-' + state[currenstate-1] + '\"]').trigger('click'); 
         currenstate -= 1;
-    }
+    };
+    $scope.setTab = function(index){        
+        currenstate = index;
+        console.log(currenstate);
+    };
 
     $scope.provinces = [
     {name: 'กรุงเทพมหานคร'},
