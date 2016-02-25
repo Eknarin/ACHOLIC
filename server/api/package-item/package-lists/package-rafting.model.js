@@ -28,7 +28,7 @@ var RaftingSchema = new Schema({
 	start_location: String,
 	end_location: String,
 	age_limit: Number,
-	activites: String,
+	activites: [String],
 	equipments_provide: [String],
 	equipments_require: [String],
 	prepration: String,
