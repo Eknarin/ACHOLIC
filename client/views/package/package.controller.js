@@ -4,7 +4,8 @@ angular.module('acholic')
   .controller('PackageCtrl',['$scope','PackageItem','$location' ,'itemData',function ($scope , PackageItem , $location , itemData) {
   
   $scope.packages = itemData.docs;
-  //console.log(itemData);
+  console.log("itemdata="+itemData);
+  console.log("package item="+$scope.packages);
   $scope.maxSize = 5;
   $scope.limit = itemData.limit;
   $scope.totalItems = itemData.total;

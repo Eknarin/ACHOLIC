@@ -13,6 +13,7 @@ angular.module('acholic')
     $scope.provide = "";
     $scope.require = "";
     $scope.skill = "";
+    $scope.minPrice = 9000000;
 
     $scope.onSubmit = function(){
         //provide
@@ -34,6 +35,9 @@ angular.module('acholic')
         //infos
         $scope.packages.info.info = $scope.priceArrs;
 
+         //min price
+        $scope.packages.price = $scope.minPrice;
+
         console.log($scope.packages);
         $scope.packages.$save().then(function(){
              $location.path("/package");
@@ -50,6 +54,7 @@ angular.module('acholic')
         
     $scope.removeStage = function(index) {
         $scope.stages.splice(index,1);
+        $scope.stageType.splice(index,1); 
     };
 
     // menu-bar function
@@ -213,6 +218,11 @@ angular.module('acholic')
         boat_type: addBoat};
 
     $scope.priceArrs.push(priceObj);
+
+    //check if this price is less than
+    if ($scope.minPrice > addPrice){
+        $scope.minPrice = addPrice;        
+    }
 
     //empty input fields
     $scope.packages.info.info.price = "";

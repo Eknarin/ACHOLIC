@@ -38,4 +38,10 @@ angular.module('acholic')
       return new Array(5-$scope.yStar);
     };
 
+  $scope.packageInfos = $scope.packageItem.map_id.map_id.info;
+  $scope.equipmentProvides = $scope.packageItem.map_id.map_id.equipments_provide;
+  $scope.equipmentRequires = $scope.packageItem.map_id.map_id.equipments_require;
+  $scope.skillRequires = $scope.packageItem.map_id.map_id.skills_require;
+  $scope.stageTypes = $scope.packageItem.map_id.map_id.stage_type;
+  $scope.activities = $scope.packageItem.map_id.map_id.activites;
   }]);
