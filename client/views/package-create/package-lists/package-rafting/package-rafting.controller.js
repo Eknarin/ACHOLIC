@@ -39,9 +39,8 @@ angular.module('acholic')
         $scope.packages.info.info = $scope.priceArrs;
 
          //min price
-        $scope.packages.price = $scope.minPrice;
-
-        console.log($scope.packages);
+        $scope.packages.price = $scope.findMinPrice();        
+      
         $scope.packages.$save().then(function(){
              $location.path("/package");
         });
@@ -226,11 +225,6 @@ angular.module('acholic')
 
     $scope.priceArrs.push(priceObj);
 
-    //check if this price is less than
-    if ($scope.minPrice > addPrice){
-        $scope.minPrice = addPrice;        
-    }
-
     //empty input fields
     $scope.packages.info.info.price = "";
     $scope.packages.info.info.people = "";
@@ -238,6 +232,21 @@ angular.module('acholic')
     $scope.packages.info.info.duration = "";
     $scope.packages.info.info.boat_type = "";
   };
+
+  // find min price in priceArrs
+    $scope.findMinPrice = function(){
+        var temp = 0;
+        for(var i=0; i<$scope.priceArrs.length; i++){
+            temp = parseInt($scope.priceArrs[i].price);
+            console.log("TEMP : "+temp+" MIN : "+$scope.minPrice);
+            if($scope.minPrice > temp){
+                $scope.minPrice = temp;
+                console.log("Change : "+$scope.minPrice);
+            }
+        }        
+        console.log("Min Price = "+$scope.minPrice);
+        return $scope.minPrice;
+    };
     $scope.deleteRow = function(index) {
         console.log('delete');
         $scope.priceArrs.splice(index,1);

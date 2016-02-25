@@ -5,7 +5,7 @@ angular.module('acholic')
   
   $scope.packages = itemData.docs;
   console.log("itemdata="+itemData);
-  console.log("package item="+$scope.packages);
+  console.log($scope.packages[0]);
   $scope.maxSize = 5;
   $scope.limit = itemData.limit;
   $scope.totalItems = itemData.total;
