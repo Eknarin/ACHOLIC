@@ -43,5 +43,5 @@ angular.module('acholic')
   $scope.equipmentRequires = $scope.packageItem.map_id.map_id.equipments_require;
   $scope.skillRequires = $scope.packageItem.map_id.map_id.skills_require;
   $scope.stageTypes = $scope.packageItem.map_id.map_id.stage_type;
-  $scope.activities = $scope.packageItem.map_id.map_id.activites;
+  $scope.activities = $scope.packageItem.map_id.map_id.activities;
   }]);

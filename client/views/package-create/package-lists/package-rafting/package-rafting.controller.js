@@ -14,6 +14,7 @@ angular.module('acholic')
     $scope.require = "";
     $scope.skill = "";
     $scope.minPrice = 9000000;
+    $scope.activities = "";
 
     $scope.onSubmit = function(){
         //provide
@@ -22,6 +23,8 @@ angular.module('acholic')
         $scope.packages.info.equipments_require = $scope.require.split(",");
         //skill
         $scope.packages.info.skills_require = $scope.skill.split(",");
+        //skill
+        $scope.packages.info.activities = $scope.activities.split(",");
 
         //province
         $scope.packages.info.location.province = $scope.selected;
