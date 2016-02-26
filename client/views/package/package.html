@@ -50,8 +50,8 @@
 				</div>
 				<!-- filter price -->
 				<div class="col-xs-12 col-sm-12 col-md-12 filter-dropdownbtn-style">
-					<div class="col-md-12 font-effect-outline" style="height=15px;padding-top:5px; text-align:left;">		            
-			       			<label style="color:white;font-size:16px;margin-top:15px;">Price Rate</label>		       	
+					<div class="col-md-12 font-effect-outline" style="height=15px;padding-top:5px; text-align:left;">		 
+						<label style="color:white;font-size:16px;margin-top:15px;">Price Rate</label>		       	
 			        </div>
 			       	<div class="col-md-12">
 						<rzslider
@@ -102,7 +102,7 @@
 									</div>
 									<!-- Package Publish Date  -->
 									<div class="package-footer-style text-padding">
-										<span class="glyphicon glyphicon-calendar"> DD/MM/YY</span>
+										<span class="glyphicon glyphicon-calendar" ng-bind="getCreateDate(package.created_at)"> </span>
 									</div>
 								</div>	
 							</div>
