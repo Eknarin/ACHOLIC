@@ -4,7 +4,7 @@ angular.module('acholic')
   .controller('PackageCtrl',['$scope','PackageItem','$location' ,'itemData',function ($scope , PackageItem , $location , itemData) {
   
   $scope.packages = itemData.docs;  
-  console.log($scope.packages);
+  //console.log($scope.packages);
   $scope.maxSize = 5;
   $scope.limit = itemData.limit;
   $scope.totalItems = itemData.total;
@@ -13,10 +13,10 @@ angular.module('acholic')
 
   // get package create date
   $scope.getCreateDate = function(timeStamp){
-    console.log("get Create date "+timeStamp);
+    //console.log("get Create date "+timeStamp);
     $scope.temp = new Date(timeStamp);
     $scope.createDate = $scope.temp.getDate() + "/" + ($scope.temp.getMonth() + 1) + "/" + $scope.temp.getFullYear();
-    console.log($scope.createDate);
+    //console.log($scope.createDate);
     return $scope.createDate;
   }
 

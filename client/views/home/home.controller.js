@@ -4,7 +4,6 @@ angular.module('acholic')
 
 	var vm = this;
 	$scope.packageItems =itemData;
-	console.log($scope.packageItems);
 
 	$scope.sliderpics = [
 		{

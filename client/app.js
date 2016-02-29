@@ -64,17 +64,15 @@ angular.module('acholic', [
 
     $rootScope.Auth = Auth;
     $rootScope.$on('$routeChangeStart', function (event, next) {
-      //console.log(next);
-      Auth.isReadyLogged().then(function (){
-        console.log('login');
-      }).catch(function () {
-        console.log('not login');
-        if (next.authenticate) {
-          $location.path('/');
-        }
-        // if(next.access.roleCheck.indexOf("admin") > -1 || next.access.roleCheck.indexOf("vendor") > -1){
-        // }
-      });
+      if(next.access.requiresLogin){
+        Auth.isReadyLogged().then(function (usr){
+          if(next.access.requiredPermissions.indexOf(usr.role.role) > -1)
+            console.log(usr);
+          else
+            $location.path('/');
+        }).catch(function () {
+            $location.path('/');
+        });
+      }
     });
-
   });

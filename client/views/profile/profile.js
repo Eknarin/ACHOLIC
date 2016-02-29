@@ -5,6 +5,10 @@ angular.module('acholic')
     $routeProvider
       .when('/profile', {
         templateUrl: 'views/profile/profile.html',
-        controller: 'ProfileCtrl'
+        controller: 'ProfileCtrl',
+        access: {
+	        requiresLogin: true,
+        	requiredPermissions: ['Admin', 'Vendor','Customer']
+	      }
       });
   });

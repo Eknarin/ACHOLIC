@@ -6,6 +6,9 @@ angular.module('acholic')
       .when('/packageDetail/:id', {
         templateUrl: 'views/package-detail/package-detail.html',
         controller: 'PackageDetailCtrl',
+        access: {
+          requiresLogin: false
+        },
         resolve:{
         	itemData:['PackageItem','$route', function(PackageItem , $route){
         		return PackageItem.query({id : $route.current.params.id}).$promise;

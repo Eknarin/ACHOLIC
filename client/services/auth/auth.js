@@ -30,6 +30,7 @@ angular.module('acholic')
         .then(function (res) {
           $rootScope._user = res.data.user;
           $cookieStore.put('token', res.data.token);
+          _ready.resolve(true);
           deferred.resolve();
         })
         .catch(function (err) {
@@ -50,6 +51,7 @@ angular.module('acholic')
         .then(function (res) {
           $rootScope._user = res.data.user;
           $cookieStore.put('token', res.data.token);
+          _ready.resolve(true);
           deferred.resolve();
         })
         .catch(function (err) {
@@ -70,6 +72,7 @@ angular.module('acholic')
         .then(function (res) {
           $rootScope._user = res.data.user;
           $cookieStore.put('token', res.data.token);
+          _ready.resolve(true);
           deferred.resolve();
         })
         .catch(function (err) {
@@ -104,10 +107,12 @@ angular.module('acholic')
       var def = $q.defer();
       _ready.promise.then(function () {
         if ($rootScope._user.hasOwnProperty('_id')) {
-          def.resolve();
+          def.resolve($rootScope._user);
         } else {
           def.reject();
         }
+      }).catch(function() {
+        def.reject();
       });
       return def.promise;
       // 0 = pending, 1 = resolve , 2 reject
@@ -122,6 +127,19 @@ angular.module('acholic')
       var def = $q.defer();
       _ready.promise.then(function () {
          def.resolve($rootScope._user);                 
+      });
+      return def.promise;
+    };
+
+    /**
+     * Returns the role
+     *
+     * @returns {object}
+     */
+    this.getRole = function () {
+      var def = $q.defer();
+      _ready.promise.then(function () {
+         def.resolve($rootScope._user.role.role);                 
       });
       return def.promise;
     };

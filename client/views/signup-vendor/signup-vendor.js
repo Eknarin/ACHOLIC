@@ -6,6 +6,9 @@ angular.module('acholic')
       .when('/signup/vendor', {
         templateUrl: 'views/signup-vendor/signup-vendor.html',
         controller: 'SignupVendorCtrl',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        access: {
+	        requiresLogin: false
+	      }
       });
   });

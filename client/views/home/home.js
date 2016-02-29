@@ -7,6 +7,9 @@ angular.module('acholic')
         templateUrl: 'views/home/home.html',
         controller: 'HomeCtrl',
         controllerAs: 'vm',
+        access: {
+          requiresLogin: false
+        },
         resolve:{
         	itemData:['PackageItem' ,function(PackageItem){
 			       return PackageItem.recommend();

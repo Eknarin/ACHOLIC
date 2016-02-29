@@ -6,7 +6,10 @@ angular.module('acholic')
      .when('/package/create/rafting', {
         templateUrl: 'views/package-create/package-lists/package-rafting/package-rafting.html',
         controller: 'PackageRaftingCtrl',
-	    access: {roleCheck: ['admin','vendor']},
+	    access: {
+        requiresLogin: true,
+        requiredPermissions: ['Admin', 'Vendor']
+      },
 	    resolve: {
         packageData:['PackageItem' ,function(PackageItem){
              return new PackageItem;
