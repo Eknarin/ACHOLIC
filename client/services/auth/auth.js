@@ -137,11 +137,10 @@ angular.module('acholic')
      * @returns {object}
      */
     this.getRole = function () {
-      var def = $q.defer();
-      _ready.promise.then(function () {
-         def.resolve($rootScope._user.role.role);                 
-      });
-      return def.promise;
+      if($rootScope._user.role)
+        return $rootScope._user.role.role;
+      else
+        return 'not login';
     };
 
 });
