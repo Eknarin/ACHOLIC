@@ -5,7 +5,6 @@ angular.module('acholic')
     $scope.user = {};
 
     $scope.onSubmit= function(){
-      console.log($scope.user);
       Auth.signupCustomer($scope.user)
           .then(function () {
             $location.path('/');
