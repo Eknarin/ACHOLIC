@@ -19,6 +19,8 @@ var myNav = angular.module('acholic');
             templateUrl: 'directives/nav-bar/modal/modal-logout.html',
             controller: 'LogoutCtrl',
             size: 'lg'
+          }).result.then(function(res){
+            $location.path('/');
           });
         }; 
 

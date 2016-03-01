@@ -4,7 +4,6 @@ angular.module('acholic')
 
 	var vm = this;
 	$scope.packageItems =itemData;
-	console.log(Auth.getRole());
 
 	$scope.sliderpics = [
 		{
