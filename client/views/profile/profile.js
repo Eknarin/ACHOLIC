@@ -8,7 +8,7 @@ angular.module('acholic')
         controller: 'ProfileCtrl',
         access: {
 	        requiresLogin: true,
-        	requiredPermissions: ['Admin', 'Vendor','Customer']
+        	requiredPermissions: ['Admin','Vendor','Customer']
 	      }
       });
   });
