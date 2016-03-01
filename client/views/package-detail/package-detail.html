@@ -20,7 +20,7 @@
 						<p class="package-name-style">{{packageItem.name}}</p>
 					</div>
 					<!-- Rating -->
-					<div class="col-xs-12 col-sm-5 col-md-5 package-rating-style">
+					<div class="col-xs-12 col-sm-5 col-md-5 package-rating-style" style="padding-top:5px; padding-bottom:5px;">
 						<div class="col-xs-12 col-sm-12 col-md-12" style="" ng-app="" ng-init="nstar = 0" >
 							<img style="width:15px;height:15px;margin-left: 3px;" ng-repeat="i in getStar(packageItem.rating) track by $index" src="../image/star_rated.png">
 							<img style="width:15px;height:15px;margin-left: 3px;" ng-if="((packageItem.rating)/2)%1 >= 0.5" src="../image/star_rated_half.png">
@@ -30,6 +30,12 @@
 					<!-- Location -->
 					<div class="col-xs-12 col-sm-12 col-md-12 package-location-style">
 						<div class="col-xs-12 col-sm-7 col-md-7">
+							<!-- Provider name -->
+							<div class="col-xs-12 col-sm-12 col-md-12 package-detail-subdetail-box-style">
+								<p class="package-detail-subdetail-topic-style"> Vendor : 
+									<font class="package-detail-detail-style">vendor name</font>
+								</p>
+							</div>
 							<!-- Province -->
 							<div class="col-xs-12 col-sm-12 col-md-12 package-detail-subdetail-box-style">
 								<p class="package-detail-subdetail-topic-style"> Province : 
