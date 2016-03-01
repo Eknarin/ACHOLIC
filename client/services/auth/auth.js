@@ -73,7 +73,7 @@ angular.module('acholic')
           $rootScope._user = res.data.user;
           $cookieStore.put('token', res.data.token);
           _ready.resolve(true);
-          deferred.resolve();
+          deferred.resolve(res.data.user);
         })
         .catch(function (err) {
           deferred.reject(err.data);

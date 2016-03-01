@@ -38,13 +38,13 @@
                         <li class="dropdown" ng-show="!Auth.isLogged()">
                           <a href="#"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#57bdad">Sign In <span class="caret"></span></a>
                           <ul class="dropdown-menu">
-                              <li><a data-toggle="modal" data-target="#signin-modal" style="color:#57bdad">Sign In</a></li>
-                              <li><a data-toggle="modal" data-target="#signup-modal" style="color:#57bdad">Sign up</a></li>
+                              <li><a ng-click="openLogin()" style="color:#57bdad">Sign In</a></li>
+                              <li><a ng-click="openSignup()" style="color:#57bdad">Sign up</a></li>
                           </ul>
                         </li>
                         <!-- Dropdown User Menu -->
                         <li class="dropdown" ng-if="Auth.isLogged()">
-                          <a class="dropdown-toggle glyphicon glyphicon-user" href="#"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#57bdad"><span class="caret"></span></a>
+                          <a class="dropdown-toggle glyphicon glyphicon-user" href="#"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#57bdad"><span class="caret"></span>{{user.first_name}}</a>
                           <ul class="dropdown-menu">
                               <li><a href="/profile">Profile</a></li>
                               <li><a href="/package/create">Create Packages</a></li>
@@ -53,7 +53,7 @@
                               <li><a href="#">My Cart</a></li>
                               <li><a href="#">My Receipts</a></li>
                               <li ng-if="Auth.isLogged()">
-                                <a data-toggle="modal" data-target="#signout-modal" >Sign out</a>
+                                <a ng-click="openLogout()" >Sign out</a>
                               </li>
                            <!--  <li role="separator" class="divider"></li>
                             <li class="dropdown-header">Nav header</li>
@@ -68,89 +68,3 @@
           </div>
         </nav>
         <!-- End Navigation Bar -->
-
-       <!-- Signin Modal -->
-       <div class="modal fade" ng-controller="ItemController" id="signin-modal" role="dialog">
-        <div class="modal-dialog modal-vertical-centered">
-          <!-- Modal content-->
-          <div class="modal-content">
-            <form ng-submit="login()">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h2 class="modal-title">Sign in</h2>
-              </div>
-              <div class="modal-body">
-                <pre ng-if="vm.error">{{ vm.error | json }}</pre>  
-                <label><span class="glyphicon glyphicon-user"></span> Username</label></br>
-                <input class="col-md-10 col-xs-10 col-sm-10" type="email" ng-model="user.email" placeholder="email"></br></br></br>
-                <label><span class="glyphicon glyphicon-eye-open"></span> Password</label></br>
-                <input class="col-md-10 col-xs-10 col-sm-10" type="password" ng-model="user.password" placeholder="password"></br>
-                <div class="alertText" ng-show="showAlert"><p>The email address or password you entered is incorrect.</p></div>
-              </div>
-              <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </form>
-          </div>   
-        </div>
-      </div> 
-
-      <!-- Signup Modal -->
-      <div class="modal fade" id="signup-modal" role="dialog">
-        <div class="modal-dialog modal-vertical-centered">
-          <!-- Modal content-->
-          <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h2 class="modal-title">Sign up</h2>
-              </div>
-              <div class="modal-body" style="background-color:darkkhaki">
-                <p class="ads">Sign up now, It's free!!</p>
-                <div class="col-md-12 col-xs-12 col-sm-12 vendor">
-                  <div class="col-md-6 col-xs-6 col-sm-6"> 
-                    <p>I'm a traveler</p>
-                    <img class="cus_icon" src="../../image/traveller2.png">
-                    <button type="button" class="btn btn-success cus_butt" ng-click="hideModal()"><a href="/signup/customer" style="color:white">Sign Up as Customer</a></button>
-                  </div>
-                  <div class="col-md-6 col-xs-6 col-sm-6 vendor">
-                    <p>Want to be a vendor?</p>
-                    <img class="cus_icon" src="../../image/vendor.png">
-                    <button type="button" class="btn btn-warning cus_butt" ng-click="hideModal()">
-                      <a href="/signup/vendor" style="color:white">Sign Up as Vendor</a>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-          </div>   
-        </div>
-      </div> 
-
-      <!-- Signout Modal -->
-       <div class="modal fade" ng-controller="OutController" id="signout-modal" role="dialog">
-        <div class="modal-dialog modal-vertical-centered">
-          <!-- Modal content-->
-          <div class="modal-content">
-            <form ng-submit="logout()">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h2 class="modal-title">MostMark...</h2>
-              </div>
-              <div class="modal-body">
-                <pre ng-if="vg.error">{{ vm.error | json }}</pre>  
-                <h4>Are you sure you want to logout ?</h4>
-              </div>
-              <div class="modal-footer">
-                <button type="submit" class="btn btn-primary"> OK </button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </form>
-          </div>   
-        </div>
-      </div> 
-      
-  </body>
-  </html>

@@ -1,0 +1,13 @@
+      <div class="modal-header" >
+        <h2 class="modal-title">MostMark...</h2>
+      </div>
+      <form ng-submit="logout()">
+        <div class="modal-body">
+          <pre ng-if="vg.error">{{ vm.error | json }}</pre>  
+          <h4>Are you sure you want to logout ?</h4>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary"> OK </button>
+          <button type="button" class="btn btn-default" ng-click="cancel()">Close</button>
+        </div>
+      </form>

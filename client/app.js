@@ -6,11 +6,11 @@ angular.module('acholic', [
   'ngResource',
   'ngSanitize',
   'ngAnimate',
+  'ui.bootstrap',
   'btford.socket-io',
   'rzModule',
   'ngFileUpload',
-  '720kb.datepicker',
-  'ui.bootstrap'
+  '720kb.datepicker'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
 
