@@ -4,9 +4,13 @@ var myNav = angular.module('acholic');
     return {
       restrict: 'E',
       templateUrl: 'directives/nav-bar/nav-bar.html',
-      controller: ['$scope' , '$location', '$route','$uibModal' ,'Auth' ,function($scope , $location , $route ,$uibModal, Auth) {
+      controller: ['$scope' , '$location', '$route','$uibModal' ,'Auth',function($scope , $location , $route ,$uibModal, Auth ) {
 
         $scope.search = '';
+        $scope.user = Auth.getUser().then(function(res){
+          $scope.user = res;
+        });
+
       	$scope.searchPage = function(){
           var temp = $scope.search;
           $scope.search = '';
@@ -20,6 +24,7 @@ var myNav = angular.module('acholic');
             controller: 'LogoutCtrl',
             size: 'lg'
           }).result.then(function(res){
+            $scope.user = {};
             $location.path('/');
           });
         }; 
@@ -31,7 +36,7 @@ var myNav = angular.module('acholic');
             controller: 'LoginCtrl',
             size: 'lg'
           }).result.then(function(res){
-            console.log(res);
+            $scope.user = res;
           });
         };
 
@@ -46,6 +51,11 @@ var myNav = angular.module('acholic');
           });
         };
 
-      }],      
+      }],
+      link: function(scope, element, attrs){
+         scope.openLoginModal = function(){
+          scope.openLogin();
+         };
+      }      
     };
   });

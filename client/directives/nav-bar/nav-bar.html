@@ -31,7 +31,7 @@
                   </div>
                 </div>
                 <div class="col-md-3 col-xs-12 col-sm-12">
-                    <div id="navbar" class="navbar-collapse collapse" style="float:right; margin-right:55px">
+                    <div id="navbar" class="navbar-collapse collapse" style="float:left; margin-right:55px">
                       <ul class="nav navbar-nav">
                         <li><a href="/package" style="color:#57bdad">Packages</a></li>
                         <!-- Dropdown SignIn/SignUp menu -->
@@ -44,7 +44,7 @@
                         </li>
                         <!-- Dropdown User Menu -->
                         <li class="dropdown" ng-if="Auth.isLogged()">
-                          <a class="dropdown-toggle glyphicon glyphicon-user" href="#"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#57bdad"><span class="caret"></span>{{user.first_name}}</a>
+                          <a class="dropdown-toggle glyphicon glyphicon-user" href="#"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#57bdad">  {{user.first_name}} <span class="caret"></span></a>
                           <ul class="dropdown-menu">
                               <li><a href="/profile">Profile</a></li>
                               <li><a href="/package/create">Create Packages</a></li>
