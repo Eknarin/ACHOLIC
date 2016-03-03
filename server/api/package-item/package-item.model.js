@@ -12,7 +12,8 @@ var PackageItemSchema = new Schema({
   created_at: { type: Date, default: Date.now },
   map_id: { type: Schema.Types.ObjectId, ref: 'PackageMap' },
   image: { type: Schema.Types.ObjectId, ref: 'Image' },
-  user_id: { type: Schema.Types.ObjectId, ref:'User'}
+  user_id: { type: Schema.Types.ObjectId, ref:'User'},
+  comment_map: { type: Schema.Types.ObjectId, ref:'CommentTable'}
 });
 
 PackageItemSchema.plugin(mongoosePaginate);

@@ -4,6 +4,7 @@ var config = require('./config/environment');
 module.exports = function (app) {
 
   // API
+  app.use('/api/comments', require('./api/comment'));
   app.use('/api/tags', require('./api/tag'));
   app.use('/api/paymentStatus', require('./api/payment-status'));
   app.use('/api/transactions', require('./api/transaction'));
