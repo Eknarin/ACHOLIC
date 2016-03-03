@@ -51,11 +51,6 @@ var myNav = angular.module('acholic');
           });
         };
 
-      }],
-      link: function(scope, element, attrs){
-         scope.openLoginModal = function(){
-          scope.openLogin();
-         };
-      }      
+      }] 
     };
   });

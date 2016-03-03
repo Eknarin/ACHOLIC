@@ -10,7 +10,8 @@ angular.module('acholic', [
   'btford.socket-io',
   'rzModule',
   'ngFileUpload',
-  '720kb.datepicker'
+  '720kb.datepicker',
+  'ngMap'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
 

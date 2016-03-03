@@ -71,7 +71,7 @@ exports.recommend = function (req, res) {
  * @param res
  */
 exports.show = function (req, res) {
-  PackageItem.findById(req.params.id).populate('map_id').exec(function (err, packageItem) {
+  PackageItem.findById(req.params.id).populate('user_id').populate('map_id').exec(function (err, packageItem) {
     if (err) { return handleError(res, err); }
     if (!packageItem) { return res.status(404).end(); }
     if(packageItem.map_id)
