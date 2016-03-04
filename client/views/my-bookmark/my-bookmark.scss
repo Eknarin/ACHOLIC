@@ -1,3 +1,65 @@
 /**
  * my-bookmark.scss
  */
+ .bookmark-header-size{
+ 	font-size: 37px;
+ }
+ .bookmark-image-style{
+ 	width: 100%;
+ 	height: 200px;
+ }
+ .bookmark-package-cover-style{
+ 	padding-top:30px; 
+ 	padding-bottom:30px; 
+ 	margin-bottom:60px; 
+ 	background-color:rgba(0,0,0,0.75)
+ }
+ .bookmark-package-information-style{
+ 	margin-top: 30px;
+ 	padding-bottom:20px; 
+ 	color:white;
+ }
+ .bookmark-package-name-style{
+ 	font-size:25px;
+ }
+ .bookmark-package-location-style{
+	font-size:20px; 	
+ }
+ .bookmark-package-price-style{
+ 	text-align: left;
+ 	font-size:17px; 
+ 	margin-top:12px;
+ }
+ .bookmark-package-button-style{
+ 	margin-top:15px;
+ 	margin-bottom:15px;
+ }
+ .bookmark-package-button-cover-style{
+ 	text-align:center; 
+ 	margin-top:20px;
+ }
+
+ @media(min-width:767px){
+ 	.bookmark-header-size{
+	 	font-size: 50px;
+	 }
+	.bookmark-image-style{
+	 	width: auto;
+	 	height: 320px;
+	}
+	.bookmark-package-name-style{
+	 	font-size:30px;
+	 }
+	 .bookmark-package-price-style{
+	 	text-align: left;
+	 	font-size:20px; 
+	 	margin-top:12px;
+	 }
+	.bookmark-package-price-style{
+	 	text-align: right;
+	 }
+	 .bookmark-package-button-cover-style{
+	 	text-align:center; 
+	 	margin-top:40px;
+	 }
+ }
