@@ -16,7 +16,6 @@ angular.module('acholic')
     Bookmark.query({q: $scope.user._id}).$promise.then(function(res){
       $scope.bookmarks = res;
       $scope.checkComment();
-      console.log($scope.packages);
       $scope.loading = true;
     });
   else
@@ -35,14 +34,12 @@ angular.module('acholic')
   // $scope.createDate = [];
   $scope.like = function(packageId){
     if(packageId.bookmark != null){
-      // console.log(packageId.bookmark.$detele);
       packageId.bookmark.$delete().then(function(res){
         packageId.bookmark = null;
         console.log('unlike');
       });
     }
     else{
-      if($rootScope._user._id){
         $scope.item = new Bookmark;
         $scope.item.bookmark = packageId;
         $scope.item.user = $scope.user._id;
@@ -50,10 +47,6 @@ angular.module('acholic')
          packageId.bookmark = res;
          console.log('like');
         });
-      }
-      else{
-        console.log('no user');
-      }
     }
   };
   // get package create date
