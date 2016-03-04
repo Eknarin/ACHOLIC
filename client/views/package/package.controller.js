@@ -11,11 +11,25 @@ angular.module('acholic')
   $scope.user = $rootScope._user;
   $scope.bookmarks = [];
   $scope.loading = false;
-  Bookmark.query({q: $scope.user._id}).$promise.then(function(res){
-    $scope.bookmarks = res;
-    $scope.loading = true;
-  });
 
+  if($scope.user._id)
+    Bookmark.query({q: $scope.user._id}).$promise.then(function(res){
+      $scope.bookmarks = res;
+      $scope.checkComment();
+      $scope.loading = true;
+    });
+  else
+     $scope.loading = true;
+
+  $scope.checkComment = function(){
+    for(var i = 0 ; i<$scope.packages.length ;i++){
+      for(var j = 0; j<$scope.bookmarks.length ;j++){
+        if($scope.packages[i]._id == $scope.bookmarks[j].packageId)
+          $scope.packages[i].bookmark = true;
+      }
+    }
+  };
+  
   // $scope.createDate = [];
   $scope.like = function(packageId){
     if($rootScope._user._id){
