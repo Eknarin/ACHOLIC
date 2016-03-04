@@ -28,10 +28,25 @@ function checkPackage (type) {
  * @param res
  */
 exports.index = function (req, res) {
-    PackageItem.paginate({'name' : new RegExp(req.query.q, 'i')}, { page: req.query.page, limit: 9}, function(err, result) {
+    PackageItem.paginate({'name' : new RegExp(req.query.q)}, { page: req.query.page, limit: 9}, function(err, result) {
+       if (err) { return handleError(res, err); }
         return res.status(200).json(result);
     });
 };
+
+/**
+ * Get list of PackageItem
+ *
+ * @param req
+ * @param res
+ */
+exports.myPackage = function (req, res) {
+    PackageItem.paginate({'user_id' : req.query.q}, { page: req.query.page, limit: 9}, function(err, result) {
+       if (err) { return handleError(res, err); }
+        return res.status(200).json(result);
+    });
+};
+
 
 /**
  * Get list of PackageItem filter

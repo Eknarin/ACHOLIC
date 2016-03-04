@@ -9,6 +9,10 @@ angular.module('acholic')
       query: {
         method: 'GET'
       },
+      myPackage: {
+        method: 'GET',
+        url: '/api/packageItem/myPackage'
+      },
       delete: {
       	method: 'DELETE'
       },
