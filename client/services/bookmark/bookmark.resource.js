@@ -12,6 +12,9 @@ angular.module('acholic')
       query:{
         method: 'GET',
         isArray: true
+      },
+      delete:{
+        method: 'DELETE'
       }
     });
   });

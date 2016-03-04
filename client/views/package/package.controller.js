@@ -16,6 +16,7 @@ angular.module('acholic')
     Bookmark.query({q: $scope.user._id}).$promise.then(function(res){
       $scope.bookmarks = res;
       $scope.checkComment();
+      console.log($scope.packages);
       $scope.loading = true;
     });
   else
@@ -24,24 +25,35 @@ angular.module('acholic')
   $scope.checkComment = function(){
     for(var i = 0 ; i<$scope.packages.length ;i++){
       for(var j = 0; j<$scope.bookmarks.length ;j++){
-        if($scope.packages[i]._id == $scope.bookmarks[j].packageId)
-          $scope.packages[i].bookmark = true;
+        if(!$scope.packages[i].bookmark)
+          if($scope.packages[i]._id == $scope.bookmarks[j].packageId)
+            $scope.packages[i].bookmark = $scope.bookmarks[j];
       }
     }
   };
-  
+
   // $scope.createDate = [];
   $scope.like = function(packageId){
-    if($rootScope._user._id){
-      $scope.item = new Bookmark;
-      $scope.item.bookmark = packageId;
-      $scope.item.user = $scope.user._id;
-      $scope.item.$save().then(function(res){
-        console.log(res);
+    if(packageId.bookmark != null){
+      // console.log(packageId.bookmark.$detele);
+      packageId.bookmark.$delete().then(function(res){
+        packageId.bookmark = null;
+        console.log('unlike');
       });
     }
     else{
-      console.log('no user');
+      if($rootScope._user._id){
+        $scope.item = new Bookmark;
+        $scope.item.bookmark = packageId;
+        $scope.item.user = $scope.user._id;
+        $scope.item.$save().then(function(res){
+         packageId.bookmark = res;
+         console.log('like');
+        });
+      }
+      else{
+        console.log('no user');
+      }
     }
   };
   // get package create date
