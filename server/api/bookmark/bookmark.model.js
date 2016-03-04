@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 
 var BookmarkSchema = new Schema({
   userId: {type: Schema.Types.ObjectId, ref: 'User'},
-  packageId: { type: Schema.Types.ObjectId, ref: 'Package' }
+  packageId: { type: Schema.Types.ObjectId, ref: 'PackageItem' }
 });
 
 module.exports = mongoose.model('Bookmark', BookmarkSchema ,'Bookmark');

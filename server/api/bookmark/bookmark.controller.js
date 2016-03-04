@@ -3,6 +3,7 @@
 var _ = require('lodash');
 var Bookmark = require('./bookmark.model');
 var User = require('../user/user.model');
+var PackageItem = require('../package-item/package-item.model');
 
 function handleError (res, err) {
   return res.status(500).send(err);
@@ -15,10 +16,8 @@ function handleError (res, err) {
  * @param res
  */
 exports.index = function (req, res) {
-  console.log(req.query.q);
-  Bookmark.find({userId: req.query.q} , function (err, bookmarks) {
+  Bookmark.find({userId: req.query.q}).populate('packageId').exec(function (err, bookmarks) {
     if (err) { return handleError(res, err); }
-    console.log(bookmarks);
     return res.status(200).json(bookmarks);
   });
 };
