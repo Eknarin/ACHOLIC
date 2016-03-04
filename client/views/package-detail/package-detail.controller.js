@@ -15,7 +15,7 @@ angular.module('acholic')
     }
         
 	    return new Array(Math.floor($scope.rate));   
-	};
+	}; 
 
 	$scope.Math = window.Math;
     $scope.yStar = 0;
@@ -44,4 +44,35 @@ angular.module('acholic')
   $scope.skillRequires = $scope.packageItem.map_id.map_id.skills_require;
   $scope.stageTypes = $scope.packageItem.map_id.map_id.stage_type;
   $scope.activities = $scope.packageItem.map_id.map_id.activities;
+
+  $scope.voteRatings = [
+    {rating: 1},
+    {rating: 2},
+    {rating: 3},
+    {rating: 4},
+    {rating: 5},
+    {rating: 6},
+    {rating: 7},
+    {rating: 8},
+    {rating: 9},
+    {rating: 10}
+  ];
+  $scope.selectedRate = "Rate"
+  $scope.setRate = function(value){
+    $scope.selectedRate = value;
+  };
+  // function FormController($scope){
+  //   $scope.comment = [];
+  //   $scope.btn_add = function){
+  //     if($scope.txtcomment !=''){
+  //       console.log("COMMENT");
+  //       $scope.comment.push($scope.txtcomment);
+  //       $scope.txtcomment = "";
+  //     }
+  //   }
+  //   $scope.remItem = function($index){
+  //     $scope.comment.splice($index, 1);
+  //   }
+  // };
   }]);
+
