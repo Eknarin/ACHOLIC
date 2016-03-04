@@ -12,7 +12,7 @@
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			  	<!-- Indicators -->
 			  	<ol class="carousel-indicators" >
-			    	<li data-target="#myCarousel" data-slide-to="$index" ng-class="{active:!$index}" ng-repeat="picture 	in sliderpics track by $index"></li>
+			    	<li data-target="#myCarousel" data-slide-to="$index" ng-class="{active:!$index}" ng-repeat="picture in sliderpics track by $index"></li>
 			  	</ol>
 
 			  	<!-- Wrapper for slides -->	
@@ -21,8 +21,8 @@
 				  	ng-style="{'background-image':'url('+ picture.src +')'}" style="-webkit-filter: grayscale(20%); height:710px;">
 				  		<div class="center-caption font-effect-outline">
 					  		<p style="font-size: 30px">Find Your Own</p><br>
-					  		<p style="font-size: 65px">"ACTIVITIES"</p>
-				  		</div>
+					  		<p style="font-size: 65px">"ACTIVITIES"</p>					  		
+				  		</div>				  		
 				  	</div>
 				</div>
 			
@@ -115,7 +115,10 @@
 								    </li>
 								</ul>
 							</div>
-						</div>
+						</div>						
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center; margin-top:30px;">
+							<a href="/package"><button class="btn btn-primary" style="font-size:20px;">Show all packages</button></a>
 					</div>
 				</div>
 			</div>
