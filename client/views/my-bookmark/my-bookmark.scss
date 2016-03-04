@@ -8,19 +8,30 @@
  	width: 100%;
  	height: 200px;
  }
- .bookmark-package-cover-style{
+ .bookmark-package-cover-style{ 	
  	padding-top:30px; 
  	padding-bottom:30px; 
- 	margin-bottom:60px; 
+ 	margin-top: 30px;
+ 	margin-bottom:30px; 
  	background-color:rgba(0,0,0,0.75)
  }
  .bookmark-package-information-style{
  	margin-top: 30px;
  	padding-bottom:20px; 
  	color:white;
+ 	padding-left: 0px;
+ 	padding-right: 0px;
  }
  .bookmark-package-name-style{
  	font-size:25px;
+   overflow: hidden;
+   color:white;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 1; /* number of lines to show */
+   line-height: 1.5;        /* fallback */
+   max-height: 1.2;       /* fallback */
  }
  .bookmark-package-location-style{
 	font-size:20px; 	
