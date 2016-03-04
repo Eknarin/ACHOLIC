@@ -2,6 +2,7 @@
 
 var _ = require('lodash');
 var Bookmark = require('./bookmark.model');
+var User = require('../user/user.model');
 
 function handleError (res, err) {
   return res.status(500).send(err);
@@ -14,8 +15,10 @@ function handleError (res, err) {
  * @param res
  */
 exports.index = function (req, res) {
-  Bookmark.find(function (err, bookmarks) {
+  console.log(req.query.q);
+  Bookmark.find({userId: req.query.q} , function (err, bookmarks) {
     if (err) { return handleError(res, err); }
+    console.log(bookmarks);
     return res.status(200).json(bookmarks);
   });
 };
@@ -41,9 +44,13 @@ exports.show = function (req, res) {
  * @param res
  */
 exports.create = function (req, res) {
-  Bookmark.create(req.body, function (err, bookmark) {
-    if (err) { return handleError(res, err); }
-    return res.status(201).json(bookmark);
+  Bookmark.findOne({'userId' : req.body.user , 'packageId': req.body.bookmark},function(err, bookmark){
+     if (err) { return handleError(res, err); }
+     if(!bookmark){
+        bookmark = new Bookmark({userId: req.body.user,packageId: req.body.bookmark});
+        bookmark.save();
+     }
+     return res.status(201).json(bookmark);
   });
 };
 

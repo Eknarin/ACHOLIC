@@ -1,16 +1,35 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('PackageCtrl',['$scope','PackageItem','$location' ,'itemData',function ($scope , PackageItem , $location , itemData) {
+  .controller('PackageCtrl',['$scope','PackageItem','$location' ,'itemData','$rootScope','Bookmark',function ($scope , PackageItem , $location , itemData ,$rootScope , Bookmark) {
   
   $scope.packages = itemData.docs;  
-  //console.log($scope.packages);
   $scope.maxSize = 5;
   $scope.limit = itemData.limit;
   $scope.totalItems = itemData.total;
   $scope.currentPage = itemData.page;
-  // $scope.createDate = [];
+  $scope.user = $rootScope._user;
+  $scope.bookmarks = [];
+  $scope.loading = false;
+  Bookmark.query({q: $scope.user._id}).$promise.then(function(res){
+    $scope.bookmarks = res;
+    $scope.loading = true;
+  });
 
+  // $scope.createDate = [];
+  $scope.like = function(packageId){
+    if($rootScope._user._id){
+      $scope.item = new Bookmark;
+      $scope.item.bookmark = packageId;
+      $scope.item.user = $scope.user._id;
+      $scope.item.$save().then(function(res){
+        console.log(res);
+      });
+    }
+    else{
+      console.log('no user');
+    }
+  };
   // get package create date
   $scope.getCreateDate = function(timeStamp){
     //console.log("get Create date "+timeStamp);

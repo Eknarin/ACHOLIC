@@ -67,7 +67,7 @@
 				</div>
 			</div>
 
-			<div class="col-xs-12 col-sm-12  col-md-9" style="padding-left:0px; padding-right:0px;">
+			<div class="col-xs-12 col-sm-12  col-md-9" style="padding-left:0px; padding-right:0px;" ng-show="loading">
 				<!-- Packages -->
 				<div style="background-image:url('../../image/package-background.png'); padding-top:5%; padding-bottom:15%; padding-left:15px; padding-right:15px;">		
 						<div class="row">
@@ -82,7 +82,7 @@
 			 								<!-- Package Price -->
 											<p class="price">&nbsp{{package.price}} ฿</p>
 											<!-- Like button -->
-											<input id="liked" ng-click="ilike()" class="like_button" type="image" src="../image/Heart.png" name="image">
+											<input ng-click="like(package)" class="like_button" type="image" src="../image/Heart.png" name="image">
 										</div>
 										<!-- Package Name -->
 										<div class="text-padding package-header-overflow" style="padding-top:10px">
