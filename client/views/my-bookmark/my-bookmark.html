@@ -19,28 +19,32 @@
 
 			<!-- Bookmark packages -->
 			<div class="container bookmark-package-cover-style">
-				<div class="col-xs-12 col-sm-12 col-md-12">
+				<div class="col-xs-12 col-sm-12 col-md-12" ng-repeat="bookmark in bookmarks">
 					<!-- Package Picture -->
 					<div class="col-xs-12 col-sm-12 col-md-7" style="padding-bottom:20px;">
-						<img class="center-picture bookmark-image-style" src="image/customer-signup-background.png"}></img>
+						<img class="center-picture bookmark-image-style" src=api/images/{{bookmark.packageId.image}}></img>
 					</div>
 
 					<!-- Package information -->
 					<div class="col-xs-12 col-sm-12 col-md-5 bookmark-package-information-style">
 						<div class="col-xs-12 col-sm-12 col-md-12">
-							<div class="col-xs-12 col-sm-6 col-md-6">
-								<p class="bookmark-package-name-style">Name</p>
-								<p class="bookmark-package-location-styles" style="color:#A9A9A9;">location</p>
+							<div class="col-xs-12 col-sm-8 col-md-8">
+								<p class="bookmark-package-name-style">{{bookmark.packageId.name}}</p>
+								<!-- Rating -->
+								<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getStar(bookmark.packageId.rating) track by $index" src="../image/star_rated.png">
+								<img style="width:20px;height:20px;margin-left: 3px;" ng-if="((bookmark.packageId.rating)/2)%1 >= 0.5" src="../image/star_rated_half.png">
+								<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getWhite(bookmark.packageId.rating) track by $index" src="../image/star_unrated.png">
+								
 							</div>
-							<div class="col-xs-12 col-sm-6 col-md-6 bookmark-package-price-style">
-								<p>Price</p>
+							<div class="col-xs-12 col-sm-4 col-md-4 bookmark-package-price-style">
+								<p>{{bookmark.packageId.price}} ฿</p>
 							</div>
 						</div>
 
 						<!-- Remove & Add to Cart button -->
 						<div class="col-xs-12 col-sm-12 col-md-12 bookmark-package-button-cover-style">
 							<div class="col-xs-6 col-sm-6 col-md-6 bookmark-package-button-style">
-								<button class="btn btn-danger">Remove</button>								
+								<button class="btn btn-danger" ng-click="unBookmark(bookmark)">Remove</button>								
 							</div>
 							<div class="col-xs-6 col-sm-6 col-md-6 bookmark-package-button-style">
 								<button class="btn btn-success">Add to Cart</button>
