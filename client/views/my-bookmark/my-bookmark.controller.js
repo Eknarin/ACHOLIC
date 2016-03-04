@@ -9,5 +9,12 @@ angular.module('acholic')
   	Bookmark.query({q: $scope.user._id}).$promise.then(function(res){
       $scope.bookmarks = res;
       $scope.loading = true;
+      console.log($scope.bookmarks);
     });
+
+    $scope.unBookmark = function(bookmark){
+    	bookmark.$delete().then(function(res){
+    		console.log('unlike'+res);
+    	});
+    };
   }]);
