@@ -21,7 +21,7 @@ angular.module('acholic')
       $scope.loading = true;
     });
   } else{
-     $scope.loading = false;
+     $scope.loading = true;
   }
 
 
