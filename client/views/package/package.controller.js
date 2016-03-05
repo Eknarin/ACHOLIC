@@ -12,7 +12,7 @@ angular.module('acholic')
   $scope.bookmarks = [];
   $scope.loading = false;
 
-  if($scope.user._id)
+  if($scope.user._id){
     Bookmark.query({q: $scope.user._id}).$promise.then(function(res){
       $scope.bookmarks = res;
       //
