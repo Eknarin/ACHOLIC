@@ -1,18 +1,21 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('MyBookmarkCtrl',['$scope','Bookmark','$rootScope', function ($scope ,Bookmark ,$rootScope) {
-  	$scope.user = $rootScope._user;
+  .controller('MyBookmarkCtrl',['$scope','Bookmark','Auth', function ($scope ,Bookmark ,Auth) {
+  	$scope.user = {};
   	$scope.bookmarks = [];
   	$scope.loading = false;
-  	
-  	Bookmark.query({q: $scope.user._id}).$promise.then(function(res){
-      $scope.bookmarks = res;
-      $scope.loading = true;
-      console.log($scope.bookmarks);
-      // console.log($scope.bookmarks[0].packageId.rating);
-    });
 
+  	Auth.getUser().then(function(res){
+  		$scope.user = res;
+	  	Bookmark.query({q: $scope.user._id}).$promise.then(function(res){
+	      $scope.bookmarks = res;
+	      $scope.loading = true;
+	      console.log($scope.bookmarks);
+	      // console.log($scope.bookmarks[0].packageId.rating);
+	    });
+	 });
+  	
     $scope.unBookmark = function(bookmark){
     	bookmark.$delete().then(function(res){
     		var index = $scope.bookmarks.indexOf(bookmark);
