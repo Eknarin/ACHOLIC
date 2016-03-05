@@ -15,13 +15,16 @@ angular.module('acholic')
   if($scope.user._id)
     Bookmark.query({q: $scope.user._id}).$promise.then(function(res){
       $scope.bookmarks = res;
-      $scope.checkBookmark();
+      //
+      console.log($scope.bookmarks[0]);
+      $scope.checkComment();
       $scope.loading = true;
     });
-  else
-     $scope.loading = true;
+  } else{
+     $scope.loading = false;
+  }
 
-  $scope.checkBookmark = function(){
+  $scope.checkComment = function(){
     for(var i = 0 ; i<$scope.packages.length ;i++){
       for(var j = 0; j<$scope.bookmarks.length ;j++){
         if(!$scope.packages[i].bookmark)
@@ -29,6 +32,17 @@ angular.module('acholic')
             $scope.packages[i].bookmark = $scope.bookmarks[j];
       }
     }
+  };
+
+  //
+  $scope.checkBookmark = function(packid){
+    for(var i = 0; i < bookmarks.length; i++){
+      if(packid == bookmarks[i].packageId._id){
+            return true;
+            break;
+      }
+    }
+    return false;
   };
 
   // $scope.createDate = [];
