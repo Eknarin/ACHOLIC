@@ -12,14 +12,17 @@ angular.module('acholic')
   $scope.bookmarks = [];
   $scope.loading = false;
 
-  if($scope.user._id)
+  if($scope.user._id){
     Bookmark.query({q: $scope.user._id}).$promise.then(function(res){
       $scope.bookmarks = res;
+      //
+      console.log("My bookmark "+res);
       $scope.checkComment();
       $scope.loading = true;
     });
-  else
+  } else{
      $scope.loading = true;
+  }
 
   $scope.checkComment = function(){
     for(var i = 0 ; i<$scope.packages.length ;i++){
@@ -31,8 +34,15 @@ angular.module('acholic')
     }
   };
 
+  //
+  console.log("My bookmark"+$scope.loading);
+  console.log($scope.bookmarks);
+
+
   // $scope.createDate = [];
   $scope.like = function(packageId){
+    console.log(packageId.bookmark);
+    //if this bookmark's already exist then unbookmark
     if(packageId.bookmark != null){
       packageId.bookmark.$delete().then(function(res){
         packageId.bookmark = null;
