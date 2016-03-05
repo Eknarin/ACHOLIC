@@ -11,14 +11,7 @@ angular.module('acholic')
   	$scope.comment.rate = 0;
     Comment.query({package_id: $scope.packageItem._id}).$promise.then(function(res){
       $scope.comments = res;
-      console.log(res);
     });
-
-  $scope.postComment = function(){
-    $scope.comment.$save().then(function(res){
-      $scope.comments.push(res);
-    });
-  };
 
   $scope.getStar = function(num) {
     if(num == null){
@@ -59,22 +52,18 @@ angular.module('acholic')
   $scope.stageTypes = $scope.packageItem.map_id.map_id.stage_type;
   $scope.activities = $scope.packageItem.map_id.map_id.activities;
 
-  $scope.voteRatings = [
-    {rating: 1},
-    {rating: 2},
-    {rating: 3},
-    {rating: 4},
-    {rating: 5},
-    {rating: 6},
-    {rating: 7},
-    {rating: 8},
-    {rating: 9},
-    {rating: 10}
-  ];
-  $scope.selectedRate = "Rate"
-  $scope.setRate = function(value){
-    $scope.selectedRate = value;
+  $("#input-id").rating({min:0, max:5, step:0.5, size:'md'});
+
+  $('#input-id').on('rating.change', function(event, value, caption) {
+    $scope.comment.rate = value;
+  });
+
+  $scope.postComment = function(){
+    $scope.comment.$save().then(function(res){
+      $scope.comments.push(res);
+    });
   };
+
   // function FormController($scope){
   //   $scope.comment = [];
   //   $scope.btn_add = function){

@@ -264,17 +264,10 @@
 					<!-- Rate -->
 					<div class="col-xs-12 col-sm-12 col-md-12" style="margin-top:10px; margin-bottom:10px;">
 						<div class="col-xs-12 col-sm-2 col-md-2" style="padding-left:0px;">
-							<p class="package-detail-topic-group-style">Rate</p>
+							<p class="package-detail-topic-group-style">Rate This</p>
 						</div>
 						<div class="col-xs-12 col-sm-8 col-md-6 btn-group filter-dropdownbtn-style">
-							<button type="button" class="btn btn-default" style="width:90%; padding-left:0px" ng-bind="selectedRate"> Rate </button>
-							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width:10%">
-								<span class="caret"></span>
-								<span class="sr-only">Toggle Dropdown</span>
-							</button>
-							<ul class="dropdown-menu scrollable-menu" style="width:91.5%;margin-left:17px;">		
-							<li ng-repeat="voteRating in voteRatings" ng-click="setRate(voteRating.rating)">
-							<a href="#">{{voteRating.rating}}</a></li>
+							<input id="input-id" type="number" class="rating" data-show-clear="false" data-show-caption="true">
 							</ul>
 						</div>												
 					</div>

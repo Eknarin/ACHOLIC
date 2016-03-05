@@ -16,12 +16,12 @@ angular.module('acholic')
     Bookmark.query({q: $scope.user._id}).$promise.then(function(res){
       $scope.bookmarks = res;
       //
-      console.log("My bookmark "+res);
+      console.log($scope.bookmarks[0]);
       $scope.checkComment();
       $scope.loading = true;
     });
   } else{
-     $scope.loading = true;
+     $scope.loading = false;
   }
 
   $scope.checkComment = function(){
@@ -35,7 +35,18 @@ angular.module('acholic')
   };
 
   //
-  console.log("My bookmark"+$scope.loading);
+  $scope.checkBookmark = function(packid){
+    for(var i = 0; i < bookmarks.length; i++){
+      if(packid == bookmarks[i].packageId._id){
+            return true;
+            break;
+      }
+    }
+    return false;
+  };
+
+  //
+  console.log("My bookmarks out"+$scope.loading);
   console.log($scope.bookmarks);
 
 
