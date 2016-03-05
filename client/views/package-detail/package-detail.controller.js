@@ -1,20 +1,34 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('PackageDetailCtrl',['$scope','itemData',function ($scope , itemData) {
+  .controller('PackageDetailCtrl',['$scope','itemData','$rootScope','Comment',function ($scope , itemData, $rootScope, Comment) {
 
   	$scope.packageItem = itemData;
+    $scope.comment = new Comment;
+    $scope.comment.user_id = $rootScope._user._id;
+    $scope.comment.package_id = $scope.packageItem._id;
   	console.log($scope.packageItem);
-  	$scope.rate = 0;
-  	$scope.getStar = function(num) {
+  	$scope.comment.rate = 0;
+    Comment.query({package_id: $scope.packageItem._id}).$promise.then(function(res){
+      $scope.comments = res;
+      console.log(res);
+    });
+
+  $scope.postComment = function(){
+    $scope.comment.$save().then(function(res){
+      $scope.comments.push(res);
+    });
+  };
+
+  $scope.getStar = function(num) {
     if(num == null){
-      $scope.rate = 0;
+      $scope.comment.rate = 0;
     }
     else{
-      $scope.rate = num/2;
+      $scope.comment.rate = num/2;
     }
         
-	    return new Array(Math.floor($scope.rate));   
+	    return new Array(Math.floor($scope.comment.rate));   
 	}; 
 
 	$scope.Math = window.Math;

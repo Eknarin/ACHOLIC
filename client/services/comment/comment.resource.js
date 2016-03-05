@@ -5,6 +5,16 @@ angular.module('acholic')
     return $resource('/api/comments/:id', { id: '@_id' }, {
       update: {
         method: 'PUT'
+      },
+      save: {
+      	method: 'POST'
+      },
+      delete: {
+      	method: 'DELETE'
+      },
+      query:{
+      	method: 'GET',
+      	isArray: true
       }
     });
   });

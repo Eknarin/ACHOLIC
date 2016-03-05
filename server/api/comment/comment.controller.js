@@ -2,7 +2,7 @@
 
 var _ = require('lodash');
 var Comment = require('./comment.model');
-var CommentTable = require('./comment-table.model');
+var User = require('../user/user.model');
 
 function handleError (res, err) {
   return res.status(500).send(err);
@@ -15,7 +15,7 @@ function handleError (res, err) {
  * @param res
  */
 exports.index = function (req, res) {
-  Comment.find(function (err, comments) {
+  Comment.find({package_id: req.query.package_id}).populate('user_id').exec(function (err, comments) {
     if (err) { return handleError(res, err); }
     return res.status(200).json(comments);
   });
