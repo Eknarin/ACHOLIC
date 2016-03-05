@@ -24,14 +24,14 @@
 						<div class="my-package-style" style="height:440px;">
 							<div class="package_item_upper">
 								<!-- Package Image -->
-								<div class="center-picture" ng-style="{'background-image':'url(api/images/{{package.image}})'}" style="height:230px">
+								<div class="center-picture" ng-style="{'background-image':'url(api/images/{{p.image}})'}" style="height:230px">
 								</div>
 			 					<!-- Package Price -->
 								<p class="price">&nbsp{{p.price}} ฿</p>								
 							</div>
 							<!-- Package Name -->
 							<div class="text-padding package-header-overflow" style="padding-top:10px">
-								<p style="font-size: 25px;"><a href="/packageDetail/{{package._id}}" style="color:white">Package Name</a></p>	
+								<p style="font-size: 25px;"><a href="/packageDetail/{{package._id}}" style="color:white">{{p.name}}</a></p>	
 							</div>
 							<!-- Package Rating -->
 							<div class="text-padding" style="" ng-app="" ng-init="nstar = 0">
@@ -51,7 +51,7 @@
 						</div>
 						<!-- Package Publish Date  -->
 						<div class="package-footer-style text-padding">
-							<span class="glyphicon glyphicon-calendar" ng-bind="getCreateDate(package.created_at)"> </span>
+							<span class="glyphicon glyphicon-calendar" ng-bind="getCreateDate(p.created_at)"> </span>
 						</div>
 					</div>
 				</div>

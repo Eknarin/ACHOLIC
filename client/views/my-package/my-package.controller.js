@@ -11,6 +11,11 @@ angular.module('acholic')
 	  		console.log($scope.package);
   		});
   	});
-
+    // get package create date
+    $scope.getCreateDate = function(timeStamp){
+      $scope.temp = new Date(timeStamp);
+      $scope.createDate = $scope.temp.getDate() + "/" + ($scope.temp.getMonth() + 1) + "/" + $scope.temp.getFullYear();   
+      return $scope.createDate;
+    }
 
   }]);
