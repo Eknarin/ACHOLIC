@@ -24,7 +24,7 @@
 					<!-- Package Picture -->
 					<div class="col-xs-12 col-sm-12 col-md-7">
 						<a href="/packageDetail/{{bookmark.packageId._id}}">
-						<img class="center-picture bookmark-image-style" src=api/images/{{bookmark.packageId.image}}></img></a>	
+						<img class="center-picture bookmark-image-style" ng-src=api/images/{{bookmark.packageId.image}}></img></a>	
 					</div>
 
 					<!-- Package information -->
@@ -33,9 +33,9 @@
 							<div class="col-xs-12 col-sm-8 col-md-8">
 								<p class="bookmark-package-name-style"><a href="/packageDetail/{{bookmark.packageId._id}}" style="color:white">{{bookmark.packageId.name}}</a></p>
 								<!-- Rating -->
-								<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getStar(bookmark.packageId.rating) track by $index" src="../image/star_rated.png">
-								<img style="width:20px;height:20px;margin-left: 3px;" ng-if="((bookmark.packageId.rating)/2)%1 >= 0.5" src="../image/star_rated_half.png">
-								<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getWhite(bookmark.packageId.rating) track by $index" src="../image/star_unrated.png">
+								<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getStar(bookmark.packageId.rating) track by $index" ng-src="../image/star_rated.png">
+								<img style="width:20px;height:20px;margin-left: 3px;" ng-if="((bookmark.packageId.rating)/2)%1 >= 0.5" ng-src="../image/star_rated_half.png">
+								<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getWhite(bookmark.packageId.rating) track by $index" ng-src="../image/star_unrated.png">
 								
 							</div>
 							<div class="col-xs-12 col-sm-4 col-md-4 bookmark-package-price-style">
