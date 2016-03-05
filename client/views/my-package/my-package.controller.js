@@ -7,7 +7,7 @@ angular.module('acholic')
   	Auth.getUser().then(function(res){
   		$scope.user = res;
   		PackageItem.myPackage({q: $scope.user._id , page: 1}).$promise.then(function(res){
-	  		$scope.package = res;
+	  		$scope.package = res.docs;
 	  		console.log($scope.package);
   		});
   	});
