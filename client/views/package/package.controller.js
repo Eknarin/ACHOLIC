@@ -35,7 +35,6 @@ angular.module('acholic')
     }
   };
 
-  //
   $scope.checkBookmark = function(packid){
     for(var i = 0; i < bookmarks.length; i++){
       if(packid == bookmarks[i].packageId._id){
@@ -46,7 +45,6 @@ angular.module('acholic')
     return false;
   };
 
-  // $scope.createDate = [];
   $scope.like = function(packageId){
     if(packageId.bookmark != null){
       packageId.bookmark.$delete().then(function(res){
@@ -66,10 +64,8 @@ angular.module('acholic')
   };
   // get package create date
   $scope.getCreateDate = function(timeStamp){
-    //console.log("get Create date "+timeStamp);
     $scope.temp = new Date(timeStamp);
     $scope.createDate = $scope.temp.getDate() + "/" + ($scope.temp.getMonth() + 1) + "/" + $scope.temp.getFullYear();
-    //console.log($scope.createDate);
     return $scope.createDate;
   }
 
@@ -78,12 +74,9 @@ angular.module('acholic')
   };
 
   $scope.pageChanged = function() {
-    //console.log($scope.currentPage);
     PackageItem.query({q: $location.search().q , page: $scope.currentPage}).$promise.then(function(result){
-      //console.log(result);
       $scope.packages = result.docs;
     });
-    //PackageItem.query()
   };
 
 
@@ -106,7 +99,6 @@ angular.module('acholic')
     $scope.filter.tag = $scope.selectedType;
     $scope.filter.people = $scope.guest;
     $scope.packages = PackageItem.filter($scope.filter);
-    //console.log($scope.filter);
   };
   
   $scope.getStar = function(num) {

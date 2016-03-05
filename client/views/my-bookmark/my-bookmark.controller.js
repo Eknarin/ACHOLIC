@@ -12,7 +12,6 @@ angular.module('acholic')
 	      $scope.bookmarks = res;
 	      $scope.loading = true;
 	      console.log($scope.bookmarks);
-	      // console.log($scope.bookmarks[0].packageId.rating);
 	    });
 	 });
   	

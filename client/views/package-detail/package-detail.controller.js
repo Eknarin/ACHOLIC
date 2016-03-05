@@ -63,19 +63,6 @@ angular.module('acholic')
       $scope.comments.push(res);
     });
   };
-
-  // function FormController($scope){
-  //   $scope.comment = [];
-  //   $scope.btn_add = function){
-  //     if($scope.txtcomment !=''){
-  //       console.log("COMMENT");
-  //       $scope.comment.push($scope.txtcomment);
-  //       $scope.txtcomment = "";
-  //     }
-  //   }
-  //   $scope.remItem = function($index){
-  //     $scope.comment.splice($index, 1);
-  //   }
-  // };
+  
   }]);
 
