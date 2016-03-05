@@ -12,7 +12,7 @@ angular.module('acholic')
   $scope.bookmarks = [];
   $scope.loading = false;
 
-  if($scope.user._id){
+  if($scope.user._id)
     Bookmark.query({q: $scope.user._id}).$promise.then(function(res){
       $scope.bookmarks = res;
       //
@@ -45,15 +45,8 @@ angular.module('acholic')
     return false;
   };
 
-  //
-  console.log("My bookmarks out"+$scope.loading);
-  console.log($scope.bookmarks);
-
-
   // $scope.createDate = [];
   $scope.like = function(packageId){
-    console.log(packageId.bookmark);
-    //if this bookmark's already exist then unbookmark
     if(packageId.bookmark != null){
       packageId.bookmark.$delete().then(function(res){
         packageId.bookmark = null;

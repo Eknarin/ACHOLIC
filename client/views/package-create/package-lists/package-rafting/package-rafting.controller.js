@@ -27,6 +27,7 @@ angular.module('acholic')
         $scope.packages.info.activities = $scope.activities.split(",");
 
         //province
+        $scope.packages.info.location = {};
         $scope.packages.info.location.province = $scope.selected;
 
         //season
