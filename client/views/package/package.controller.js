@@ -12,11 +12,7 @@ angular.module('acholic')
   $scope.bookmarks = [];
   $scope.loading = false;
 
-<<<<<<< HEAD
-  // if($scope.user._id){
-=======
-  if($scope.user._id){
->>>>>>> 485b4fe76b37ee4f106ea3ce1f45725fc1dd8a97
+  if($scope.user._id)
     Bookmark.query({q: $scope.user._id}).$promise.then(function(res){
       $scope.bookmarks = res;
       //
@@ -24,11 +20,12 @@ angular.module('acholic')
       $scope.checkComment();
       $scope.loading = true;
     });
-  // } else{
-  //    $scope.loading = false;
-  // }
+  } else{
+     $scope.loading = false;
+  }
 
-  $scope.checkComment = function(){
+
+  $scope.checkBookmark = function(){
     for(var i = 0 ; i<$scope.packages.length ;i++){
       for(var j = 0; j<$scope.bookmarks.length ;j++){
         if(!$scope.packages[i].bookmark)
@@ -40,25 +37,17 @@ angular.module('acholic')
 
   //
   $scope.checkBookmark = function(packid){
-    console.log("N book "+bookmarks.length);
-    // for(var i = 0; i < bookmarks.length; i++){
-    //   if(packid == bookmarks[i].packageId._id){
-    //         return true;
-    //         break;
-    //   }
-    // }
-    // return false;
+    for(var i = 0; i < bookmarks.length; i++){
+      if(packid == bookmarks[i].packageId._id){
+            return true;
+            break;
+      }
+    }
+    return false;
   };
-
-  //
-  console.log("My bookmarks out"+$scope.loading);
-  console.log($scope.bookmarks);
-
 
   // $scope.createDate = [];
   $scope.like = function(packageId){
-    console.log(packageId.bookmark);
-    //if this bookmark's already exist then unbookmark
     if(packageId.bookmark != null){
       packageId.bookmark.$delete().then(function(res){
         packageId.bookmark = null;
