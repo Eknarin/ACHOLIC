@@ -20,14 +20,14 @@
 				<div class="col-xs-12 col-sm-12 col-md-12">
 					<!-- Package -->
 					<!-- Use some class from Package.scss -->
-					<div class="col-xs-12 col-sm-6 col-md-4 package-cover">
+					<div class="col-xs-12 col-sm-6 col-md-4 package-cover" ng-repeat="p in package">
 						<div class="my-package-style" style="height:440px;">
 							<div class="package_item_upper">
 								<!-- Package Image -->
 								<div class="center-picture" ng-style="{'background-image':'url(api/images/{{package.image}})'}" style="height:230px">
 								</div>
 			 					<!-- Package Price -->
-								<p class="price">&nbsp{{package.price}} ฿</p>								
+								<p class="price">&nbsp{{p.price}} ฿</p>								
 							</div>
 							<!-- Package Name -->
 							<div class="text-padding package-header-overflow" style="padding-top:10px">
