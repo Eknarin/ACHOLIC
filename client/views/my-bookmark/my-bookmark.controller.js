@@ -3,7 +3,7 @@
 angular.module('acholic')
   .controller('MyBookmarkCtrl',['$scope','Bookmark','$rootScope', function ($scope ,Bookmark ,$rootScope) {
   	$scope.user = $rootScope._user;
-  	$scope.bookmarks = {};
+  	$scope.bookmarks = [];
   	$scope.loading = false;
   	
   	Bookmark.query({q: $scope.user._id}).$promise.then(function(res){
@@ -15,6 +15,8 @@ angular.module('acholic')
 
     $scope.unBookmark = function(bookmark){
     	bookmark.$delete().then(function(res){
+    		var index = $scope.bookmarks.indexOf(bookmark);
+			$scope.bookmarks.splice(index, 1);
     		console.log('unlike'+res);
     	});
     };
