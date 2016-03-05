@@ -15,13 +15,13 @@ angular.module('acholic')
   if($scope.user._id)
     Bookmark.query({q: $scope.user._id}).$promise.then(function(res){
       $scope.bookmarks = res;
-      $scope.checkComment();
+      $scope.checkBookmark();
       $scope.loading = true;
     });
   else
      $scope.loading = true;
 
-  $scope.checkComment = function(){
+  $scope.checkBookmark = function(){
     for(var i = 0 ; i<$scope.packages.length ;i++){
       for(var j = 0; j<$scope.bookmarks.length ;j++){
         if(!$scope.packages[i].bookmark)
