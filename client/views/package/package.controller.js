@@ -25,7 +25,7 @@ angular.module('acholic')
   }
 
 
-  $scope.checkBookmark = function(){
+  $scope.checkComment = function(){
     for(var i = 0 ; i<$scope.packages.length ;i++){
       for(var j = 0; j<$scope.bookmarks.length ;j++){
         if(!$scope.packages[i].bookmark)
