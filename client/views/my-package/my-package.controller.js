@@ -7,4 +7,5 @@ angular.module('acholic')
   	PackageItem.myPackage({q: $scope.user._id , page: 1}).$promise.then(function(res){
   		$scope.package = res;
   	});
+  	console.log($scope.package);
   }]);

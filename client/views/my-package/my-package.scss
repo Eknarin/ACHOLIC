@@ -1,3 +1,35 @@
 /**
  * my-package.scss
  */
+ .my-package-header-size{
+ 	font-size: 37px;
+ 	color: white;
+ }
+.my-package-style{
+	background-color:rgba(0,0,0,0.65);
+    padding-bottom:5%;
+    height:440px;
+    box-shadow: 5px 0 7px rgba(0, 0, 0, 0.35);
+    color:white;
+    a:link {
+        text-decoration: none;
+        color: #406a80; }
+    a:hover {
+      text-decoration: underline; }
+
+    a:visited {
+      text-decoration: none;
+      color: #406a80; }
+
+    a:active {
+      text-decoration: none;
+      color: #406a80; }
+}
+.my-package-style:hover .price{
+    display:block;
+}
+@media(min-width:767px){
+	.my-package-header-size{
+ 		font-size:50px;
+ 	}
+}

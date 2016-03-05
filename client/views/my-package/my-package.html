@@ -1,3 +1,61 @@
-<div>
-  {{ vm.name }}
-</div>
+<!Doctype html>
+<html>
+	<head>
+		<title>ACHOLIC</title>
+		<meta charset = "utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<div class="container-fluid center-picture" style="background-image:url('../../image/my-package-background.png'); padding-bottom:50px;">
+			<!-- blank div for make vertical space -->
+			<div class="container" style="margin-top:70px">
+			</div>
+			<!-- My Package Header -->
+			<div class="container">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<p class="my-package-header-size" style=" text-align:center;">My Package</p>
+				</div>
+			</div>	
+			<div class="container">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<!-- Package -->
+					<!-- Use some class from Package.scss -->
+					<div class="col-xs-12 col-sm-6 col-md-4 package-cover">
+						<div class="my-package-style" style="height:440px;">
+							<div class="package_item_upper">
+								<!-- Package Image -->
+								<div class="center-picture" ng-style="{'background-image':'url(api/images/{{package.image}})'}" style="height:230px">
+								</div>
+			 					<!-- Package Price -->
+								<p class="price">&nbsp{{package.price}} ฿</p>								
+							</div>
+							<!-- Package Name -->
+							<div class="text-padding package-header-overflow" style="padding-top:10px">
+								<p style="font-size: 25px;"><a href="/packageDetail/{{package._id}}" style="color:white">Package Name</a></p>	
+							</div>
+							<!-- Package Rating -->
+							<div class="text-padding" style="" ng-app="" ng-init="nstar = 0">
+								<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getStar(package.rating) track by $index" src="../image/star_rated.png">
+								<img style="width:20px;height:20px;margin-left: 3px;" ng-if="((package.rating)/2)%1 >= 0.5" src="../image/star_rated_half.png">
+								<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getWhite(package.rating) track by $index" src="../image/star_unrated.png">
+							</div>
+
+							<!-- Sold amount -->
+							<div class="text-padding package-description-overflow" style="padding-top:10px">
+								<p style="color:#888888; overflow: hidden;">Sold amount</p>	
+							</div>
+							<!-- Sold amount -->
+							<div class="text-padding package-description-overflow" style="padding-top:10px; text-align:center;">
+								<button class="btn btn-danger">Delete</button>
+							</div>
+						</div>
+						<!-- Package Publish Date  -->
+						<div class="package-footer-style text-padding">
+							<span class="glyphicon glyphicon-calendar" ng-bind="getCreateDate(package.created_at)"> </span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

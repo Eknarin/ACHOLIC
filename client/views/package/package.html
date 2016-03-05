@@ -82,7 +82,8 @@
 			 								<!-- Package Price -->
 											<p class="price">&nbsp{{package.price}} ฿</p>
 											<!-- Like button -->
-											<input ng-click="like(package)" class="like_button" type="image" src="../image/Heart.png" name="image">
+											<input ng-show="package.bookmark == null" ng-click="like(package)" class="like_button" type="image" src="../image/Heart.png" name="image">
+											<input ng-show="package.bookmark != null" ng-click="like(package)" class="like_button" type="image" src="../image/Heart_Pink.png" name="image">
 										</div>
 										<!-- Package Name -->
 										<div class="text-padding package-header-overflow" style="padding-top:10px">
