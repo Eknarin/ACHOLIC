@@ -266,7 +266,7 @@
 						<div class="col-xs-12 col-sm-2 col-md-2" style="padding-left:0px;">
 							<p class="package-detail-topic-group-style">Rate This</p>
 						</div>
-						<div class="col-xs-12 col-sm-8 col-md-6 btn-group filter-dropdownbtn-style">
+						<div class="col-xs-12 col-sm-10 col-md-10 btn-group filter-dropdownbtn-style">
 							<input id="input-id" type="number" class="rating" data-show-clear="false" data-show-caption="true">
 							</ul>
 						</div>												
@@ -282,14 +282,14 @@
 					</div>
 
 					<!-- Package Comments -->					
-					<div class="col-xs-12 col-sm-12 col-md-12" ng-repeat="comment in comments">
+					<div class="col-xs-12 col-sm-12 col-md-12" ng-repeat="comment in comments.slice().reverse()">
 						<div class="col-xs-12 col-sm-2 col-md-2" style="text-align:center" >
 							<img class="package-detail-comment-profile-image" ng-src="api/images/{{comment.user_id.image}}"></img>
 							<p class="package-detail-comment-header">{{comment.user_id.first_name}}</p>
 						</div>
 						<div class="col-xs-12 col-sm-10 col-md-10 package-detail-comment-cover">
 							<p class="package-detail-comment-detail">{{comment.text}}</p>
-							<p class="package-detail-comment-date" style="padding-top:10px;">{{comment.updated_at}}</p>								
+							<p class="package-detail-comment-date" style="padding-top:10px;" ng-bind="getCommentDate(comment.updated_at)"></p>								
 						</div>
 						<HR WIDTH="100%" NOSHADE>				
 					</div>

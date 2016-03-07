@@ -63,6 +63,13 @@ angular.module('acholic')
       $scope.comments.push(res);
     });
   };
+
+  $scope.getCommentDate = function(cdate){
+    var d = new Date(cdate);
+    var comdate = d.toDateString();
+
+    return comdate;
+  };
   
   }]);
 
