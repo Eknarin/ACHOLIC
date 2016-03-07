@@ -1,3 +1,26 @@
 /**
  * compare.scss
  */
+.compare-cover-style{
+	width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.compare-image-style{
+	height: 200px; 
+}
+.compare-table-header{
+	font-size:16px;
+	background-color: rgba(0,0,0,0.85); 
+	border-right: 1px solid white;  
+}
+.compare-table-subheader{
+	font-size:14px;
+	background-color: rgba(255,191,0,0.85);  
+}
+.compare-table-detail{
+	background-color: rgba(8,138,104,0.85);
+	border-right: 1px solid white; 
+	white-space:pre-wrap ;
+	word-wrap:break-word;
+}
