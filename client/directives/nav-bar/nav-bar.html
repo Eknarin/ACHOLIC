@@ -1,70 +1,116 @@
-<!Doctype html>
-<html>
-  <head>
-    <title>ACHOLIC</title>
-    <meta charset = "utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
-  
-  <body>
-<!-- Navigation Bar -->
-        <nav class="navbar navbar-fixed-top" style = "background-color:rgba(0,0,0,0.85);" >
-          <div class="container-fluid">
-            <div class="row-fluid">
-                <div class="navbar-header col-md-9 col-xs-12 col-sm-12">
-                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" style="background-color:#57bdad">
-                    <span class="icon-bar" style="background-color: #f9f9fa"></span>
-                    <span class="icon-bar" style="background-color: #f9f9fa"></span>
-                    <span class="icon-bar" style="background-color: #f9f9fa"></span>
-                  </button>
-                
-                    <a class="navbar-brand col-md-2" href="/" style="color:#57bdad; width:180px; padding-top:7px"><img src="../image/MostMark.png" style="width:40px;height:40px;margin-right:10px; display:inline-block;">MostMark</a>
-                  <div class="col-xs-12 col-sm-12 col-md-8 pull-right">
-                       <form class="navbar-form" role="search">
-                             <div class="input-group" style="width:100%">
-                               <input type="text" class="form-control" placeholder="Search your places..." name="srch-term" id="srch-term" ng-model="search" style="width:100%">
-                               <div class="input-group-btn" style="width:10%">
-                                 <button class="btn btn-default" type="submit" ng-click="searchPage()"><span class="glyphicon glyphicon-search"></span></button>
-                               </div>
-                             </div>
-                       </form>
-                  </div>
-                </div>
-                <div class="col-md-3 col-xs-12 col-sm-12">
-                    <div id="navbar" class="navbar-collapse collapse" style="float:left; margin-right:55px">
-                      <ul class="nav navbar-nav">
-                        <li><a href="/package" style="color:#57bdad">Packages</a></li>
-                        <!-- Dropdown SignIn/SignUp menu -->
-                        <li class="dropdown" ng-show="!Auth.isLogged()">
-                          <a href="#"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#57bdad">Sign In <span class="caret"></span></a>
-                          <ul class="dropdown-menu">
-                              <li><a ng-click="openLogin()" style="color:#57bdad">Sign In</a></li>
-                              <li><a ng-click="openSignup()" style="color:#57bdad">Sign Up</a></li>
-                          </ul>
-                        </li>
-                        <!-- Dropdown User Menu -->
-                        <li class="dropdown" ng-if="Auth.isLogged()">
-                          <a class="dropdown-toggle glyphicon glyphicon-user" href="#"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#57bdad">  {{user.first_name}} <span class="caret"></span></a>
-                          <ul class="dropdown-menu">
-                              <li><a href="/profile">Profile</a></li>
-                              <li><a href="/package/create">Create Packages</a></li>
-                              <li><a href="/my-package">My Packages</a></li>
-                              <li><a href="/my-bookmark">My Bookmarks</a></li>
-                              <li><a href="#">My Cart</a></li>
-                              <li><a href="#">My Receipts</a></li>
-                              <li ng-if="Auth.isLogged()">
-                                <a ng-click="openLogout()" >Sign Out</a>
-                              </li>
-                           <!--  <li role="separator" class="divider"></li>
-                            <li class="dropdown-header">Nav header</li>
-                            <li><a href="#">Separated link</a></li>
-                            <li><a href="#">One more separated link</a></li> -->
-                          </ul>
-                        </li>
-                      </ul>
+    <!Doctype html>
+    <html>
+    <head>
+      <title>ACHOLIC</title>
+      <meta charset = "utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+      <!-- Navigation Bar -->
+      <nav class="navbar navbar-fixed-top" style = "background-color:rgba(0,0,0,0.85);" >
+        <div class="container-fluid">
+          <div class="row-fluid">
+            <div class="navbar-header col-md-8 col-xs-12 col-sm-12">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" style="background-color:#57bdad">
+                <span class="icon-bar" style="background-color: #f9f9fa"></span>
+                <span class="icon-bar" style="background-color: #f9f9fa"></span>
+                <span class="icon-bar" style="background-color: #f9f9fa"></span>
+              </button>
+
+              <a class="navbar-brand col-md-2" href="/" style="color:#57bdad; width:180px; padding-top:7px"><img src="../image/MostMark.png" style="width:40px;height:40px;margin-right:10px; display:inline-block;">MostMark</a>
+              <div class="col-xs-12 col-sm-12 col-md-8 pull-right">
+               <form class="navbar-form" role="search">
+                 <div class="input-group" style="width:100%">
+                   <input type="text" class="form-control" placeholder="Search your places..." name="srch-term" id="srch-term" ng-model="search" style="width:100%">
+                   <div class="input-group-btn" style="width:10%">
+                     <button class="btn btn-default" type="submit" ng-click="searchPage()"><span class="glyphicon glyphicon-search"></span></button>
+                   </div>
+                 </div>
+               </form>
+             </div>
+           </div>
+           <div class="col-md-3 col-xs-12 col-sm-12">
+            <div id="navbar" class="navbar-collapse collapse" style="float:left; margin-right:55px">
+              <div class="nav navbar-nav">
+                <!-- Dropdown utilities menu -->
+                <li ng-show="!Auth.isLogged()"><a href="/package" style="color:#57bdad">Packages</a></li>
+                <li class="dropdown" ng-show="Auth.isLogged()">
+                  <a class="dropdown-toggle" href="#" data-toggle="dropdown" style="color:#57bdad;text-align:center;"><img src="../image/more.png" class="more-info-button"></a>
+                  <ul class="dropdown-menu" style="width:300px;">
+                   <!-- User function -->
+                   <!-- first row -->
+                    <div class="col-xs-4 col-sm-4 col-md-4 user-function">
+                      <a href="/package/create">
+                        <img src="../image/plus.png" class="more-function">
+                        <p>Create Packages</p>
+                      </a>
                     </div>
-                </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 user-function">
+                      <a href="/my-package">
+                        <img src="../image/suitcase_travel.png" class="more-function">
+                        <p>My Packages</p>
+                      </a>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 user-function">
+                      <a href="/my-bookmark">
+                        <img src="../image/bookmark.png" class="more-function">
+                        <p>My Bookmarks</p>
+                      </a>
+                    </div>
+                    <!-- second row -->
+                    <div class="col-xs-4 col-sm-4 col-md-4 user-function-last">
+                      <a href="#">
+                        <img src="../image/cart.png" class="more-function">
+                        <p>My Cart</p>
+                      </a>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 user-function-last">
+                      <a href="#">
+                        <img src="../image/receipt.png" class="more-function">
+                        <p>My Receipts</p>
+                      </a>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 user-function-last">
+                    </div>
+                    <li style="height: 200px;">&nbsp</li>
+                  </ul>
+                </li>
+                <!-- Dropdown SignIn/SignUp menu -->
+                <li class="dropdown" ng-show="!Auth.isLogged()">
+                  <a href="#"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#57bdad">Sign In <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a ng-click="openLogin()" style="color:#57bdad">Sign In</a></li>
+                    <li><a ng-click="openSignup()" style="color:#57bdad">Sign Up</a></li>
+                  </ul>
+                </li>
+                <!-- Dropdown User Menu -->
+                <li class="dropdown" ng-if="Auth.isLogged()">
+                  <a class="dropdown-toggle glyphicon glyphicon-user" href="#"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#57bdad;margin-top:10px;">  {{user.first_name}} <span class="caret"></span></a>
+                  <ul class="col-xs-12 col-sm-12 col-md-6 dropdown-menu" style="padding-top:15px; width:300px; padding-bottom:0px; background-color:#fff;">
+                    <!-- Profile Picture -->
+                    <div class="col-xs-5 col-sm-5 col-md-5" style="text-align:center">
+                      <img class="nav-profile-image-style" src=api/images/{{user.image}}></img>
+                    </div>
+                    <!-- Info -->
+                    <div class="col-xs-7 col-sm-7 col-md-7">
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <p class="nav-profile-name-style">{{user.first_name}} {{user.last_name}}</p> 
+                      </div>
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <p class="nav-profile-name-style">{{user.role.role}}</p> 
+                      </div>
+                      <div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center">
+                        <a href="/profile" class="btn btn-primary" role="button" style="color:white;">My Profile</a>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 profile-bottom" >
+                      <button ng-if="Auth.isLogged()" type="button" class="btn btn-default" ng-click="openLogout()">Sign Out</button>
+                    </div>
+                  </ul>
+                </li>                
+              </div>
             </div>
           </div>
         </nav>
-        <!-- End Navigation Bar -->
+            <!-- End Navigation Bar -->
