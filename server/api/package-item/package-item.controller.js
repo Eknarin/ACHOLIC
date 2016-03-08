@@ -27,11 +27,11 @@ function checkPackage (type) {
  * @param req
  * @param res
  */
-exports.index = function (req, res) {
-    PackageItem.paginate({'name' : new RegExp(req.query.q)}, { page: req.query.page, limit: 9}, function(err, result) {
-       if (err) { return handleError(res, err); }
-        return res.status(200).json(result);
-    });
+ exports.index = function (req, res) {
+  PackageItem.paginate({'name' : new RegExp(req.query.q)}, { page: req.query.page, limit: 9}, function(err, result) {
+   if (err) { return handleError(res, err); }
+   return res.status(200).json(result);
+ });
 };
 
 /**
@@ -40,11 +40,19 @@ exports.index = function (req, res) {
  * @param req
  * @param res
  */
-exports.indexList = function (req, res) {
-    PackageItem.find({'_id' : { $in : req.query.items }}, function(err, result) {
-       if (err) { return handleError(res, err); }
-        return res.status(200).json(result);
-    });
+ exports.indexList = function (req, res) {
+  PackageItem.find({'_id' : { $in : req.query.items }}).populate('map_id').exec(function(err, packageItem) {
+   if (err) { return handleError(res, err); }
+
+      var options = {
+        path: 'map_id.map_id',
+        model: packageItem[0].map_id.map_table
+      };
+
+      PackageItem.populate(packageItem ,options, function (err, packageDetail) {
+        return res.status(200).json(packageDetail);
+      });
+  });
 };
 
 /**
@@ -53,11 +61,11 @@ exports.indexList = function (req, res) {
  * @param req
  * @param res
  */
-exports.myPackage = function (req, res) {
-    PackageItem.paginate({'user_id' : req.query.q}, { page: req.query.page, limit: 9}, function(err, result) {
-       if (err) { return handleError(res, err); }
-        return res.status(200).json(result);
-    });
+ exports.myPackage = function (req, res) {
+  PackageItem.paginate({'user_id' : req.query.q}, { page: req.query.page, limit: 9}, function(err, result) {
+   if (err) { return handleError(res, err); }
+   return res.status(200).json(result);
+ });
 };
 
 
@@ -67,16 +75,16 @@ exports.myPackage = function (req, res) {
  * @param req
  * @param res
  */
-exports.filter = function (req, res) {
+ exports.filter = function (req, res) {
   PackageItem.find({"$and": [{'location' : { $eq: req.query.location, $exists: true }}, 
-                  {'tag' : { $eq : req.query.tag , $exists: true}},
-                  {'people.min' : { $lte : req.query.people , $exists: true}},
-                  {'people.max' : { $gte : req.query.people , $exists: true}},
-                  {'price' : { $gte : req.query.priceMin , $lte : req.query.priceMax}}]
+    {'tag' : { $eq : req.query.tag , $exists: true}},
+    {'people.min' : { $lte : req.query.people , $exists: true}},
+    {'people.max' : { $gte : req.query.people , $exists: true}},
+    {'price' : { $gte : req.query.priceMin , $lte : req.query.priceMax}}]
   },function (err, packageItems) {
-      if (err) { return handleError(res, err); }
-      return res.status(200).json(packageItems);
-    });
+    if (err) { return handleError(res, err); }
+    return res.status(200).json(packageItems);
+  });
 };
 
 /**
@@ -85,11 +93,11 @@ exports.filter = function (req, res) {
  * @param req
  * @param res
  */
-exports.recommend = function (req, res) {
-    PackageItem.find({}).sort({'rating': -1}).limit(6).exec(function (err, packageItems) {
-      if (err) { return handleError(res, err); }
-      return res.status(200).json(packageItems);
-    });
+ exports.recommend = function (req, res) {
+  PackageItem.find({}).sort({'rating': -1}).limit(6).exec(function (err, packageItems) {
+    if (err) { return handleError(res, err); }
+    return res.status(200).json(packageItems);
+  });
 };
 
 /**
@@ -98,7 +106,7 @@ exports.recommend = function (req, res) {
  * @param req
  * @param res
  */
-exports.show = function (req, res) {
+ exports.show = function (req, res) {
   PackageItem.findById(req.params.id).populate('user_id').populate('map_id').exec(function (err, packageItem) {
     if (err) { return handleError(res, err); }
     if (!packageItem) { return res.status(404).end(); }
@@ -108,7 +116,7 @@ exports.show = function (req, res) {
 
         var options = {
           path: 'map_id.map_id',
-          model: packageItem.map_id.map_table
+          model: 'packageItem.map_id.map_table'
         };
 
         PackageItem.populate(packageItem ,options, function (err, packageDetail) {
@@ -124,7 +132,7 @@ exports.show = function (req, res) {
  * @param req
  * @param res
  */
-exports.create = function (req, res) {
+ exports.create = function (req, res) {
   //console.log(req.body.info);
   PackageItem.create(req.body, function (err, packageItem) {
     if (err) { return handleError(res, err); }
@@ -134,12 +142,12 @@ exports.create = function (req, res) {
         console.log(err);
       }
       //console.log(packageDetail);
-        var map = new PackageMap;
-        map.map_table = req.body.type;
-        map.map_id = packageDetail._id;
-        map.save();
-        packageItem.map_id = map._id;
-        packageItem.save();
+      var map = new PackageMap;
+      map.map_table = req.body.type;
+      map.map_id = packageDetail._id;
+      map.save();
+      packageItem.map_id = map._id;
+      packageItem.save();
     });
     return res.status(201).json(packageItem);
   });
@@ -152,7 +160,7 @@ exports.create = function (req, res) {
  * @param req
  * @param res
  */
-exports.update = function (req, res) {
+ exports.update = function (req, res) {
   if (req.body._id) { delete req.body._id; }
   PackageItem.findById(req.params.id, function (err, packageItem) {
     if (err) { return handleError(res, err); }
@@ -171,7 +179,7 @@ exports.update = function (req, res) {
  * @param req
  * @param res
  */
-exports.destroy = function (req, res) {
+ exports.destroy = function (req, res) {
   PackageItem.findById(req.params.id, function (err, packageItem) {
     if (err) { return handleError(res, err); }
     if (!packageItem) { return res.status(404).end(); }
