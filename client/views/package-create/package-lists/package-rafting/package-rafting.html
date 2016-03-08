@@ -70,37 +70,7 @@
 			      			<div class="col-xs-12 col-sm-12 col-md-8">
 				        		<input ng-model="packages.name" class="package-create-inputbox-style" type="text" required>
 				       		</div>
-			        	</div>		        			
-
-			        	<!-- Province -->
-			        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
-			        		<div class="col-xs-12 col-sm-12 col-md-4">
-			   					<p class="package-create-topic-style">Province : </p>
-		    				</div>
-			        		<div class="col-xs-12 col-sm-12 col-md-8 btn-group package-create-dropdown-cover-style">
-				        		<button type="button" class="btn btn-default package-create-dropdown-input-style" ng-bind='selected'> Province </button>
-								<button type="button" class="btn btn-default dropdown-toggle package-create-dropdown-button-style" data-toggle="dropdown">
-									<span class="caret"></span>
-									<span class="sr-only">Toggle Dropdown</span>
-								</button>
-								<ul class="dropdown-menu scrollable-menu package-create-dropdown-list-style">
-									<li ng-repeat="p in provinces" ng-model="packages.info.location.province" ng-click="setProvince(p.name)" value="p.name"><a href="#">{{p.name}}</a></li>
-								</ul>
-							</div>
-			        	</div>
-
-			        	<!-- Location -->
-			       		<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
-			       			<div class="col-xs-12 col-sm-12 col-md-4">
-			       				<p class="package-create-topic-style">Location : </p>
-			       			</div>
-			       			<div class="col-xs-12 col-sm-12 col-md-8">
-				        		 <ng-map zoom="11" center="[13.7500, 100.4833]">
-								    <marker position="[13.7500, 100.4833]" title="hello"></marker>
-								 </ng-map>
-				        	</div>
-			        	</div>
-
+			        	</div>		
 			        	<!-- Description -->
 			        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 			        		<div class="col-xs-12 col-sm-12 col-md-4">
@@ -109,7 +79,48 @@
 			        		<div class="col-xs-12 col-sm-12 col-md-8">
 			        			<textarea ng-model="packages.description" class="package-create-inputbox-style form-control" rows="5" required></textarea>
 			        		</div>
+			        	</div>        			
+
+			        	<!-- Location -->
+			        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
+			        		<div class="col-xs-12 col-sm-12 col-md-4">
+			   					<p class="package-create-topic-style">Location : </p>
+		    				</div>
+		    				<div class="col-xs-12 col-sm-12 col-md-8">
+			        			<!-- ng-model="packages.description" -->
+			        			<input id="test"ng-model="testMap" ng-keypress="geocodeAddress()" class="package-create-inputbox-style form-control" required></input>
+			        		</div>
+			        		<!-- <div class="col-xs-12 col-sm-12 col-md-8 btn-group package-create-dropdown-cover-style">
+				        		<button type="button" class="btn btn-default package-create-dropdown-input-style" ng-bind='selected'> Province </button>
+								<button type="button" class="btn btn-default dropdown-toggle package-create-dropdown-button-style" data-toggle="dropdown">
+									<span class="caret"></span>
+									<span class="sr-only">Toggle Dropdown</span>
+								</button>
+								<ul class="dropdown-menu scrollable-menu package-create-dropdown-list-style">
+									<li ng-repeat="p in provinces" ng-model="packages.info.location.province" ng-click="setProvince(p.name)" value="p.name"><a href="#">{{p.name}}</a></li>
+								</ul>
+							</div> -->
 			        	</div>
+
+			        	<!-- Map -->
+			       		<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
+			       			<div class="col-xs-12 col-sm-12 col-md-4">
+			       				<p class="package-create-topic-style">Map : </p>
+			       			</div>
+			       			<div class="col-xs-12 col-sm-12 col-md-8">
+				        		 <!-- <ng-map zoom="11" center="[13.7500, 100.4833]">
+								    <marker position="[13.7500, 100.4833]" title="hello"></marker>
+								    <marker ng-repeat="marker">
+								 </ng-map> -->
+								 <ng-map center="{{map.center}}" zoom="12" on-click="addMarker(event)">
+									<marker ng-repeat="marker in markers" 
+										position="{{marker.position}}"
+										optimized="{{marker.optimized}}"
+									    icon="{{marker.icon}}"></marker>
+								
+								</ng-map>
+				        	</div>
+			        	</div>			        	
 			        </div>
 			        <!-- Next Button -->
 			        <div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center; margin-top:20px;">

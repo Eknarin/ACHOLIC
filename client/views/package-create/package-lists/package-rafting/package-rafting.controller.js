@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('PackageRaftingCtrl',['$scope','packageData','PackageItem','$location','$rootScope',function ($scope ,packageData, PackageItem ,$location , $rootScope) {
+  .controller('PackageRaftingCtrl',['$scope','packageData','PackageItem','$location','$rootScope','$timeout',function ($scope ,packageData, PackageItem ,$location , $rootScope , $timeout) {
     $scope.packages = packageData;
     $scope.images = [];
     $scope.packages.info = {};
@@ -267,5 +267,85 @@ angular.module('acholic')
     $scope.deleteRow = function(index) {
         console.log('delete');
         $scope.priceArrs.splice(index,1);
-      }; 
+      };
+
+    $scope.markers = [];
+    $scope.map = {
+        center:[
+            13.73842,
+            100.530925
+        ],
+        zoom: 12
+    };
+    // $scope.addMarker = function(event) {
+    //     var e = event.latLng;
+    //     var marker = {};
+    //     var _id = $scope.markers.length;
+    //     if (_id < 1) {
+    //         marker.position = [e.lat(),e.lng()];
+    //         marker.optimized = false;           
+    //         $scope.markers.push(marker);
+    //     }
+    // };
+
+    // $scope.drag = function(event,index){
+    //     var e = event.latLng;
+    //     $scope.markers[index].position = [e.lat(),e.lng()];
+    // };
+    $scope.reRednerMap = function() {
+
+      $timeout(function() {
+         angular.forEach($scope.maps, function(index) {
+            google.maps.event.trigger(index, 'resize');
+            console.log("asd");
+          });
+      }, 100);
+    }
+    $scope.geocodeAddress = function(geocoder, resultsMap) {
+        var input = document.querySelector("#test");
+        // console.log(input);
+
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.bindTo('bounds', $scope.map);
+
+        var infowindow = new google.maps.InfoWindow();
+        var marker = {};
+
+        autocomplete.addListener('place_changed', function() {
+            infowindow.close();
+            // marker.setVisible(false);
+            var place = autocomplete.getPlace();
+            if (!place.geometry) {
+                window.alert("Autocomplete's returned place contains no geometry");
+                return;
+            }
+
+            // If the place has a geometry, then present it on a map.
+            if (place.geometry.viewport) {
+                $scope.map.fitBounds(place.geometry.viewport);
+            } else {
+                $scope.map.setCenter(place.geometry.location);
+                $scope.map.setZoom(17);  // Why 17? Because it looks good.
+            }
+
+            marker.position = [place.geometry.location.lat(), place.geometry.location.lng()];
+            console.log(marker);
+            // marker.setVisible(true);
+
+            var address = '';
+            if (place.address_components) {
+                address = [
+                    (place.address_components[0] && place.address_components[0].short_name || ''),
+                    (place.address_components[1] && place.address_components[1].short_name || ''),
+                    (place.address_components[2] && place.address_components[2].short_name || '')
+                ].join(' ');
+            }
+            $scope.markers = [];
+            $scope.markers.push(marker)
+            $scope.reRednerMap();
+            // infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
+            // infowindow.open($scope.map, marker);      
+        });
+
+    };
   }]);
