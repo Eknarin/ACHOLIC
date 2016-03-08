@@ -103,6 +103,27 @@
   	border-radius: 50%;
   	border: 3px solid white;
  }
+.vendor-profile-image-style{
+ 	height: auto;
+  	width: 40px;
+  	-webkit-border-radius: 50%;
+  	-moz-border-radius: 50%;
+  	-ms-border-radius: 50%;
+  	-o-border-radius: 50%;
+  	border-radius: 50%;
+  	border: 2px solid white;
+}
+.vendor-profile-image-top-style{
+ 	height: auto;
+  	width: 90px;
+  	-webkit-border-radius: 50%;
+  	-moz-border-radius: 50%;
+  	-ms-border-radius: 50%;
+  	-o-border-radius: 50%;
+  	border-radius: 50%;
+  	border: 2px solid white;
+}
+
 
 @media(min-width:767px){
 	.package-name-style{
@@ -123,4 +144,8 @@
 	.package-detail-comment-cover{	
 		text-align: left;
 	}
+	.vendor-profile-image-style{
+	  	width: 100px;
+	}
+
 }

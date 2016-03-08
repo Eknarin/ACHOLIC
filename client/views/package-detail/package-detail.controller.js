@@ -64,7 +64,7 @@ angular.module('acholic')
     });
   };
 
-  $scope.getCommentDate = function(cdate){
+  $scope.getCommonDate = function(cdate){
     var d = new Date(cdate);
     var comdate = d.toDateString();
 
