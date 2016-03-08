@@ -36,6 +36,12 @@ angular.module('acholic')
         //stage type
         $scope.packages.info.stage_type = $scope.stageType;
 
+        //start stage
+        $scope.packages.info.start_location = $scope.firstStage;
+
+        //end stage
+        $scope.packages.info.end_location = $scope.lastStage;
+
         //infos
         $scope.packages.info.info = $scope.priceArrs;
 
@@ -58,6 +64,16 @@ angular.module('acholic')
     $scope.removeStage = function(index) {
         $scope.stages.splice(index,1);
         $scope.stageType.splice(index,1); 
+    };
+
+    $scope.firstStage = "Stage";
+    $scope.setFirstStage = function(val){
+        $scope.firstStage = val;
+    };
+
+    $scope.lastStage = "Stage";
+    $scope.setLastStage = function(val){
+        $scope.lastStage = val;
     };
 
     // menu-bar function

@@ -166,22 +166,22 @@
 				        	<!-- Age Limit -->
 				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
-				   					<p class="package-create-topic-style">Age Limit : </p>
+				   					<p class="package-create-topic-style">Age not under : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.info.age_limit" class="package-create-inputbox-style" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+					        		<input ng-model="packages.info.age_limit" class="package-create-inputbox-style" type="number" required>
 					       		</div>
 				        	</div>	
 		   				</div>
 		   				<!-- River Information -->
 		   				<div class="col-xs-12 col-sm-12 col-md-12 fillform-content-style">
 		   					<div  class="col-xs-12 col-sm-12 col-md-12" style="text-align: center;">
-					           	<p class="fillform-content-sub-header">River</p>
+					           	<p class="fillform-content-sub-header">Place</p>
 					        </div>
 					        <!-- River Name -->
 				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
-				   					<p class="package-create-topic-style">River Name : </p>
+				   					<p class="package-create-topic-style">Rafting place : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
 					        		<input ng-model="packages.info.river_line" class="package-create-inputbox-style" type="text" required>
@@ -226,32 +226,14 @@
 		   					<div  class="col-xs-12 col-sm-12 col-md-12" style="text-align: center;">
 					           	<p class="fillform-content-sub-header">Stage</p>
 					        </div>
-					        <!-- Start Point -->
+					        <!-- Stage Type -->
 				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
-				   					<p class="package-create-topic-style">Start Point : </p>
-			    				</div>
-				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.info.start_location" class="package-create-inputbox-style" type="text" required>
-					       		</div>
-				        	</div>
-				        	<!-- End Point -->
-				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
-				       			<div class="col-xs-12 col-sm-12 col-md-4">
-				   					<p class="package-create-topic-style">End Point : </p>
-			    				</div>
-				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.info.end_location" class="package-create-inputbox-style" type="text" required>
-					       		</div>
-				        	</div>				        
-				        	<!-- Stage Type -->
-				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
-				       			<div class="col-xs-12 col-sm-12 col-md-4">
-				   					<p class="package-create-topic-style">Stage Type : </p>			    				
+				   					<p class="package-create-topic-style">Stage Type : </p>		    				
 			    				</div>
 			    				<div class="col-xs-12 col-sm-12 col-md-8"> 					      			
 						       		<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:0px; padding-right:0px;"> 
-							       		<fieldset  ng-repeat="stage in stages">									     
+							       		<fieldset  ng-repeat="stage in stages">				     
 										      <input type="text" class="package-create-inputbox-style" name="" required style="width:80%" data-ng-model="stageType[$index]">
 										      <button class="btn btn-danger package-create-add-delete-button-style" style="width:18.5%" ng-click="removeStage($index)">-</button>
 										</fieldset>
@@ -261,6 +243,45 @@
 									</div>
 						       	</div>
 				        	</div>
+					        <!-- Start Point -->
+				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
+				       			<div class="col-xs-12 col-sm-12 col-md-4">
+				   					<p class="package-create-topic-style">First Stage : </p>
+			    				</div>
+
+				      			<!-- <div class="col-xs-12 col-sm-12 col-md-8">
+					        		<input ng-model="packages.info.start_location" class="package-create-inputbox-style" type="text" required>
+					       		</div> -->
+					       		<div class="col-xs-12 col-sm-12 col-md-8 btn-group package-create-dropdown-cover-style">
+							       	<button type="button" class="btn btn-default package-create-dropdown-input-style" ng-bind='firstStage'> Stage </button>
+									<button type="button" class="btn btn-default dropdown-toggle package-create-dropdown-button-style" data-toggle="dropdown">
+										<span class="caret"></span>
+										<span class="sr-only">Toggle Dropdown</span>
+									</button>
+									<ul class="dropdown-menu scrollable-menu package-create-dropdown-list-style">
+										<li ng-repeat="s in stageType" ng-model="packages.info.start_location" ng-click="setFirstStage(s)" value="s"><a href="#">{{s}}</a></li>
+									</ul>
+								</div>
+						    </div>
+				        	<!-- End Point -->
+				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
+				       			<div class="col-xs-12 col-sm-12 col-md-4">
+				   					<p class="package-create-topic-style">Last Stage : </p>
+			    				</div>
+				      			<!-- <div class="col-xs-12 col-sm-12 col-md-8">
+					        		<input ng-model="packages.info.end_location" class="package-create-inputbox-style" type="text" required>
+					       		</div> -->
+					       		<div class="col-xs-12 col-sm-12 col-md-8 btn-group package-create-dropdown-cover-style">
+							       	<button type="button" class="btn btn-default package-create-dropdown-input-style" ng-bind='lastStage'> Stage </button>
+									<button type="button" class="btn btn-default dropdown-toggle package-create-dropdown-button-style" data-toggle="dropdown">
+										<span class="caret"></span>
+										<span class="sr-only">Toggle Dropdown</span>
+									</button>
+									<ul class="dropdown-menu scrollable-menu package-create-dropdown-list-style">
+										<li ng-repeat="s in stageType" ng-model="packages.info.end_location" ng-click="setLastStage(s)" value="s"><a href="#">{{s}}</a></li>
+									</ul>
+								</div>
+				        	</div>	
 		   				</div>		   				
 		        	</div>
 		        	
@@ -395,11 +416,13 @@
 		   				<div class="col-xs-12 col-sm-12 col-md-12 fillform-content-style">
 		   					<div  class="col-xs-12 col-sm-12 col-md-12" style="text-align: center;">
 					           	<p class="fillform-content-sub-header">Equipment</p>
+					           	<p><font color="red">**</font>Please use comma( , ) as a word separator.</p>
 					        </div>
 						    <!-- Provide -->
 				       		<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
 				       				<p class="package-create-topic-style">Provided : </p>
+				       				<p class="must-comma">**</p>
 				       			</div>
 				       			<div class="col-xs-12 col-sm-12 col-md-8">
 					        		<textarea  ng-model="provide"  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Helmet, Life jacket"></textarea >
@@ -409,9 +432,10 @@
 				       		<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
 				       				<p class="package-create-topic-style">Required : </p>
+				       				<p class="must-comma">**</p>
 				       			</div>
 				       			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<textarea  ng-model="require"  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Wetable suit"></textarea >
+					        		<textarea  ng-model="require"  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Wetable suit, Sandal shoes"></textarea >
 					        	</div>
 				        	</div>
 					    </div>
@@ -429,15 +453,6 @@
 					        		<textarea  ng-model="activities"  class="package-create-inputbox-style form-control" rows="5" placeholder="Include Activity e.x. Lunch, Sight Seeing"></textarea >
 					        	</div>
 				        	</div>
-				        	<!-- Note -->
-				       		<!-- <div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
-				       			<div class="col-xs-12 col-sm-12 col-md-4">
-				       				<p class="package-create-topic-style">Note : </p>
-				       			</div>
-				       			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<textarea  ng-model=""  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Wetable suit"></textarea >
-					        	</div>
-				        	</div> -->
 					    </div>
 			        </div>
 
@@ -446,11 +461,13 @@
 		   				<div class="col-xs-12 col-sm-12 col-md-12 fillform-content-style">
 		   					<div  class="col-xs-12 col-sm-12 col-md-12" style="text-align: center;">
 					           	<p class="fillform-content-sub-header">Before Rafting</p>
+					           	<p><font color="red">**</font>Please use comma( , ) as a word separator.</p>
 					        </div>
 						    <!-- Skill -->
 				       		<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
 				       				<p class="package-create-topic-style">Skill Required : </p>
+				       				<p class="must-comma">**</p>
 				       			</div>
 				       			<div class="col-xs-12 col-sm-12 col-md-8">
 					        		<textarea  ng-model="skill"  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Boating, Balance"></textarea >
@@ -502,7 +519,7 @@
 					  				<p style="font-size:20px; color:white; margin-top:15px; margin-bottom:15px;">ADD IMAGE</p>
 					      		</div>
 				   				<div class="col-xs-12 col-sm-12 col-md-12 upload-image-style">
-									<upload-image image="packages.image"></upload-image>
+									<!-- <upload-image image="packages.image"></upload-image> -->
 									<upload-multi-images images="images"></upload-multi-images>
 								</div>
 							</center>
