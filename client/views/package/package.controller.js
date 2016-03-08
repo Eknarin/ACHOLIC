@@ -43,6 +43,16 @@ angular.module('acholic')
     return false;
   };
 
+  $scope.checkCompare = function(packid){
+    for(var i = 0; i < Compare.getCompare().items.length; i++){
+      if(packid == Compare.getCompare().items[i]){
+        return true;
+        break;
+      }
+    }
+    return false;
+  };
+
   $scope.like = function(packageId){
     if(packageId.bookmark != null){
       packageId.bookmark.$delete().then(function(res){

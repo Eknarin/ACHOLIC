@@ -101,8 +101,9 @@
 											<p style="color:#888888; overflow: hidden;">{{package.description}}</p>	
 										</div>
 										<!-- Add Package to compare -->
-										<div class="text-padding package-description-overflow" style="padding-top:10px; text-align:center;">
-											<button class="btn btn-info" ng-click="addCompare(package._id)">Add to Compare</button>
+										<div class="text-padding package-description-overflow" style="padding-top:10px; text-align:center;position: absolute;bottom:40px;right:15px;">
+											<button class="btn btn-info" ng-click="addCompare(package._id)" ng-show="!checkCompare(package._id)">Add to Compare</button>
+											<button class="btn btn-warning" ng-click="addCompare(package._id)" ng-show="checkCompare(package._id)">Uncompare</button>
 										</div>
 									</div>
 									<!-- Package Publish Date  -->
