@@ -6,7 +6,7 @@ angular.module('acholic')
   	$scope.comparePackage =  Compare.getCompare();
   	$scope.loadItem = false;
 
-  	PackageItem.list({items: $scope.comparePackage.items}).$promise.then(function(res){
+  	PackageItem.list({items: $scope.comparePackage}).$promise.then(function(res){
   		$scope.comparePackage.items = res;
   		$scope.loadItem = true;
 		console.log($scope.comparePackage);
