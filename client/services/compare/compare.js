@@ -7,7 +7,7 @@ angular.module('acholic')
   	this.addItem = function (item , type){
 	    var userId = $rootScope._user._id;
 	   	if(userId == undefined){
-	   		userId = "0";
+	   		userId = "guest";
 	   	}
 
 	    var expireDate = new Date();
@@ -41,7 +41,7 @@ angular.module('acholic')
     	cart =$cookies.getObject('compare');
     	var userId = $rootScope._user._id;
 	   	if(userId == undefined){
-	   		userId = "0";
+	   		userId = "guest";
 	   	}
     	return cart[userId];
     };
