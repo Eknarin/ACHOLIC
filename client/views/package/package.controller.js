@@ -15,8 +15,6 @@ angular.module('acholic')
   if($scope.user._id){
     Bookmark.query({q: $scope.user._id}).$promise.then(function(res){
       $scope.bookmarks = res;
-      //
-      console.log($scope.bookmarks[0]);
       $scope.checkComment();
       $scope.loading = true;
     });
@@ -29,8 +27,8 @@ angular.module('acholic')
     for(var i = 0 ; i<$scope.packages.length ;i++){
       for(var j = 0; j<$scope.bookmarks.length ;j++){
         if(!$scope.packages[i].bookmark)
-          if($scope.packages[i]._id == $scope.bookmarks[j].packageId)
-            $scope.packages[i].bookmark = $scope.bookmarks[j];
+          if($scope.packages[i]._id == $scope.bookmarks[j].packageId._id)
+           $scope.packages[i].bookmark = $scope.bookmarks[j];
       }
     }
   };
