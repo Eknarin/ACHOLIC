@@ -12,6 +12,7 @@ angular.module('acholic')
 		console.log($scope.comparePackage);
   	});  
 
+    $scope.rate = 0;
   	$scope.getStar = function(num) {
     if(num == null){
       $scope.rate = 0;

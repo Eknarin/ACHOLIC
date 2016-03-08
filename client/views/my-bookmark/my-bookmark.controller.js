@@ -22,6 +22,7 @@ angular.module('acholic')
     		console.log('unlike'+res);
     	});
     };
+    $scope.rate = 0;
     $scope.getStar = function(num) {
 	    if(num == null){
 	      $scope.rate = 0;

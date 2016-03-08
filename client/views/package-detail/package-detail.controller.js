@@ -13,16 +13,17 @@ angular.module('acholic')
       $scope.comments = res;
     });
 
-  $scope.getStar = function(num) {
+   $scope.rate = 0;
+    $scope.getStar = function(num) {
     if(num == null){
-      $scope.comment.rate = 0;
+      $scope.rate = 0;
     }
     else{
-      $scope.comment.rate = num/2;
+      $scope.rate = num/2;
     }
         
-	    return new Array(Math.floor($scope.comment.rate));   
-	}; 
+      return new Array(Math.floor($scope.rate));   
+  };
 
 	$scope.Math = window.Math;
     $scope.yStar = 0;
