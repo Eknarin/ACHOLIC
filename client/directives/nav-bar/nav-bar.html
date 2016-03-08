@@ -13,12 +13,12 @@
           <div class="row-fluid">
             <div class="navbar-header col-md-8 col-xs-12 col-sm-12">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" style="background-color:#57bdad">
-                <span class="icon-bar" style="background-color: #f9f9fa"></span>
-                <span class="icon-bar" style="background-color: #f9f9fa"></span>
-                <span class="icon-bar" style="background-color: #f9f9fa"></span>
+                <span class="icon-bar" style="background-color: #fbd300"></span>
+                <span class="icon-bar" style="background-color: #fbd300"></span>
+                <span class="icon-bar" style="background-color: #fbd300"></span>
               </button>
 
-              <a class="navbar-brand col-md-2" href="/" style="color:#57bdad; width:180px; padding-top:17px; padding-bottom:17px;"><img src="../image/MostMark.png" style="width:40px;height:40px;margin-right:10px; display:inline-block;">MostMark</a>
+              <a class="navbar-brand col-md-2" href="/" style="color:#fbd300; width:180px; padding-top:17px; padding-bottom:17px;"><img src="../image/MostMark.png" style="width:40px;height:40px;margin-right:10px; display:inline-block;">MostMark</a>
               <div class="col-xs-12 col-sm-12 col-md-8 pull-right" style="padding-top:10px; padding-bottom:10px;">
                <form class="navbar-form" role="search">
                  <div class="input-group" style="width:100%">
@@ -34,26 +34,26 @@
             <div id="navbar" class="navbar-collapse collapse" style="float:left; margin-right:55px">
               <div class="nav navbar-nav">
                 <!-- Dropdown utilities menu -->
-                <li ng-show="!Auth.isLogged()"><a href="/package" style="color:#57bdad">Packages</a></li>
+                <li ng-show="!Auth.isLogged()"><a href="/package" style="color:#fbd300; padding-top:25px; padding-bottom:25px;">Packages</a></li>
                 <li class="dropdown" ng-show="Auth.isLogged()">
-                  <a class="dropdown-toggle" href="#" data-toggle="dropdown" style="color:#57bdad;text-align:center;"><img src="../image/more.png" class="more-info-button"></a>
+                  <a class="dropdown-toggle" href="#" data-toggle="dropdown" style="color:#fbd300;text-align:center;"><img src="../image/more.png" class="more-info-button"></a>
                   <ul class="dropdown-menu" style="width:300px;">
                    <!-- User function -->
                    <!-- first row -->
                     <div class="col-xs-4 col-sm-4 col-md-4 user-function-last">
-                      <a href="/package">
+                      <a href="/package" style="color:black">
                         <img src="../image/globe.png" class="more-function">
                         <p>Packages</p>
                       </a>
                     </div>
                     <div class="col-xs-4 col-sm-4 col-md-4 user-function">
-                      <a href="/package/create">
+                      <a href="/package/create" style="color:black">
                         <img src="../image/plus.png" class="more-function">
                         <p>Create Packages</p>
                       </a>
                     </div>
                     <div class="col-xs-4 col-sm-4 col-md-4 user-function">
-                      <a href="/compare">
+                      <a href="/compare" style="color:black">
                         <img src="../image/compare.png" class="more-function">
                         <p>Compare Packages</p>
                       </a>
@@ -62,26 +62,26 @@
                       <li role="separator" class="divider"></li>
                     </div>
                     <div class="col-xs-4 col-sm-4 col-md-4 user-function">
-                      <a href="/my-package">
+                      <a href="/my-package" style="color:black">
                         <img src="../image/suitcase_travel.png" class="more-function">
                         <p>My Packages</p>
                       </a>
                     </div>
                     <div class="col-xs-4 col-sm-4 col-md-4 user-function">
-                      <a href="/my-bookmark">
+                      <a href="/my-bookmark" style="color:black">
                         <img src="../image/myBookmark.png" class="more-function">
                         <p>My Bookmarks</p>
                       </a>
                     </div>
                     <!-- second row -->
                     <div class="col-xs-4 col-sm-4 col-md-4 user-function-last">
-                      <a href="/shopping-cart">
+                      <a href="/shopping-cart" style="color:black">
                         <img src="../image/cart.png" class="more-function">
                         <p>My Cart</p>
                       </a>
                     </div>
                     <div class="col-xs-4 col-sm-4 col-md-4 user-function-last">
-                      <a href="#">
+                      <a href="#" style="color:black">
                         <img src="../image/receipt.png" class="more-function">
                         <p>My Receipts</p>
                       </a>
@@ -95,15 +95,15 @@
                 </li>
                 <!-- Dropdown SignIn/SignUp menu -->
                 <li class="dropdown" ng-show="!Auth.isLogged()">
-                  <a href="#"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#57bdad">Sign In <span class="caret"></span></a>
+                  <a href="#"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#fbd300; padding-top:25px; padding-bottom:25px;">Sign In <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a ng-click="openLogin()" style="color:#57bdad">Sign In</a></li>
-                    <li><a ng-click="openSignup()" style="color:#57bdad">Sign Up</a></li>
+                    <li><a ng-click="openLogin()" style="color:#fbd300">Sign In</a></li>
+                    <li><a ng-click="openSignup()" style="color:#fbd300">Sign Up</a></li>
                   </ul>
                 </li>
                 <!-- Dropdown User Menu -->
                 <li class="dropdown" ng-if="Auth.isLogged()">
-                  <a class="dropdown-toggle" href="#"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: #57bdad; top: 0px; padding-top: 15px; padding-bottom: 15px;"><img class="nav-small-profile-image-style" ng-src=api/images/{{user.image}}></img>  {{user.first_name}} <span class="caret"></span></a>
+                  <a class="dropdown-toggle" href="#"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: #fbd300; top: 0px; padding-top: 15px; padding-bottom: 15px;"><img class="nav-small-profile-image-style" ng-src=api/images/{{user.image}}></img>  {{user.first_name}} <span class="caret"></span></a>
                   <ul class="col-xs-12 col-sm-12 col-md-6 dropdown-menu" style="padding-top:15px; width:300px; padding-bottom:0px; background-color:#fff; border-radius:0px;">
                     <!-- Profile Picture -->
                     <div class="col-xs-5 col-sm-5 col-md-5" style="text-align:center; background-color:white;">

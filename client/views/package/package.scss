@@ -73,7 +73,7 @@
 }
 
 .package-style{
-    background-color:rgba(0,0,0,0.65);
+    background-color:rgba(0,0,0,0.85);
     padding-bottom:5%;
     height:440px;
     box-shadow: 5px 0 7px rgba(0, 0, 0, 0.35);
@@ -111,19 +111,14 @@
     height: 250px;
 }
 .package-footer-style{
-    background-color:rgba(0,0,0,0.65);
+    background-color:rgba(0,0,0,0.85);
     padding-top:10px; 
     padding-bottom:10px;
     color: #b3b3b3; 
     height: 40px;
     box-shadow: 5px 0 7px rgba(0, 0, 0, 0.35);
 }
-// .text-overflow{
-//     white-space: nowrap;
-//     width:10em; 
-//     overflow:hidden; 
-//     text-overflow: ellipsis;    
-// } 
+  
 .package-header-overflow{
    overflow: hidden;
    color:white;
