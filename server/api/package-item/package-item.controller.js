@@ -110,19 +110,15 @@ function checkPackage (type) {
   PackageItem.findById(req.params.id).populate('user_id').populate('map_id').exec(function (err, packageItem) {
     if (err) { return handleError(res, err); }
     if (!packageItem) { return res.status(404).end(); }
-    if(packageItem.map_id)
-      if(packageItem.map_id.map_table){
-        var Obj = checkPackage(packageItem.map_id.map_table);
-
         var options = {
           path: 'map_id.map_id',
-          model: 'packageItem.map_id.map_table'
+          model: packageItem.map_id.map_table
         };
 
         PackageItem.populate(packageItem ,options, function (err, packageDetail) {
           return res.status(200).json(packageDetail);
         });
-      }
+  
     });
 };
 
