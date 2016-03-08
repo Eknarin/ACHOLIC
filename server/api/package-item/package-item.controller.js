@@ -40,6 +40,19 @@ exports.index = function (req, res) {
  * @param req
  * @param res
  */
+exports.indexList = function (req, res) {
+    PackageItem.find({'_id' : { $in : req.query.items }}, function(err, result) {
+       if (err) { return handleError(res, err); }
+        return res.status(200).json(result);
+    });
+};
+
+/**
+ * Get list of PackageItem
+ *
+ * @param req
+ * @param res
+ */
 exports.myPackage = function (req, res) {
     PackageItem.paginate({'user_id' : req.query.q}, { page: req.query.page, limit: 9}, function(err, result) {
        if (err) { return handleError(res, err); }

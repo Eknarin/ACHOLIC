@@ -9,6 +9,11 @@ angular.module('acholic')
       query: {
         method: 'GET'
       },
+      list: {
+        method: 'GET',
+        url: '/api/packageItem/list',
+        isArray: true
+      },
       myPackage: {
         method: 'GET',
         url: '/api/packageItem/myPackage'

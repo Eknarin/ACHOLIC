@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('PackageCtrl',['$scope','PackageItem','$location' ,'itemData','$rootScope','Bookmark',function ($scope , PackageItem , $location , itemData ,$rootScope , Bookmark) {
+  .controller('PackageCtrl',['$scope','PackageItem','$location' ,'itemData','$rootScope','Bookmark','Compare',function ($scope , PackageItem , $location , itemData ,$rootScope , Bookmark,Compare) {
   
   $scope.packages = itemData.docs;  
   $scope.maxSize = 5;
@@ -61,6 +61,10 @@ angular.module('acholic')
          console.log('like');
         });
     }
+  };
+
+  $scope.addCompare = function(packageId){
+    Compare.addItem(packageId);
   };
   // get package create date
   $scope.getCreateDate = function(timeStamp){

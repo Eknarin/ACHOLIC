@@ -6,6 +6,9 @@ angular.module('acholic')
       .when('/shopping-cart', {
         templateUrl: 'views/shopping-cart/shopping-cart.html',
         controller: 'ShoppingCartCtrl',
-        controllerAs: 'vm'
+        access: {
+	        requiresLogin: true,
+	        requiredPermissions: ['Admin', 'Vendor','Customer']
+	      },
       });
   });

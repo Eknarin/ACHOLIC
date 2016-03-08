@@ -6,6 +6,8 @@ angular.module('acholic')
       .when('/compare', {
         templateUrl: 'views/compare/compare.html',
         controller: 'CompareCtrl',
-        controllerAs: 'vm'
+        access: {
+          requiresLogin: false
+        },
       });
   });
