@@ -14,9 +14,9 @@ angular.module('acholic')
    		$scope.loading = true;
    	}
 
-   	$scope.hideModal = function(){
-   		$uibModalInstance.close();
-   	};
+   	$scope.closeModal = function(){
+      $uibModalInstance.close();
+  };
 
    	$scope.bookmarkItem = function(folder){
    		var item = new Bookmark;

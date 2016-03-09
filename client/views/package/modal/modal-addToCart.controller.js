@@ -9,4 +9,8 @@ angular.module('acholic')
     $scope.cart[packageData._id] = $scope.packages;
     console.log($scope.cart);
    };
+
+   $scope.closeModal = function(){
+      $uibModalInstance.close();
+  };
 }]);
