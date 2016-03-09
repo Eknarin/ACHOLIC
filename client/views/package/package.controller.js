@@ -267,6 +267,7 @@ angular.module('acholic')
               }
             }
           }).result.then(function(res){
+            if(res)
             for(var i = 0 ; i<$scope.packages.length ;i++){
               if($scope.packages[i]._id == res.packageId){
                 $scope.packages[i].bookmark = res;
