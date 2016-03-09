@@ -139,7 +139,7 @@
    max-height: 4;       /* fallback */
 }
 
-.bookmark-modal-header{
+.package-modal-header{
   font-size: 35px;
   margin-bottom:0px;
 }
@@ -156,7 +156,7 @@
 .bookmark-add-new-list-button{
   font-size: 17px;
   height: 40px;
-  background-color: #fbd300;
+  background-color: #fe5a5f;
   color: white;
 }
 .bookmark-body-style{
@@ -169,5 +169,23 @@
 .bookmark-select-button{
   width: 30px;
   height: 30px;
+}
+.add-to-cart-package-name{
+  font-size: 20px;
+}
+.add-to-cart-package-header{
+  color:#fb5858;
+  font-size: 15px;
+}
+.add-to-cart-package-detail{
+  font-size: 15px;
+}
+.add-to-cart-button{
+  width: 30px;
+  height: 30px;
+  padding-top: 5px;
+}
+.add-to-cart-input-number{
+  width:50px;
 }
 

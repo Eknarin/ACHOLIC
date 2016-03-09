@@ -1,12 +1,12 @@
 <div class="modal-header">
-  <p class="bookmark-modal-header">Bookmarks</p>
+  <p class="package-modal-header">Bookmarks</p>
 </div>
 <div class="modal-body">    
-  <div class="col-md-12 no-horizotal-padding" ng-repeat="folder in folders" ng-show='loading'>
-    <div class="col-md-9 no-horizotal-padding">
+  <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" ng-repeat="folder in folders" ng-show='loading'>
+    <div class="col-xs-9 col-sm-9 col-md-9 no-horizotal-padding">
       <p class="bookmark-list-name">{{folder.folder}}<p>
     </div>
-    <div class="col-md-3 no-horizotal-padding">
+    <div class="col-xs-3 col-sm-3 col-md-3 no-horizotal-padding">
       <input class="bookmark-select-button" ng-click="bookmarkItem(folder._id)" type="image" src="../image/unselect-bookmark-list.png"></input>      
     </div>
   </div>
