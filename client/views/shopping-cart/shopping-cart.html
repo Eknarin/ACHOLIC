@@ -1,3 +1,88 @@
-<div>
-  {{ vm.name }}
-</div>
+<html>
+	<head>
+		<title>ACHOLIC</title>
+		<meta charset = "utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<div class="container-fluid center-picture" style="background-image:url('../../image/main-background.png'); padding-bottom:50px;">
+			<!-- blank div for make vertical space -->
+			<div class="container" style="margin-top:70px">
+			</div>
+			<!-- My Cart Header -->
+			<div class="container">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<p class="my-cart-header-size" style=" text-align:center;">My Cart</p>
+				</div>
+			</div>
+			<div class="container">
+				<!-- Add to cart table -->
+				<div class="col-xs-12 col-sm-7 col-md-7 my-cart-table-overflow no-horizotal-padding">
+					<table class="table my-cart-table">
+						<!-- Table Header -->
+					    <thead>
+					      <tr>
+					        <th class="my-cart-table-header">Name</th>
+					        <th class="my-cart-table-header">Price (฿)</th>
+					        <th class="my-cart-table-header">Amount</th>
+					        <th class="my-cart-table-header">Subtotal (฿)</th>
+					        <th class="my-cart-table-header">Delete</th>
+					      </tr>
+					    </thead>
+					    <!-- Table Detail -->
+					    <tbody>
+					      <tr>
+					        <td class="my-cart-table-detail">Package Name</td>
+					        <td class="my-cart-table-detail">300</td>
+					        <td class="my-cart-table-detail"><input class="my-cart-input-number" type="number" min="0" placeholder="0"></input></td>
+					        <td class="my-cart-table-detail">600</td>
+					        <td class="my-cart-table-detail"><button class="btn btn-danger">Delete</button></td>
+					      </tr>
+					      <tr>
+					        <td class="my-cart-table-detail">Package Name</td>
+					        <td class="my-cart-table-detail">300</td>
+					        <td class="my-cart-table-detail"><input class="my-cart-input-number" type="number" min="0" placeholder="0"></input></td>
+					        <td class="my-cart-table-detail">600</td>
+					        <td class="my-cart-table-detail"><button class="btn btn-danger">Delete</button></td>
+					      </tr>
+					      <tr>
+					        <td class="my-cart-table-detail">Package Name</td>
+					        <td class="my-cart-table-detail">300</td>
+					        <td class="my-cart-table-detail"><input class="my-cart-input-number" type="number" min="0" placeholder="0"></input></td>
+					        <td class="my-cart-table-detail">600</td>
+					        <td class="my-cart-table-detail"><button class="btn btn-danger">Delete</button></td>
+					      </tr>
+					    </tbody>
+					  </table>
+				</div>
+
+				<!-- Summary -->
+				<div class="col-xs-12 col-sm-5 col-md-5">
+					<div class="col-xs-12 col-sm-12 col-md-12 my-cart-summary-header-box">
+						<p class="my-cart-summary-header">Summary</p>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-12  my-cart-summary-detail-box">
+						<div class="col-xs-12 col-sm-12 col-md-12">
+							<div class="col-xs-7 col-sm-7 col-md-7">
+								<p class="my-cart-summary-detail">Package Amount</p>
+							</div>
+							<div class="col-xs-5 col-sm-5 col-md-5">
+								<p class="my-cart-summary-detail">n</p>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12">
+							<div class="col-xs-7 col-sm-7 col-md-7">
+								<p class="my-cart-summary-detail">Total</p>
+							</div>
+							<div class="col-xs-5 col-sm-5 col-md-5">
+								<p class="my-cart-summary-detail">n</p>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center;">
+							<button class="btn my-cart-payment-button">Payment</button>
+						</div>
+					</div>
+				</div>
+			</div>
+	</body>
+</html>
