@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('PackageCtrl',['$scope','PackageItem','$location' ,'itemData','$rootScope','Bookmark','Compare',function ($scope , PackageItem , $location , itemData ,$rootScope , Bookmark,Compare) {
+  .controller('PackageCtrl',['$scope','PackageItem','$location' ,'itemData','$rootScope','Bookmark','Compare', '$uibModal',function ($scope , PackageItem , $location , itemData ,$rootScope , Bookmark,Compare, $uibModal) {
   
   $scope.packages = itemData.docs;  
   $scope.maxSize = 5;
@@ -258,5 +258,15 @@ angular.module('acholic')
     }
     return new Array(5-$scope.yStar);
   };
+    $scope.openBookmarkModal = function(){
+           var modalInstance = $uibModal.open({
+            animation: true,
+            templateUrl: 'views/package/modal/modal-bookmark.html',
+            controller: 'BookmarkModalCtrl',
+            size: 'md'
+          }).result.then(function(res){
+            $scope.user = res;
+          });
+        };
 
   }]);
