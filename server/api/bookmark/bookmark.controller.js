@@ -46,7 +46,11 @@ exports.show = function (req, res) {
 exports.create = function (req, res) {
   Bookmark.create(req.body,function(err, bookmark){
      if (err) { return handleError(res, err); }
-     return res.status(201).json(bookmark);
+     BookmarkFolder.findById(req.body.folder, function(err,bookmarkFolder){
+      bookmarkFolder.total += 1;
+      bookmarkFolder.save();
+      return res.status(201).json(bookmark);
+     });
   });
 };
 
@@ -60,6 +64,10 @@ exports.destroy = function (req, res) {
   Bookmark.findById(req.params.id, function (err, bookmark) {
     if (err) { return handleError(res, err); }
     if (!bookmark) { return res.status(404).end(); }
+    BookmarkFolder.findById(bookmark.folder, function(err,bookmarkFolder){
+      bookmarkFolder.total -= 1;
+      bookmarkFolder.save();
+     });
     bookmark.remove(function (err) {
       if (err) { return handleError(res, err); }
       return res.status(204).end();
@@ -89,6 +97,8 @@ exports.indexFolder = function (req, res) {
 exports.createFolder = function (req, res) {
   BookmarkFolder.create({'userId' : req.body.user ,'folder': req.body.folder}, function (err, bookmark) {
     if (err) { return handleError(res, err); }
+    bookmark.total = 0;
+    bookmark.save();
     return res.status(201).json(bookmark);
   });
 };

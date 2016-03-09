@@ -1,26 +1,28 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('PackageCtrl',['$scope','PackageItem','$location' ,'itemData','$rootScope','Bookmark','Compare', '$uibModal',function ($scope , PackageItem , $location , itemData ,$rootScope , Bookmark,Compare, $uibModal) {
+  .controller('PackageCtrl',['$scope','PackageItem','$location' ,'itemData','Auth','Bookmark','Compare', '$uibModal',function ($scope , PackageItem , $location , itemData ,Auth, Bookmark,Compare, $uibModal) {
   
   $scope.packages = itemData.docs;  
   $scope.maxSize = 5;
   $scope.limit = itemData.limit;
   $scope.totalItems = itemData.total;
   $scope.currentPage = itemData.page;
-  $scope.user = $rootScope._user;
   $scope.bookmarks = [];
   $scope.loading = false;
 
-  if($scope.user._id){
-    Bookmark.query({q: $scope.user._id}).$promise.then(function(res){
-      $scope.bookmarks = res;
-      $scope.checkComment();
-      $scope.loading = true;
-    });
-  } else{
-     $scope.loading = true;
-  }
+  Auth.getUser().then(function(res){
+   $scope.user = res;
+    if($scope.user._id){
+      Bookmark.query({q: $scope.user._id}).$promise.then(function(res){
+        $scope.bookmarks = res;
+        $scope.checkComment();
+        $scope.loading = true;
+      });
+    } else{
+       $scope.loading = true;
+    }
+  });
 
 
   $scope.checkComment = function(){

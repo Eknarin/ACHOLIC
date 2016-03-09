@@ -5,7 +5,8 @@ var Schema = mongoose.Schema;
 
 var BookmarkFolderSchema = new Schema({
   userId: {type: Schema.Types.ObjectId, ref: 'User'},
-  folder: String
+  folder: String,
+  total: Number
 });
 
 module.exports = mongoose.model('BookmarkFolder', BookmarkFolderSchema ,'BookmarkFolder');
