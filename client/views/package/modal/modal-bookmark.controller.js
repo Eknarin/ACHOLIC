@@ -31,6 +31,7 @@ angular.module('acholic')
   	$scope.createFolder = function(){
 		Bookmark.saveFolder({user: userData._id , packageId: packageData, folder:$scope.folder_name}).$promise.then(function(res){
 			$scope.folders.push(res);
+      $scope.folder_name = "";
 		});
   	};
 
