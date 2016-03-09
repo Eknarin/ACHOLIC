@@ -57,17 +57,10 @@ angular.module('acholic')
     if(packageId.bookmark != null){
       packageId.bookmark.$delete().then(function(res){
         packageId.bookmark = null;
-        console.log('unlike');
       });
     }
     else{
-        $scope.item = new Bookmark;
-        $scope.item.bookmark = packageId;
-        $scope.item.user = $scope.user._id;
-        $scope.item.$save().then(function(res){
-         packageId.bookmark = res;
-         console.log('like');
-        });
+      $scope.openBookmarkModal(packageId);
     }
   };
 
@@ -258,14 +251,28 @@ angular.module('acholic')
     }
     return new Array(5-$scope.yStar);
   };
-    $scope.openBookmarkModal = function(){
+    $scope.openBookmarkModal = function(item){
            var modalInstance = $uibModal.open({
             animation: true,
             templateUrl: 'views/package/modal/modal-bookmark.html',
             controller: 'BookmarkModalCtrl',
-            size: 'md'
+            size: 'md',
+            resolve: {
+              folderData:['Bookmark',function(Bookmark){
+                return Bookmark.queryFolder({userId: $scope.user._id}).$promise;
+              }],
+              userData: $scope.user,
+              packageData: function () {
+                return item;
+              }
+            }
           }).result.then(function(res){
-            $scope.user = res;
+            for(var i = 0 ; i<$scope.packages.length ;i++){
+              if($scope.packages[i]._id == res.packageId){
+                $scope.packages[i].bookmark = res;
+                break;
+              }
+            }
           });
         };
 

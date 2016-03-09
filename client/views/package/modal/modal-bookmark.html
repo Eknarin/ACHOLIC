@@ -2,35 +2,19 @@
   <p class="bookmark-modal-header">Bookmarks</p>
 </div>
 <div class="modal-body">    
-  <div class="col-md-12 no-horizotal-padding">
+  <div class="col-md-12 no-horizotal-padding" ng-repeat="folder in folders" ng-show='loading'>
     <div class="col-md-9 no-horizotal-padding">
-      <p class="bookmark-list-name">Bookmark List Name<p>
+      <p class="bookmark-list-name">{{folder.folder}}<p>
     </div>
     <div class="col-md-3 no-horizotal-padding">
-      <input class="bookmark-select-button" type="image" src="../image/unselect-bookmark-list.png"></input>      
-    </div>
-  </div>
-  <div class="col-md-12 no-horizotal-padding">
-    <div class="col-md-9 no-horizotal-padding">
-      <p class="bookmark-list-name">Bookmark List Name<p>
-    </div>
-    <div class="col-md-3 no-horizotal-padding">
-      <input class="bookmark-select-button" type="image" src="../image/unselect-bookmark-list.png"></input>      
-    </div>
-  </div>
-  <div class="col-md-12 no-horizotal-padding">
-    <div class="col-md-9 no-horizotal-padding">
-      <p class="bookmark-list-name">Bookmark List Name<p>
-    </div>
-    <div class="col-md-3 no-horizotal-padding">
-      <input class="bookmark-select-button" type="image" src="../image/unselect-bookmark-list.png"></input>      
+      <input class="bookmark-select-button" ng-click="bookmarkItem(folder._id)" type="image" src="../image/unselect-bookmark-list.png"></input>      
     </div>
   </div>
 </div>
 <div class="modal-body bookmark-body-style">    
   <HR WIDTH="100%" NOSHADE>
-  <div class="col-xs-8 col-sm-9 col-md-9"><input class="bookmark-input-box" type="text" placeholder="Create New Bookmark List"></div>
-  <div class="col-xs-4 col-sm-3 col-md-3"> <button type="submit" class="btn bookmark-add-new-list-button">Create</button></div>
+  <div class="col-xs-8 col-sm-9 col-md-9"><input class="bookmark-input-box" ng-model="folder_name" type="text" placeholder="Create New Bookmark List"></div>
+  <div class="col-xs-4 col-sm-3 col-md-3"> <button type="submit" ng-click="createFolder()" class="btn bookmark-add-new-list-button">Create</button></div>
 
 </div>
 <div class="modal-body bookmark-body-style" style="padding-bottom:15px;">

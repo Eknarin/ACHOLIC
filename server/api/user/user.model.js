@@ -19,7 +19,6 @@ var UserSchema = new Schema({
   provider_num: String,
   image: { type: Schema.Types.ObjectId, ref: 'Image' }, 
   role: { type: Schema.Types.ObjectId, ref: 'Role' },
-  bookmark: { type: Schema.Types.ObjectId, ref: 'Bookmark' },
   passwordHash: { type: String, select: false },
   salt: { type: String, select: false },
   created_at: Date,

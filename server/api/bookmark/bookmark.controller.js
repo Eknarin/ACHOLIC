@@ -2,6 +2,7 @@
 
 var _ = require('lodash');
 var Bookmark = require('./bookmark.model');
+var BookmarkFolder = require('./bookmark-folder.model');
 var User = require('../user/user.model');
 var PackageItem = require('../package-item/package-item.model');
 
@@ -43,13 +44,52 @@ exports.show = function (req, res) {
  * @param res
  */
 exports.create = function (req, res) {
-  Bookmark.findOne({'userId' : req.body.user , 'packageId': req.body.bookmark},function(err, bookmark){
+  Bookmark.create(req.body,function(err, bookmark){
      if (err) { return handleError(res, err); }
-     if(!bookmark){
-        bookmark = new Bookmark({userId: req.body.user,packageId: req.body.bookmark});
-        bookmark.save();
-     }
      return res.status(201).json(bookmark);
+  });
+};
+
+/**
+ * Deletes a Bookmark from the DB.
+ *
+ * @param req
+ * @param res
+ */
+exports.destroy = function (req, res) {
+  Bookmark.findById(req.params.id, function (err, bookmark) {
+    if (err) { return handleError(res, err); }
+    if (!bookmark) { return res.status(404).end(); }
+    bookmark.remove(function (err) {
+      if (err) { return handleError(res, err); }
+      return res.status(204).end();
+    });
+  });
+};
+
+/**
+ * Get list of Bookmark
+ *
+ * @param req
+ * @param res
+ */
+exports.indexFolder = function (req, res) {
+  BookmarkFolder.find({userId: req.query.userId},function (err, bookmarks) {
+    if (err) { return handleError(res, err); }
+    return res.status(200).json(bookmarks);
+  });
+};
+
+/**
+ * Creates a new PackageGallery in the DB.
+ *
+ * @param req
+ * @param res
+ */
+exports.createFolder = function (req, res) {
+  BookmarkFolder.create({'userId' : req.body.user ,'folder': req.body.folder}, function (err, bookmark) {
+    if (err) { return handleError(res, err); }
+    return res.status(201).json(bookmark);
   });
 };
 
@@ -59,7 +99,7 @@ exports.create = function (req, res) {
  * @param req
  * @param res
  */
-exports.update = function (req, res) {
+exports.updateFolder = function (req, res) {
   if (req.body._id) { delete req.body._id; }
   Bookmark.findById(req.params.id, function (err, bookmark) {
     if (err) { return handleError(res, err); }
@@ -78,8 +118,8 @@ exports.update = function (req, res) {
  * @param req
  * @param res
  */
-exports.destroy = function (req, res) {
-  Bookmark.findById(req.params.id, function (err, bookmark) {
+exports.destroyFolder = function (req, res) {
+  Bookmark.findOne({'userId' : req.body.user,'folder': req.body.folder}, function (err, bookmark) {
     if (err) { return handleError(res, err); }
     if (!bookmark) { return res.status(404).end(); }
     bookmark.remove(function (err) {

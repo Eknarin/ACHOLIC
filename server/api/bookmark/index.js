@@ -5,12 +5,13 @@ var router = express.Router();
 var controller = require('./bookmark.controller');
 
 router.get('/', controller.index);
+router.post('/', controller.create);
+router.get('/folder', controller.indexFolder)
+router.post('/folder', controller.createFolder);
+router.put('/folder', controller.updateFolder);
+router.delete('/folder/:id', controller.destroyFolder);
+router.delete('/:id', controller.destroy);
 router.get('/:id', controller.show);
 
-router.post('/', controller.create);
-
-router.put('/:id', controller.update);
-
-router.delete('/:id', controller.destroy);
 
 module.exports = router;
