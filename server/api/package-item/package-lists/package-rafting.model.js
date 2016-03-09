@@ -5,8 +5,9 @@ var Schema = mongoose.Schema;
 
 var RaftingSchema = new Schema({
 	location: {
-		province: String,
-		place: String
+		location_text: String,
+		lat: String,
+		long: String
 	},
 	river_line: String,
 	boat: String,

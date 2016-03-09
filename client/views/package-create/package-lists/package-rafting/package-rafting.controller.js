@@ -9,7 +9,7 @@ angular.module('acholic')
     $scope.packages.info.equipments_provide = [];
     $scope.packages.type = "PackageRafting";
     $scope.packages.user_id = $rootScope._user._id;
-
+    $scope.packages.info.location = {};
     $scope.provide = "";
     $scope.require = "";
     $scope.skill = "";
@@ -25,10 +25,6 @@ angular.module('acholic')
         $scope.packages.info.skills_require = $scope.skill.split(",");
         //skill
         $scope.packages.info.activities = $scope.activities.split(",");
-
-        //province
-        $scope.packages.info.location = {};
-        $scope.packages.info.location.province = $scope.selected;
 
         //season
         $scope.packages.info.season = $scope.seas+$scope.month1+$scope.month2;
@@ -47,7 +43,6 @@ angular.module('acholic')
 
          //min price
         $scope.packages.price = $scope.findMinPrice();        
-      
         $scope.packages.$save().then(function(){
              $location.path("/package");
         });
@@ -293,18 +288,15 @@ angular.module('acholic')
     //     $scope.markers[index].position = [e.lat(),e.lng()];
     // };
     $scope.reRednerMap = function() {
-
       $timeout(function() {
          angular.forEach($scope.maps, function(index) {
             google.maps.event.trigger(index, 'resize');
-            console.log("asd");
           });
       }, 100);
-    }
+    };
+
     $scope.geocodeAddress = function(geocoder, resultsMap) {
         var input = document.querySelector("#test");
-        // console.log(input);
-
         var autocomplete = new google.maps.places.Autocomplete(input);
         autocomplete.bindTo('bounds', $scope.map);
 
@@ -329,7 +321,6 @@ angular.module('acholic')
             }
 
             marker.position = [place.geometry.location.lat(), place.geometry.location.lng()];
-            console.log(marker);
             // marker.setVisible(true);
 
             var address = '';
@@ -342,7 +333,11 @@ angular.module('acholic')
             }
             $scope.markers = [];
             $scope.markers.push(marker)
+            $scope.packages.info.location.lat = marker.position[0];
+            $scope.packages.info.location.long = marker.position[1];
+            $scope.packages.info.location.location_text = place.formatted_address;
             $scope.reRednerMap();
+
             // infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
             // infowindow.open($scope.map, marker);      
         });
