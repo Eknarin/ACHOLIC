@@ -18,14 +18,17 @@
   </div>
   <HR WIDTH="100%" NOSHADE>
   <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" ng-repeat="package in packages">
+    <!-- package price -->
     <div class="col-xs-5 col-sm-5 col-md-5 no-horizotal-padding">
       <p class="add-to-cart-package-detail">{{package.price}}</p>
     </div>
+    <!-- suitable for people with amount -->
      <div class="col-xs-5 col-sm-5 col-md-5 no-horizotal-padding">
       <p class="add-to-cart-package-detail">{{package.people}}</p>
     </div>
+    <!-- input box for amount of buying package -->
     <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
-      <input class="add-to-cart-input-number" ng-model="package.amount" type="number" min="0"></input>
+      <input class="add-to-cart-input-number" ng-model="package.amount" type="number" min="0" placeholder="0"></input>
     </div>
   </div>
 
