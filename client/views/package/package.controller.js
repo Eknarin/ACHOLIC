@@ -45,8 +45,9 @@ angular.module('acholic')
   };
 
   $scope.checkCompare = function(packid){
-    for(var i = 0; i < Compare.getCompare().length; i++){
-      if(packid == Compare.getCompare()[i]){
+    var com = Compare.getCompare();
+    for(var i = 0; i < com.length; i++){
+      if(packid == com[i]){
         return true;
         break;
       }

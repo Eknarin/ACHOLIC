@@ -38,12 +38,15 @@ angular.module('acholic')
     };
 
     this.getCompare = function(){
-    	cart =$cookies.getObject('compare');
-    	var userId = $rootScope._user._id;
-	   	if(userId == undefined){
-	   		userId = "guest";
-	   	}
-    	return cart[userId];
+    	if($cookies.getObject('compare')){
+	    	cart =$cookies.getObject('compare');
+	    	var userId = $rootScope._user._id;
+		   	if(userId == undefined){
+		   		userId = "guest";
+		   	}
+	    	return cart[userId];
+    	}
+    	return '';
     };
 
   });
