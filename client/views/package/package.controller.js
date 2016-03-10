@@ -290,7 +290,7 @@ angular.module('acholic')
               userData: $scope.user
             }
           }).result.then(function(res){
-            console.log(res);
+            
           });
         };        
   }]);

@@ -23,7 +23,7 @@ exports.createCustomer = function (req, res) {
         //console.log(role._id);
         user.role = role._id;
         user.save();
-        res.status(201).json({
+        return res.status(201).json({
           user: _.omit(user.toObject(), ['passwordHash', 'salt']),
           token: authService.signToken(user._id)
         });
@@ -43,7 +43,7 @@ exports.createVendor = function (req, res) {
         //console.log(role._id);
         user.role = role._id;
         user.save();
-        res.status(201).json({
+        return res.status(201).json({
           user: _.omit(user.toObject(), ['passwordHash', 'salt']),
           token: authService.signToken(user._id)
         });
