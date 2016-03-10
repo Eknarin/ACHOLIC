@@ -6,7 +6,6 @@ angular.module('acholic')
       .when('/', {
         templateUrl: 'views/home/home.html',
         controller: 'HomeCtrl',
-        controllerAs: 'vm',
         access: {
           requiresLogin: false
         },

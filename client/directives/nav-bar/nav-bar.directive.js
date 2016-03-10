@@ -4,17 +4,25 @@ var myNav = angular.module('acholic');
     return {
       restrict: 'E',
       templateUrl: 'directives/nav-bar/nav-bar.html',
-      controller: ['$scope' , '$location', '$route','$uibModal' ,'Auth',function($scope , $location , $route ,$uibModal, Auth ) {
+      controller: ['$scope' , '$location', '$route','$uibModal' ,'$rootScope',function($scope , $location , $route ,$uibModal ,$rootScope ) {
 
         $scope.search = '';
-        $scope.user = Auth.getUser().then(function(res){
-          $scope.user = res;
+        $scope.user = {};
+
+        $rootScope.$watch('_user',function(){
+          $scope.user = $rootScope._user;
         });
 
       	$scope.searchPage = function(){
           var temp = $scope.search;
       		$location.path("/package").search({q: temp});
       	};
+
+        $scope.refreshUser = function(){
+          $scope.user = Auth.getUser().then(function(res){
+            $scope.user = res;
+          });
+        };
         
         $scope.openLogout = function(){
            var modalInstance = $uibModal.open({
@@ -46,7 +54,7 @@ var myNav = angular.module('acholic');
             controller: 'SignUpCtrl',
             size: 'lg'
           }).result.then(function(res){
-            console.log(res);
+            
           });
         };
 
