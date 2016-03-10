@@ -15,6 +15,7 @@ angular.module('acholic')
     $scope.skill = "";
     $scope.minPrice = 9000000;
     $scope.activities = "";
+    $scope.packages.rating = 0;
 
     $scope.onSubmit = function(){
         //provide
