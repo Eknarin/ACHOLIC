@@ -20,10 +20,9 @@ exports.createCustomer = function (req, res) {
   User.create(req.body, function (err, user) {
     if (err) { return handleError(res, err); }
     Role.findOne({role:"Customer"}, function(err,role){
-        //console.log(role._id);
         user.role = role._id;
         user.save();
-        return res.status(201).json({
+        res.status(201).json({
           user: _.omit(user.toObject(), ['passwordHash', 'salt']),
           token: authService.signToken(user._id)
         });
@@ -40,10 +39,9 @@ exports.createVendor = function (req, res) {
   User.create(req.body, function (err, user) {
     if (err) { return handleError(res, err); }
     Role.findOne({role:"Vendor"}, function(err,role){
-        //console.log(role._id);
         user.role = role._id;
         user.save();
-        return res.status(201).json({
+        res.status(201).json({
           user: _.omit(user.toObject(), ['passwordHash', 'salt']),
           token: authService.signToken(user._id)
         });

@@ -6,7 +6,7 @@ angular.module('acholic')
 
     $scope.onSubmit= function(){
       Auth.signupCustomer($scope.user)
-          .then(function () {
+          .then(function (res) {
             $location.path('/');
           })
           .catch(function (err) {
@@ -18,7 +18,6 @@ angular.module('acholic')
       $scope.activeTab = function(goto){
         $scope.tabs = ["", "", "", ""];
         $scope.tabs[goto] = "active";
-        console.log($scope.tabs);
       }
 
   }]);
