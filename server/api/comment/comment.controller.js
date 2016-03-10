@@ -3,6 +3,7 @@
 var _ = require('lodash');
 var Comment = require('./comment.model');
 var User = require('../user/user.model');
+var PackageItem = require('../package-item/package-item.model');
 
 function handleError (res, err) {
   return res.status(500).send(err);
@@ -44,7 +45,23 @@ exports.show = function (req, res) {
 exports.create = function (req, res) {
   Comment.create(req.body, function (err, comment) {
     if (err) { return handleError(res, err); }
-    return res.status(201).json(comment);
+    var count_comments = 0;
+    var new_rating = 0;
+    Comment.count({'package_id': comment.package_id},function(err,count){
+    count_comments = count;
+
+      PackageItem.findById(comment.package_id,function(err,packageItem){
+        var r0 = packageItem.rating; 
+        var temp1 = (r0*(count_comments-1))+comment.rate;
+        var temp2 = temp1/count_comments;
+        new_rating = Math.round(temp2 * 10) / 10;//rating of this package
+
+        packageItem.rating = new_rating;
+        packageItem.save();
+        return res.status(201).json(comment);
+      });
+
+    });
   });
 };
 
