@@ -127,6 +127,8 @@ angular.module('acholic')
       var def = $q.defer();
       _ready.promise.then(function () {
          def.resolve($rootScope._user);                 
+      }).catch(function() {
+        def.reject();
       });
       return def.promise;
     };

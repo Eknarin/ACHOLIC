@@ -10,7 +10,6 @@ angular.module('acholic')
   $scope.currentPage = itemData.page;
   $scope.bookmarks = [];
   $scope.loading = false;
-
   Auth.getUser().then(function(res){
    $scope.user = res;
     if($scope.user._id){
@@ -19,9 +18,9 @@ angular.module('acholic')
         $scope.checkComment();
         $scope.loading = true;
       });
-    } else{
-       $scope.loading = true;
     }
+  }).catch(function () {
+      $scope.loading = true;
   });
 
 

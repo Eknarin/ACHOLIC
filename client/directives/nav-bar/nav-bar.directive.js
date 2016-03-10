@@ -13,7 +13,6 @@ var myNav = angular.module('acholic');
 
       	$scope.searchPage = function(){
           var temp = $scope.search;
-          $scope.search = '';
       		$location.path("/package").search({q: temp});
       	};
         
