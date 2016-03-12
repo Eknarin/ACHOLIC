@@ -45,8 +45,9 @@ angular.module('acholic')
     	return temp;
     };
 
-    this.getCart = function(){
-    	return $cookies.get('shoppingCart');
+    this.getCart = function(userId){
+    	cart = $cookies.getObject('shoppingCart');
+    	return cart[userId];
     };
 
   });

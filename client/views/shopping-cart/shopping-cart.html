@@ -31,26 +31,12 @@
 					    </thead>
 					    <!-- Table Detail -->
 					    <tbody>
-					      <tr>
-					        <td class="my-cart-table-detail">Package Name</td>
-					        <td class="my-cart-table-detail">300</td>
-					        <td class="my-cart-table-detail"><input class="my-cart-input-number" type="number" min="0" placeholder="0"></input></td>
-					        <td class="my-cart-table-detail">600</td>
-					        <td class="my-cart-table-detail"><button class="btn btn-danger">Delete</button></td>
-					      </tr>
-					      <tr>
-					        <td class="my-cart-table-detail">Package Name</td>
-					        <td class="my-cart-table-detail">300</td>
-					        <td class="my-cart-table-detail"><input class="my-cart-input-number" type="number" min="0" placeholder="0"></input></td>
-					        <td class="my-cart-table-detail">600</td>
-					        <td class="my-cart-table-detail"><button class="btn btn-danger">Delete</button></td>
-					      </tr>
-					      <tr>
-					        <td class="my-cart-table-detail">Package Name</td>
-					        <td class="my-cart-table-detail">300</td>
-					        <td class="my-cart-table-detail"><input class="my-cart-input-number" type="number" min="0" placeholder="0"></input></td>
-					        <td class="my-cart-table-detail">600</td>
-					        <td class="my-cart-table-detail"><button class="btn btn-danger">Delete</button></td>
+					      <tr ng-repeat="item in cart">
+					        <td class="my-cart-table-detail">{{item.package}}</td>
+					        <td class="my-cart-table-detail">{{item.cart_item.price}}</td>
+					        <td class="my-cart-table-detail"><input class="my-cart-input-number" type="number" min="0" placeholder="0" ng-model="item.cart_item.amount"></input></td>
+					        <td class="my-cart-table-detail">{{calSubTotal(item)}}</td>
+					        <td class="my-cart-table-detail"><button class="btn btn-danger" ng-click="removeItem(item)">Delete</button></td>
 					      </tr>
 					    </tbody>
 					  </table>
@@ -67,7 +53,7 @@
 								<p class="my-cart-summary-detail">Package Amount</p>
 							</div>
 							<div class="col-xs-5 col-sm-5 col-md-5">
-								<p class="my-cart-summary-detail">n</p>
+								<p class="my-cart-summary-detail">{{cart.length}}</p>
 							</div>
 						</div>
 						<div class="col-xs-12 col-sm-12 col-md-12">
@@ -75,7 +61,7 @@
 								<p class="my-cart-summary-detail">Total</p>
 							</div>
 							<div class="col-xs-5 col-sm-5 col-md-5">
-								<p class="my-cart-summary-detail">n</p>
+								<p class="my-cart-summary-detail">{{total_price}}</p>
 							</div>
 						</div>
 						<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center;">
