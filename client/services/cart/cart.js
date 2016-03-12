@@ -47,7 +47,9 @@ angular.module('acholic')
 
     this.getCart = function(userId){
     	cart = $cookies.getObject('shoppingCart');
-    	return cart[userId];
+    	if(userId in cart)
+    		return cart[userId];
+    	return '';
     };
 
   });

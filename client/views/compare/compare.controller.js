@@ -6,11 +6,12 @@ angular.module('acholic')
   	$scope.comparePackage =  Compare.getCompare();
   	$scope.loadItem = false;
 
-  	PackageItem.list({items: $scope.comparePackage}).$promise.then(function(res){
-  		$scope.comparePackage.items = res;
-  		$scope.loadItem = true;
-		console.log($scope.comparePackage);
-  	});  
+    if($scope.comparePackage.length)
+    	PackageItem.list({items: $scope.comparePackage}).$promise.then(function(res){
+    		$scope.comparePackage.items = res;
+    		$scope.loadItem = true;
+  		  console.log($scope.comparePackage);
+    	});  
 
     $scope.rate = 0;
   	$scope.getStar = function(num) {
