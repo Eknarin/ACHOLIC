@@ -44,7 +44,9 @@ angular.module('acholic')
 		   	if(userId == undefined){
 		   		userId = "guest";
 		   	}
-	    	return cart[userId];
+		   	if(userId in cart)
+	    		return cart[userId];
+	    	return '';
     	}
     	return '';
     };
