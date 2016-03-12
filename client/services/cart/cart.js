@@ -9,7 +9,7 @@ angular.module('acholic')
   		var items_pack = this.extractItem(items);
 	    var expireDate = new Date();
 	    expireDate.setDate(expireDate.getDate() + 1);
-	    if(items_pack.length < 1 || userId)
+	    if(items_pack.length < 1 || userId == undefined)
 	    	return '';
 
 	    var item = {
