@@ -1,13 +1,13 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('AddToCartModalCtrl',['$scope','$uibModalInstance','userData','packageData', function ($scope, $uibModalInstance,userData, packageData) {
+  .controller('AddToCartModalCtrl',['$scope','$uibModalInstance','userData','packageData','Cart', function ($scope, $uibModalInstance,userData, packageData,Cart) {
    $scope.packages = packageData.map_id.map_id.info;
-   $scope.cart = {};
+   $scope.cart = [];
 
    $scope.addToCart = function(){
-    $scope.cart[packageData._id] = $scope.packages;
-    console.log($scope.cart);
+    Cart.addItem($scope.packages,packageData._id);
+    $uibModalInstance.close();
    };
 
    $scope.closeModal = function(){
