@@ -65,7 +65,6 @@ angular.module('acholic', [
 
     $rootScope.Auth = Auth;
     $rootScope.$on('$routeChangeStart', function (event, next) {
-      if(next.access)
       if(next.access.requiresLogin){
         Auth.isReadyLogged().then(function (usr){
           if(!(next.access.requiredPermissions.indexOf(usr.role.role) > -1))
