@@ -25,7 +25,6 @@ angular.module('acholic')
               $scope.cart.push(item);
             }
           }
-          console.log($scope.cart);
         };
 
         $scope.viewCart = function(){
