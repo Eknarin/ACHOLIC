@@ -22,6 +22,7 @@
 						<!-- Table Header -->
 					    <thead>
 					      <tr>
+					        <th class="my-cart-table-header">Image</th>
 					        <th class="my-cart-table-header">Name</th>
 					        <th class="my-cart-table-header">Price (฿)</th>
 					        <th class="my-cart-table-header">Amount</th>
@@ -32,10 +33,15 @@
 					    <!-- Table Detail -->
 					    <tbody>
 					      <tr ng-repeat="item in cart">
-					        <td class="my-cart-table-detail">{{item.package}}</td>
+					      	<td class="my-cart-table-detail">
+						      	<a href="/packageDetail/{{bookmark.packageId._id}}">
+									<img style="width: 75px; height: 75px;" ng-src=api/images/{{item.package.image}}></img>
+								</a>	
+							</td>
+					        <td class="my-cart-table-detail">{{item.package.name}}</td>
 					        <td class="my-cart-table-detail">{{item.cart_item.price}}</td>
 					        <td class="my-cart-table-detail"><input class="my-cart-input-number" type="number" min="0" placeholder="0" ng-model="item.cart_item.amount"></input></td>
-					        <td class="my-cart-table-detail">{{calSubTotal(item)}}</td>
+					        <td class="my-cart-table-detail">{{item.sub_price}}</td>
 					        <td class="my-cart-table-detail"><button class="btn btn-danger" ng-click="removeItem(item)">Delete</button></td>
 					      </tr>
 					    </tbody>

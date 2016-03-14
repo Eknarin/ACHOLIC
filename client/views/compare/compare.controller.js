@@ -10,7 +10,6 @@ angular.module('acholic')
     	PackageItem.list({items: $scope.comparePackage}).$promise.then(function(res){
     		$scope.comparePackage.items = res;
     		$scope.loadItem = true;
-  		  console.log($scope.comparePackage);
     	});  
 
     $scope.rate = 0;
