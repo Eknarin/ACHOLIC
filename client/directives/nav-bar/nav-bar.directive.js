@@ -4,7 +4,7 @@ var myNav = angular.module('acholic');
     return {
       restrict: 'E',
       templateUrl: 'directives/nav-bar/nav-bar.html',
-      controller: ['$scope' , '$location', '$route','$uibModal' ,'$rootScope',function($scope , $location , $route ,$uibModal ,$rootScope ) {
+      controller: ['$scope' , '$location', '$route','$uibModal' ,'$rootScope','$window',function($scope , $location , $route ,$uibModal ,$rootScope ,$window) {
 
         $scope.search = '';
         $scope.user = {};
@@ -44,6 +44,7 @@ var myNav = angular.module('acholic');
             size: 'lg'
           }).result.then(function(res){
             $scope.user = res;
+            $window.location.reload();
           });
         };
 
