@@ -43,6 +43,8 @@ exports.show = function (req, res) {
 exports.create = function (req, res) {
   PackageGallery.create(req.body, function (err, packageGallery) {
     if (err) { return handleError(res, err); }
+    packageGallery.total_images = packageGallery.images.length;
+    packageGallery.save();
     return res.status(201).json(packageGallery);
   });
 };

@@ -1,9 +1,10 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('PackageRaftingCtrl',['$scope','packageData','PackageItem','$location','$rootScope','$timeout',function ($scope ,packageData, PackageItem ,$location , $rootScope , $timeout) {
+  .controller('PackageRaftingCtrl',['$scope','packageData','PackageItem','$location','$rootScope','$timeout','PackageGallery',function ($scope ,packageData, PackageItem ,$location , $rootScope , $timeout,PackageGallery) {
     $scope.packages = packageData;
-    $scope.images = [];
+    $scope.gallery = new PackageGallery;
+    $scope.gallery.images = [];
     $scope.packages.info = {};
     $scope.packages.info.stages = [];
     $scope.packages.info.equipments_provide = [];
@@ -43,10 +44,13 @@ angular.module('acholic')
         $scope.packages.info.info = $scope.priceArrs;
 
          //min price
-        $scope.packages.price = $scope.findMinPrice();        
-        $scope.packages.$save().then(function(){
-             $location.path("/package");
-        });
+        $scope.packages.price = $scope.findMinPrice();   
+        $scope.gallery.$save().then(function(res){
+            $scope.packages.info.images = res._id;
+            $scope.packages.$save().then(function(){
+                $location.path("/package");
+            });
+        });   
     };
 
     $scope.stageType = [];

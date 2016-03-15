@@ -34,7 +34,7 @@ var RaftingSchema = new Schema({
 	equipments_require: [String],
 	prepration: String,
 	skills_require: [String],
-	image_gallery: Schema.Types.ObjectId
+	image_gallery: { type: Schema.Types.ObjectId, ref: 'PackageGallery' }
 });
 
 module.exports = mongoose.model('PackageRafting', RaftingSchema ,'PackageRafting');
