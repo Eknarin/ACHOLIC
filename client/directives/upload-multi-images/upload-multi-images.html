@@ -9,11 +9,11 @@
   <div class="table_container">
     <table class="table" style="text-align:center;">
       <tbody>
-        <tr ng-repeat="f in files">
+        <tr ng-repeat="image in images">
           <td>
-            <img class="img-responsive package_img" ng-src="/api/images/{{images[$index]}}"/>
+            <img class="img-responsive package_img" ng-src="/api/images/{{image}}"/>
           </td>
-          <td>{{f.name}} {{f.$errorParam}} </td>
+          <td>{{image.name}} {{image.$errorParam}} </td>
           <td><button type="button" value="Remove" class="btn btn-danger" data-ng-click="removeRow($index)">Delete</button></td>
         </tr>
       </tbody>
