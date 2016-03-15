@@ -14,21 +14,8 @@
 					<p style="font-size:30px;">Bookmarks</p>
 				</div>
 
-				<!-- Folder -->
-				<div class="col-xs-12 col-sm-12 col-md-12 bookmark-folder-button bookmark-folder-button-active">
-					<p style="margin-bottom:0px;"> All Bookmarks (20)</p>
-				</div>
-				<!-- Folder -->
-				<div class="col-xs-12 col-sm-12 col-md-12 bookmark-folder-button">
-					<p style="margin-bottom:0px;"> Folder A (10)</p>
-				</div>
-				<!-- Folder -->
-				<div class="col-xs-12 col-sm-12 col-md-12 bookmark-folder-button">
-					<p style="margin-bottom:0px;"> Folder B (3)</p>
-				</div>
-				<!-- Folder -->
-				<div class="col-xs-12 col-sm-12 col-md-12 bookmark-folder-button">
-					<p style="margin-bottom:0px;"> Folder C (7)</p>
+				<div class="col-xs-12 col-sm-12 col-md-12 bookmark-folder-button bookmark-folder-button-active" ng-repeat="bookmarkFolder in bookmarkFolders">
+						<a ng-click="selectFolder(bookmarkFolder._id)" style="margin-bottom:0px;" > {{bookmarkFolder.folder}} ({{bookmarkFolder.total}})</a>
 				</div>
 				
 			</div>

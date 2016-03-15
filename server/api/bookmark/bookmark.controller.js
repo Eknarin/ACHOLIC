@@ -17,7 +17,7 @@ function handleError (res, err) {
  * @param res
  */
 exports.index = function (req, res) {
-  Bookmark.find({userId: req.query.q}).populate('packageId').exec(function (err, bookmarks) {
+  Bookmark.find({userId: req.query.userId, folder: req.query.folderId}).populate('packageId').exec(function (err, bookmarks) {
     if (err) { return handleError(res, err); }
     return res.status(200).json(bookmarks);
   });

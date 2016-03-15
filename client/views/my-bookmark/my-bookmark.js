@@ -9,6 +9,6 @@ angular.module('acholic')
         access: {
 	        requiresLogin: true,
 	        requiredPermissions: ['Admin', 'Vendor','Customer']
-	      },
+	      }
       });
   });

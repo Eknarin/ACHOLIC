@@ -8,12 +8,19 @@ angular.module('acholic')
 
   	Auth.getUser().then(function(res){
   		$scope.user = res;
-	  	Bookmark.query({q: $scope.user._id}).$promise.then(function(res){
-	      $scope.bookmarks = res;
-	      $scope.loading = true;
-	      console.log($scope.bookmarks);
+	    Bookmark.queryFolder({userId: $scope.user._id}).$promise.then(function(res){
+	      $scope.bookmarkFolders = res;
+	      console.log(res);
 	    });
 	 });
+
+  	$scope.selectFolder = function(folderId){
+  		Bookmark.query({userId: $scope.user._id, folderId: folderId}).$promise.then(function(res){
+	      $scope.bookmarks = res;
+	      console.log(res);
+	      $scope.loading = true;
+	    });
+  	};
   	
     $scope.unBookmark = function(bookmark){
     	bookmark.$delete().then(function(res){
