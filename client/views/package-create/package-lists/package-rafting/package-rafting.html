@@ -107,17 +107,12 @@
 			       			<div class="col-xs-12 col-sm-12 col-md-4">
 			       				<p class="package-create-topic-style">Map : </p>
 			       			</div>
-			       			<div class="col-xs-12 col-sm-12 col-md-8">
-				        		 <!-- <ng-map zoom="11" center="[13.7500, 100.4833]">
-								    <marker position="[13.7500, 100.4833]" title="hello"></marker>
-								    <marker ng-repeat="marker">
-								 </ng-map> -->
+			       			<div class="col-xs-12 col-sm-12 col-md-8">				        		 
 								 <ng-map center="{{map.center}}" zoom="12" on-click="addMarker(event)">
 									<marker ng-repeat="marker in markers" 
 										position="{{marker.position}}"
 										optimized="{{marker.optimized}}"
 									    icon="{{marker.icon}}"></marker>
-								
 								</ng-map>
 				        	</div>
 			        	</div>			        	

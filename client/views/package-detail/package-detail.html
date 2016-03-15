@@ -42,18 +42,6 @@
 							<div class="col-xs-12 col-sm-12 col-md-12">
 								<p>&nbsp</p>
 							</div>
-							<!-- Province -->
-							<div class="col-xs-12 col-sm-12 col-md-12 package-detail-subdetail-box-style">
-								<p class="package-detail-subdetail-topic-style"> Province : 
-									<font class="package-detail-detail-style">{{packageItem.map_id.map_id.location.province}}</font>
-								</p>
-							</div>
-							<!-- Location -->
-							<div class="col-xs-12 col-sm-12 col-md-12 package-detail-subdetail-box-style">
-								<p class="package-detail-subdetail-topic-style"> Location :
-									<font class="package-detail-detail-style">{{packageItem.map_id.map_id.location.place}}</font>
-								</p>
-							</div>							
 						</div>
 						<div class="col-xs-12 col-sm-5 col-md-5 package-group-tag-style">
 							<!-- Tag -->
@@ -73,9 +61,9 @@
 					<div class="col-xs-12 col-sm-12 col-md-12">
 						<button type="button" class="btn package-button-style" style="background-color:#fb5858; color:white;">BookMark</button>
 					</div>
-					<div class="col-xs-12 col-sm-12 col-md-12">
-						<button type="button" class="btn package-button-style" style="background-color:#5cb85c; color:white;">Add to Cart</button>
-					</div>
+					<!-- <div class="col-xs-12 col-sm-12 col-md-12">
+						<button type="button" class="btn package-button-style" style="background-color:#e1bd00; color:white;">Add to Cart</button>
+					</div> -->
 				</div>
 			</div>
 		</div>
@@ -84,9 +72,7 @@
 		<div class="container-fluid" style="margin-bottom:30px; background-color: rgba(0,0,0,0.85);">
 			<div class="container">
 				<div class="col-xs-12 col-sm-12 col-md-12 package-detail-box">
-					<div class="col-xs-12 col-sm-1 col-md-1">
-					</div>
-					<div class="col-xs-12 col-sm-10 col-md-10">
+					<div class="col-xs-12 col-sm-8 col-md-8">
 						<div class="col-xs-12 col-sm-12 col-md-12">
 							<p class="package-detail-title-style">About Package</p>
 						</div>
@@ -97,6 +83,18 @@
 						</div>
 						<HR WIDTH="95%" NOSHADE>
 
+						<!-- Location -->
+						<div class="col-xs-12 col-sm-12 col-md-12">
+							<div class="col-xs-12 col-sm-2 col-md-2" style="padding-left:0px;">
+								<p class="package-detail-topic-group-style">Location</p>
+							</div>
+							<div class="col-xs-12 col-sm-10 col-md-10">										
+								<ng-map center="{{packageItem.map_id.map_id.location.location_text}}" style="margin-bottom:15px;" zoom="16">
+									<marker position="{{packageItem.map_id.map_id.location.lat}},{{packageItem.map_id.map_id.location.long}}"></marker>
+								</ng-map>
+							</div>							
+						</div>
+						<HR WIDTH="95%" NOSHADE>
 						<!-- Level, Distance, Width, Depth -->
 						<div class="col-xs-12 col-sm-12 col-md-12">
 							<div class="col-xs-12 col-sm-2 col-md-2" style="padding-left:0px;">
@@ -162,6 +160,9 @@
 							<div class="col-xs-12 col-sm-10 col-md-10 package-detail-table-cover">
 								<!-- Table Header -->
 								<div class="package-detail-table-cover">
+									<div class="col-xs-3 col-sm-3 col-md-3">
+							        	<p class="package-detail-table-header">Boat</p>
+							        </div>
 							        <div class="col-xs-2 col-sm-2 col-md-2">
 							        	<p class="package-detail-table-header">Price (฿)</p>
 							        </div>
@@ -173,14 +174,14 @@
 							        </div>
 							        <div class="col-xs-3 col-sm-3 col-md-3">
 							        	<p class="package-detail-table-header">Duration (hr)</p>
-							        </div>
-							        <div class="col-xs-3 col-sm-3 col-md-3">
-							        	<p class="package-detail-table-header">Boat</p>
-							        </div>
+							        </div>							        
 							        <HR WIDTH="100%" NOSHADE>
 							    </div>
 							    <!-- Table Detail -->
 							    <div class="package-detail-table-cover" ng-repeat="packageInfo in packageInfos">
+							    	<div class="col-xs-3 col-sm-3 col-md-3">
+					                    <p class="package-create-table-header">{{packageInfo.boat_type}}</p>
+				                    </div>
 							    	<div class="col-xs-2 col-sm-2 col-md-2">
 					                    <p class="package-create-table-header">{{packageInfo.price}}</p>
 					                </div>
@@ -192,10 +193,7 @@
 				                    </div>
 					                <div class="col-xs-3 col-sm-3 col-md-3">
 					                    <p class="package-create-table-header">{{packageInfo.duration}}</p>
-					                </div>
-					                <div class="col-xs-3 col-sm-3 col-md-3">
-					                    <p class="package-create-table-header">{{packageInfo.boat_type}}</p>
-				                    </div>
+					                </div>					                
 							    </div>
 							</div>
 						</div>
@@ -241,8 +239,34 @@
 							<div class="col-xs-12 col-sm-7 col-md-7">
 								<p class="package-detail-detail-style">Schedule</p>
 							</div>
+						</div>						
+					</div>
+					<div class="col-xs-12 col-sm-4 col-md-4">
+						<div class="col-xs-12 col-sm-12 col-md-12 package-detail-add-package-to-cart-cover">
+							<div class="col-xs-12 col-sm-12 col-md-12">
+								<p class="package-detail-title-style">Add to Cart</p>
+							</div>
+							<HR WIDTH="95%" NOSHADE>
+							<div class="col-xs-12 col-sm-12 col-md-12" ng-repeat="packageInfo in packageInfos">
+								<!-- Boat Type -->
+								<div class="col-xs-5 col-sm-5 col-md-5">
+									<p>{{packageInfo.boat_type}}</p>
+								</div>
+
+								<!-- Price -->
+								<div class="col-xs-4 col-sm-4 col-md-4">
+									<p>{{packageInfo.price}}</p>
+								</div>
+
+								<!-- Amount -->
+								<div class="col-xs-3 col-sm-3 col-md-3">
+									<input class="add-to-cart-input-number" type="number" min="0" placeholder="0"></input>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center;">
+								<img src="../../image/add-package-to-cart.png" style="width:40px; height:40px;"></img>
+							</div>
 						</div>
-						
 					</div>
 				</div>
 			</div>
