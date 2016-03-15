@@ -3,6 +3,10 @@
 angular.module('acholic')
   .controller('PackageDetailCtrl',['$scope','itemData','$rootScope','Comment',function ($scope , itemData, $rootScope, Comment) {
 
+    $(window).scroll(function(){
+      $scope.sticky_relocate();  
+    });
+    
   	$scope.packageItem = itemData;
     $scope.comment = new Comment;
     $scope.comment.user_id = $rootScope._user._id;
@@ -85,6 +89,18 @@ angular.module('acholic')
 
     return comdate;
   };
+  $scope.sticky_relocate = function() {
+    console.log("STICK");
+    var window_top = $(window).scrollTop();
+    var div_top = $('#sticky-anchor').offset().top;
+    if (window_top > div_top) {
+        $('#sticky').addClass('stick');
+        $('#sticky-anchor').height($('#sticky').outerHeight());
+    } else {
+        $('#sticky').removeClass('stick');
+        $('#sticky-anchor').height(0);
+    }
+}
   
   }]);
 

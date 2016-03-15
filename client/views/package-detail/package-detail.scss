@@ -61,7 +61,6 @@
 	color: white;
 }
 .package-detail-subdetail-box-style{
-	padding-left: 0px;
 	font-size: 14px;
 }
 .package-detail-subdetail-topic-style{
@@ -129,13 +128,10 @@
 	border-radius:7px;
 	padding-top:15px; 
 	padding-bottom:15px;	
+
 }
 .package-detail-fix-box-position{
-	position:fixed;
-	top:0px;
-	right: 0px;
-	margin-top: 200px;
-	margin-right: 30px;
+	position:relative;	
 }
 
 @media(min-width:767px){
@@ -160,6 +156,13 @@
 	.vendor-profile-image-style{
 	  	width: 100px;
 	  	height: 100px;
+	}
+	.package-detail-fix-box-position{
+		position: fixed;
+		top:0px;
+		right: 0px;
+		margin-top: 200px;
+		margin-right: 30px;
 	}
 
 }
