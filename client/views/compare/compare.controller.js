@@ -42,4 +42,21 @@ angular.module('acholic')
     return new Array(5-$scope.yStar);
   };	
 
+  $(".toggler").click(function(e){
+      e.preventDefault();
+      $('.show'+$(this).attr('data-prod')).toggle();
+  });
+
+  $scope.rotateRiv = function(){
+    $('#expandButtriv').toggleClass('rotate-90deg');
+  };
+
+  $scope.rotateStage = function(){
+    $('#expandButtstage').toggleClass('rotate-90deg');
+  };
+
+  $scope.rotateMore = function(){
+    $('#expandButtmore').toggleClass('rotate-90deg');
+  };
+
   }]);
