@@ -6,26 +6,29 @@ angular.module('acholic')
       restrict: 'E',
       templateUrl: 'directives/upload-multi-images/upload-multi-images.html',
       scope: {
-        images: '=',
+        images: '=images',
       },
       controller: ['$scope','Image','Upload', function($scope , Image , Upload) {
-
-      var i = 0;
+      $scope.counter = 0;
 
       $scope.uploadFiles = function (files, errFiles) {
-		      	$scope.files = files;
-		        $scope.errFiles = errFiles;
-		        if(files != null){
+		        $scope.counter = 0;
+		        uploadFile(files, errFiles);
+		 };
 
-			       	if(i < $scope.files.length){ 
+		var uploadFile = function(files, errFiles){
+			$scope.files = files;
+		    $scope.errFiles = errFiles;
+		 	if(files != null){
+			       	if($scope.counter < $scope.files.length){ 
 			       		Upload.upload({
 				            url: 'api/images',
 				            data:'',
-				            file: $scope.files[i]
+				            file: $scope.files[$scope.counter]
 				        }).then(function(img){
-				        	i++;
+				        	$scope.counter += 1;
 					        $scope.images.push(img.data);
-				        	$scope.uploadFiles($scope.files, $scope.errFiles);
+				        	uploadFile($scope.files, $scope.errFiles);
 				        });
 			       	}
 		       }
@@ -34,7 +37,7 @@ angular.module('acholic')
 		 $scope.removeRow = function(idx){
 		 	$scope.images.splice(idx, 1);
 		 	$scope.files.splice(idx, 1);
-		 	i--;
+		 	$scope.counter -= 1;
 		 	// delete choosen image from db;
 		 };
 

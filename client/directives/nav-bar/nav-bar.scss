@@ -84,7 +84,7 @@
 }
 
 .more-info-button{
-	height: auto;
+	height: 40px;
   	width: 40px;
 }
 
@@ -122,4 +122,27 @@
 }
 .navbar-inner {
     background:transparent;
+}
+
+.drop-arrow:before {
+  position: absolute;
+  top: -7px;
+  left: 90%;
+  display: inline-block;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #ccc;
+  border-left: 7px solid transparent;
+  border-bottom-color: rgba(0, 0, 0, 0.2);
+  content: '';
+}
+
+.drop-arrow:after {
+  position: absolute;
+  top: -6px;
+  left: 90%;
+  display: inline-block;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #ffffff;
+  border-left: 6px solid transparent;
+  content: '';
 }
