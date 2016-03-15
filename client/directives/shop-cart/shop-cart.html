@@ -32,7 +32,7 @@
           <HR WIDTH="100%" NOSHADE>
           <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" ng-repeat="c in cart">
             <div class="col-xs-5 col-sm-5 col-md-5 no-horizotal-padding">
-              <p class="add-to-cart-package-detail">{{c.package}}<p>
+              <p class="add-to-cart-package-detail">{{c.package.name}}<p>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3 no-horizotal-padding">
               <p class="add-to-cart-package-detail">{{c.cart_item.price}}</p>
@@ -41,7 +41,7 @@
               <p class="add-to-cart-package-detail">{{c.cart_item.amount}}</p>
             </div>
             <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
-              <p class="add-to-cart-package-detail">{{c.cart_item.price * c.cart_item.amount}}</p>
+              <p class="add-to-cart-package-detail">{{c.sub_price}}</p>
             </div>
           </div>
       </div>
