@@ -1,7 +1,16 @@
 .package_img{	
 	width:120px;
 }
-.table_container{
-	padding-left:5%;
-	padding-right:5%;
+.multi-img{
+	height: 120px;
+	margin-top: 15px;
+	box-shadow: 5px 0 7px rgba(0, 0, 0, 0.35);
+    border: 1px solid #BDBDBD;
+}
+.delete-img-button{
+	position: absolute;    
+    right: 5.5%;
+    top: 12%;
+    width: 30px;
+    height: 30px;
 }
