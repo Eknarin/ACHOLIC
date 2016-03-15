@@ -37,7 +37,7 @@
                 <li ng-show="!Auth.isLogged()"><a href="/package" style="color:#fbd300; padding-top:25px; padding-bottom:25px;">Packages</a></li>
                 <li class="dropdown" ng-show="Auth.isLogged()">
                   <a class="dropdown-toggle" href="#" data-toggle="dropdown" style="color:#fbd300;text-align:center;"><img src="../image/more.png" class="more-info-button"></a>
-                  <ul class="dropdown-menu dropdown-menu-right" style="width:300px;">
+                  <ul class="dropdown-menu dropdown-menu-right drop-arrow" style="width:300px;">
                    <!-- User function -->
                    <!-- first row -->
                     <div class="col-xs-4 col-sm-4 col-md-4 user-function-last">
@@ -104,7 +104,7 @@
                 <!-- Dropdown User Menu -->
                 <li class="dropdown" ng-if="Auth.isLogged()">
                   <a class="dropdown-toggle" href="#"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: #fbd300; top: 0px; padding-top: 15px; padding-bottom: 15px;"><img class="nav-small-profile-image-style" ng-src=api/images/{{user.image}}></img>  {{user.first_name}} <span class="caret"></span></a>
-                  <ul class="col-xs-12 col-sm-12 col-md-6 dropdown-menu dropdown-menu-right" style="padding-top:15px; width:300px; padding-bottom:0px; background-color:#fff; border-radius:0px;">
+                  <ul class="col-xs-12 col-sm-12 col-md-6 dropdown-menu dropdown-menu-right drop-arrow" style="padding-top:15px; width:300px; padding-bottom:0px; background-color:#fff; border-radius:0px;">
                     <!-- Profile Picture -->
                     <div class="col-xs-5 col-sm-5 col-md-5" style="text-align:center; background-color:white;">
                       <img class="nav-profile-image-style" ng-src=api/images/{{user.image}}></img>
