@@ -12,11 +12,12 @@ seeder.connect(config.mongo.uri, function() {
   
    //Load Mongoose models 
   seeder.loadModels([
-    'server/api/role/role.model.js'
+    'server/api/rank-user/rank-customer.model.js',
+    'server/api/rank-user/rank-vendor.model.js'
   ]);
  
   //Clear specified collections 
-  seeder.clearModels(['Role'], function() {
+  seeder.clearModels(['RankCustomer','RankVendor'], function() {
     // Callback to populate DB once collections have been cleared 
     seeder.populateModels(seedData);
 

@@ -4,11 +4,13 @@ var _ = require('lodash');
 
 var authService = require('../../auth/auth.service');
 var User = require('./user.model');
-var Role = require('../role/role.model');
+var RankVendor = require('../rank-user/rank-vendor.model');
+var RankCustomer = require('../rank-user/rank-customer.model');
+var Vendor = require('./vendor.model');
 
 function handleError (res, err) {
   return res.status(500).send(err);
-}
+};
 
 /**
  * Creates a new user in the DB.
@@ -19,8 +21,11 @@ function handleError (res, err) {
 exports.createCustomer = function (req, res) {
   User.create(req.body, function (err, user) {
     if (err) { return handleError(res, err); }
-    Role.findOne({role:"Customer"}, function(err,role){
-        user.role = role._id;
+    RankCustomer.findOne({rank_name:"Bronze Customer"}, function(err,rank){
+        user.rank = rank._id;
+        user.customer_level = 1;
+        user.customer_exp = 0;
+        user.role = "Customer";
         user.save();
         res.status(201).json({
           user: _.omit(user.toObject(), ['passwordHash', 'salt']),
@@ -56,7 +61,7 @@ exports.createVendor = function (req, res) {
  * @param res
  */
 exports.getMe = function (req, res) {
-  User.findById(req.user._id).populate('role').exec(function (err, user) {
+  User.findById(req.user._id).exec(function (err, user) {
     if (err) { return handleError(res, err); }
     if (!user) { return res.json(401); }
     return res.status(200).json(user);

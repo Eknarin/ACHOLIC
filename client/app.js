@@ -65,11 +65,12 @@ angular.module('acholic', [
 
     $rootScope.Auth = Auth;
     $rootScope.$on('$routeChangeStart', function (event, next) {
-      if(next.access.requiresLogin){
+      if(next.access){
+        if(next.access.requiresLogin)
         Auth.isReadyLogged().then(function (usr){
-          if(!(next.access.requiredPermissions.indexOf(usr.role.role) > -1))
+          if(!(next.access.requiredPermissions.indexOf(usr.role) > -1))
            { 
-            console.log(usr.role.role+' can not access : '+next.access.requiredPermissions);
+            console.log(usr.role+' can not access : '+next.access.requiredPermissions);
             $location.path('/');
           }
         }).catch(function (err) {

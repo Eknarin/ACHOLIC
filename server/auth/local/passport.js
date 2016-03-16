@@ -4,7 +4,6 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 var User = require('../../api/user/user.model');
-var Role = require('../../api/role/role.model');
 
 passport.use(new LocalStrategy({
     usernameField: 'email',
@@ -20,6 +19,6 @@ passport.use(new LocalStrategy({
         return done(null, false, { msg: 'incorrect password' });
       }
       done(null, user);
-    }).populate('role');
+    });
   }
 ));
