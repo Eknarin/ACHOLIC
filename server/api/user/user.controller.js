@@ -40,17 +40,16 @@ exports.createCustomer = function (req, res) {
  * @param req
  * @param res
  */
-exports.createVendor = function (req, res) {
-  User.create(req.body, function (err, user) {
+exports.setVendor = function (req, res) {
+  User.findById(req.body._id, function (err, user) {
     if (err) { return handleError(res, err); }
-    Role.findOne({role:"Vendor"}, function(err,role){
-        user.role = role._id;
-        user.save();
-        res.status(201).json({
-          user: _.omit(user.toObject(), ['passwordHash', 'salt']),
-          token: authService.signToken(user._id)
-        });
-    });
+      user.role = "Vendor";
+      user.save();
+      console.log(user);
+      res.status(201).json({
+        user: _.omit(user.toObject(), ['passwordHash', 'salt']),
+        token: authService.signToken(user._id)
+      });
   });
 };
 
