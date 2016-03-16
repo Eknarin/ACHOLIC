@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('MyBookmarkCtrl',['$scope','Bookmark','Auth', function ($scope ,Bookmark ,Auth) {
+  .controller('MyBookmarkCtrl',['$scope','Bookmark','Auth', '$uibModal', function ($scope ,Bookmark ,Auth, $uibModal) {
   	$scope.user = {};
   	$scope.bookmarks = [];
   	$scope.loading = false;
@@ -61,4 +61,15 @@ angular.module('acholic')
 	    }
 	    return new Array(5-$scope.yStar);
 	  };
+	$scope.openEditBookmarkFolderModal = function(item){
+           var modalInstance = $uibModal.open({
+            animation: true,
+            templateUrl: 'views/my-bookmark/modal/modal-edit-bookmark-folder.html',
+            controller: 'EditBookmarkFolderModalCtrl',
+            size: 'md',
+           
+          }).result.then(function(res){
+            
+          });
+        }; 
   }]);
