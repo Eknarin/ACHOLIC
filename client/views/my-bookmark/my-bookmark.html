@@ -32,14 +32,14 @@
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-12 bookmark-folder-button bookmark-folder-button-active" ng-repeat="bookmarkFolder in bookmarkFolders">
 						<a ng-click="selectFolder(bookmarkFolder._id)" style="margin-bottom:0px;" > {{bookmarkFolder.folder}} ({{bookmarkFolder.total}})</a>							
-						<img src="../../image/edit-bookmark-folder.png" style="width:20px; height:20px; float:right" ng-click="openEditBookmarkFolderModal()"></img>
+						<img src="../../image/edit-bookmark-folder.png" style="width:25px; height:25px; float:right" ng-click="openEditBookmarkFolderModal()"></img>
 					</div>
 				</div>
 				
 			</div>
 
 			<!-- Bookmark Package -->
-			<div class="col-xs-12 col-sm-12 col-md-9" style="background-image:url('../../image/main-background.png'); padding-top:5%; padding-bottom:15%; padding-left:15px; padding-right:15px; min-height:620px">
+			<div class="col-xs-12 col-sm-12 col-md-9" style="background-image:url('../../image/main-background.png'); padding-top:5%; padding-bottom:15%; padding-left:15px; padding-right:15px; min-height:620px;">
 
 				<div class="col-xs-12 col-sm-6 col-md-6" ng-repeat="bookmark in bookmarks">
 						<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding bookmark-package-cover" >
@@ -75,7 +75,7 @@
 				</div>
 			
 				<!-- Page paginator -->
-				<div class="col-md-12" style="text-align:center; margin-top:15px;">
+				<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center; margin-top:15px;">
 					<uib-pagination total-items="totalItems" items-per-page="limit" ng-change="pageChanged(currentPage)" ng-model="currentPage" max-size="maxSize" class="pagination-md" boundary-links="true" rotate="false"></uib-pagination>
 				</div>
 			</div>

@@ -6,56 +6,60 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 	<body>
-		<div class="container-fluid center-picture" style="background-image:url('../../image/main-background.png'); padding-bottom:50px;">
-			<!-- blank div for make vertical space -->
-			<div class="container" style="margin-top:70px">
-			</div>
-			<!-- My Package Header -->
-			<div class="container">
+		<div class="container-fluid" style="padding-left:0px; padding-right:0px; background-color:rgba(0,0,0,0.85);">
+			<!-- filter -->
+			<div class="col-xs-12 col-sm-12 col-md-3 filter-cover-style" style="padding-top:70px;">
 				<div class="col-xs-12 col-sm-12 col-md-12">
-					<p class="my-package-header-size" style=" text-align:center;">My Package</p>
+					<p style="font-size:30px;">Filter Options</p>
 				</div>
-			</div>	
-			<div class="container">
-				<div class="col-xs-12 col-sm-12 col-md-12">
-					<!-- Package -->
-					<!-- Use some class from Package.scss -->
-					<div class="col-xs-12 col-sm-6 col-md-4 package-cover" ng-repeat="p in package">
-						<div class="my-package-style" style="height:440px;">
-							<div class="package_item_upper">
-								<!-- Package Image -->
-								<div class="center-picture" ng-style="{'background-image':'url(api/images/{{p.image}})'}" style="height:230px">
-								</div>
-			 					<!-- Package Price -->
-								<p class="price">&nbsp{{p.price}} ฿</p>								
-							</div>
-							<!-- Package Name -->
-							<div class="text-padding package-header-overflow" style="padding-top:10px">
-								<p style="font-size: 25px;"><a href="/packageDetail/{{package._id}}" style="color:white">{{p.name}}</a></p>	
-							</div>
-							<!-- Package Rating -->
-							<div class="text-padding" style="" ng-app="" ng-init="nstar = 0">
-								<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getStar(p.rating) track by $index" src="../image/star_rated.png">
-								<img style="width:20px;height:20px;margin-left: 3px;" ng-if="((p.rating)/2)%1 >= 0.5" src="../image/star_rated_half.png">
-								<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getWhite(p.rating) track by $index" src="../image/star_unrated.png">
-							</div>
+			</div>
 
-							<!-- Sold amount -->
-							<div class="text-padding package-description-overflow" style="padding-top:10px">
-								<p style="color:#888888; overflow: hidden;">Sold amount</p>	
+			<!-- My Package -->
+			<div class="col-xs-12 col-sm-12  col-md-9" style="padding-left:0px; padding-right:0px;">
+				<div style="background-image:url('../../image/main-background.png'); padding-top:5%; padding-bottom:15%; padding-left:15px; padding-right:15px;">		
+					<div class="row">
+						<div class="col-xs-12 col-sm-6 col-md-4 package-cover" ng-repeat="p in package">
+							<div class="my-package-style" style="height:370px;">
+								<div class="package_item_upper">
+									<!-- Package Image -->
+									<div class="center-picture" ng-style="{'background-image':'url(api/images/{{p.image}})'}" style="height:230px">
+									</div>
+				 					<!-- Package Price -->
+									<p class="price">&nbsp{{p.price}} ฿</p>								
+								</div>						
+								<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding">
+									<!-- Package Name -->
+									<div class="col-xs-10 col-sm-10 col-md-10 text-padding package-header-overflow" style="padding-top:10px">
+										<p style="font-size: 25px;"><a href="/packageDetail/{{package._id}}" style="color:white">{{p.name}}</a></p>	
+									</div>
+									<!-- Edit Package -->
+									<div class="col-xs-2 col-sm-2 col-md-2 text-padding package-description-overflow" style="padding-top:10px; text-align:center;">
+										<img src="../../image/edit-my-package.png" style="width:30px; height:30px;" ng-click="openEditMyPackageModal()"></img>
+									</div>
+								</div>
+								<!-- Package Rating -->
+								<div class="text-padding" style="" ng-app="" ng-init="nstar = 0">
+									<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getStar(p.rating) track by $index" src="../image/star_rated.png">
+									<img style="width:20px;height:20px;margin-left: 3px;" ng-if="((p.rating)/2)%1 >= 0.5" src="../image/star_rated_half.png">
+									<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getWhite(p.rating) track by $index" src="../image/star_unrated.png">
+								</div>
+								<!-- Sold amount -->
+								<div class="text-padding package-description-overflow" style="padding-top:10px">
+									<p style="color:#888888; overflow: hidden;">Sold amount</p>	
+								</div>						
 							</div>
-							<!-- Delete Package -->
-							<div class="text-padding package-description-overflow" style="padding-top:10px; text-align:center;">
-								<button class="btn btn-danger">Delete</button>
+							<!-- Package Publish Date  -->
+							<div class="package-footer-style text-padding">
+								<span class="glyphicon glyphicon-calendar" ng-bind="getCreateDate(p.created_at)"> </span>
 							</div>
-						</div>
-						<!-- Package Publish Date  -->
-						<div class="package-footer-style text-padding">
-							<span class="glyphicon glyphicon-calendar" ng-bind="getCreateDate(p.created_at)"> </span>
 						</div>
 					</div>
+					<!-- Page paginator -->
+					<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center; margin-top:15px;">
+						<uib-pagination total-items="totalItems" items-per-page="limit" ng-change="pageChanged(currentPage)" ng-model="currentPage" max-size="maxSize" class="pagination-md" boundary-links="true" rotate="false"></uib-pagination>
+					</div>
 				</div>
-			</div>
+			</div>	
 		</div>
 	</body>
 </html>

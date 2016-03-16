@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('MyPackageCtrl',['$scope','PackageItem','Auth', function ($scope, PackageItem,Auth) {
+  .controller('MyPackageCtrl',['$scope','PackageItem','Auth', '$uibModal', function ($scope, PackageItem,Auth, $uibModal) {
   	$scope.user = {};
   	$scope.package = {};
   	Auth.getUser().then(function(res){
@@ -46,4 +46,16 @@ angular.module('acholic')
     }
     return new Array(5-$scope.yStar);
   };  
+
+  $scope.openEditMyPackageModal = function(item){
+           var modalInstance = $uibModal.open({
+            animation: true,
+            templateUrl: 'views/my-package/modal/modal-edit-package.html',
+            controller: 'EditMyPackageModalCtrl',
+            size: 'md',
+           
+          }).result.then(function(res){
+            
+          });
+        }; 
   }]);
