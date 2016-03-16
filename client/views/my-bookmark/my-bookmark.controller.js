@@ -5,19 +5,17 @@ angular.module('acholic')
   	$scope.user = {};
   	$scope.bookmarks = [];
   	$scope.loading = false;
-
+  	
   	Auth.getUser().then(function(res){
   		$scope.user = res;
 	    Bookmark.queryFolder({userId: $scope.user._id}).$promise.then(function(res){
 	      $scope.bookmarkFolders = res;
-	      console.log(res);
 	    });
 	 });
 
   	$scope.selectFolder = function(folderId){
   		Bookmark.query({userId: $scope.user._id, folderId: folderId}).$promise.then(function(res){
 	      $scope.bookmarks = res;
-	      console.log(res);
 	      $scope.loading = true;
 	    });
   	};
@@ -26,6 +24,13 @@ angular.module('acholic')
     	bookmark.$delete().then(function(res){
     		var index = $scope.bookmarks.indexOf(bookmark);
 			$scope.bookmarks.splice(index, 1);
+			for(var i = 0;i<$scope.bookmarkFolders.length ;i++){
+				if($scope.bookmarkFolders[i]._id == bookmark.folder)
+				{
+					$scope.bookmarkFolders[i].total -= 1;
+					break;
+				}
+			}
     	});
     };
     $scope.rate = 0;
