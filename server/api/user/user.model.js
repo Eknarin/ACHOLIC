@@ -15,7 +15,6 @@ var UserSchema = new Schema({
     address: String,
     zip_code: Number
   },
-  identification_num: Number,
   customer_level: Number,
   customer_exp: Number,
   rank: { type: Schema.Types.ObjectId, ref: 'RankCustomer' },

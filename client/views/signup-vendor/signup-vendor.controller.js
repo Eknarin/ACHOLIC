@@ -1,36 +1,20 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('SignupVendorCtrl',['$scope', 'Auth','$location', function ($scope , Auth , $location) {
-    $scope.user = {};
+  .controller('SignupVendorCtrl',['$scope', 'Auth','$location','$rootScope', function ($scope , Auth , $location,$rootScope) {
+    $scope.vendor = {};
+    $scope.vendor.userId = $rootScope._user._id;
 
     $scope.onSubmit= function(){
-      //submit more information to user
-      //customer -> vendor
-
-      // console.log($scope.user);
-      // Auth.signupVendor($scope.user)
-      //     .then(function () {
-      //       $location.path('/');
-      //     })
-      //     .catch(function (err) {
-      //       console.log(err);
-      //     });
-    };
-
-    angular.extend(this, {
-      name: 'SignupVendorCtrl',
-      
-       signup: function () {
-        Auth.signup(vm.user)
+      Auth.signupVendor($scope.vendor)
           .then(function () {
+            console.log('set as vendor!!!');
             $location.path('/');
           })
           .catch(function (err) {
-            vm.error = err;
-          });
-      }
-    });
+            console.log(err);
+      });
+    };
     
       $scope.tabs = ["active", "", "", ""];
       $scope.activeTab = function(goto){

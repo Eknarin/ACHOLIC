@@ -41,14 +41,23 @@ exports.createCustomer = function (req, res) {
  * @param res
  */
 exports.setVendor = function (req, res) {
-  User.findById(req.body._id, function (err, user) {
+  User.findById(req.body.userId, function (err, user) {
     if (err) { return handleError(res, err); }
-      user.role = "Vendor";
-      user.save();
-      res.status(201).json({
-        user: _.omit(user.toObject(), ['passwordHash', 'salt']),
-        token: authService.signToken(user._id)
-      });
+    Vendor.create(req.body, function(err,vendor){
+       RankVendor.findOne({rank_name:"Bronze Vendor"}, function(err,rank){
+        user.vendor = vendor._id;
+        user.role = "Vendor";
+        user.save();
+        vendor.rank = rank._id;
+        vendor.customer_level = 1;
+        vendor.customer_exp = 0;
+        vendor.save();
+        res.status(201).json({
+          user: _.omit(user.toObject(), ['passwordHash', 'salt']),
+          token: authService.signToken(user._id)
+        });
+       });
+    });
   });
 };
 
