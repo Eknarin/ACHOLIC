@@ -26,7 +26,6 @@ angular.module('acholic')
     	bookmark.$delete().then(function(res){
     		var index = $scope.bookmarks.indexOf(bookmark);
 			$scope.bookmarks.splice(index, 1);
-    		console.log('unlike'+res);
     	});
     };
     $scope.rate = 0;

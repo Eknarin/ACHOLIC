@@ -13,9 +13,9 @@ angular.module('acholic')
   Auth.getUser().then(function(res){
    $scope.user = res;
     if($scope.user._id){
-      Bookmark.query({q: $scope.user._id}).$promise.then(function(res){
+      Bookmark.queryAll({userId: $scope.user._id}).$promise.then(function(res){
         $scope.bookmarks = res;
-        $scope.checkComment();
+        $scope.loadBookmarks();
         $scope.loading = true;
       });
     }
@@ -24,12 +24,14 @@ angular.module('acholic')
   });
 
 
-  $scope.checkComment = function(){
+  $scope.loadBookmarks = function(){
     for(var i = 0 ; i<$scope.packages.length ;i++){
       for(var j = 0; j<$scope.bookmarks.length ;j++){
         if(!$scope.packages[i].bookmark)
           if($scope.packages[i]._id == $scope.bookmarks[j].packageId._id)
-           $scope.packages[i].bookmark = $scope.bookmarks[j];
+           {
+            $scope.packages[i].bookmark = $scope.bookmarks[j];
+          }
       }
     }
   };

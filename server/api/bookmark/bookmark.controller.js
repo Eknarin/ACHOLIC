@@ -24,6 +24,19 @@ exports.index = function (req, res) {
 };
 
 /**
+ * Get list of Bookmark
+ *
+ * @param req
+ * @param res
+ */
+exports.indexAll = function (req, res) {
+  Bookmark.find({userId: req.query.userId}).populate('packageId').exec(function (err, bookmarks) {
+    if (err) { return handleError(res, err); }
+    return res.status(200).json(bookmarks);
+  });
+};
+
+/**
  * Get a single Bookmark
  *
  * @param req
