@@ -30,67 +30,21 @@
 					<!-- Tab Menu -->
 					<div class="col-xs-12 col-sm-12 col-md-12 tab-menu-style"> 
 					  <ul class="nav nav-tabs" id="myTab">
-					    <li role="presentation" class="col-xs-3 col-sm-3 col-md-3 tab-item-menu-style {{tabs[0]}}" ng-click="activeTab(0)"><a data-toggle="tab" data-target="#account" role="tab" aria-controls="account"><img src="../../image/account.png" style="width:50px; height:50px;"></img></a></li>
 
-					    <li role="presentation" class="col-xs-3 col-sm-3 col-md-3 tab-item-menu-style {{tabs[1]}}" ng-click="activeTab(1)"><a data-toggle="tab" data-target="#security" role="tab" aria-controls="security" style="color: white;"><img src="../../image/security.png" style="width:50px; height:50px;"></img></a></li>
+					    <li role="presentation" class="col-xs-3 col-sm-3 col-md-3 tab-item-menu-style {{tabs[0]}}" ng-click="activeTab(0)"><a data-toggle="tab" data-target="#security" role="tab" aria-controls="security" style="color: white;"><img src="../../image/security.png" style="width:50px; height:50px;"></img></a></li>
 
-					    <li role="presentation" class="col-xs-3 col-sm-3 col-md-3 tab-item-menu-style {{tabs[2]}}" ng-click="activeTab(2)"><a data-toggle="tab" data-target="#contact" role="tab" aria-controls="contact" style="color: white;"><img src="../../image/contact.png" style="width:50px; height:50px;"></img></a></li>
+					    <li role="presentation" class="col-xs-3 col-sm-3 col-md-3 tab-item-menu-style {{tabs[1]}}" ng-click="activeTab(1)"><a data-toggle="tab" data-target="#contact" role="tab" aria-controls="contact" style="color: white;"><img src="../../image/contact.png" style="width:50px; height:50px;"></img></a></li>
 
-					    <li role="presentation" class="col-xs-3 col-sm-3 col-md-3 tab-item-menu-style {{tabs[3]}" ng-click="activeTab(3)"><a data-toggle="tab" data-target="#addimage" role="tab" aria-controls="addimage" style="color: white;"><img src="../../image/image.png" style="width:50px; height:50px;"></img></a></li>
 					  </ul>
 					</div>  
 				  	<div class="tab-content col-xs-12 col-sm-12 col-md-12" style="background-color:rgba(0,0,0,0.65); ; padding-top:20px">
-				    	<div role="tabpanel" id="account" class="tab-pane active">
-				      		<center>
-					      		<form>
-
-					      			<!-- First Name -->
-									<input ng-model="user.first_name" required class="signup-inputbox-style input-width" type="text" name="FirstName" placeholder="First Name"><br>
-
-									<!-- Last Name -->
-									<input ng-model="user.last_name" required class="signup-inputbox-style input-width" type="text" name="LastName" placeholder="Last Name"><br>
-
-									<!-- Gender -->
-									<div class="input-width" style="margin-top:15px; margin-bottom:15px; text-align:left">
-										<p style="font-size:20px; margin-bottom:0px;">Gender</p>
-										<div style="padding-left:50px;">
-											<input type="radio" ng-model="user.gender" value="Men"
-											name="gender"> MEN<br>								
-											<input type="radio" ng-model="user.gender" value="Women" name="gender"> WOMEN<br>
-											<input type="radio" ng-model="user.gender" value="Other" name="gender"> OTHER<br>
-										</div>
-									</div>	
-
-									<!-- ฺBirth Date -->
-									<div class="input-width" style="margin-top:15px; margin-bottom:15px; text-align:left;">
-										<p style="font-size:20px; margin-bottom:0px;">Birth Date</p>
-										<datepicker date-format="dd-MM-yyyy" date-year-title="selected title">
-										  <input ng-model="user.date_of_birth" class="signup-inputbox-style input-width" ng-model="date" type="text"/>
-										</datepicker>
-									</div>	
-
-									<!-- Button -->
-									<div class="input-width" style="margin-top:15px; margin-bottom:15px;">
-										<button type="button" class="btn btn-success" ng-click="activeTab(1)" data-toggle="tab" data-target="#security">Next</button>
-									</div>	
-
-								</form>
-							</center>
-				    	</div>
-
-
-				    	<div role="tabpanel" id="security" class="tab-pane">
+				 
+				    	<div role="tabpanel" id="security" class="tab-pane active">
 				      		<center>
 					      		<form>
 
 					      			<!-- Email -->
 									<input ng-model="user.email" required class="signup-inputbox-style input-width" type="text" name="email" placeholder="Email"><br>
-
-									<!-- Password -->
-									<input ng-model="user.password" required class="signup-inputbox-style input-width" type="password" name="password" placeholder="Password"><br>
-
-									<!-- Confirm Password -->
-									<input ng-model="user.repassword" required class="signup-inputbox-style input-width" type="password" name="confirm-password" placeholder="Confirm Password"><br>	
 
 									<!-- ID Number -->
 									<input ng-model="user.identification_num" required class="signup-inputbox-style input-width" type="text" name="confirm-password" placeholder="Identification Number"><br>	
