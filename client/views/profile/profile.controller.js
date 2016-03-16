@@ -9,7 +9,7 @@ angular.module('acholic')
   	$scope.setVendor = function(){
   		 Auth.signupVendor($scope.user)
           .then(function (res) {
-            $location.path('/');
+            $location.path('/signup/vendor');
           })
           .catch(function (err) {
             console.log(err);

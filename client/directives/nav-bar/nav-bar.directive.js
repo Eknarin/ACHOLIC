@@ -53,7 +53,7 @@ var myNav = angular.module('acholic');
             animation: true,
             templateUrl: 'directives/nav-bar/modal/modal-signup.html',
             controller: 'SignUpCtrl',
-            size: 'lg'
+            size: 'md'
           }).result.then(function(res){
             
           });
