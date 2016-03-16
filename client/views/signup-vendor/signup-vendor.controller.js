@@ -5,14 +5,17 @@ angular.module('acholic')
     $scope.user = {};
 
     $scope.onSubmit= function(){
-      console.log($scope.user);
-      Auth.signupVendor($scope.user)
-          .then(function () {
-            $location.path('/');
-          })
-          .catch(function (err) {
-            console.log(err);
-          });
+      //submit more information to user
+      //customer -> vendor
+
+      // console.log($scope.user);
+      // Auth.signupVendor($scope.user)
+      //     .then(function () {
+      //       $location.path('/');
+      //     })
+      //     .catch(function (err) {
+      //       console.log(err);
+      //     });
     };
 
     angular.extend(this, {

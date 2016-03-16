@@ -54,8 +54,7 @@
 
 									<!-- Button -->
 									<div class="input-width" style="margin-top:15px; margin-bottom:15px;">
-										<button type="button" class="btn btn-danger" ng-click="activeTab(0)" data-toggle="tab" data-target="#account">Back</button>
-										<button type="button" class="btn btn-success" ng-click="activeTab(2)" data-toggle="tab" data-target="#contact">Next</button>
+										<button type="button" class="btn btn-success" ng-click="activeTab(1)" data-toggle="tab" data-target="#contact">Next</button>
 									</div>	
 
 								</form>
@@ -76,28 +75,11 @@
 
 									<!-- Button -->
 									<div class="input-width" style="margin-top:15px; margin-bottom:15px;">
-										<button type="button" class="btn btn-danger" ng-click="activeTab(1)" data-toggle="tab" data-target="#security">Back</button>
-										<button type="button" class="btn btn-success" ng-click="activeTab(3)" data-toggle="tab" data-target="#addimage">Next</button>
+										<button type="button" class="btn btn-danger" ng-click="activeTab(0)" data-toggle="tab" data-target="#security">Back</button>
+										<button ng-click="onSubmit()" type="button" class="btn btn-success">Submit</button>
+										<!-- <button type="button" class="btn btn-success" ng-click="activeTab(3)" data-toggle="tab" data-target="#addimage">Next</button> -->
 									</div>	
 								</form>
-							</center>
-				    	</div>
-				    	<div role="tabpanel" id="addimage" class="tab-pane">
-				      		<center>
-					      		<form>
-					      			<!-- //required -->
-					      			<div class="col-xs-12 col-sm-12 col-md-12">
-					      				<p style="font-size:20px">ADD IMAGE</p>
-					      			</div>
-					      			<div class="col-xs-12 col-sm-12 col-md-12 upload-image-style center-picture">
-										<upload-image image="user.image"></upload-image>
-									</div>
-					      			<!-- Button -->
-									<div class="col-xs-12 col-sm-12 col-md-12" style="margin-top:15px; margin-bottom:15px;">
-										<button type="button" class="btn btn-danger" ng-click="activeTab(2)" data-toggle="tab" data-target="#contact">Back</button>
-										<button ng-click="onSubmit()" type="button" class="btn btn-success">Submit</button>
-									</div>	
-								</form>								
 							</center>
 				    	</div>
 				  	</div>
