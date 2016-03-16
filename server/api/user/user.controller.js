@@ -45,7 +45,6 @@ exports.setVendor = function (req, res) {
     if (err) { return handleError(res, err); }
       user.role = "Vendor";
       user.save();
-      console.log(user);
       res.status(201).json({
         user: _.omit(user.toObject(), ['passwordHash', 'salt']),
         token: authService.signToken(user._id)
