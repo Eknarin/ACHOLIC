@@ -46,7 +46,7 @@ angular.module('acholic')
          //min price
         $scope.packages.price = $scope.findMinPrice();   
         $scope.gallery.$save().then(function(res){
-            $scope.packages.info.images = res._id;
+            $scope.packages.info.image_gallery = res._id;
             $scope.packages.$save().then(function(){
                 $location.path("/package");
             });
