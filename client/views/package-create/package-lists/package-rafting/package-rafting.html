@@ -215,7 +215,7 @@
 					        <!-- Level -->
 				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
-				   					<p class="package-create-topic-style">Level : </p>
+				   					<p class="package-create-topic-style">Highest Level : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8 package-create-bullet-group-style">
 									<input type="radio" name="level" ng-model="packages.info.level" value="Level 1"> Level 1 : Easy<br>
@@ -264,7 +264,7 @@
 										<span class="caret"></span>
 										<span class="sr-only">Toggle Dropdown</span>
 									</button>
-									<ul class="dropdown-menu scrollable-menu package-create-dropdown-list-style">
+									<ul class="dropdown-menu scrollable-menu2 package-create-dropdown-list-style">
 										<li ng-repeat="s in stageType" ng-model="packages.info.start_location" ng-click="setFirstStage(s)" value="s"><a href="#">{{s}}</a></li>
 									</ul>
 								</div>
@@ -283,7 +283,7 @@
 										<span class="caret"></span>
 										<span class="sr-only">Toggle Dropdown</span>
 									</button>
-									<ul class="dropdown-menu scrollable-menu package-create-dropdown-list-style">
+									<ul class="dropdown-menu scrollable-menu2 package-create-dropdown-list-style">
 										<li ng-repeat="s in stageType" ng-model="packages.info.end_location" ng-click="setLastStage(s)" value="s"><a href="#">{{s}}</a></li>
 									</ul>
 								</div>
