@@ -72,4 +72,8 @@ angular.module('acholic')
             
           });
         }; 
+    $scope.go = function ( path ) {
+    	console.log("A");
+	  	$location.path( path );
+	};
   }]);
