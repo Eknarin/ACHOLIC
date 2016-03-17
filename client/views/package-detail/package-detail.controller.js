@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('PackageDetailCtrl',['$scope','itemData','$rootScope','Comment',function ($scope , itemData, $rootScope, Comment) {
+  .controller('PackageDetailCtrl',['$scope','itemData','$rootScope','Comment','PackageGallery',function ($scope , itemData, $rootScope, Comment,PackageGallery) {
 
     $(window).scroll(function(){
       $scope.sticky_relocate();  
@@ -11,8 +11,15 @@ angular.module('acholic')
     $scope.comment = new Comment;
     $scope.comment.user_id = $rootScope._user._id;
     $scope.comment.package_id = $scope.packageItem._id;
+    $scope.imageGallery = [];
   	console.log($scope.packageItem);
   	$scope.comment.rate = 0;
+   
+    if($scope.packageItem.map_id.map_id.image_gallery){
+      PackageGallery.query({id: $scope.packageItem.map_id.map_id.image_gallery}).$promise.then(function(res){
+        $scope.imageGallery = res;
+      });
+    }
 
     Comment.query({package_id: $scope.packageItem._id}).$promise.then(function(res){
         $scope.comments = res;
@@ -20,7 +27,6 @@ angular.module('acholic')
 
     $scope.rate = 0;
     $scope.getStar = function(num) {
-    console.log("rate getStar :"+num);
     if(num == null){
       $scope.rate = 0;
     }
@@ -90,7 +96,6 @@ angular.module('acholic')
     return comdate;
   };
   $scope.sticky_relocate = function() {
-    console.log("STICK");
     var window_top = $(window).scrollTop();
     var div_top = $('#sticky-anchor').offset().top;
     if (window_top > div_top) {

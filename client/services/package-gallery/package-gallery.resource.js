@@ -8,6 +8,9 @@ angular.module('acholic')
       },
       save: {
       	method: 'POST'
+      },
+      query: {
+        methoo: 'GET'
       }
     });
   });
