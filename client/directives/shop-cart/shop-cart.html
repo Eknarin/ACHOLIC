@@ -1,4 +1,4 @@
-<div class="cart-button">
+<div class="shop-cart-button">
   <a class="navbar-btn btn-warning btn pull-right">
     <img src="../../image/cart.png" class="more-function" data-toggle="modal" data-target="#myModal">
   </a>
@@ -15,39 +15,46 @@
           <h4 class="package-modal-header">My Cart</h4>
         </div>
         <div class="modal-body">
-          <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding">
+          <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" >
             <div class="col-xs-5 col-sm-5 col-md-5 no-horizotal-padding">
-              <p class="add-to-cart-package-header">Package<p>
-            </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 no-horizotal-padding">
-              <p class="add-to-cart-package-header">Price ฿</p>
+              <p class="shop-cart-modal-header">Package<p>
             </div>
             <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
-              <p class="add-to-cart-package-header">Amount</p>
+              <p class="shop-cart-modal-header">Price (฿)</p>
             </div>
             <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
-              <p class="add-to-cart-package-header">Subtotal</p>
+              <p class="shop-cart-modal-header">Amount</p>
             </div>
-          </div>
+            <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
+              <p class="shop-cart-modal-header">Subtotal</p>
+            </div>
+            <div class="col-xs-1 col-sm-1 col-md-1 no-horizotal-padding">
+              
+            </div>
+
+          </div>          
           <HR WIDTH="100%" NOSHADE>
           <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" ng-repeat="c in cart">
             <div class="col-xs-5 col-sm-5 col-md-5 no-horizotal-padding">
-              <p class="add-to-cart-package-detail">{{c.package.name}}<p>
-            </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 no-horizotal-padding">
-              <p class="add-to-cart-package-detail">{{c.cart_item.price}}</p>
+              <p class="shop-cart-modal-detail">{{c.package.name}}<p>
             </div>
             <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
-              <p class="add-to-cart-package-detail">{{c.cart_item.amount}}</p>
+              <p class="shop-cart-modal-detail">{{c.cart_item.price}}</p>
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">             
+               <input class="shop-cart-modal-amount-box" ng-model="c.cart_item.amount" type="number" min="0" value="{{c.cart_item.amount}}"></input>
             </div>
             <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
-              <p class="add-to-cart-package-detail">{{c.sub_price}}</p>
+              <p class="shop-cart-modal-detail">{{c.sub_price}}</p>             
+            </div>
+            <div class="col-xs-1 col-sm-1 col-md-1 no-horizotal-padding" style="text-align:right;">
+              <button class="btn btn-danger" style="font-size:10px;">x</button>
             </div>
           </div>
       </div>
       <div class="modal-body bookmark-body-style" style="padding-bottom:15px;">
         <HR WIDTH="100%" NOSHADE>
-        <button type="submit" ng-click="viewCart()" class="btn btn-default"> View Cart </button>
+        <button type="submit" ng-click="closeModal()" class="btn btn-default"> Close </button>
         <button type="button" class="btn btn-default" style="background-color:#fbd300; color:white;" ng-click="checkout()"> Checkout </button>
       </div>
     </div>

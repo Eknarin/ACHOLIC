@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('ShoppingCartCtrl',['$scope','Auth','Cart','PackageItem', function ($scope,Auth,Cart,PackageItem) {
+  .controller('CheckoutCtrl',['$scope','Auth','Cart','PackageItem', function ($scope,Auth,Cart,PackageItem) {
   	$scope.userId = {};
   	$scope.cart = [];
   	$scope.loading = false;

@@ -57,12 +57,14 @@ angular.module('acholic')
           return uniquePackage;
         };
 
-        $scope.viewCart = function(){
-          location.href = "/shopping-cart";
+        $scope.closeModal = function(){
+          console.log("KKK");
+          // Cannot close, waiting for nice guy to fix it :)
+          // $uibModalInstance.close();
         };
 
         $scope.checkout = function(){
-          console.log("Checkout this cart");
+          location.href = "/checkout";
         };
 
         $scope.calSubTotal = function(item){

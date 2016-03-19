@@ -3,9 +3,9 @@
 angular.module('acholic')
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/shopping-cart', {
-        templateUrl: 'views/shopping-cart/shopping-cart.html',
-        controller: 'ShoppingCartCtrl',
+      .when('/checkout', {
+        templateUrl: 'views/checkout/checkout.html',
+        controller: 'CheckoutCtrl',
         access: {
 	        requiresLogin: true,
 	        requiredPermissions: ['Admin', 'Vendor','Customer']

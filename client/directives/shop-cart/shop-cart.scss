@@ -1,7 +1,32 @@
-.cart-button { 
+/*
+* Shopping Cart modal scss
+*/
+.shop-cart-modal-header{
+	color:#fb5858;
+  	font-size: 11px;
+}
+.shop-cart-modal-detail{
+	font-size: 11px;
+}
+.shop-cart-modal-amount-box{
+	width:40px;
+	font-size: 11px;
+}
+.shop-cart-button { 
 	position: fixed; 
 	bottom: 0px; 
 	right: 0px; 
 	padding-bottom: 90px;
 	padding-right: 15px;
+}
+@media(min-width:767px){
+	.shop-cart-modal-header{
+	  	font-size: 15px;
+	}
+	.shop-cart-modal-detail{
+		font-size: 15px;
+	}
+	.shop-cart-modal-amount-box{
+		font-size: 15px;
+	}
 }
