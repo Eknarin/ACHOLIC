@@ -12,35 +12,33 @@
 			<!-- My Cart Header -->
 			<div class="container">
 				<div class="col-xs-12 col-sm-12 col-md-12">
-					<p class="my-cart-header-size" style=" text-align:center;">My Cart</p>
+					<p class="checkout-header" style=" text-align:center;">Checkout</p>
 				</div>
 			</div>
 			<div class="container">
-				<!-- Add to cart table -->
-				<div class="col-xs-12 col-sm-7 col-md-7 my-cart-table-overflow no-horizotal-padding">
-					<table class="table my-cart-table">
+				<!-- Order Summary table -->
+				<div class="col-xs-12 col-sm-7 col-md-7 checkout-table-overflow no-horizotal-padding checkout-order-summary-cover">
+					<div class="col-xs-12 col-sm-12 col-md-12 checkout-order-summary-header">
+						<p>Order Summary</p>
+					</div>
+					<table class="table checkout-table">
 						<!-- Table Header -->
 					    <thead>
 					      <tr>
-					        <th class="my-cart-table-header">Image</th>
-					        <th class="my-cart-table-header">Name</th>
-					        <th class="my-cart-table-header">Price (฿)</th>
-					        <th class="my-cart-table-header">Amount</th>
-					        <th class="my-cart-table-header">Subtotal (฿)</th>
-					        <th class="my-cart-table-header">Delete</th>
+					        <th class="checkout-order-summary-table-header">Name</th>
+					        <th class="checkout-order-summary-table-header">Price (฿)</th>
+					        <th class="checkout-order-summary-table-header">Amount</th>
+					        <th class="checkout-order-summary-table-header">Subtotal (฿)</th>					       
 					      </tr>
 					    </thead>
 					    <!-- Table Detail -->
 					    <tbody>
 					      <tr ng-repeat="item in cart">
-					      	<td class="my-cart-table-detail">
-									<img style="width: 75px; height: 75px;" ng-src=api/images/{{item.package.image}}></img>
-							</td>
-					        <td class="my-cart-table-detail">{{item.package.name}}</td>
-					        <td class="my-cart-table-detail">{{item.cart_item.price}}</td>
-					        <td class="my-cart-table-detail"><input class="my-cart-input-number" type="number" min="0" placeholder="0" ng-model="item.cart_item.amount"></input></td>
-					        <td class="my-cart-table-detail">{{item.sub_price}}</td>
-					        <td class="my-cart-table-detail"><button class="btn btn-danger" ng-click="removeItem(item)">Delete</button></td>
+					        <td class="checkout-order-summary-table-detail">{{item.package.name}}</td>
+					        <td class="checkout-order-summary-table-detail">{{item.cart_item.price}}</td>
+					        <td class="checkout-order-summary-table-detail">{{item.cart_item.amount}}</td>
+					        <td class="checkout-order-summary-table-detail">{{item.sub_price}}</td>
+					       <!--  <td class="my-cart-table-detail"><button class="btn btn-danger" ng-click="removeItem(item)">Delete</button></td> -->
 					      </tr>
 					    </tbody>
 					  </table>
