@@ -1,6 +1,10 @@
 /**
  * shopping-cart.scss
  */
+.checkout-body-style{
+	min-height: 10px;
+	padding-bottom:200px;
+}
 .checkout-header{
  	font-size: 37px;
 }
@@ -25,9 +29,8 @@
 	font-size: 30px;
 	padding-top:10px; 
 	text-align:left;
-	// background-color: rgba(0,0,0,0.65);	
+	color: white;
 }
-
 .checkout-order-summary-table-header{
 	font-size: 16px;
 	padding-bottom: 0px;
@@ -37,46 +40,55 @@
 .checkout-order-summary-table-detail{
 	font-size: 13px;
 }
-.my-cart-input-number{
-	width:50px;
-	color:black;
+.checkout-payment-header{
+	font-size: 30px;
+	padding-top:10px; 
+	text-align:left;
+	color: white;
 }
-.my-cart-summary-header-box{
+.checkout-header-box{
 	background-color:rgba(0,0,0,0.85);
 	text-align:center;	
 }
-.my-cart-summary-detail-box{
+.checkout-detail-box{
 	background-color:rgba(0,0,0,0.65);
 	text-align:center;
 	padding-top: 15px;
 	padding-bottom: 15px;
 }
-.my-cart-summary-header{
+.checkout-header{
 	font-size: 23px;
 	color: white;
 	padding-top: 10px;
 }
-.my-cart-summary-detail{
-	font-size: 15px;
+.checkout-detail{
+	font-size: 14px;
 	color: white;
 	padding-top: 10px;
 }
+.checkout-total-price{
+	font-size: 22px;
+	color: #fb5858;
+}
 .my-cart-payment-button{
-	background-color:#fbd300; 
+	background-color:#e1bd00; 
 	color:white;
 }
 
 @media(min-width:767px){
+	.checkout-body-style{
+		min-height: 620px;
+	}
 	.checkout-header{
  		font-size:50px;
  	}
  	.checkout-order-summary-table-header{
 		font-size: 18px;
 	}
-	.my-cart-summary-header{
-		font-size: 30px;
-	}
 	.checkout-order-summary-table-detail{
 		font-size: 15px;
+	}
+	.checkout-total-price{
+		font-size: 25px;
 	}
 }

@@ -57,12 +57,6 @@ angular.module('acholic')
           return uniquePackage;
         };
 
-        $scope.closeModal = function(){
-          console.log("KKK");
-          // Cannot close, waiting for nice guy to fix it :)
-          // $uibModalInstance.close();
-        };
-
         $scope.checkout = function(){
           location.href = "/checkout";
         };
