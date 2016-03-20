@@ -1,0 +1,60 @@
+<!Doctype html>
+<html>
+	<head>
+		<title>ACHOLIC</title>
+		<meta charset = "utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<div class="container-fluid" style="padding-left:0px; padding-right:0px; background-color:rgba(0,0,0,0.85);">
+			<!-- Side menu-bar -->
+			<div class="col-xs-12 col-sm-12 col-md-3 side-menu-bar-cover">			
+				<!-- Sorting -->
+				<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="margin-bottom:10px;">
+					<div class="col-xs-12 col-sm-12 col-md-12">
+						<p style="font-size:30px;">Sort by</p>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:30px;">
+						<div>
+							<input type="checkbox" style="font-size:17px;"> Purchased Date</input>
+						</div>
+						<div>
+							<input type="checkbox" style="font-size:17px;"> Total Price</input>
+						</div>							
+					</div>										
+				</div>	
+			</div>
+			<!-- Bookmark Package -->
+			<div class="col-xs-12 col-sm-12 col-md-9" style="background-image:url('../../image/main-background.png'); padding-top:5%; padding-bottom:15%; padding-left:15px; padding-right:15px; min-height:620px;">
+				<!-- <div class="col-xs-12 col-sm-12 col-md-12">
+					<p>My Receipt</p>
+				</div> -->
+				<div class="col-xs-12 col-sm-12 col-md-12" style="margin-top:15px; margin-bottom:15px;">
+					<div class="col-xs-12 col-sm-1 col-md-1">
+					</div>
+					<!-- Receipt -->
+					<div class="col-xs-12 col-sm-9 col-md-9 receipt-cover">
+						<div class="col-xs-12 col-sm-7 col-md-7">
+							<p style="font-size:27px;">Serial Number</p>
+							<p style="font-size:15px;">Purchased Date</p>
+						</div>
+						<div class="col-xs-12 col-sm-5 col-md-5 no-horizotal-padding">
+							<div class="col-xs-12 col-sm-12 col-md-12">
+								<p class="receipt-total-price-style">Total Price</p>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-12 receipt-button-cover">
+								<!-- <div class="col-xs-6 col-sm-6 col-md-6"> -->
+									<button class="btn btn-primary" ng-click="openReceiptInfoModal()">View</button>
+								<!-- </div> -->
+								<!-- <div class="col-xs-6 col-sm-6 col-md-6"> -->
+									<button class="btn btn-danger">Delete</button>
+								<!-- </div> -->
+							</div>
+						</div>
+					</div>					
+				</div>				
+			</div>			
+		</div>
+
+	</body>
+</html>
