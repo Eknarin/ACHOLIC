@@ -25,6 +25,7 @@ angular.module('acholic')
   });
 
   $scope.loadBookmarks = function(){
+    console.log($scope.bookmarks);
     for(var i = 0 ; i<$scope.packages.length ;i++){
       for(var j = 0; j<$scope.bookmarks.length ;j++){
         if(!$scope.packages[i].bookmark)

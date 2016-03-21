@@ -161,9 +161,11 @@ exports.destroyFolder = function (req, res) {
   BookmarkFolder.findById(req.params.id, function (err, bookmark) {
     if (err) { return handleError(res, err); }
     if (!bookmark) { return res.status(404).end(); }
-    bookmark.remove(function (err) {
-      if (err) { return handleError(res, err); }
-      return res.status(204).end();
+    Bookmark.find({folder:req.params.id}).remove().exec(function(err,items){
+      bookmark.remove(function (err) {
+        if (err) { return handleError(res, err); }
+          return res.status(204).end();
+        });
     });
   });
 };

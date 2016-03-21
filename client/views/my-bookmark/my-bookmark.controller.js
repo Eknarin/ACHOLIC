@@ -17,9 +17,9 @@ angular.module('acholic')
 	    Bookmark.queryAlls({userId: $scope.user._id,page: 1}).$promise.then(function(res){
 	      $scope.bookmarks = res.docs;
 	      $scope.main_bookmark_total = res.total;
-		  $scope.limit = res.limit;
-		  $scope.totalItems = res.total;
-		  $scope.currentPage = res.page;
+  		  $scope.limit = res.limit;
+  		  $scope.totalItems = res.total;
+  		  $scope.currentPage = res.page;
 	      $scope.loading = true;
 	    });
 	 });
@@ -123,6 +123,13 @@ angular.module('acholic')
       { 
         var index = $scope.bookmarkFolders.indexOf(res);
         $scope.bookmarkFolders.splice(index, 1);
+         Bookmark.queryAlls({userId: $scope.user._id,page: 1}).$promise.then(function(book){
+          $scope.bookmarks = book.docs;
+          $scope.main_bookmark_total = book.total;
+          $scope.limit = book.limit;
+          $scope.totalItems = book.total;
+          $scope.currentPage = book.page;
+        });
       }
     });
   }; 
