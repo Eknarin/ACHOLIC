@@ -17,7 +17,7 @@ function handleError (res, err) {
  * @param res
  */
 exports.index = function (req, res) {
-  Bookmark.find({userId: req.query.userId, folder: req.query.folderId}).populate('packageId').exec(function (err, bookmarks) {
+  Bookmark.paginate({userId: req.query.userId, folder: req.query.folderId},{ page: req.query.page, limit: 8, populate: 'packageId'},function (err, bookmarks) {
     if (err) { return handleError(res, err); }
     return res.status(200).json(bookmarks);
   });
@@ -43,7 +43,7 @@ exports.indexAll = function (req, res) {
  * @param res
  */
 exports.indexAlls = function (req, res) {
-  Bookmark.paginate({userId: req.query.userId}, { page: req.query.page, limit: 9, populate: 'packageId'}, function (err, bookmarks) {
+  Bookmark.paginate({userId: req.query.userId}, { page: req.query.page, limit: 8, populate: 'packageId'}, function (err, bookmarks) {
     if (err) { return handleError(res, err); }
     return res.status(200).json(bookmarks);
   });

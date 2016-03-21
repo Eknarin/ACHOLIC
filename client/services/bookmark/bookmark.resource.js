@@ -19,8 +19,7 @@ angular.module('acholic')
         isArray: true
       },
       query:{
-        method: 'GET',
-        isArray: true
+        method: 'GET'
       },
       queryAll: {
         method: 'GET',
