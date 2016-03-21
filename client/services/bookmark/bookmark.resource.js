@@ -19,13 +19,16 @@ angular.module('acholic')
         isArray: true
       },
       query:{
-        method: 'GET',
-        isArray: true
+        method: 'GET'
       },
       queryAll: {
         method: 'GET',
         url: '/api/bookmarks/all',
         isArray: true
+      },
+      queryAlls: {
+        method: 'GET',
+        url: '/api/bookmarks/alls'
       },
       delete:{
         method: 'DELETE'

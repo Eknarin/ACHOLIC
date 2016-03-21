@@ -14,10 +14,21 @@ angular.module('acholic')
     $scope.imageGallery = [];
   	console.log($scope.packageItem);
   	$scope.comment.rate = 0;
+    var items = [];
    
     if($scope.packageItem.map_id.map_id.image_gallery){
       PackageGallery.query({id: $scope.packageItem.map_id.map_id.image_gallery}).$promise.then(function(res){
         $scope.imageGallery = res;
+
+        for (var i = 0; i < $scope.imageGallery.images.length; i++) {
+          var img_id = $scope.imageGallery.images[i];
+          items.push({
+            src : 'api/images/'+img_id,
+            w : 600,
+            h : 400
+          });
+        };
+
       });
     }
 
@@ -30,7 +41,7 @@ angular.module('acholic')
     if(num == null){
       $scope.rate = 0;
     }
-    else{     
+    else{
       $scope.rate = num;
     }
     return new Array(Math.floor($scope.rate));   
@@ -94,28 +105,28 @@ angular.module('acholic')
     var pswpElement = document.querySelectorAll('.pswp')[0];
     var items = [];
 
-    if($scope.imageGallery.images != null){
-      for (var i = 0; i < $scope.imageGallery.images.length; i++) {
-        var img_id = $scope.imageGallery.images[i];
-        items.push({
-          src : 'api/images/'+img_id,
-          w : 600,
-          h : 400
-        });
-      };
 
-      console.log(items);
+    if($scope.imageGallery.images != null)
+    for (var i = 0; i < $scope.imageGallery.images.length; i++) {
+      var img_id = $scope.imageGallery.images[i];
+      items.push({
+        src : 'api/images/'+img_id,
+        w : 600,
+        h : 400
+      });
+    };
 
-      var options = {
-          // optionName: 'option value'
-          // for example:
-          index: 0 // start at first slide
-      };
+    var options = {
+        // optionName: 'option value'
+        // for example:
+        history:false,
+        index: 0 // start at first slide
+    };
 
-      // Initializes and opens PhotoSwipe
-      var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
-      gallery.init();
-    }
+    // Initializes and opens PhotoSwipe
+    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+    gallery.init();
+
   };
   
   }]);
