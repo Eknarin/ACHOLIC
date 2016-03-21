@@ -6,7 +6,7 @@ angular.module('acholic')
       restrict: 'EA',
       templateUrl: 'directives/shop-cart/shop-cart.html',
       controller: ['$scope' , '$location','$uibModal', 'Auth','$rootScope','Cart','PackageItem',function($scope , $location ,$uibModal, Auth,$rootScope,Cart,PackageItem ) {
-      	$scope.userId = {};
+        $scope.userId = {};
         $scope.cart = [];
         $scope.loading = false;
         $scope.total_price = 0;
@@ -19,7 +19,10 @@ angular.module('acholic')
           PackageItem.list({items: packs}).$promise.then(function(res){
             $scope.package = res;
             $scope.getItemCart(temp_cart);
+            $scope.loading = true;
           });  
+        }).catch(function () {
+            $scope.loading = true;
         });
 
         $scope.getItemCart = function(carts){

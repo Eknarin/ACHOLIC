@@ -10,6 +10,7 @@ angular.module('acholic')
   $scope.currentPage = itemData.page;
   $scope.bookmarks = [];
   $scope.loading = false;
+  
   Auth.getUser().then(function(res){
    $scope.user = res;
     if($scope.user._id){
