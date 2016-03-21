@@ -38,8 +38,12 @@
 					        <tr>
 					          <th class="compare-table-header">Rating</th>
 					             <td class="compare-table-rating" ng-repeat="comparePackageItem in comparePackage.items">					             	
-					             	<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getStar(comparePackageItem.rating) track by $index" src="../image/star_rated.png">
+					             	<!-- <img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getStar(comparePackageItem.rating) track by $index" src="../image/star_rated.png">
 									<img style="width:20px;height:20px;margin-left: 3px;" ng-if="((comparePackageItem.rating)/2)%1 >= 0.5" src="../image/star_rated_half.png">
+									<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getWhite(comparePackageItem.rating) track by $index" src="../image/star_unrated.png"> -->
+									
+									<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getStar(comparePackageItem.rating) track by $index" src="../image/star_rated.png">
+									<img style="width:20px;height:20px;margin-left: 3px;" ng-if="comparePackageItem.rating%1 >= 0.5" src="../image/star_rated_half.png">
 									<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getWhite(comparePackageItem.rating) track by $index" src="../image/star_unrated.png">
 					             </td>	
 					        </tr>

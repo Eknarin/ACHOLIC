@@ -23,7 +23,7 @@
 					<div class="col-xs-12 col-sm-5 col-md-5 package-rating-style" style="padding-top:5px; padding-bottom:5px;">
 						<div class="col-xs-12 col-sm-12 col-md-12" style="" ng-app="" ng-init="nstar = 0" >
 							<img style="width:15px;height:15px;margin-left: 3px;" ng-repeat="i in getStar(packageItem.rating) track by $index" src="../image/star_rated.png">
-							<img style="width:15px;height:15px;margin-left: 3px;" ng-if="((packageItem.rating)/2)%1 >= 0.5" src="../image/star_rated_half.png">
+							<img style="width:15px;height:15px;margin-left: 3px;" ng-if="packageItem.rating%1 >= 0.5" src="../image/star_rated_half.png">
 							<img style="width:15px;height:15px;margin-left: 3px;" ng-repeat="i in getWhite(packageItem.rating) track by $index" src="../image/star_unrated.png">
 						</div>
 					</div>					
@@ -62,7 +62,8 @@
 						<input type="image" id="btn" ng-click="openGallery()" src="../image/more_pic.png" alt="Submit" width="48" height="48">
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-12">
-						<button type="button" class="btn package-button-style" style="background-color:#fb5858; color:white;">BookMark</button>
+						<button type="button" ng-show="packageItem.bookmark == null" class="btn package-button-style" style="background-color:#fb5858; color:white;">BookMark</button>
+						<button type="button" ng-show="packageItem.bookmark != null" class="btn package-button-style" style="background-color:#fb5858; color:white;">Unbookmark</button>
 					</div>
 					<!-- <div class="col-xs-12 col-sm-12 col-md-12">
 						<button type="button" class="btn package-button-style" style="background-color:#e1bd00; color:white;">Add to Cart</button>

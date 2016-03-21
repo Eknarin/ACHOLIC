@@ -25,17 +25,15 @@ angular.module('acholic')
         $scope.comments = res;
     });
 
-    $scope.rate = 0;
-    $scope.getStar = function(num) {
+  $scope.rate = 0;
+  $scope.getStar = function(num) {
     if(num == null){
       $scope.rate = 0;
     }
-    else{
-      // $scope.rate = num/2;
+    else{     
       $scope.rate = num;
     }
-        
-      return new Array(Math.floor($scope.rate));   
+    return new Array(Math.floor($scope.rate));   
   };
 
 	$scope.Math = window.Math;
@@ -46,25 +44,7 @@ angular.module('acholic')
       $scope.yStar = 0;
     }
     else{
-      // if((val/2)%1 == 0){
-      //   $scope.yStar = Math.floor(val/2);
-      // } else{
-      //   if(((val)/2)%1 >= 0.5){
-      //     $scope.yStar = Math.floor(val/2)+1;
-      //   }else{
-      //     $scope.yStar = Math.floor(val/2);
-      //   }
-      // }
-      if(val%1 == 0){
-        $scope.yStar = Math.floor(val/2);
-      } else{
-        if(val%1 >= 0.5){
-          $scope.yStar = Math.floor(val)+1;
-        }else{
-          $scope.yStar = Math.floor(val/2);
-        }
-      }
-
+      $scope.yStar = Math.round(val);
     }
     return new Array(5-$scope.yStar);
   };
@@ -80,12 +60,14 @@ angular.module('acholic')
 
   $('#input-id').on('rating.change', function(event, value, caption) {
     $scope.comment.rate = value;
+    console.log("Comment rate = "+value);
   });
 
   $scope.postComment = function(){
     $scope.comment.$save().then(function(res){
       $scope.comments.push(res);
-      // location.reload();
+
+      location.reload();
     });
   };
 
@@ -112,26 +94,28 @@ angular.module('acholic')
     var pswpElement = document.querySelectorAll('.pswp')[0];
     var items = [];
 
-    for (var i = 0; i < $scope.imageGallery.images.length; i++) {
-      var img_id = $scope.imageGallery.images[i];
-      items.push({
-        src : 'api/images/'+img_id,
-        w : 600,
-        h : 400
-      });
-    };
+    if($scope.imageGallery.images != null){
+      for (var i = 0; i < $scope.imageGallery.images.length; i++) {
+        var img_id = $scope.imageGallery.images[i];
+        items.push({
+          src : 'api/images/'+img_id,
+          w : 600,
+          h : 400
+        });
+      };
 
-    console.log(items);
+      console.log(items);
 
-    var options = {
-        // optionName: 'option value'
-        // for example:
-        index: 0 // start at first slide
-    };
+      var options = {
+          // optionName: 'option value'
+          // for example:
+          index: 0 // start at first slide
+      };
 
-    // Initializes and opens PhotoSwipe
-    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
-    gallery.init();
+      // Initializes and opens PhotoSwipe
+      var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+      gallery.init();
+    }
   };
   
   }]);

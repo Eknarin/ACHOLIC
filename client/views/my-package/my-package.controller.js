@@ -20,9 +20,7 @@ angular.module('acholic')
         floor: 0,//should find min price of package
         ceil: 10000//should find max price of package
       }
-    };
-
-    $scope.rate = 0;
+    };    
 
     $scope.filtering = function(){
       $scope.filter = {};
@@ -150,35 +148,7 @@ angular.module('acholic')
       $scope.createDate = $scope.temp.getDate() + "/" + ($scope.temp.getMonth() + 1) + "/" + $scope.temp.getFullYear();   
       return $scope.createDate;
     }
-     $scope.rate = 0;
-    $scope.getStar = function(num) {
-    if(num == null){
-      $scope.rate = 0;
-    }
-    else{
-      $scope.rate = num/2;
-    }
-        
-      return new Array(Math.floor($scope.rate));   
-  };
-  
-  $scope.getWhite = function(val){
-    if(val == null){
-      $scope.yStar = 0;
-    }
-    else{
-      if((val/2)%1 == 0){
-        $scope.yStar = Math.floor(val/2);
-      } else{
-        if(((val)/2)%1 >= 0.5){
-          $scope.yStar = Math.floor(val/2)+1;
-        }else{
-          $scope.yStar = Math.floor(val/2);
-        }
-      }
-    }
-    return new Array(5-$scope.yStar);
-  };  
+    
 
   $scope.openEditMyPackageModal = function(item){
            var modalInstance = $uibModal.open({
@@ -190,5 +160,29 @@ angular.module('acholic')
           }).result.then(function(res){
             
           });
-        }; 
+  };
+  $scope.rate = 0;
+  $scope.getStar = function(num) {
+    if(num == null){
+      $scope.rate = 0;
+    }
+    else{     
+      $scope.rate = num;
+    }
+    return new Array(Math.floor($scope.rate));   
+  };
+
+  $scope.Math = window.Math;
+    $scope.yStar = 0;
+
+  $scope.getWhite = function(val){
+    if(val == null){
+      $scope.yStar = 0;
+    }
+    else{
+      $scope.yStar = Math.round(val);
+    }
+    return new Array(5-$scope.yStar);
+  };
+   
   }]);

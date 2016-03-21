@@ -52,9 +52,9 @@
 								</div>
 								<!-- Rating -->
 								<div class="col-xs-12 col-sm-12 col-md-12">								
-									<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getStar(bookmark.packageId.rating) track by $index" ng-src="../image/star_rated.png">
-									<img style="width:20px;height:20px;margin-left: 3px;" ng-if="((bookmark.packageId.rating)/2)%1 >= 0.5" ng-src="../image/star_rated_half.png">
-									<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getWhite(bookmark.packageId.rating) track by $index" ng-src="../image/star_unrated.png">	
+									<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getStar(bookmark.packageId.rating) track by $index" src="../image/star_rated.png">
+									<img style="width:20px;height:20px;margin-left: 3px;" ng-if="bookmark.packageId.rating%1 >= 0.5" src="../image/star_rated_half.png">
+									<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getWhite(bookmark.packageId.rating) track by $index" src="../image/star_unrated.png">
 								</div>
 								<!-- Price -->
 								<div class="col-xs-12 col-sm-12 col-md-12 bookmark-package-price-style">

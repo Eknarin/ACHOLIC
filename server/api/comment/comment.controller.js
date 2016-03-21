@@ -49,12 +49,15 @@ exports.create = function (req, res) {
     var new_rating = 0;
     Comment.count({'package_id': comment.package_id},function(err,count){
     count_comments = count;
-
+    console.log("comment n: "+count_comments);
       PackageItem.findById(comment.package_id,function(err,packageItem){
         var r0 = packageItem.rating; 
+        console.log("package rate= "+r0);
+        console.log("latest rate= "+comment.rate);
         var temp1 = (r0*(count_comments-1))+comment.rate;
         var temp2 = temp1/count_comments;
         new_rating = Math.round(temp2 * 10) / 10;//rating of this package
+        console.log("cal rate = "+new_rating);
 
         packageItem.rating = new_rating;
         packageItem.save();

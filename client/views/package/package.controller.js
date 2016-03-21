@@ -24,7 +24,6 @@ angular.module('acholic')
       $scope.loading = true;
   });
 
-
   $scope.loadBookmarks = function(){
     for(var i = 0 ; i<$scope.packages.length ;i++){
       for(var j = 0; j<$scope.bookmarks.length ;j++){
@@ -99,8 +98,30 @@ angular.module('acholic')
 	  }
 	};
 
+  // $scope.rate = 0;
   $scope.rate = 0;
+  $scope.getStar = function(num) {
+    if(num == null){
+      $scope.rate = 0;
+    }
+    else{     
+      $scope.rate = num;
+    }
+    return new Array(Math.floor($scope.rate));   
+  };
 
+  $scope.Math = window.Math;
+    $scope.yStar = 0;
+
+  $scope.getWhite = function(val){
+    if(val == null){
+      $scope.yStar = 0;
+    }
+    else{
+      $scope.yStar = Math.round(val);
+    }
+    return new Array(5-$scope.yStar);
+  };
   $scope.filtering = function(){
     $scope.filter = {};
     $scope.filter.priceMin = $scope.slider.min;
@@ -111,16 +132,16 @@ angular.module('acholic')
     $scope.packages = PackageItem.filter($scope.filter);
   };
   
-  $scope.getStar = function(num) {
-    if(num == null){
-      $scope.rate = 0;
-    }
-    else{
-      $scope.rate = num/2;
-    }
+ //  $scope.getStar = function(num) {
+ //    if(num == null){
+ //      $scope.rate = 0;
+ //    }
+ //    else{
+ //      $scope.rate = num/2;
+ //    }
         
-	    return new Array(Math.floor($scope.rate));   
-	};
+	//     return new Array(Math.floor($scope.rate));   
+	// };
 	
 	$scope.rotate = function(){
 		$('#expandButt').toggleClass('rotate-180deg');
@@ -236,26 +257,26 @@ angular.module('acholic')
     $scope.guest = value;
   };
 
-  $scope.Math = window.Math;
-  $scope.yStar = 0;
+  // $scope.Math = window.Math;
+  // $scope.yStar = 0;
 
-  $scope.getWhite = function(val){
-    if(val == null){
-      $scope.yStar = 0;
-    }
-    else{
-      if((val/2)%1 == 0){
-        $scope.yStar = Math.floor(val/2);
-      } else{
-        if(((val)/2)%1 >= 0.5){
-          $scope.yStar = Math.floor(val/2)+1;
-        }else{
-          $scope.yStar = Math.floor(val/2);
-        }
-      }
-    }
-    return new Array(5-$scope.yStar);
-  };
+  // $scope.getWhite = function(val){
+  //   if(val == null){
+  //     $scope.yStar = 0;
+  //   }
+  //   else{
+  //     if((val/2)%1 == 0){
+  //       $scope.yStar = Math.floor(val/2);
+  //     } else{
+  //       if(((val)/2)%1 >= 0.5){
+  //         $scope.yStar = Math.floor(val/2)+1;
+  //       }else{
+  //         $scope.yStar = Math.floor(val/2);
+  //       }
+  //     }
+  //   }
+  //   return new Array(5-$scope.yStar);
+  // };
     $scope.openBookmarkModal = function(item){
            var modalInstance = $uibModal.open({
             animation: true,
