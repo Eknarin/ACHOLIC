@@ -14,6 +14,19 @@
 .receipt-button-cover{
 	text-align: center;
 }
+.modal-receipt-header{
+	color: #fb5858;
+	font-size: 11px;
+}
+.modal-receipt-detail{
+	font-size: 10px;
+}
+.modal-receipt-total-price{
+	font-size: 25px;
+	color: #e1bd00;
+	margin-bottom: 0px;
+	padding-top: 10px;
+}
 
 @media(min-width:767px){
 	.receipt-total-price-style{
@@ -21,5 +34,11 @@
 	}
 	.receipt-button-cover{
 		text-align: right;
+	}
+	.modal-receipt-header{
+		font-size: 17px;
+	}
+	.modal-receipt-detail{
+		font-size: 15px;
 	}
 }
