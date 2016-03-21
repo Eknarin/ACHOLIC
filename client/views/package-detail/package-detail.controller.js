@@ -1,20 +1,69 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('PackageDetailCtrl',['$scope','itemData','$rootScope','Comment','PackageGallery',function ($scope , itemData, $rootScope, Comment,PackageGallery) {
+  .controller('PackageDetailCtrl',['$scope','itemData','$rootScope','Comment','PackageGallery','Bookmark','Auth','$uibModal',function ($scope , itemData, $rootScope, Comment,PackageGallery,Bookmark,Auth,$uibModal) {
 
     $(window).scroll(function(){
       $scope.sticky_relocate();  
     });
-    
-  	$scope.packageItem = itemData;
+
+    $scope.packageItem = itemData;
     $scope.comment = new Comment;
     $scope.comment.user_id = $rootScope._user._id;
     $scope.comment.package_id = $scope.packageItem._id;
     $scope.imageGallery = [];
-  	console.log($scope.packageItem);
-  	$scope.comment.rate = 0;
+    console.log($scope.packageItem);
+    $scope.comment.rate = 0;
     var items = [];
+
+    $scope.like = false;
+    $scope.loading1 = false;
+
+    Auth.getUser().then(function(res){
+     $scope.user = res;
+      if($scope.user._id){
+        Bookmark.queryAll({userId: $scope.user._id}).$promise.then(function(res){
+          for (var i = 0; i < res.length; i++) {
+            if(res[i].packageId._id == itemData._id){
+              $scope.like = true;
+              $scope.packageItem.bookmark = res[i];
+            }
+          };
+          $scope.loading1 = true;
+        });
+      }
+    }).catch(function () {
+        $scope.loading1 = true;
+    });
+
+    $scope.openBookmarkModal = function(item){
+      console.log(item);
+       var modalInstance = $uibModal.open({
+        animation: true,
+        templateUrl: 'views/package/modal/modal-bookmark.html',
+        controller: 'BookmarkModalCtrl',
+        size: 'md',
+        resolve: {
+          folderData:['Bookmark',function(Bookmark){
+            return Bookmark.queryFolder({userId: $scope.user._id}).$promise;
+          }],
+          userData: $scope.user,
+          packageData: function () {
+            return item;
+          }
+        }
+      }).result.then(function(res){
+        $scope.like = true;
+      });
+    };
+
+    $scope.unlike = function(packageId){
+      //delete this package from bookmark
+      packageId.bookmark.$delete().then(function(res){
+        packageId.bookmark = null;
+        $scope.like = false;
+      });
+    };
    
     if($scope.packageItem.map_id.map_id.image_gallery){
       PackageGallery.query({id: $scope.packageItem.map_id.map_id.image_gallery}).$promise.then(function(res){

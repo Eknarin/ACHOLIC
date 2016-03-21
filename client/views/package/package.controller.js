@@ -57,7 +57,7 @@ angular.module('acholic')
     return false;
   };
 
-  $scope.like = function(packageId){
+  $scope.unlike = function(packageId){
     if(packageId.bookmark != null){
       packageId.bookmark.$delete().then(function(res){
         packageId.bookmark = null;
@@ -131,17 +131,6 @@ angular.module('acholic')
     $scope.filter.people = $scope.guest;
     $scope.packages = PackageItem.filter($scope.filter);
   };
-  
- //  $scope.getStar = function(num) {
- //    if(num == null){
- //      $scope.rate = 0;
- //    }
- //    else{
- //      $scope.rate = num/2;
- //    }
-        
-	//     return new Array(Math.floor($scope.rate));   
-	// };
 	
 	$scope.rotate = function(){
 		$('#expandButt').toggleClass('rotate-180deg');
@@ -257,26 +246,6 @@ angular.module('acholic')
     $scope.guest = value;
   };
 
-  // $scope.Math = window.Math;
-  // $scope.yStar = 0;
-
-  // $scope.getWhite = function(val){
-  //   if(val == null){
-  //     $scope.yStar = 0;
-  //   }
-  //   else{
-  //     if((val/2)%1 == 0){
-  //       $scope.yStar = Math.floor(val/2);
-  //     } else{
-  //       if(((val)/2)%1 >= 0.5){
-  //         $scope.yStar = Math.floor(val/2)+1;
-  //       }else{
-  //         $scope.yStar = Math.floor(val/2);
-  //       }
-  //     }
-  //   }
-  //   return new Array(5-$scope.yStar);
-  // };
     $scope.openBookmarkModal = function(item){
            var modalInstance = $uibModal.open({
             animation: true,
