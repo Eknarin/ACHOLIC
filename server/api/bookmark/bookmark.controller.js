@@ -43,8 +43,9 @@ exports.indexAll = function (req, res) {
  * @param res
  */
 exports.indexAlls = function (req, res) {
-  Bookmark.paginate({userId: req.query.userId}, { page: req.query.page, limit: 8, populate: 'packageId'}, function (err, bookmarks) {
+  Bookmark.paginate({userId: req.query.userId}, { page: req.query.page, limit: 8, populate: 'packageId',sort: {'rating': -1}},function (err, bookmarks) {
     if (err) { return handleError(res, err); }
+    console.log(bookmarks);
     return res.status(200).json(bookmarks);
   });
 };
@@ -91,8 +92,10 @@ exports.destroy = function (req, res) {
     if (err) { return handleError(res, err); }
     if (!bookmark) { return res.status(404).end(); }
     BookmarkFolder.findById(bookmark.folder, function(err,bookmarkFolder){
-      bookmarkFolder.total -= 1;
-      bookmarkFolder.save();
+      if(bookmarkFolder){
+        bookmarkFolder.total -= 1;
+        bookmarkFolder.save();
+      }
      });
     bookmark.remove(function (err) {
       if (err) { return handleError(res, err); }
@@ -137,7 +140,7 @@ exports.createFolder = function (req, res) {
  */
 exports.updateFolder = function (req, res) {
   if (req.body._id) { delete req.body._id; }
-  Bookmark.findById(req.params.id, function (err, bookmark) {
+  BookmarkFolder.findById(req.params.id, function (err, bookmark) {
     if (err) { return handleError(res, err); }
     if (!bookmark) { return res.status(404).end(); }
     var updated = _.merge(bookmark, req.body);
@@ -155,7 +158,7 @@ exports.updateFolder = function (req, res) {
  * @param res
  */
 exports.destroyFolder = function (req, res) {
-  Bookmark.findOne({'userId' : req.body.user,'folder': req.body.folder}, function (err, bookmark) {
+  BookmarkFolder.findById(req.params.id, function (err, bookmark) {
     if (err) { return handleError(res, err); }
     if (!bookmark) { return res.status(404).end(); }
     bookmark.remove(function (err) {

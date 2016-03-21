@@ -24,7 +24,7 @@ angular.module('acholic')
 	    });
 	 });
 
-  	$scope.selectFolder = function(folderId){
+  	$scope.selectFolder = function(folderId, event){
   		$scope.selected_folder = folderId;
   		if(folderId == 0){
   			Bookmark.queryAlls({userId: $scope.user._id,page: 1}).$promise.then(function(res){
@@ -41,6 +41,12 @@ angular.module('acholic')
 			  $scope.currentPage = res.page;
 		    });
 	  	}
+
+      var bookMarkButton = $(event.target);
+      
+      $('.bookmark-folder-button').removeClass('bookmark-folder-button-active');
+      bookMarkButton.addClass('bookmark-folder-button-active');
+      
   	};
 
   	$scope.pageChanged = function() {
@@ -66,6 +72,7 @@ angular.module('acholic')
 	};
   	
     $scope.unBookmark = function(bookmark){
+      console.log("UNBOOKMARK");
     	bookmark.$delete().then(function(res){
     		var index = $scope.bookmarks.indexOf(bookmark);
 			$scope.bookmarks.splice(index, 1);
@@ -108,12 +115,25 @@ angular.module('acholic')
       templateUrl: 'views/my-bookmark/modal/modal-edit-bookmark-folder.html',
       controller: 'EditBookmarkFolderModalCtrl',
       size: 'md',
-     
-    }).result.then(function(res){});
+      resolve: {
+        bookmarkData: item,
+      }
+    }).result.then(function(res){
+      if(res)
+      { 
+        var index = $scope.bookmarkFolders.indexOf(res);
+        $scope.bookmarkFolders.splice(index, 1);
+      }
+    });
   }; 
 
   $scope.go = function ( path ) {
 	  	$location.path( path );
 	};
+
+  $scope.activeButton = function(event){
+    
+  };
+
 
   }]);

@@ -270,21 +270,19 @@ angular.module('acholic')
               }
             }
           });
-        };
-    $scope.openAddToCartModal = function(item){
-           var modalInstance = $uibModal.open({
-            animation: true,
-            templateUrl: 'views/package/modal/modal-addToCart.html',
-            controller: 'AddToCartModalCtrl',
-            size: 'md',
-            resolve: {
-              packageData:['PackageItem', function(PackageItem){
-                return PackageItem.query({id : item}).$promise;
-              }],
-              userData: $scope.user
+  };
+  $scope.openAddToCartModal = function(item){
+    var modalInstance = $uibModal.open({
+          animation: true,
+          templateUrl: 'views/package/modal/modal-addToCart.html',
+          controller: 'AddToCartModalCtrl',
+          size: 'md',
+          resolve: {
+            packageData:['PackageItem', function(PackageItem){
+              return PackageItem.query({id : item}).$promise;
+            }],
+            userData: $scope.user
             }
-          }).result.then(function(res){
-            
-          });
+          }).result.then(function(res){});
         };        
   }]);
