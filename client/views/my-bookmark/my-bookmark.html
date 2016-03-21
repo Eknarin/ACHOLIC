@@ -30,11 +30,11 @@
 					<div class="col-xs-12 col-sm-12 col-md-12">
 						<p style="font-size:30px;">Bookmarks</p>
 					</div>
-					<div class="col-xs-12 col-sm-12 col-md-12 bookmark-folder-button bookmark-folder-button-active">
-						<a ng-click="selectFolder(0)" style="margin-bottom:0px;" > My bookmarks ({{main_bookmark_total}})</a>
+					<div class="col-xs-12 col-sm-12 col-md-12 bookmark-folder-button bookmark-folder-button-active" ng-click="selectFolder(0, $event)">
+						My bookmarks ({{main_bookmark_total}})
 					</div>
-					<div class="col-xs-12 col-sm-12 col-md-12 bookmark-folder-button bookmark-folder-button-active" ng-repeat="bookmarkFolder in bookmarkFolders">
-						<a ng-click="selectFolder(bookmarkFolder._id)" style="margin-bottom:0px;" > {{bookmarkFolder.folder}} ({{bookmarkFolder.total}})</a>							
+					<div class="col-xs-12 col-sm-12 col-md-12 bookmark-folder-button" ng-repeat="bookmarkFolder in bookmarkFolders" ng-click="selectFolder(bookmarkFolder._id, $event)">
+						{{bookmarkFolder.folder}} ({{bookmarkFolder.total}})
 						<img src="../../image/edit-bookmark-folder.png" style="width:25px; height:25px; float:right" ng-click="openEditBookmarkFolderModal()"></img>
 					</div>
 				</div>

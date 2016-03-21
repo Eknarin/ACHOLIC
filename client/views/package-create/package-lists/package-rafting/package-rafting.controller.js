@@ -113,7 +113,6 @@ angular.module('acholic')
     };
     $scope.setTab = function(index){        
         currenstate = index;
-        console.log(currenstate);
     };
 
     $scope.provinces = [
@@ -277,21 +276,7 @@ angular.module('acholic')
         ],
         zoom: 12
     };
-    // $scope.addMarker = function(event) {
-    //     var e = event.latLng;
-    //     var marker = {};
-    //     var _id = $scope.markers.length;
-    //     if (_id < 1) {
-    //         marker.position = [e.lat(),e.lng()];
-    //         marker.optimized = false;           
-    //         $scope.markers.push(marker);
-    //     }
-    // };
 
-    // $scope.drag = function(event,index){
-    //     var e = event.latLng;
-    //     $scope.markers[index].position = [e.lat(),e.lng()];
-    // };
     $scope.reRednerMap = function() {
       $timeout(function() {
          angular.forEach($scope.maps, function(index) {
@@ -342,9 +327,6 @@ angular.module('acholic')
             $scope.packages.info.location.long = marker.position[1];
             $scope.packages.info.location.location_text = place.formatted_address;
             $scope.reRednerMap();
-
-            // infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
-            // infowindow.open($scope.map, marker);      
         });
 
     };

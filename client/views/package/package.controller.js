@@ -119,6 +119,7 @@ angular.module('acholic')
     }
     else{
       $scope.yStar = Math.round(val);
+      console.log($scope.yStar);
     }
     return new Array(5-$scope.yStar);
   };
@@ -131,17 +132,6 @@ angular.module('acholic')
     $scope.filter.people = $scope.guest;
     $scope.packages = PackageItem.filter($scope.filter);
   };
-  
- //  $scope.getStar = function(num) {
- //    if(num == null){
- //      $scope.rate = 0;
- //    }
- //    else{
- //      $scope.rate = num/2;
- //    }
-        
-	//     return new Array(Math.floor($scope.rate));   
-	// };
 	
 	$scope.rotate = function(){
 		$('#expandButt').toggleClass('rotate-180deg');
@@ -256,28 +246,7 @@ angular.module('acholic')
   $scope.setGuest = function(value){
     $scope.guest = value;
   };
-
-  // $scope.Math = window.Math;
-  // $scope.yStar = 0;
-
-  // $scope.getWhite = function(val){
-  //   if(val == null){
-  //     $scope.yStar = 0;
-  //   }
-  //   else{
-  //     if((val/2)%1 == 0){
-  //       $scope.yStar = Math.floor(val/2);
-  //     } else{
-  //       if(((val)/2)%1 >= 0.5){
-  //         $scope.yStar = Math.floor(val/2)+1;
-  //       }else{
-  //         $scope.yStar = Math.floor(val/2);
-  //       }
-  //     }
-  //   }
-  //   return new Array(5-$scope.yStar);
-  // };
-    $scope.openBookmarkModal = function(item){
+  $scope.openBookmarkModal = function(item){
            var modalInstance = $uibModal.open({
             animation: true,
             templateUrl: 'views/package/modal/modal-bookmark.html',
@@ -301,21 +270,19 @@ angular.module('acholic')
               }
             }
           });
-        };
-    $scope.openAddToCartModal = function(item){
-           var modalInstance = $uibModal.open({
-            animation: true,
-            templateUrl: 'views/package/modal/modal-addToCart.html',
-            controller: 'AddToCartModalCtrl',
-            size: 'md',
-            resolve: {
-              packageData:['PackageItem', function(PackageItem){
-                return PackageItem.query({id : item}).$promise;
-              }],
-              userData: $scope.user
+  };
+  $scope.openAddToCartModal = function(item){
+    var modalInstance = $uibModal.open({
+          animation: true,
+          templateUrl: 'views/package/modal/modal-addToCart.html',
+          controller: 'AddToCartModalCtrl',
+          size: 'md',
+          resolve: {
+            packageData:['PackageItem', function(PackageItem){
+              return PackageItem.query({id : item}).$promise;
+            }],
+            userData: $scope.user
             }
-          }).result.then(function(res){
-            
-          });
+          }).result.then(function(res){});
         };        
   }]);
