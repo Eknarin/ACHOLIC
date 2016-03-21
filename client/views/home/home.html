@@ -103,18 +103,20 @@
 							<div class="recommend-package-style">
 								<ul style="padding-left: 0px; margin-bottom: 0px;">
 								    <li>
-								        <figure>
-								        		<div ng-if="package.image">
-													<img class="center-picture" ng-src="api/images/{{package.image}}" style="height:270px;"></img>
-												</div>
-												<div ng-if="!package.image">
-													<img class="center-picture" ng-src="../image/MostMark.png" style="height:270px;"></img>
-												</div>
-								            <figcaption> d
-								                <p class= "recommended-package-header recommended-header-overflow"><a href="/packageDetail/{{package._id}}" style="color:white">{{package.name}}</a></p>
-								               	<p class="recommended-package-detail text-padding recommended-description-overflow" style="text-align:left">{{package.description}}</p>
-								            </figcaption>
-								        </figure>
+								    	<a href="/packageDetail/{{package._id}}">
+									        <figure>
+									        		<div ng-if="package.image">
+														<img class="center-picture" ng-src="api/images/{{package.image}}" style="height:270px;"></img>
+													</div>
+													<div ng-if="!package.image">
+														<img class="center-picture" ng-src="../image/MostMark.png" style="height:270px;"></img>
+													</div>
+									            <figcaption>
+									                <p class= "recommended-package-header recommended-header-overflow" style="color:white">{{package.name}}</p>
+									               	<p class="recommended-package-detail text-padding recommended-description-overflow" style="text-align:left">{{package.description}}</p>
+									            </figcaption>
+									        </figure>
+								    	</a>
 								    </li>
 								</ul>
 							</div>
