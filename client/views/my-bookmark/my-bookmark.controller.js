@@ -108,8 +108,16 @@ angular.module('acholic')
       templateUrl: 'views/my-bookmark/modal/modal-edit-bookmark-folder.html',
       controller: 'EditBookmarkFolderModalCtrl',
       size: 'md',
-     
-    }).result.then(function(res){});
+      resolve: {
+        bookmarkData: item,
+      }
+    }).result.then(function(res){
+      if(res)
+      { 
+        var index = $scope.bookmarkFolders.indexOf(res);
+        $scope.bookmarkFolders.splice(index, 1);
+      }
+    });
   }; 
 
   $scope.go = function ( path ) {

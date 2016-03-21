@@ -35,7 +35,7 @@
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-12 bookmark-folder-button bookmark-folder-button-active" ng-repeat="bookmarkFolder in bookmarkFolders">
 						<a ng-click="selectFolder(bookmarkFolder._id)" style="margin-bottom:0px;" > {{bookmarkFolder.folder}} ({{bookmarkFolder.total}})</a>							
-						<img src="../../image/edit-bookmark-folder.png" style="width:25px; height:25px; float:right" ng-click="openEditBookmarkFolderModal()"></img>
+						<img src="../../image/edit-bookmark-folder.png" style="width:25px; height:25px; float:right" ng-click="openEditBookmarkFolderModal(bookmarkFolder)"></img>
 					</div>
 				</div>
 			</div>

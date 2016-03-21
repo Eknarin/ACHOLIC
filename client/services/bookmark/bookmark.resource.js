@@ -32,6 +32,10 @@ angular.module('acholic')
       },
       delete:{
         method: 'DELETE'
+      },
+      deleteFolder:{
+        method: 'DELETE',
+        url: '/api/bookmarks/folder/:id'
       }
     });
   });
