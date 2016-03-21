@@ -41,13 +41,14 @@ angular.module('acholic')
 			  $scope.currentPage = res.page;
 		    });
 	  	}
-
+      $scope.activeButton(event);
+  	};
+    $scope.activeButton = function(event){
       var bookMarkButton = $(event.target);
       
       $('.bookmark-folder-button').removeClass('bookmark-folder-button-active');
       bookMarkButton.addClass('bookmark-folder-button-active');
-      
-  	};
+    };
 
   	$scope.pageChanged = function() {
 	   if($scope.selected_folder == 0){
@@ -130,10 +131,5 @@ angular.module('acholic')
   $scope.go = function ( path ) {
 	  	$location.path( path );
 	};
-
-  $scope.activeButton = function(event){
-    
-  };
-
 
   }]);
