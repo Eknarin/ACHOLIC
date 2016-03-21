@@ -14,10 +14,21 @@ angular.module('acholic')
     $scope.imageGallery = [];
   	console.log($scope.packageItem);
   	$scope.comment.rate = 0;
+    var items = [];
    
     if($scope.packageItem.map_id.map_id.image_gallery){
       PackageGallery.query({id: $scope.packageItem.map_id.map_id.image_gallery}).$promise.then(function(res){
         $scope.imageGallery = res;
+
+        for (var i = 0; i < $scope.imageGallery.images.length; i++) {
+          var img_id = $scope.imageGallery.images[i];
+          items.push({
+            src : 'api/images/'+img_id,
+            w : 600,
+            h : 400
+          });
+        };
+
       });
     }
 
@@ -31,7 +42,6 @@ angular.module('acholic')
       $scope.rate = 0;
     }
     else{
-      // $scope.rate = num/2;
       $scope.rate = num;
     }
         
@@ -46,15 +56,6 @@ angular.module('acholic')
       $scope.yStar = 0;
     }
     else{
-      // if((val/2)%1 == 0){
-      //   $scope.yStar = Math.floor(val/2);
-      // } else{
-      //   if(((val)/2)%1 >= 0.5){
-      //     $scope.yStar = Math.floor(val/2)+1;
-      //   }else{
-      //     $scope.yStar = Math.floor(val/2);
-      //   }
-      // }
       if(val%1 == 0){
         $scope.yStar = Math.floor(val/2);
       } else{
@@ -121,11 +122,10 @@ angular.module('acholic')
       });
     };
 
-    console.log(items);
-
     var options = {
         // optionName: 'option value'
         // for example:
+        history:false,
         index: 0 // start at first slide
     };
 
