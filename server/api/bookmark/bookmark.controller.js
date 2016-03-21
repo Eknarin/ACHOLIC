@@ -43,8 +43,9 @@ exports.indexAll = function (req, res) {
  * @param res
  */
 exports.indexAlls = function (req, res) {
-  Bookmark.paginate({userId: req.query.userId}, { page: req.query.page, limit: 8, populate: 'packageId'}, function (err, bookmarks) {
+  Bookmark.paginate({userId: req.query.userId}, { page: req.query.page, limit: 8, populate: 'packageId',sort: {'rating': -1}},function (err, bookmarks) {
     if (err) { return handleError(res, err); }
+    console.log(bookmarks);
     return res.status(200).json(bookmarks);
   });
 };
