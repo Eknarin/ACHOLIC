@@ -6,6 +6,7 @@ var controller = require('./bookmark.controller');
 
 router.get('/', controller.index);
 router.get('/all', controller.indexAll);
+router.get('/alls', controller.indexAlls);
 router.post('/', controller.create);
 router.get('/folder', controller.indexFolder)
 router.post('/folder', controller.createFolder);

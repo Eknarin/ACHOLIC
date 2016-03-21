@@ -5,19 +5,31 @@ angular.module('acholic')
   	$scope.user = {};
   	$scope.bookmarks = [];
   	$scope.loading = false;
+  	$scope.main_bookmark_total = 0;
   	
   	Auth.getUser().then(function(res){
   		$scope.user = res;
 	    Bookmark.queryFolder({userId: $scope.user._id}).$promise.then(function(res){
 	      $scope.bookmarkFolders = res;
 	    });
+	    Bookmark.queryAlls({userId: $scope.user._id,page: 1}).$promise.then(function(res){
+	      $scope.bookmarks = res.docs;
+	      $scope.main_bookmark_total = res.total;
+	      $scope.loading = true;
+	    });
 	 });
 
   	$scope.selectFolder = function(folderId){
-  		Bookmark.query({userId: $scope.user._id, folderId: folderId}).$promise.then(function(res){
-	      $scope.bookmarks = res;
-	      $scope.loading = true;
-	    });
+  		if(folderId == 0){
+  			Bookmark.queryAlls({userId: $scope.user._id,page: 1}).$promise.then(function(res){
+		      $scope.bookmarks = res.docs;
+		      $scope.main_bookmark_total = res.total;
+		    });
+  		}else{
+	  		Bookmark.query({userId: $scope.user._id, folderId: folderId}).$promise.then(function(res){
+		      $scope.bookmarks = res;
+		    });
+	  	}
   	};
   	
     $scope.unBookmark = function(bookmark){

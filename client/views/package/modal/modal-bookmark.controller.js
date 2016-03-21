@@ -6,7 +6,7 @@ angular.module('acholic')
    	$scope.folders = folderData;
    	$scope.loading = false;
    	if($scope.folders.length < 1){
-   		Bookmark.saveFolder({user: userData._id , packageId: packageData, folder:"All"}).$promise.then(function(res){
+   		Bookmark.saveFolder({user: userData._id , packageId: packageData, folder:"My bookmarks"}).$promise.then(function(res){
 			$scope.folders.push(res);
 			$scope.loading = true;
 		});
