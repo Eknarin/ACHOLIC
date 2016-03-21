@@ -105,7 +105,34 @@ angular.module('acholic')
         $('#sticky').removeClass('stick');
         $('#sticky-anchor').height(0);
     }
-}
+  };
+
+  $scope.openGallery = function(){
+    
+    var pswpElement = document.querySelectorAll('.pswp')[0];
+    var items = [];
+
+    for (var i = 0; i < $scope.imageGallery.images.length; i++) {
+      var img_id = $scope.imageGallery.images[i];
+      items.push({
+        src : 'api/images/'+img_id,
+        w : 600,
+        h : 400
+      });
+    };
+
+    console.log(items);
+
+    var options = {
+        // optionName: 'option value'
+        // for example:
+        index: 0 // start at first slide
+    };
+
+    // Initializes and opens PhotoSwipe
+    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+    gallery.init();
+  };
   
   }]);
 
