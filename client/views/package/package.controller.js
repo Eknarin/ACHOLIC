@@ -99,6 +99,15 @@ angular.module('acholic')
 	  }
 	};
 
+  $scope.peopleslider = {
+    min: 0,
+    max: 10,
+    options: {
+      floor: 0,//should find min price of package
+      ceil: 10//should find max price of package
+    }
+  };
+
   // $scope.rate = 0;
   $scope.rate = 0;
   $scope.getStar = function(num) {
@@ -217,7 +226,7 @@ angular.module('acholic')
     {name: 'อุบลราชธานี'},
     {name: 'อำนาจเจริญ'}
   ];
-  $scope.selected = " Location ";
+  $scope.selected = " Province ";
   $scope.setProvince = function(value){
     console.log(value);
     $scope.selected = value;
