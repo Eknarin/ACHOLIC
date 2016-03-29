@@ -33,6 +33,10 @@ angular.module('acholic')
         method: 'GET',
         url: '/api/packageItem/recommend',
         isArray: true
+      },
+      package_type: {
+        method: 'GET',
+        url: '/api/packageItem/package-type'
       }
     });
   });

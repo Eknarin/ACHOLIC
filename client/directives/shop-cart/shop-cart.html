@@ -1,11 +1,39 @@
-<div class="shop-cart-button">
+<div class="shop-cart-button" ng-if="userId.length != null && cart.length != 0">
   <a class="navbar-btn btn-warning btn pull-right">
-    <img src="../../image/cart.png" class="more-function" data-toggle="modal" data-target="#myModal">
+    <img src="../../image/cart.png" class="more-function" data-toggle="modal" data-target="#cartModal">
+  </a>
+</div>
+<div class="shop-cart-button" ng-if="userId.length != null && cart.length == 0">
+  <a class="navbar-btn btn-warning btn pull-right">
+    <img src="../../image/cart.png" class="more-function" data-toggle="modal" data-target="#noCartModal">
   </a>
 </div>
 
 <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
+  <div class="modal fade" id="noCartModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="package-modal-header">My Cart</h4>
+        </div>
+        <div class="modal-body">
+          <h4>Your cart is now empty. Please add some package.</h4>
+        </div>
+        <div class="modal-body bookmark-body-style" style="padding-bottom:15px;">
+          <HR WIDTH="100%" NOSHADE>        
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+<!-- Modal -->
+  <div class="modal fade" id="cartModal" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
@@ -58,3 +86,4 @@
       </div>
     </div>
   </div>
+

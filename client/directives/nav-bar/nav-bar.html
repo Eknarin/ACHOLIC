@@ -35,7 +35,42 @@
               <div class="nav navbar-nav">
                 <!-- Dropdown utilities menu -->
                 <li ng-show="!Auth.isLogged()"><a href="/package" style="color:#fbd300; padding-top:25px; padding-bottom:25px;">Packages</a></li>
-                <li class="dropdown" ng-show="Auth.isLogged()">
+                <li class="dropdown" ng-show="Auth.isLogged() && user.role == 'Customer'">
+                  <a class="dropdown-toggle" href="#" data-toggle="dropdown" style="color:#fbd300;text-align:center;"><img src="../image/more.png" class="more-info-button"></a>
+                  <ul class="dropdown-menu dropdown-menu-right drop-arrow" style="width:300px;">
+                   <!-- User function -->
+                   <!-- first row -->
+                    <div class="col-xs-4 col-sm-4 col-md-4 user-function-last">
+                      <a href="/package" style="color:black">
+                        <img src="../image/globe.png" class="more-function">
+                        <p>Packages</p>
+                      </a>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 user-function">
+                      <a href="/compare" style="color:black">
+                        <img src="../image/compare.png" class="more-function">
+                        <p>Compare Packages</p>
+                      </a>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 user-function">
+                      <a href="/my-bookmark" style="color:black">
+                        <img src="../image/myBookmark.png" class="more-function">
+                        <p>My Bookmarks</p>
+                      </a>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12" style="background-color:white;">
+                      <li role="separator" class="divider"></li>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 user-function-last">
+                      <a href="/my-receipt" style="color:black">
+                        <img src="../image/receipt.png" class="more-function">
+                        <p>My Receipts</p>
+                      </a>
+                    </div>
+                    <li>&nbsp</li>
+                  </ul>
+                </li>
+                <li class="dropdown" ng-show="Auth.isLogged() && user.role == 'Vendor'">
                   <a class="dropdown-toggle" href="#" data-toggle="dropdown" style="color:#fbd300;text-align:center;"><img src="../image/more.png" class="more-info-button"></a>
                   <ul class="dropdown-menu dropdown-menu-right drop-arrow" style="width:300px;">
                    <!-- User function -->
@@ -73,23 +108,12 @@
                         <p>My Bookmarks</p>
                       </a>
                     </div>
-                    <!-- second row -->
-                   <!--  <div class="col-xs-4 col-sm-4 col-md-4 user-function-last">
-                      <a href="/shopping-cart" style="color:black">
-                        <img src="../image/cart.png" class="more-function">
-                        <p>My Cart</p>
-                      </a>
-                    </div> -->
                     <div class="col-xs-4 col-sm-4 col-md-4 user-function-last">
                       <a href="/my-receipt" style="color:black">
                         <img src="../image/receipt.png" class="more-function">
                         <p>My Receipts</p>
                       </a>
                     </div>
-                   <!--  <div class="col-xs-4 col-sm-4 col-md-4 user-function-last">
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-4 user-function-last">
-                    </div> -->
                     <li>&nbsp</li>
                   </ul>
                 </li>
@@ -115,7 +139,7 @@
                         <p class="nav-profile-name-style user-text-overflow">{{user.first_name}} {{user.last_name}}</p> 
                       </div>
                       <div class="col-xs-12 col-sm-12 col-md-12">
-                        <p class="nav-profile-name-style">{{user.role.role}}</p> 
+                        <p class="nav-profile-name-style">{{user.role}}</p> 
                       </div>
                       <div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center">
                         <a href="/profile" class="btn btn-primary" role="button" style="color:white;">My Profile</a>

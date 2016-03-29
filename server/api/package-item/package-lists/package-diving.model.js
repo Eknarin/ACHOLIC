@@ -15,7 +15,11 @@ var DivingSchema = new Schema({
 	sight: Number,
 	sea_depth: Number,
 	level: Number,
-	season: String,	
+	season:{
+		year: String,
+		month1: String,
+		month2: String
+	},	
 	sea: String,
 	age_limit: Number,
 	activites: String,

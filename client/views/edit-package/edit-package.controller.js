@@ -1,8 +1,24 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('EditPackageCtrl',['$scope','PackageItem','$location','$rootScope','$timeout','PackageGallery',function ($scope , PackageItem ,$location , $rootScope , $timeout,PackageGallery) {
-  	$scope.packages = {};
+  .controller('EditPackageCtrl',['$scope','PackageItem','$location','$rootScope','$timeout','PackageGallery','packageData',function ($scope, PackageItem ,$location , $rootScope , $timeout,PackageGallery,packageData) {
+  	$scope.packages = packageData;
+    $scope.packageType = PackageItem.package_type({id : packageData.map_id._id}).$promise.then(function(res){
+        $scope.packages.map_id = res.map_id;
+        $scope.provide = res.map_id.equipments_provide;
+        $scope.require = res.map_id.equipments_require;
+        $scope.skill = res.map_id.skills_require;
+        $scope.activities = res.map_id.activities;
+        $scope.seas = res.map_id.season.year;
+        $scope.month1 = res.map_id.season.month1;
+        $scope.month2 = res.map_id.season.month2;
+        $scope.stageType = res.map_id.stage_type;
+        $scope.firstStage = res.map_id.start_location;
+        $scope.lastStage = res.map_id.end_location;
+        $scope.priceArrs = res.map_id.info;
+        $scope.prepration = res.map_id.prepration;
+        $scope.testMap = res.map_id.location.location_text;
+    });
     $scope.gallery = new PackageGallery;
     $scope.gallery.images = [];
     $scope.packages.info = {};
@@ -45,12 +61,13 @@ angular.module('acholic')
 
          //min price
         $scope.packages.price = $scope.findMinPrice();   
-        $scope.gallery.$save().then(function(res){
-            $scope.packages.info.images = res._id;
-            $scope.packages.$save().then(function(){
-                $location.path("/package");
-            });
-        });   
+        // $scope.gallery.$save().then(function(res){
+        //     $scope.packages.info.images = res._id;
+        //     $scope.packages.$save().then(function(){
+        //         $location.path("/package");
+        //     });
+        // });   
+        console.log('Under maintiance');
     };
 
     $scope.stageType = [];
@@ -113,7 +130,6 @@ angular.module('acholic')
     };
     $scope.setTab = function(index){        
         currenstate = index;
-        console.log(currenstate);
     };
 
   $scope.seas = "Whole year";

@@ -164,7 +164,7 @@
 				   					<p class="package-create-topic-style">Age not under : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.info.age_limit" class="package-create-inputbox-style" type="number" min="0" placeholder="0" required>
+					        		<input ng-model="packages.map_id.age_limit" class="package-create-inputbox-style" type="number" min="0" placeholder="0" required>
 					       		</div>
 				        	</div>	
 		   				</div>
@@ -179,7 +179,7 @@
 				   					<p class="package-create-topic-style">Rafting place : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.info.river_line" class="package-create-inputbox-style" type="text" required>
+					        		<input ng-model="packages.map_id.river_line" class="package-create-inputbox-style" type="text" required>
 					       		</div>
 				        	</div>
 				        	<!-- River Width -->
@@ -188,7 +188,7 @@
 				   					<p class="package-create-topic-style">Width (m) : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.info.river_width" class="package-create-inputbox-style" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+					        		<input ng-model="packages.map_id.river_width" class="package-create-inputbox-style" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
 					       		</div>
 				        	</div>	
 				        	<!-- River Depth -->
@@ -197,7 +197,7 @@
 				   					<p class="package-create-topic-style">Depth (m) : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.info.river_depth" class="package-create-inputbox-style" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+					        		<input ng-model="packages.map_id.river_depth" class="package-create-inputbox-style" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
 					       		</div>
 				        	</div>	
 				        	
@@ -455,7 +455,7 @@
 				       				<p class="package-create-topic-style">Preparation : </p>
 				       			</div>
 				       			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<textarea  ng-model="packages.info.prepration"  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Wear comforable suit"></textarea >
+					        		<textarea  ng-model="prepration"  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Wear comforable suit"></textarea >
 					        	</div>
 				        	</div>
 					    </div>
@@ -502,7 +502,7 @@
 			            </div>
 			            <div class="col-xs-12 col-sm-12 col-md-12" style="text-align: center; margin-top:20px;">
 			            	<button type="button" class="btn btn-danger" ng-click="previousTab()">Back</button>
-							<button type="button" class="btn btn-success" ng-click="onSubmit()">Create</button>
+							<button type="button" class="btn btn-success" ng-click="onSubmit()">Save</button>
 			            </div>	
 				    </div>
 				</div>		            		            	            
