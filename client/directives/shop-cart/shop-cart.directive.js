@@ -5,12 +5,22 @@ angular.module('acholic')
     return {
       restrict: 'EA',
       templateUrl: 'directives/shop-cart/shop-cart.html',
-      controller: ['$scope' , '$location','$uibModal', 'Auth','$rootScope','Cart','PackageItem',function($scope , $location ,$uibModal, Auth,$rootScope,Cart,PackageItem ) {
+      controller: ['$scope' , '$location','$uibModal', 'Auth','$rootScope','Cart','PackageItem','$cookies',function($scope , $location ,$uibModal, Auth,$rootScope,Cart,PackageItem, $cookies ) {
         $scope.userId = {};
         $scope.cart = [];
         $scope.loading = false;
         $scope.total_price = 0;
         $scope.package = [];
+
+        $scope.reloadCart = function() { 
+          $scope.cart = [];
+          var temp_cart = Cart.getCart($scope.userId);
+          var packs = $scope.removeDuplicate(temp_cart);
+          PackageItem.list({items: packs}).$promise.then(function(res){
+            $scope.package = res;
+            $scope.getItemCart(temp_cart);
+          });  
+        };
 
         Auth.getUser().then(function(res){
           $scope.userId = res._id;
