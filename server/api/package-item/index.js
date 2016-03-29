@@ -5,6 +5,7 @@ var router = express.Router();
 var controller = require('./package-item.controller');
 
 router.get('/', controller.index);
+router.get('/package-type',controller.package_type)
 router.get('/list', controller.indexList);
 router.get('/myPackage', controller.myPackage);
 router.get('/filter', controller.filter);

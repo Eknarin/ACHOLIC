@@ -70,6 +70,26 @@ function checkPackage (type) {
  });
 };
 
+/**
+ * Get list of PackageItem
+ *
+ * @param req
+ * @param res
+ */
+ exports.package_type = function (req, res) {
+  PackageMap.findById(req.query.id).exec(function(err, result) {
+     if (err) { return handleError(res, err); }
+     var options = {
+          path: 'map_id',
+          model: result.map_table
+        };
+
+     PackageMap.populate(result ,options, function (err, packageDetail) {
+      return res.status(200).json(packageDetail);
+     });
+   });
+};
+
 
 /**
  * Get list of PackageItem filter

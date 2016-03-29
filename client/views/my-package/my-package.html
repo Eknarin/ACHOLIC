@@ -80,11 +80,11 @@
 								<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding">
 									<!-- Package Name -->
 									<div class="col-xs-10 col-sm-10 col-md-10 text-padding package-header-overflow" style="padding-top:10px">
-										<p style="font-size: 25px;"><a href="/packageDetail/{{package._id}}" style="color:white">{{p.name}}</a></p>	
+										<p style="font-size: 25px;"><a href="/packageDetail/{{p._id}}" style="color:white">{{p.name}}</a></p>	
 									</div>
 									<!-- Edit Package -->
 									<div class="col-xs-2 col-sm-2 col-md-2 text-padding package-description-overflow" style="padding-top:10px; text-align:center;">
-										<img src="../../image/edit-my-package.png" style="width:30px; height:30px;" ng-click="openEditMyPackageModal()"></img>
+										<img src="../../image/edit-my-package.png" style="width:30px; height:30px;" ng-click="openEditMyPackageModal(p)"></img>
 									</div>
 								</div>
 								<!-- Package Rating -->

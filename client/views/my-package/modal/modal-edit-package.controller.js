@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('EditMyPackageModalCtrl',['$scope','$uibModalInstance', '$location', function ($scope, $uibModalInstance, $location) {
+  .controller('EditMyPackageModalCtrl',['$scope','$uibModalInstance', '$location','packageData', function ($scope, $uibModalInstance, $location,packageData) {
    $scope.closeModal = function(){
       $uibModalInstance.close();
   };
   $scope.openEditPage = function(){
-  	$location.path('/edit-package');
+  	$location.path('/edit-package/'+packageData._id);
   	$uibModalInstance.close();
   };
 }]);

@@ -8,7 +8,6 @@ angular.module('acholic')
   		$scope.user = res;
   		PackageItem.myPackage({q: $scope.user._id , page: 1}).$promise.then(function(res){
 	  		$scope.package = res.docs;
-	  		console.log($scope.package);
   		});
   	});
 
@@ -156,7 +155,9 @@ angular.module('acholic')
             templateUrl: 'views/my-package/modal/modal-edit-package.html',
             controller: 'EditMyPackageModalCtrl',
             size: 'md',
-           
+            resolve: {
+              packageData: item
+            }
           }).result.then(function(res){
             
           });

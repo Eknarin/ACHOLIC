@@ -29,8 +29,11 @@ angular.module('acholic')
         $scope.packages.info.activities = $scope.activities.split(",");
 
         //season
-        $scope.packages.info.season = $scope.seas+$scope.month1+$scope.month2;
-
+        $scope.packages.info.season.year = $scope.seas;
+        $scope.packages.info.season.month1 = $scope.month1;
+        $scope.packages.info.season.month2 = $scope.month2;
+        //stage
+        $scope.packages.info.stages = $scope.stages;
         //stage type
         $scope.packages.info.stage_type = $scope.stageType;
 
