@@ -228,6 +228,17 @@ angular.module('acholic')
   $scope.setMonth2 = function(value){
     $scope.month2 = " to "+value;
   };
+  $scope.boats = [
+    {type : 'เรือยาง'},
+    {type : 'แพ'},
+    {type : 'แคนู'},
+    {type : 'คายัค'}
+  ];
+  
+  $scope.setBoat = function(value){    
+    $scope.boat_type = value;
+  }
+
 
   $scope.priceArrs = [];
   $scope.addPrice = function(){
@@ -235,7 +246,9 @@ angular.module('acholic')
     var addPeople = $scope.packages.info.info.people;
     var addDistance = $scope.packages.info.info.distance;
     var addDuration = $scope.packages.info.info.duration;
-    var addBoat = $scope.packages.info.info.boat_type;
+    // var addBoat = $scope.packages.info.info.boat_type;
+    var addBoat = $scope.boat_type;
+    
     var priceObj = {
         price: addPrice, 
         people: addPeople, 

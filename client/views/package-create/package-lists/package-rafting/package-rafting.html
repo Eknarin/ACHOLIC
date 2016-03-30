@@ -57,15 +57,15 @@
 		    	 	<div  style="text-align: center;">
 			            <p class="fillform-content-header"> General Information</p>
 			        </div>
-			        <!-- Picture for persuade create package -->
+			      	<!-- Blank indent -->
 		    		<div class="col-xs-12 col-sm-2 col-md-2">
 		    		</div>
 		    		<!-- Input General Information -->
-			        <div class="col-xs-12 col-sm-8 col-md-8 fillform-content-style">           
+			        <div class="col-xs-12 col-sm-8 col-md-8 fillform-content-style">   
 			        	<!-- Package Name -->
 			        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 			       			<div class="col-xs-12 col-sm-12 col-md-4">
-			   					<p class="package-create-topic-style">Pakage Name : </p>
+			   					<p class="package-create-topic-style"><font class="required-box">*</font> Pakage Name : </p>
 		    				</div>
 			      			<div class="col-xs-12 col-sm-12 col-md-8">
 				        		<input ng-model="packages.name" class="package-create-inputbox-style" type="text" required>
@@ -74,7 +74,7 @@
 			        	<!-- Description -->
 			        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 			        		<div class="col-xs-12 col-sm-12 col-md-4">
-			       				<p class="package-create-topic-style">Description : </p>
+			       				<p class="package-create-topic-style"><font class="required-box">*</font> Description : </p>
 			       			</div>
 			        		<div class="col-xs-12 col-sm-12 col-md-8">
 			        			<textarea ng-model="packages.description" class="package-create-inputbox-style form-control" rows="5" required></textarea>
@@ -84,22 +84,11 @@
 			        	<!-- Location -->
 			        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 			        		<div class="col-xs-12 col-sm-12 col-md-4">
-			   					<p class="package-create-topic-style">Location : </p>
+			   					<p class="package-create-topic-style"><font class="required-box">*</font> Location : </p>
 		    				</div>
 		    				<div class="col-xs-12 col-sm-12 col-md-8">
-			        			<!-- ng-model="packages.description" -->
 			        			<input id="test"ng-model="testMap" ng-keypress="geocodeAddress()" class="package-create-inputbox-style form-control" required></input>
 			        		</div>
-			        		<!-- <div class="col-xs-12 col-sm-12 col-md-8 btn-group package-create-dropdown-cover-style">
-				        		<button type="button" class="btn btn-default package-create-dropdown-input-style" ng-bind='selected'> Province </button>
-								<button type="button" class="btn btn-default dropdown-toggle package-create-dropdown-button-style" data-toggle="dropdown">
-									<span class="caret"></span>
-									<span class="sr-only">Toggle Dropdown</span>
-								</button>
-								<ul class="dropdown-menu scrollable-menu package-create-dropdown-list-style">
-									<li ng-repeat="p in provinces" ng-model="packages.info.location.province" ng-click="setProvince(p.name)" value="p.name"><a href="#">{{p.name}}</a></li>
-								</ul>
-							</div> -->
 			        	</div>
 
 			        	<!-- Map -->
@@ -145,9 +134,9 @@
 		        					<input type="radio" name="season" ng-model="seas" value="Whole Year"> Whole Year<br>
 									<input type="radio" name="season" ng-model="seas" value="From "> From 
 										<div class="col-xs-12 col-sm-12 col-md-12">
-											<div class="btn-group">
-												<button type="button" class="btn btn-default package-create-season-select" ng-bind='month1'> Start Month </button>
-												<button type="button" class="btn btn-default dropdown-toggle package-create-season-button" data-toggle="dropdown">
+											<div class="btn-group" style="margin-bottom:15px;">
+												<button type="button" class="btn btn-default package-create-dropdown-select" ng-bind='month1'> Start Month </button>
+												<button type="button" class="btn btn-default dropdown-toggle package-create-dropdown-menu-button" data-toggle="dropdown">
 												<span class="caret"></span>
 												<span class="sr-only">Toggle Dropdown</span>
 												</button>
@@ -157,8 +146,8 @@
 											</div>
 											to
 											<div class="btn-group">
-												<button type="button" class="btn btn-default package-create-season-select" ng-bind='month2'> End Month </button>
-												<button type="button" class="btn btn-default dropdown-toggle package-create-season-button" data-toggle="dropdown">
+												<button type="button" class="btn btn-default package-create-dropdown-select" ng-bind='month2'> End Month </button>
+												<button type="button" class="btn btn-default dropdown-toggle package-create-dropdown-menu-button" data-toggle="dropdown">
 												<span class="caret"></span>
 												<span class="sr-only">Toggle Dropdown</span>
 												</button>
@@ -186,36 +175,36 @@
 					        </div>
 					        <!-- River Name -->
 				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
-				       			<div class="col-xs-12 col-sm-12 col-md-4">
-				   					<p class="package-create-topic-style">Rafting place : </p>
+				       			<div class="col-xs-12 col-sm-12 col-md-4" style="padding-right:0px;">
+				   					<p class="package-create-topic-style"><font class="required-box">*</font> Rafting place : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
 					        		<input ng-model="packages.info.river_line" class="package-create-inputbox-style" type="text" required>
 					       		</div>
 				        	</div>
 				        	<!-- River Width -->
-				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
+				        	<!-- <div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
 				   					<p class="package-create-topic-style">Width (m) : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
 					        		<input ng-model="packages.info.river_width" class="package-create-inputbox-style" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
 					       		</div>
-				        	</div>	
+				        	</div>	 -->
 				        	<!-- River Depth -->
-				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
+				        	<!-- <div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
 				   					<p class="package-create-topic-style">Depth (m) : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
 					        		<input ng-model="packages.info.river_depth" class="package-create-inputbox-style" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
 					       		</div>
-				        	</div>	
+				        	</div>	 -->
 				        	
 					        <!-- Level -->
 				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
-				       			<div class="col-xs-12 col-sm-12 col-md-4">
-				   					<p class="package-create-topic-style">Highest Level : </p>
+				       			<div class="col-xs-12 col-sm-12 col-md-4" style="padding-right:0px;">
+				   					<p class="package-create-topic-style"><font class="required-box">*</font> Highest Level : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8 package-create-bullet-group-style">
 									<input type="radio" name="level" ng-model="packages.info.level" value="Level 1"> Level 1 : Easy<br>
@@ -254,10 +243,6 @@
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
 				   					<p class="package-create-topic-style">First Stage : </p>
 			    				</div>
-
-				      			<!-- <div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.info.start_location" class="package-create-inputbox-style" type="text" required>
-					       		</div> -->
 					       		<div class="col-xs-12 col-sm-12 col-md-8 btn-group package-create-dropdown-cover-style">
 							       	<button type="button" class="btn btn-default package-create-dropdown-input-style" ng-bind='firstStage'> Stage </button>
 									<button type="button" class="btn btn-default dropdown-toggle package-create-dropdown-button-style" data-toggle="dropdown">
@@ -274,9 +259,6 @@
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
 				   					<p class="package-create-topic-style">Last Stage : </p>
 			    				</div>
-				      			<!-- <div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.info.end_location" class="package-create-inputbox-style" type="text" required>
-					       		</div> -->
 					       		<div class="col-xs-12 col-sm-12 col-md-8 btn-group package-create-dropdown-cover-style">
 							       	<button type="button" class="btn btn-default package-create-dropdown-input-style" ng-bind='lastStage'> Stage </button>
 									<button type="button" class="btn btn-default dropdown-toggle package-create-dropdown-button-style" data-toggle="dropdown">
@@ -301,53 +283,62 @@
 					        <!-- Boat Type -->
 				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
-				   					<p class="package-create-topic-style">Boat Type : </p>
-			    				</div>
-				      			<div class="col-xs-12 col-sm-12 col-md-8"> 						            
-						           <input ng-model="packages.info.info.boat_type" class="package-create-inputbox-style" name="boat0" type="text" required>
-					       		</div>
+				   					<p class="package-create-topic-style"><font class="required-box">*</font> Boat Type : </p>
+			    				</div>				      			
+					       		<div class="col-xs-12 col-sm-12 col-md-8">
+						       		<div class="btn-group">
+										<button type="button" class="btn btn-default package-create-dropdown-select" ng-bind='boat_type'> </button>
+										<button type="button" class="btn btn-default dropdown-toggle package-create-dropdown-menu-button" data-toggle="dropdown">
+										<span class="caret"></span>
+										<span class="sr-only">Toggle Dropdown</span>
+										</button>
+										<ul class="dropdown-menu scrollable-menu package-create-dropdown-list-style">
+											<li ng-repeat="boat in boats" ng-model="boat_type" ng-click="setBoat(boat.type)"><a href="#">{{boat.type}}</a></li>
+										</ul>
+									</div>
+								</div>
 				        	</div>
 					        <!-- Package Price -->
 				       		<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
-				   					<p class="package-create-topic-style">Price (฿) : </p>
+				   					<p class="package-create-topic-style"><font class="required-box">*</font> Price (฿) : </p>
 			    				</div>
 			    				<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.info.info.price" class="package-create-inputbox-style" name="price0" type="number" min="0" placeholder="0" required>
+					        		<input ng-model="packages.info.info.price" class="package-create-inputbox-style" name="price0" type="number" min="0" placeholder="0" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
 					        	</div>
 				       		</div>
 				       		<!-- Amount People -->
 				       		<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
-				   					<p class="package-create-topic-style">People : </p>
+				   					<p class="package-create-topic-style"><font class="required-box">*</font> People : </p>
 			    				</div>
 			    				<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.info.info.people" class="package-create-inputbox-style" name="people0" type="number" min="0" placeholder="0" required onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+					        		<input ng-model="packages.info.info.people" class="package-create-inputbox-style" name="people0" type="number" min="0" placeholder="0" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
 					        	</div>
 				       		</div>
 				       		<!-- River Distance -->
 				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
-				       			<div class="col-xs-12 col-sm-12 col-md-4">
-				   					<p class="package-create-topic-style">Distance (km) : </p>
+				       			<div class="col-xs-12 col-sm-12 col-md-4" style="padding-right:0px;">
+				   					<p class="package-create-topic-style"><font class="required-box">*</font> Distance (km) : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.info.info.distance" class="package-create-inputbox-style" name="distance0" type="number" min="0" placeholder="0" required>
+					        		<input ng-model="packages.info.info.distance" class="package-create-inputbox-style" name="distance0" type="number" min="0" placeholder="0" required onkeypress='return event.charCode >= 48 && event.charCode <= 57' >
 					       		</div>
 				        	</div>	
 				        	<!-- Duration -->
 				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
-				   					<p class="package-create-topic-style">Duration(hr.) : </p>
+				   					<p class="package-create-topic-style"><font class="required-box">*</font> Duration(hr.) : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.info.info.duration" class="package-create-inputbox-style" type="number" min="0" placeholder="0" required>					        		
+					        		<input ng-model="packages.info.info.duration" class="package-create-inputbox-style" type="number" min="0" placeholder="0" required onkeypress='return event.charCode >= 48 && event.charCode <= 57' >					        		
 					       		</div>
 				        	</div>				        
 
 				        	<!-- Add more price -->
 				        	<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 				        		<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center">
-				        			<button type="button" class="btn" style="width:30%;" ng-click="addPrice()">+</button>
+				        			<button type="button" class="btn" style="width:30%; background-color:rgba(251,211,0,0.85)" ng-click="addPrice()">Add Price</button>
 				        		</div>
 				        	</div>
 		   				</div>
@@ -385,52 +376,9 @@
 					        			<p style="font-size:15px;"> {{priceArr.duration}} hr</p>
 					        		</div>
 					        	</div>
-					        </div>
-					        <!-- Header -->
-					        <!-- <div>
-						        <div class="col-xs-2 col-sm-2 col-md-2">
-						        	<p class="package-create-table-header">Price</p>
-						        </div>
-						        <div class="col-xs-2 col-sm-2 col-md-2">
-						        	<p class="package-create-table-header">People</p>
-						        </div>
-						        <div class="col-xs-2 col-sm-2 col-md-2">
-						        	<p class="package-create-table-header">Distance</p>
-						        </div>
-						        <div class="col-xs-2 col-sm-2 col-md-2">
-						        	<p class="package-create-table-header">Duration</p>
-						        </div>
-						        <div class="col-xs-2 col-sm-2 col-md-2">
-						        	<p class="package-create-table-header">Boat</p>
-						        </div>
-						        <div class="col-xs-2 col-sm-2 col-md-2">
-						        	<p class="package-create-table-header">Delete</p>
-						        </div>
-						        <HR WIDTH="100%" NOSHADE>
-					        </div>					        
-					        <div style="height:32px" ng-repeat="priceArr in priceArrs"> 
-				                <div class="col-xs-2 col-sm-2 col-md-2">
-				                    <p class="package-create-table-header">{{priceArr.price}}</p>
-				                </div>
-				                <div class="col-xs-2 col-sm-2 col-md-2">
-				                    <p class="package-create-table-header">{{priceArr.people}}</p>
-				                </div>
-				                <div class="col-xs-2 col-sm-2 col-md-2">
-				                    <p class="package-create-table-header">{{priceArr.distance}}</p>
-			                    </div>
-				                <div class="col-xs-2 col-sm-2 col-md-2">
-				                    <p class="package-create-table-header">{{priceArr.duration}}</p>
-				                </div>
-				                <div class="col-xs-2 col-sm-2 col-md-2">
-				                    <p class="package-create-table-header">{{priceArr.boat_type}}</p>
-			                    </div>
-			                    <button type="button" class="col-xs-2 col-sm-2 col-md-2 btn btn-danger" ng-click="deleteRow($index)">-
-			                    </button>
-			                </div> -->					        
-		   				</div>
-		   				
-		        	</div>		        		
-		        	
+					        </div>	        
+		   				</div>		   				
+		        	</div>
 		        	<!-- Next Button -->
 		        	<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center; margin-top:20px;">
 						<button type="button" class="btn btn-danger" ng-click="previousTab()">Back</button>
@@ -452,13 +400,12 @@
 		   				<div class="col-xs-12 col-sm-12 col-md-12 fillform-content-style">
 		   					<div  class="col-xs-12 col-sm-12 col-md-12" style="text-align: center;">
 					           	<p class="fillform-content-sub-header">Equipment</p>
-					           	<p><font color="red">**</font>Please use comma( , ) as a word separator.</p>
+					           	<p><font class="must-comma">**</font>Please use comma( , ) as a word separator.<font class="must-comma">**</font></p>
 					        </div>
 						    <!-- Provide -->
 				       		<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
-				       				<p class="package-create-topic-style">Provided : </p>
-				       				<p class="must-comma">**</p>
+				       				<p class="package-create-topic-style"><font class="required-box">*</font> Provided : </p>
 				       			</div>
 				       			<div class="col-xs-12 col-sm-12 col-md-8">
 					        		<textarea  ng-model="provide"  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Helmet, Life jacket"></textarea >
@@ -468,7 +415,6 @@
 				       		<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
 				       				<p class="package-create-topic-style">Required : </p>
-				       				<p class="must-comma">**</p>
 				       			</div>
 				       			<div class="col-xs-12 col-sm-12 col-md-8">
 					        		<textarea  ng-model="require"  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Wetable suit, Sandal shoes"></textarea >
@@ -479,6 +425,7 @@
 		   				<div class="col-xs-12 col-sm-12 col-md-12 fillform-content-style">
 		   					<div  class="col-xs-12 col-sm-12 col-md-12" style="text-align: center;">
 					           	<p class="fillform-content-sub-header">Other</p>
+					           	<p><font class="must-comma">**</font>Please use comma( , ) as a word separator.<font class="must-comma">**</font></p>
 					        </div>
 						    <!-- Include Activity -->
 				       		<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
@@ -497,43 +444,27 @@
 		   				<div class="col-xs-12 col-sm-12 col-md-12 fillform-content-style">
 		   					<div  class="col-xs-12 col-sm-12 col-md-12" style="text-align: center;">
 					           	<p class="fillform-content-sub-header">Before Rafting</p>
-					           	<p><font color="red">**</font>Please use comma( , ) as a word separator.</p>
+					           	<p><font class="must-comma">**</font>Please use comma( , ) as a word separator.<font class="must-comma">**</font></p>
 					        </div>
 						    <!-- Skill -->
 				       		<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
 				       				<p class="package-create-topic-style">Skill Required : </p>
-				       				<p class="must-comma">**</p>
 				       			</div>
 				       			<div class="col-xs-12 col-sm-12 col-md-8">
 					        		<textarea  ng-model="skill"  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Boating, Balance"></textarea >
 					        	</div>
 				        	</div>
-				        	<!-- Preparation -->
+				        	<!-- Suggestion -->
 				       		<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
 				       			<div class="col-xs-12 col-sm-12 col-md-4">
-				       				<p class="package-create-topic-style">Preparation : </p>
+				       				<p class="package-create-topic-style">Suggestion : </p>
 				       			</div>
 				       			<div class="col-xs-12 col-sm-12 col-md-8">
 					        		<textarea  ng-model="packages.info.prepration"  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Wear comforable suit"></textarea >
 					        	</div>
 				        	</div>
 					    </div>
-					    <!-- Schedule -->
-		   				<!-- <div class="col-xs-12 col-sm-12 col-md-12 fillform-content-style">
-		   					<div  class="col-xs-12 col-sm-12 col-md-12" style="text-align: center;">
-					           	<p class="fillform-content-sub-header">Schedule</p>
-					        </div> -->
-						    <!-- Include Activity -->
-				       		<!-- <div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
-				       			<div class="col-xs-12 col-sm-12 col-md-4">
-				       				<p class="package-create-topic-style">Activity : </p>
-				       			</div>
-				       			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<textarea  ng-model=""  class="package-create-inputbox-style form-control" rows="5" placeholder="Under Construction"></textarea >
-					        	</div>
-				        	</div>
-					    </div> -->
 			        </div>
 			        <div class="col-xs-12 col-sm-12 col-md-12" style="text-align: center; margin-top:20px;">
 			           	<button type="button" class="btn btn-danger" ng-click="previousTab()">Back</button>
@@ -541,7 +472,7 @@
 			        </div>	
 		    	</div>
 		    </div>
-
+		    <!-- Upload Image -->
 		    <div class="row setup-content" id="step-3">
 		    	<div class="col-xs-12 col-sm-12 col-md-12">
 		    		<!-- Add Image Gallery -->
