@@ -25,7 +25,11 @@ var RaftingSchema = new Schema({
 	views: String,
 	stages: [String],
 	stage_type: [String],
-	season: String,
+	season:{
+		year: String,
+		month1: String,
+		month2: String
+	},	
 	start_location: String,
 	end_location: String,
 	age_limit: Number,

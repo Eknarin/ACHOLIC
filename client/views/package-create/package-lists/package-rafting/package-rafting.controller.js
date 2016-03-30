@@ -29,6 +29,7 @@ angular.module('acholic')
         $scope.packages.info.activities = $scope.activities.split(",");
 
         //season
+        $scope.packages.info.season = {};
         $scope.packages.info.season.year = $scope.seas;
         $scope.packages.info.season.month1 = $scope.month1;
         $scope.packages.info.season.month2 = $scope.month2;
