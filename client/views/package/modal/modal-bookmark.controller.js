@@ -5,6 +5,7 @@ angular.module('acholic')
    	$scope.folder_name = "";
    	$scope.folders = folderData;
    	$scope.loading = false;
+    $scope.showAlert = false;
 
    	if($scope.folders.length < 1){
    		Bookmark.saveFolder({user: userData._id , packageId: packageData._id, folder:"My bookmarks"}).$promise.then(function(res){
@@ -31,10 +32,19 @@ angular.module('acholic')
  	};
 
   	$scope.createFolder = function(){
-		Bookmark.saveFolder({user: userData._id , packageId: packageData._id, folder:$scope.folder_name}).$promise.then(function(res){
-			$scope.folders.push(res);
-      $scope.folder_name = "";
-		});
+      $scope.showAlert = false;
+      if($scope.folder_name == ""){
+        console.log("no folder name");
+        $scope.showAlert = true;
+      }
+      else{
+        Bookmark.saveFolder({user: userData._id , packageId: packageData._id, folder:$scope.folder_name}).$promise.then(function(res){
+          console.log("Folder name: "+$scope.folder_name);
+          $scope.folders.push(res);
+          $scope.showAlert = false;
+          $scope.folder_name = "";
+        });
+      }
   	};
 
 }]);
