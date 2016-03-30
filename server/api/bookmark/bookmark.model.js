@@ -9,7 +9,7 @@ var BookmarkSchema = new Schema({
   userId: {type: Schema.Types.ObjectId, ref: 'User'},
   packageId: { type: Schema.Types.ObjectId, ref: 'PackageItem' },
   rating: Number,
-  create_at: Date
+  create_at: { type: Date, required: true, default: Date.now }
 });
 
 BookmarkSchema.plugin(mongoosePaginate);
