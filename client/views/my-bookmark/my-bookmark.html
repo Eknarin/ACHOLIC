@@ -17,10 +17,10 @@
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:30px;">
 						<div>
-							<input type="checkbox" style="font-size:17px;"> Rating</input>
+							<input type="checkbox" ng-model="rating_check" style="font-size:17px;"> Rating</input>
 						</div>
 						<div>
-							<input type="checkbox" style="font-size:17px;"> Create Date</input>
+							<input type="checkbox" ng-model="create_check" style="font-size:17px;"> Create Date</input>
 						</div>							
 					</div>					
 				</div>
@@ -31,7 +31,7 @@
 						<p style="font-size:30px;">Bookmarks</p>
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-12 bookmark-folder-button bookmark-folder-button-active" ng-click="selectFolder(0, $event)">
-						My bookmarks ({{main_bookmark_total}})
+						All bookmarks ({{main_bookmark_total}})
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-12 bookmark-folder-button" ng-repeat="bookmarkFolder in bookmarkFolders" ng-click="selectFolder(bookmarkFolder._id, $event)">
 						{{bookmarkFolder.folder}} ({{bookmarkFolder.total}})

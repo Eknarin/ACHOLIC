@@ -8,6 +8,13 @@ angular.module('acholic')
   	$scope.main_bookmark_total = 0;
   	$scope.maxSize = 5;
   	$scope.selected_folder = 0;
+    $scope.rating_check = false;
+    $scope.create_check = false;
+
+    $scope.$watch('rating_check', function() {
+      if($scope.rating_check)
+        console.log($scope.rating_check);
+    });
   	
   	Auth.getUser().then(function(res){
   		$scope.user = res;
@@ -72,20 +79,21 @@ angular.module('acholic')
 	   $scope.currentPage = pageNo;
 	};
   	
-    $scope.unBookmark = function(bookmark){
-      console.log("UNBOOKMARK");
-    	bookmark.$delete().then(function(res){
-    		var index = $scope.bookmarks.indexOf(bookmark);
+ $scope.unBookmark = function(bookmark){
+    	Bookmark.delete({id: bookmark._id}).$promise.then(function(res){
+    	var index = $scope.bookmarks.indexOf(bookmark);
 			$scope.bookmarks.splice(index, 1);
 			for(var i = 0;i<$scope.bookmarkFolders.length ;i++){
 				if($scope.bookmarkFolders[i]._id == bookmark.folder)
 				{
 					$scope.bookmarkFolders[i].total -= 1;
+          $scope.main_bookmark_total -= 1;
 					break;
 				}
 			}
     	});
-    };
+  };
+
   $scope.rate = 0;
   $scope.getStar = function(num) {
     if(num == null){
