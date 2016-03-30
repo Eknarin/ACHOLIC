@@ -10,18 +10,32 @@ angular.module('acholic')
   	$scope.selected_folder = 0;
     $scope.rating_check = false;
     $scope.create_check = false;
+    $scope.rating_filter = 1;
+    $scope.create_filter = 1;
 
     $scope.$watch('rating_check', function() {
-      if($scope.rating_check)
-        console.log($scope.rating_check);
+      if($scope.rating_check){
+        $scope.rating_filter = 1;
+        if($scope.selected_folder == 0)
+          $scope.query_all();
+        else
+          $scope.query($scope.selected_folder);
+      } else {
+        $scope.rating_filter = -1;
+        if($scope.selected_folder == 0)
+          $scope.query_all();
+        else
+          $scope.query($scope.selected_folder);
+      }
     });
   	
   	Auth.getUser().then(function(res){
   		$scope.user = res;
 	    Bookmark.queryFolder({userId: $scope.user._id}).$promise.then(function(res){
 	      $scope.bookmarkFolders = res;
+        $scope.loading = true;
 	    });
-	    Bookmark.queryAlls({userId: $scope.user._id,page: 1}).$promise.then(function(res){
+	    Bookmark.queryAlls({userId: $scope.user._id,page: 1,rating: $scope.rating_filter}).$promise.then(function(res){
 	      $scope.bookmarks = res.docs;
 	      $scope.main_bookmark_total = res.total;
   		  $scope.limit = res.limit;
@@ -34,22 +48,31 @@ angular.module('acholic')
   	$scope.selectFolder = function(folderId, event){
   		$scope.selected_folder = folderId;
   		if(folderId == 0){
-  			Bookmark.queryAlls({userId: $scope.user._id,page: 1}).$promise.then(function(res){
-		      $scope.bookmarks = res.docs;
-			  $scope.limit = res.limit;
-			  $scope.totalItems = res.total;
-			  $scope.currentPage = res.page;
-		    });
+  			$scope.query_all();
   		}else{
-	  		Bookmark.query({userId: $scope.user._id, folderId: folderId,page: 1}).$promise.then(function(res){
-		      $scope.bookmarks = res.docs;
-			  $scope.limit = res.limit;
-			  $scope.totalItems = res.total;
-			  $scope.currentPage = res.page;
-		    });
+	  		$scope.query(folderId);
 	  	}
       $scope.activeButton(event);
   	};
+
+    $scope.query_all = function(){
+      Bookmark.queryAlls({userId: $scope.user._id,page: 1,rating: $scope.rating_filter}).$promise.then(function(res){
+          $scope.bookmarks = res.docs;
+          $scope.limit = res.limit;
+          $scope.totalItems = res.total;
+          $scope.currentPage = res.page;
+        });
+    };
+
+    $scope.query = function(folderId){
+      Bookmark.query({userId: $scope.user._id, folderId: folderId,page: 1,rating: $scope.rating_filter}).$promise.then(function(res){
+          $scope.bookmarks = res.docs;
+          $scope.limit = res.limit;
+          $scope.totalItems = res.total;
+          $scope.currentPage = res.page;
+        });
+    };
+
     $scope.activeButton = function(event){
       var bookMarkButton = $(event.target);
       
@@ -59,14 +82,14 @@ angular.module('acholic')
 
   	$scope.pageChanged = function() {
 	   if($scope.selected_folder == 0){
-  			Bookmark.queryAlls({userId: $scope.user._id,page: $scope.currentPage}).$promise.then(function(res){
+  			Bookmark.queryAlls({userId: $scope.user._id,page: $scope.currentPage,rating: $scope.rating_filter}).$promise.then(function(res){
 		      $scope.bookmarks = res.docs;
 			  $scope.limit = res.limit;
 			  $scope.totalItems = res.total;
 			  $scope.currentPage = res.page;
 		    });
   		}else{
-	  		Bookmark.query({userId: $scope.user._id, folderId: $scope.selected_folder,page: $scope.currentPage}).$promise.then(function(res){
+	  		Bookmark.query({userId: $scope.user._id, folderId: $scope.selected_folder,page: $scope.currentPage,rating: $scope.rating_filter}).$promise.then(function(res){
 		      $scope.bookmarks = res.docs;
 			  $scope.limit = res.limit;
 			  $scope.totalItems = res.total;
@@ -132,7 +155,7 @@ angular.module('acholic')
       { 
         var index = $scope.bookmarkFolders.indexOf(res);
         $scope.bookmarkFolders.splice(index, 1);
-         Bookmark.queryAlls({userId: $scope.user._id,page: 1}).$promise.then(function(book){
+         Bookmark.queryAlls({userId: $scope.user._id,page: 1,rating: $scope.rating_filter}).$promise.then(function(book){
           $scope.bookmarks = book.docs;
           $scope.main_bookmark_total = book.total;
           $scope.limit = book.limit;

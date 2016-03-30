@@ -4,6 +4,7 @@ var _ = require('lodash');
 var Comment = require('./comment.model');
 var User = require('../user/user.model');
 var PackageItem = require('../package-item/package-item.model');
+var Bookmark = require('../bookmark/bookmark.model');
 
 function handleError (res, err) {
   return res.status(500).send(err);
@@ -49,19 +50,21 @@ exports.create = function (req, res) {
     var new_rating = 0;
     Comment.count({'package_id': comment.package_id},function(err,count){
     count_comments = count;
-    console.log("comment n: "+count_comments);
+    //console.log("comment n: "+count_comments);
       PackageItem.findById(comment.package_id,function(err,packageItem){
         var r0 = packageItem.rating; 
-        console.log("package rate= "+r0);
-        console.log("latest rate= "+comment.rate);
+        // console.log("package rate= "+r0);
+        // console.log("latest rate= "+comment.rate);
         var temp1 = (r0*(count_comments-1))+comment.rate;
         var temp2 = temp1/count_comments;
         new_rating = Math.round(temp2 * 10) / 10;//rating of this package
-        console.log("cal rate = "+new_rating);
-
-        packageItem.rating = new_rating;
-        packageItem.save();
-        return res.status(201).json(comment);
+        // console.log("cal rate = "+new_rating);
+        Bookmark.update({ packageId: comment.package_id }, { rating: new_rating }, { multi: true }, function (err, raw) {
+          if (err) return handleError(err);
+          packageItem.rating = new_rating;
+          packageItem.save();
+          return res.status(201).json(comment);
+        });
       });
 
     });

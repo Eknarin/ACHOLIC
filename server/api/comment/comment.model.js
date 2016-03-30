@@ -8,8 +8,8 @@ var CommentSchema = new Schema({
   user_id: { type: Schema.Types.ObjectId, ref:'User'},
   text: String,
   rate: Number,
-  created_at: Date,
-  updated_at: { type: Date, default: Date.now }
+  created_at: { type: Date, required: true, default: Date.now },
+  updated_at: Date
 });
 
 module.exports = mongoose.model('Comment', CommentSchema,'Comment');
