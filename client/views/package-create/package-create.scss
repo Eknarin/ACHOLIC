@@ -183,3 +183,19 @@
     max-height: 100px;
     overflow-x: hidden;
 }
+
+.create-button-cover{
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.create-button-style{
+	border: 3px solid white; 
+	border-radius:10px;
+	background-color: rgba(251, 211, 0, 0.85);
+}
+.create-button-text{
+	margin-top:15px; 
+	margin-bottom:15px; 
+	font-size:20px; 
+	color:white;
+}
