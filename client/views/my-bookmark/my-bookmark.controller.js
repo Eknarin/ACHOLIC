@@ -10,18 +10,40 @@ angular.module('acholic')
   	$scope.selected_folder = 0;
     $scope.rating_check = false;
     $scope.create_check = false;
-    $scope.rating_filter = 1;
-    $scope.create_filter = 1;
+    $scope.rating_filter = 0;
+    $scope.create_filter = 0;
 
     $scope.$watch('rating_check', function() {
+      if($scope.loading)
       if($scope.rating_check){
-        $scope.rating_filter = 1;
+        $scope.rating_filter = -1;
+        console.log('rating 0' );
         if($scope.selected_folder == 0)
           $scope.query_all();
         else
           $scope.query($scope.selected_folder);
       } else {
-        $scope.rating_filter = -1;
+        $scope.rating_filter = 0;
+        console.log('rating 1' );
+        if($scope.selected_folder == 0)
+          $scope.query_all();
+        else
+          $scope.query($scope.selected_folder);
+      };
+    });
+
+    $scope.$watch('create_check', function() {
+      if($scope.loading)
+      if($scope.create_check){
+        $scope.create_filter = -1;
+        console.log('Create 0' );
+        if($scope.selected_folder == 0)
+          $scope.query_all();
+        else
+          $scope.query($scope.selected_folder);
+      } else {
+        $scope.create_filter = 0;
+        console.log('Create 1' );
         if($scope.selected_folder == 0)
           $scope.query_all();
         else
@@ -35,13 +57,14 @@ angular.module('acholic')
 	      $scope.bookmarkFolders = res;
         $scope.loading = true;
 	    });
-	    Bookmark.queryAlls({userId: $scope.user._id,page: 1,rating: $scope.rating_filter}).$promise.then(function(res){
+	    Bookmark.queryAlls({userId: $scope.user._id,page: 1,rating: $scope.rating_filter,create: $scope.create_filter}).$promise.then(function(res){
 	      $scope.bookmarks = res.docs;
 	      $scope.main_bookmark_total = res.total;
   		  $scope.limit = res.limit;
   		  $scope.totalItems = res.total;
   		  $scope.currentPage = res.page;
 	      $scope.loading = true;
+        console.log($scope.loading);
 	    });
 	 });
 
@@ -56,7 +79,7 @@ angular.module('acholic')
   	};
 
     $scope.query_all = function(){
-      Bookmark.queryAlls({userId: $scope.user._id,page: 1,rating: $scope.rating_filter}).$promise.then(function(res){
+      Bookmark.queryAlls({userId: $scope.user._id,page: 1,rating: $scope.rating_filter,create: $scope.create_filter}).$promise.then(function(res){
           $scope.bookmarks = res.docs;
           $scope.limit = res.limit;
           $scope.totalItems = res.total;
@@ -65,7 +88,7 @@ angular.module('acholic')
     };
 
     $scope.query = function(folderId){
-      Bookmark.query({userId: $scope.user._id, folderId: folderId,page: 1,rating: $scope.rating_filter}).$promise.then(function(res){
+      Bookmark.query({userId: $scope.user._id, folderId: folderId,page: 1,rating: $scope.rating_filter,create: $scope.create_filter}).$promise.then(function(res){
           $scope.bookmarks = res.docs;
           $scope.limit = res.limit;
           $scope.totalItems = res.total;
@@ -82,14 +105,14 @@ angular.module('acholic')
 
   	$scope.pageChanged = function() {
 	   if($scope.selected_folder == 0){
-  			Bookmark.queryAlls({userId: $scope.user._id,page: $scope.currentPage,rating: $scope.rating_filter}).$promise.then(function(res){
+  			Bookmark.queryAlls({userId: $scope.user._id,page: $scope.currentPage,rating: $scope.rating_filter,create: $scope.create_filter}).$promise.then(function(res){
 		      $scope.bookmarks = res.docs;
 			  $scope.limit = res.limit;
 			  $scope.totalItems = res.total;
 			  $scope.currentPage = res.page;
 		    });
   		}else{
-	  		Bookmark.query({userId: $scope.user._id, folderId: $scope.selected_folder,page: $scope.currentPage,rating: $scope.rating_filter}).$promise.then(function(res){
+	  		Bookmark.query({userId: $scope.user._id, folderId: $scope.selected_folder,page: $scope.currentPage,rating: $scope.rating_filter,create: $scope.create_filter}).$promise.then(function(res){
 		      $scope.bookmarks = res.docs;
 			  $scope.limit = res.limit;
 			  $scope.totalItems = res.total;
@@ -155,7 +178,7 @@ angular.module('acholic')
       { 
         var index = $scope.bookmarkFolders.indexOf(res);
         $scope.bookmarkFolders.splice(index, 1);
-         Bookmark.queryAlls({userId: $scope.user._id,page: 1,rating: $scope.rating_filter}).$promise.then(function(book){
+         Bookmark.queryAlls({userId: $scope.user._id,page: 1,rating: $scope.rating_filter,create: $scope.create_filter}).$promise.then(function(book){
           $scope.bookmarks = book.docs;
           $scope.main_bookmark_total = book.total;
           $scope.limit = book.limit;

@@ -17,11 +17,21 @@ function handleError (res, err) {
  * @param res
  */
 exports.index = function (req, res) {
+  if(req.query.rating == -1)
   Bookmark.paginate({userId: req.query.userId, folder: req.query.folderId},{ page: req.query.page, limit: 8, populate: 'packageId',sort: {'rating': req.query.rating}},function (err, bookmarks) {
     if (err) { return handleError(res, err); }
-    console.log(bookmarks);
     return res.status(200).json(bookmarks);
   });
+  else if(req.query.create == -1)
+  Bookmark.paginate({userId: req.query.userId, folder: req.query.folderId},{ page: req.query.page, limit: 8, populate: 'packageId',sort: {'create_at': req.query.create}},function (err, bookmarks) {
+    if (err) { return handleError(res, err); }
+    return res.status(200).json(bookmarks);
+  });
+  else
+   Bookmark.paginate({userId: req.query.userId, folder: req.query.folderId},{ page: req.query.page, limit: 8, populate: 'packageId'},function (err, bookmarks) {
+      if (err) { return handleError(res, err); }
+      return res.status(200).json(bookmarks);
+    });
 };
 
 /**
@@ -44,7 +54,18 @@ exports.indexAll = function (req, res) {
  * @param res
  */
 exports.indexAlls = function (req, res) {
+  if(req.query.rating == -1)
   Bookmark.paginate({userId: req.query.userId}, { page: req.query.page, limit: 8, populate: 'packageId',sort: {'rating': req.query.rating}},function (err, bookmarks) {
+    if (err) { return handleError(res, err); }
+    return res.status(200).json(bookmarks);
+  });
+  else if(req.query.create == -1)
+    Bookmark.paginate({userId: req.query.userId}, { page: req.query.page, limit: 8, populate: 'packageId',sort: {'create_at': req.query.create}},function (err, bookmarks) {
+    if (err) { return handleError(res, err); }
+    return res.status(200).json(bookmarks);
+  });
+  else
+    Bookmark.paginate({userId: req.query.userId}, { page: req.query.page, limit: 8, populate: 'packageId'},function (err, bookmarks) {
     if (err) { return handleError(res, err); }
     return res.status(200).json(bookmarks);
   });
