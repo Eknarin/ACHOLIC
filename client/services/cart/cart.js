@@ -45,6 +45,17 @@ angular.module('acholic')
     	return temp;
     };
 
+    this.removeItem = function (index){
+    	var userId = $rootScope._user._id;
+    	var expireDate = new Date();
+	    expireDate.setDate(expireDate.getDate() + 1);
+
+    	cart = $cookies.getObject('shoppingCart');
+    	$cookies.remove('shoppingCart');
+    	cart[userId].splice(index, 1);
+    	$cookies.put('shoppingCart', JSON.stringify(cart), {'expires': expireDate});
+    };
+
     this.getCart = function(userId){
     	if($cookies.getObject('shoppingCart')){
 	    	cart = $cookies.getObject('shoppingCart');

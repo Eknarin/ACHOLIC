@@ -5,7 +5,7 @@ angular.module('acholic')
     return {
       restrict: 'EA',
       templateUrl: 'directives/shop-cart/shop-cart.html',
-      controller: ['$scope' , '$location','$uibModal', 'Auth','$rootScope','Cart','PackageItem','$cookies',function($scope , $location ,$uibModal, Auth,$rootScope,Cart,PackageItem, $cookies ) {
+      controller: ['$scope' , '$location', 'Auth','$rootScope','Cart','PackageItem','$cookies',function($scope , $location, Auth,$rootScope,Cart,PackageItem, $cookies ) {
         $scope.userId = {};
         $scope.cart = [];
         $scope.loading = false;
@@ -79,6 +79,12 @@ angular.module('acholic')
           return price;
         };
 
+        $scope.removeItem = function(index){
+          Cart.removeItem(index);
+          $scope.cart.splice(index, 1);
+          if($scope.cart.length < 1)
+            console.log('empty');
+        };
       }],
     };
   });
