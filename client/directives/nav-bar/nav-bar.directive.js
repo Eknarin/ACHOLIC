@@ -4,7 +4,7 @@ var myNav = angular.module('acholic');
     return {
       restrict: 'E',
       templateUrl: 'directives/nav-bar/nav-bar.html',
-      controller: ['$scope' , '$location', '$route','$uibModal' ,'$rootScope','$window',function($scope , $location , $route ,$uibModal ,$rootScope ,$window) {
+      controller: ['$scope' , '$location', '$route','$uibModal' ,'$rootScope','$window','Compare',function($scope , $location , $route ,$uibModal ,$rootScope ,$window,Compare) {
 
         $scope.search = '';
         $scope.user = {};
@@ -59,6 +59,13 @@ var myNav = angular.module('acholic');
           });
         };
 
+        $scope.checkCompare = function(){
+          var check = Compare.getCompare();
+          if(check != "")
+            $location.path('/compare');
+          else
+            console.log('no compare!!!');
+        };  
       }] 
     };
   });
