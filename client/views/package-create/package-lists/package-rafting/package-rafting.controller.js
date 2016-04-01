@@ -18,6 +18,18 @@ angular.module('acholic')
     $scope.activities = "";
     $scope.packages.rating = 0;
 
+    $scope.seasonMonth = false;
+
+
+    $scope.checkSeason = function(){
+        if ($scope.seas == "Whole Year") {
+            $scope.seasonMonth = false;
+        } else{
+            $scope.seasonMonth = true;
+        }
+    }
+
+
     $scope.onSubmit = function(){
         //provide
         $scope.packages.info.equipments_provide = $scope.provide.split(",");
@@ -203,7 +215,7 @@ angular.module('acholic')
     $scope.selected = value;
   };
 
-  $scope.seas = "Whole year";
+  $scope.seas = "Whole Year";
   $scope.month1 = "";
   $scope.month2 = "";
 
