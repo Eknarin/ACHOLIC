@@ -59,13 +59,25 @@ var myNav = angular.module('acholic');
           });
         };
 
+        // $scope.noCompare = false;
+        $("#warning-alert").hide();
+
         $scope.checkCompare = function(){
           var check = Compare.getCompare();
-          if(check != "")
+          if(check != ""){
+            // $scope.noCompare = false;
+             $("#warning-alert").hide();
             $location.path('/compare');
-          else
+          }
+          else{
+            // $scope.noCompare = true;
+            $("#warning-alert").alert();
+            $("#warning-alert").fadeTo(2000, 500).slideUp(500, function(){
+              $("#warning-alert").hide();
+            });
             console.log('no compare!!!');
-        };  
+          }
+        }; 
       }] 
     };
   });
