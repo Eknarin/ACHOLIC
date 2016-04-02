@@ -5,6 +5,11 @@ angular.module('acholic')
     return $resource('/api/transactions/:id', { id: '@_id' }, {
       update: {
         method: 'PUT'
+      },
+      saveCart: {
+      	method: 'POST',
+      	url: '/api/transactions/cart',
+        isArray: true
       }
     });
   });

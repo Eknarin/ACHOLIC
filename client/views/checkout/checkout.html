@@ -25,19 +25,17 @@
 						<!-- Table Header -->
 					    <thead>
 					      <tr>
-					        <th class="checkout-order-summary-table-header">Name</th>
-					        <th class="checkout-order-summary-table-header">Price (฿)</th>
-					        <th class="checkout-order-summary-table-header">Amount</th>
-					        <th class="checkout-order-summary-table-header">Subtotal (฿)</th>					       
+					      	<th class="checkout-order-summary-table-header">Package</th>
+					        <th class="checkout-order-summary-table-header">Type</th>
+					        <th class="checkout-order-summary-table-header">Price (฿)</th>				       
 					      </tr>
 					    </thead>
 					    <!-- Table Detail -->
 					    <tbody>
-					      <tr ng-repeat="item in cart">
-					        <td class="checkout-order-summary-table-detail">{{item.package.name}}</td>
-					        <td class="checkout-order-summary-table-detail">{{item.cart_item.price}}</td>
-					        <td class="checkout-order-summary-table-detail">{{item.cart_item.amount}}</td>
-					        <td class="checkout-order-summary-table-detail">{{item.sub_price}}</td>
+					      <tr ng-repeat="item in cart track by $index">
+					        <td class="checkout-order-summary-table-detail">{{item.package_id}}</td>
+					        <td class="checkout-order-summary-table-detail">{{item.type}}</td>
+					        <td class="checkout-order-summary-table-detail">{{item.price}}</td>
 					       <!--  <td class="my-cart-table-detail"><button class="btn btn-danger" ng-click="removeItem(item)">Delete</button></td> -->
 					      </tr>
 					    </tbody>
@@ -63,7 +61,7 @@
 								<p class="checkout-detail">Package Amount</p>
 							</div>
 							<div class="col-xs-5 col-sm-5 col-md-5">
-								<p class="checkout-detail"> xxxx </p>
+								<p class="checkout-detail">{{cart.length}}</p>
 							</div>
 						</div>
 						<div class="col-xs-12 col-sm-12 col-md-12">
@@ -75,7 +73,7 @@
 							</div>
 						</div>
 						<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center;">
-							<button class="btn my-cart-payment-button">Payment</button>
+							<button ng-click="saveCart()" class="btn my-cart-payment-button">Payment</button>
 						</div>
 					</div>
 				</div>

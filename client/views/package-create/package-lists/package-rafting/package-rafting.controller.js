@@ -258,11 +258,12 @@ angular.module('acholic')
     var addPeople = $scope.packages.info.info.people;
     var addDistance = $scope.packages.info.info.distance;
     var addDuration = $scope.packages.info.info.duration;
-    // var addBoat = $scope.packages.info.info.boat_type;
+    var addType = $scope.packages.info.info.type;
     var addBoat = $scope.boat_type;
     
     var priceObj = {
         price: addPrice, 
+        type: addType,
         people: addPeople, 
         distance: addDistance, 
         duration: addDuration, 
@@ -272,6 +273,7 @@ angular.module('acholic')
 
     //empty input fields
     $scope.packages.info.info.price = "";
+    $scope.packages.info.info.type = "";
     $scope.packages.info.info.people = "";
     $scope.packages.info.info.distance = "";
     $scope.packages.info.info.duration = "";

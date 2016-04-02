@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('CheckoutCtrl',['$scope','Auth','Cart','PackageItem', function ($scope,Auth,Cart,PackageItem) {
+  .controller('CheckoutCtrl',['$scope','Auth','$location','Cart','PackageItem','Transaction', function ($scope,Auth,$location,Cart,PackageItem,Transaction) {
   	$scope.userId = {};
   	$scope.cart = [];
   	$scope.loading = false;
@@ -22,12 +22,17 @@ angular.module('acholic')
   		for(var i=0; i<carts.length ;i++){
   			for(var j=0; j<carts[i].list.length ;j++){
   				var item = {
-  					package: $scope.getPackage(carts[i].package),
-  					cart_item: carts[i].list[j],
-            sub_price: $scope.calSubTotal(carts[i].list[j])
+            packages_id: $scope.getPackage(carts[i].package)._id,
+            user_id: $scope.userId,
+  					type: carts[i].list[j].type,
+            price: carts[i].list[j].price,
+            payment_status: false,
+            active_status: false
   				}
-          $scope.total_price += item.sub_price;
-  				$scope.cart.push(item);
+          $scope.total_price += $scope.calSubTotal(carts[i].list[j]);
+          for(var k = 0;k<carts[i].list[j].amount ;k++){
+            $scope.cart.push(item);
+          }
   			}
   		}
   		$scope.loading = true;
@@ -38,7 +43,6 @@ angular.module('acholic')
         if($scope.package[i]._id == packageId)
           return $scope.package[i];
       }
-      console.log('no package found !!!');
       return null;
     };
 
@@ -62,4 +66,11 @@ angular.module('acholic')
   	$scope.removeItem = function(item){
   		console.log('Under construction : remove '+item);
   	};
+
+    $scope.saveCart = function(){
+      Transaction.saveCart({items: $scope.cart}).$promise.then(function(res){
+        Cart.clearCart();
+        $location.path('/package');
+      });
+    };
   }]);

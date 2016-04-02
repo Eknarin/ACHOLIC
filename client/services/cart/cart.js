@@ -65,4 +65,8 @@ angular.module('acholic')
     	return '';
     };
 
+    this.clearCart = function(userId){
+    	$cookies.remove('shoppingCart');
+    };
+
   });

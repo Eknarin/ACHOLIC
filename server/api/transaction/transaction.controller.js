@@ -48,6 +48,19 @@ exports.create = function (req, res) {
 };
 
 /**
+ * Creates a new Transaction in the DB.
+ *
+ * @param req
+ * @param res
+ */
+exports.createCart = function (req, res) {
+  Transaction.create(req.body.items, function (err, transactions) {
+    if (err) { return handleError(res, err); }
+    return res.status(201).json(transactions);
+  });
+};
+
+/**
  * Updates an existing Transaction in the DB.
  *
  * @param req

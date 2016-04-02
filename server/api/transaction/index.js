@@ -7,6 +7,7 @@ var controller = require('./transaction.controller');
 router.get('/', controller.index);
 router.get('/:id', controller.show);
 
+router.post('/cart', controller.createCart);
 router.post('/', controller.create);
 
 router.put('/:id', controller.update);
