@@ -5,10 +5,9 @@ var Schema = mongoose.Schema;
 
 var TransactionSchema = new Schema({
   user_id: { type: Schema.Types.ObjectId, ref: 'User' },
-  packages_id: [{ type: Schema.Types.ObjectId, ref: 'Bookmark' }],
+  packages_id: [{ type: Schema.Types.ObjectId, ref: 'PackageItem' }],
   type: String,
   price: Number,
-  payment_status: Boolean,
   serial: String,
   active_status: Boolean,
   created_at: { type: Date, default: Date.now },

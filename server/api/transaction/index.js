@@ -4,7 +4,7 @@ var express = require('express');
 var router = express.Router();
 var controller = require('./transaction.controller');
 
-router.get('/', controller.index);
+router.get('/receipt', controller.index);
 router.get('/:id', controller.show);
 
 router.post('/cart', controller.createCart);

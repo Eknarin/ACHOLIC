@@ -2,6 +2,7 @@
 
 var _ = require('lodash');
 var Transaction = require('./transaction.model');
+var Receipt = require('./receipt.model');
 
 function handleError (res, err) {
   return res.status(500).send(err);
@@ -14,7 +15,7 @@ function handleError (res, err) {
  * @param res
  */
 exports.index = function (req, res) {
-  Transaction.find(function (err, transactions) {
+  Receipt.find({userId: req.query.userId}).populate('transaction_id').exec(function (err, transactions) {
     if (err) { return handleError(res, err); }
     return res.status(200).json(transactions);
   });
@@ -56,6 +57,14 @@ exports.create = function (req, res) {
 exports.createCart = function (req, res) {
   Transaction.create(req.body.items, function (err, transactions) {
     if (err) { return handleError(res, err); }
+    var recep = new Receipt;
+    recep.user_id = transactions[0].user_id;
+    for(var i = 0 ;i<transactions.length ;i++){
+      recep.transaction_id.push(transactions[i]._id);
+      recep.total_price += transactions[i].price;
+    }
+    recep.payment_status = false;
+    recep.save();
     return res.status(201).json(transactions);
   });
 };

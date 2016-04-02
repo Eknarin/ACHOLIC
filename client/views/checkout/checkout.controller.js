@@ -26,7 +26,6 @@ angular.module('acholic')
             user_id: $scope.userId,
   					type: carts[i].list[j].type,
             price: carts[i].list[j].price,
-            payment_status: false,
             active_status: false
   				}
           $scope.total_price += $scope.calSubTotal(carts[i].list[j]);

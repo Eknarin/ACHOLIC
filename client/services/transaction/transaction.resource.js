@@ -6,6 +6,11 @@ angular.module('acholic')
       update: {
         method: 'PUT'
       },
+      query:{
+        method: 'GET',
+        url:'/api/transactions/receipt',
+        isArray: true
+      },
       saveCart: {
       	method: 'POST',
       	url: '/api/transactions/cart',
