@@ -3,7 +3,7 @@
 angular.module('acholic')
   .controller('ReceiptInfoModalCtrl',['$scope','$uibModalInstance', '$location','itemData', function ($scope, $uibModalInstance, $location,itemData) {
    $scope.transactions = itemData.transaction_id;
-   console.log($scope.transactions);
+   $scope.receipt = itemData;
    $scope.closeModal = function(){
       $uibModalInstance.close();
   };

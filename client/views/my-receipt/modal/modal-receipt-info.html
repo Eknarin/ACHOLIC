@@ -1,87 +1,36 @@
 <div class="modal-header">
-  <p style="font-size:30px;">Receipt : Receipt No.</p>
-  <p style="font-size:15px;">Purcahsed at : dd/mm/yyyy</p>
+  <p style="font-size:30px;">Receipt : {{receipt._id}}</p>
+  <p style="font-size:15px;">Purcahsed at : {{receipt.created_at}}</p>
 
 </div>
 <div class="modal-body" style="padding-bottom:0px;">    
 	<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" >
         <div class="col-xs-5 col-sm-5 col-md-5 no-horizotal-padding">
-            <p class="modal-receipt-header">Package<p>
+            <p class="modal-receipt-header">Type<p>
         </div>
         <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
             <p class="modal-receipt-header">Price (฿)</p>
         </div>
         <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
-          	<p class="modal-receipt-header">Amount</p>
-        </div>
-        <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
-            <p class="modal-receipt-header">Subtotal</p>
+            <p class="modal-receipt-header">Serial</p>
         </div>
     </div>          
     <HR WIDTH="100%" NOSHADE>
-    <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" >
+    <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" ng-repeat="transaction in transactions track by $index">
         <div class="col-xs-5 col-sm-5 col-md-5 no-horizotal-padding">
-            <p class="modal-receipt-detail">name<p>
+            <p class="modal-receipt-detail">{{transaction.type}}<p>
         </div>
         <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
-            <p class="modal-receipt-detail">price</p>
-        </div>
-        <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">             
-            <p class="modal-receipt-detail">amount</p>
+            <p class="modal-receipt-detail">{{transaction.price}}</p>
         </div>
         <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
-            <p class="modal-receipt-detail">sub_price</p>             
-        </div>           
+            <p class="modal-receipt-detail">{{transaction.serial}}</p>             
+        </div>      
+        <HR WIDTH="100%" NOSHADE>        
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" >
-        <div class="col-xs-5 col-sm-5 col-md-5 no-horizotal-padding">
-            <p class="modal-receipt-detail">name<p>
-        </div>
-        <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
-            <p class="modal-receipt-detail">price</p>
-        </div>
-        <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">             
-            <p class="modal-receipt-detail">amount</p>
-        </div>
-        <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
-            <p class="modal-receipt-detail">sub_price</p>             
-        </div>           
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" >
-        <div class="col-xs-5 col-sm-5 col-md-5 no-horizotal-padding">
-            <p class="modal-receipt-detail">name<p>
-        </div>
-        <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
-            <p class="modal-receipt-detail">price</p>
-        </div>
-        <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">             
-            <p class="modal-receipt-detail">amount</p>
-        </div>
-        <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
-            <p class="modal-receipt-detail">sub_price</p>             
-        </div>           
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" >
-        <div class="col-xs-5 col-sm-5 col-md-5 no-horizotal-padding">
-            <p class="modal-receipt-detail">name<p>
-        </div>
-        <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
-            <p class="modal-receipt-detail">price</p>
-        </div>
-        <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">             
-            <p class="modal-receipt-detail">amount</p>
-        </div>
-        <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
-            <p class="modal-receipt-detail">sub_price</p>             
-        </div>           
-    </div>
-	<HR WIDTH="100%" NOSHADE>   
     <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding">
         <div class="col-xs-6 col-sm-5 col-md-5 no-horizotal-padding">
-            <p class="modal-receipt-total-price">Total (฿) :<p>
-        </div>
-        <div class="col-xs-6 col-sm-7 col-md-7 no-horizotal-padding">
-            <p class="modal-receipt-total-price">total price<p>
+            <p class="modal-receipt-total-price">Total (฿) : {{receipt.total_price}}<p>
         </div>
     </div>
 
