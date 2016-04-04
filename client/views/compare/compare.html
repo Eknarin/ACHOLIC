@@ -21,8 +21,8 @@
 					    <tbody>
 					    	<!-- Package Image -->
 					        <tr>
-					          <th> </th>
-					            <td class="compare-table-header" ng-repeat="comparePackageItem in comparePackage.items"><img class="center-picture compare-image-style" style="width:320px;" ng-src=api/images/{{comparePackageItem.image}}></img></td>
+					          <th style="border-top: 0px;"> </th>
+					            <td class="compare-table-header" style="border-top: 0px;" ng-repeat="comparePackageItem in comparePackage.items"><img class="center-picture compare-image-style" style="width:320px;" ng-src=api/images/{{comparePackageItem.image}}></img></td>
 					        </tr>
 					        <!-- Package Price -->
 					        <tr>
@@ -37,11 +37,7 @@
 					        <!-- Package Rating -->
 					        <tr>
 					          <th class="compare-table-header">Rating</th>
-					             <td class="compare-table-rating" ng-repeat="comparePackageItem in comparePackage.items">					             	
-					             	<!-- <img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getStar(comparePackageItem.rating) track by $index" src="../image/star_rated.png">
-									<img style="width:20px;height:20px;margin-left: 3px;" ng-if="((comparePackageItem.rating)/2)%1 >= 0.5" src="../image/star_rated_half.png">
-									<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getWhite(comparePackageItem.rating) track by $index" src="../image/star_unrated.png"> -->
-									
+					             <td class="compare-table-rating" ng-repeat="comparePackageItem in comparePackage.items">
 									<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getStar(comparePackageItem.rating) track by $index" src="../image/star_rated.png">
 									<img style="width:20px;height:20px;margin-left: 3px;" ng-if="comparePackageItem.rating%1 >= 0.5" src="../image/star_rated_half.png">
 									<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getWhite(comparePackageItem.rating) track by $index" src="../image/star_unrated.png">
@@ -52,19 +48,14 @@
 					          <th class="compare-table-header">Type</th>
 					          	<td class="compare-table-detail" ng-repeat="comparePackageItem in comparePackage.items">{{comparePackageItem.map_id.map_table}}</td>
 					        </tr>
-					        <!-- Location -->
-					        <tr>
-					          <th class="compare-table-header">Location</th>
-					          	<td class="compare-table-detail" ng-repeat="comparePackageItem in comparePackage.items">{{comparePackageItem.map_id.map_id.location.province}}</td>
-					        </tr>
 					        <!-- Age Limit -->
 					        <tr>
 					          <th class="compare-table-header">Age Limit</th>
 					          	<td class="compare-table-detail" ng-repeat="comparePackageItem in comparePackage.items">{{comparePackageItem.map_id.map_id.age_limit}}</td>
 					        </tr>
-					        <!-- River -->
-					        <tr class="compare-table-header toggler" data-prod="riv">
-					          <th><img id="expandButtriv" ng-click="rotateRiv()" src="../../image/down.png"></img> River</th>
+					        <!-- Place -->
+					        <tr class="compare-table-header toggler" data-prod="riv" ng-click="rotateRiv()">
+					          <th><img id="expandButtriv" src="../../image/down.png"></img>Place</th>
 					          	<td ng-repeat="comparePackageItem in comparePackage.items"> </td>
 					        </tr>
 					        <!-- River Level -->
@@ -72,40 +63,25 @@
 					          <th class="compare-table-subheader">Level</th>
 					          	<td class="compare-table-detail" ng-repeat="comparePackageItem in comparePackage.items">{{comparePackageItem.map_id.map_id.level}}</td>
 					        </tr>
-					        <!-- River Width-->
+					        <!-- Rafting Place-->
 					        <tr class="showriv" style="display:none">
-					          <th class="compare-table-subheader">Width (m)</th>
-					          	<td class="compare-table-detail" ng-repeat="comparePackageItem in comparePackage.items">{{comparePackageItem.map_id.map_id.river_width}}</td>
-					        </tr>
-					        <!-- River Depth-->
-					        <tr class="showriv" style="display:none">
-					          <th class="compare-table-subheader">Depth (m)</th>
-					          	<td class="compare-table-detail" ng-repeat="comparePackageItem in comparePackage.items">{{comparePackageItem.map_id.map_id.river_depth}}</td>
-					        </tr>
+					          <th class="compare-table-subheader">Rafting Place</th>
+					          	<td class="compare-table-detail" ng-repeat="comparePackageItem in comparePackage.items"><!-- {{comparePackageItem.map_id.map_id.river_width}} -->Rafting place</td>
+					        </tr>					      
 					        <!-- Stage -->
-					        <tr class="compare-table-header toggler" data-prod="stage">
-					          <th><img id="expandButtstage" ng-click="rotateStage()" src="../../image/down.png"></img> Stage</th>
+					        <tr class="compare-table-header toggler" data-prod="stage"  ng-click="rotateStage()">
+					          <th><img id="expandButtstage" src="../../image/down.png"></img> Stage</th>
 					          	<td ng-repeat="comparePackageItem in comparePackage.items"> </td>
 					        </tr>
-					        <!-- Stage Start Location-->
+					        <!-- Stage Amount-->
 					        <tr class="showstage" style="display:none">
-					          <th class="compare-table-subheader">Start Location</th>
-					          	<td class="compare-table-detail" ng-repeat="comparePackageItem in comparePackage.items">{{comparePackageItem.map_id.map_id.start_location}}</td>
-					        </tr>
-					        <!-- Stage End Location -->
-					        <tr class="showstage" style="display:none">
-					          <th class="compare-table-subheader">End Location</th>
-					          	<td class="compare-table-detail" ng-repeat="comparePackageItem in comparePackage.items">{{comparePackageItem.map_id.map_id.end_location}}</td>
-					        </tr>
-					        <!-- Stage Type -->
-					        <tr class="showstage" style="display:none">
-					          <th class="compare-table-subheader">Stage Type</th>
-					          	<td class="compare-table-detail" ng-repeat="comparePackageItem in comparePackage.items"><p ng-repeat="stageType in comparePackageItem.map_id.map_id.stage_type">• {{stageType}}</p></td>
-					        </tr>
+					          <th class="compare-table-subheader">Stage Amount</th>
+					          	<td class="compare-table-detail" ng-repeat="comparePackageItem in comparePackage.items"><!-- {{comparePackageItem.map_id.map_id.start_location}} --> Stage Amount</td>
+					        </tr>					        
 
 					        <!-- More Details -->
-					        <tr class="compare-table-header toggler" data-prod="more">
-					          <th><img id="expandButtmore" ng-click="rotateMore()" src="../../image/down.png"></img> More Details</th>
+					        <tr class="compare-table-header toggler" data-prod="more" ng-click="rotateMore()">
+					          <th><img id="expandButtmore" src="../../image/down.png"></img> More Details</th>
 					           <td ng-repeat="comparePackageItem in comparePackage.items"> </td>
 					        </tr>
 					        <!-- Provide Things -->
