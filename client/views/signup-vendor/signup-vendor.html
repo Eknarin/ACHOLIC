@@ -55,7 +55,10 @@
 									<!-- ID Number -->
 									<div class="input-width sign-up-cover-style">
 										<p class="sign-up-header"><font class="required-box">*</font> Identification Number</p>	
-										<input ng-model="vendor.identification_num" name="id_num" required class="signup-inputbox-style input-width" type="text" maxlength="13" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="confirm-password" placeholder="13 digits"><br>	
+										<input ng-model="vendor.identification_num" name="id_num" required class="signup-inputbox-style input-width" type="text" pattern="[0-9]{13}" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="confirm-password" placeholder="13 number digits"><br>	
+									</div>
+									<div ng-show="form.$submitted || form.id_num.$touched">
+										<p class="invalid-input" ng-show="!form.id_num.$valid" >The correct pattern is number 13 digits.</p>
 									</div>
 
 									<!-- Provider Number -->
