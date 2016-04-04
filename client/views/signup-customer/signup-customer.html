@@ -36,20 +36,25 @@
 					</div>  
 				
 				  	<div class="tab-content col-xs-12 col-sm-12 col-md-12" style="background-color:rgba(0,0,0,0.65); padding-top:20px">
+				  		<!-- account panel -->
 				    	<div role="tabpanel" id="account" class="tab-pane active">
 				      		<center>
 					      		<form>
-
 					      			<!-- First Name -->
-									<input required ng-model="user.first_name" class="signup-inputbox-style input-width" type="text" name="FirstName" placeholder="First Name"><br>
+					      			<div class="input-width sign-up-cover-style">
+										<p class="sign-up-header"><font class="required-box">*</font> First Name</p>					
+										<input required ng-model="user.first_name" class="signup-inputbox-style input-width" type="text" name="FirstName"><br>
+									</div>
 
 									<!-- Last Name -->
-									<input required ng-model="user.last_name" class="signup-inputbox-style input-width" type="text" name="LastName" placeholder="Last Name"><br>
-
+									<div class="input-width sign-up-cover-style">
+										<p class="sign-up-header"><font class="required-box">*</font> Last Name</p>	
+										<input required ng-model="user.last_name" class="signup-inputbox-style input-width" type="text" name="LastName"><br>
+									</div>
 									<!-- Gender -->
-									<div class="input-width" style="margin-top:15px; margin-bottom:15px; text-align:left">
-										<p style="font-size:20px; margin-bottom:0px;">Gender</p>
-										<div style="padding-left:50px;">
+									<div class="input-width sign-up-cover-style">
+										<p class="sign-up-header">Gender</p>
+										<div style="padding-left:50px; text-align:left;">
 											<input type="radio" ng-model="user.gender" value="Men" name="gender"> MEN<br>
 											<input type="radio" ng-model="user.gender" value="Women" name="gender"> WOMEN<br>
 											<input type="radio" ng-model="user.gender" value="Other" name="gender"> OTHER<br>
@@ -57,8 +62,8 @@
 									</div>	
 
 									<!-- ฺBirth Date -->
-									<div class="input-width" style="margin-top:15px; margin-bottom:15px; text-align:left;">
-										<p style="font-size:20px; margin-bottom:0px;">Birth Date</p>
+									<div class="input-width sign-up-cover-style">
+										<p class="sign-up-header">Birth Date</p>
 										<datepicker date-format="dd-MM-yyyy" date-year-title="selected title">
 										  <input class="signup-inputbox-style input-width" ng-model="user.date_of_birth" type="text"/>
 										</datepicker>
@@ -72,21 +77,25 @@
 								</form>
 							</center>
 				    	</div>
-
-
+				    	<!-- security panel -->
 				    	<div role="tabpanel" id="security" class="tab-pane">
 				      		<center>
 					      		<form>
-
 					      			<!-- Email -->
-									<input required ng-model="user.email" class="signup-inputbox-style input-width" type="text" name="email" placeholder="Email"><br>
-
+					      			<div class="input-width sign-up-cover-style">
+										<p class="sign-up-header"><font class="required-box">*</font> Email</p>	
+										<input required ng-model="user.email" class="signup-inputbox-style input-width" type="text" name="email"><br>
+									</div>
 									<!-- Password -->
-									<input required ng-model="user.password"  class="signup-inputbox-style input-width" type="password" name="password" placeholder="Password"><br>
-
+									<div class="input-width sign-up-cover-style">
+										<p class="sign-up-header"><font class="required-box">*</font> Password</p>	
+										<input required ng-model="user.password"  class="signup-inputbox-style input-width" type="password" name="password"><br>
+									</div>
 									<!-- Confirm Password -->
-									<input required ng-model="user.repassword"  class="signup-inputbox-style input-width" type="password" name="confirm-password" placeholder="Confirm Password"><br>	
-
+									<div class="input-width sign-up-cover-style">
+										<p class="sign-up-header"><font class="required-box">*</font> Confirm Password</p>	
+										<input required ng-model="user.repassword"  class="signup-inputbox-style input-width" type="password" name="confirm-password"><br>	
+									</div>
 									<!-- Button -->
 									<div class="input-width" style="margin-top:15px; margin-bottom:15px;">
 										<button type="button" class="btn btn-danger" ng-click="activeTab(0)" data-toggle="tab" data-target="#account">Back</button>
@@ -96,19 +105,27 @@
 								</form>
 							</center>
 				    	</div>
+				    	<!-- contact panel -->
 				    	<div role="tabpanel" id="contact" class="tab-pane">
 				      		<center>
 					      		<form>
-
 					      			<!-- Address -->
-									<textarea ng-model="user.address.address"  class="form-control signup-inputbox-style input-width" rows="5" name="address" placeholder="Address"></textarea>
+					      			<div class="input-width sign-up-cover-style">
+										<p class="sign-up-header">Address</p>	
+										<textarea ng-model="user.address.address" class="form-control signup-inputbox-style input-width" rows="5" name="address"></textarea>
+									</div>
 
 									<!-- Zip Code -->
-									<input ng-model="user.address.zip_code"  class="signup-inputbox-style input-width" type="text" name="zipcode" placeholder="Zip Code"><br>
+									<div class="input-width sign-up-cover-style">
+										<p class="sign-up-header">Zipcode</p>	
+										<input ng-model="user.address.zip_code"  class="signup-inputbox-style input-width" type="text" name="zipcode"><br>
+									</div>
 
 									<!-- Phone -->
-									<input ng-model="user.phone_number"  required class="signup-inputbox-style input-width" type="text" name="phone" placeholder="Phone"><br>	
-
+									<div class="input-width sign-up-cover-style">
+										<p class="sign-up-header"><font class="required-box">*</font> Phone</p>	
+										<input ng-model="user.phone_number"  required class="signup-inputbox-style input-width" type="text" name="phone"><br>	
+									</div>
 									<!-- Button -->
 									<div class="input-width" style="margin-top:15px; margin-bottom:15px;">
 										<button type="button" class="btn btn-danger" ng-click="activeTab(1)" data-toggle="tab" data-target="#security">Back</button>
@@ -122,7 +139,7 @@
 					      		<form>
 					      			<!-- //required -->
 					      			<div class="col-xs-12 col-sm-12 col-md-12">
-					      				<p style="font-size:20px">ADD IMAGE</p>
+					      				<p style="font-size:20px"><font class="required-box">*</font> ADD IMAGE</p>
 					      			</div>
 					      			<div class="col-xs-12 col-sm-12 col-md-12 upload-image-style center-picture">
 										<upload-image image="user.image"></upload-image>

@@ -44,13 +44,22 @@
 					      		<form>
 
 					      			<!-- Email -->
-									<input ng-model="vendor.email" required class="signup-inputbox-style input-width" type="text" name="email" placeholder="Vendor Email"><br>
+					      			<div class="input-width sign-up-cover-style">
+										<p class="sign-up-header"><font class="required-box">*</font> Email</p>	
+										<input ng-model="vendor.email" required class="signup-inputbox-style input-width" type="text" name="email"><br>
+									</div>
 
 									<!-- ID Number -->
-									<input ng-model="vendor.identification_num" required class="signup-inputbox-style input-width" type="text" name="confirm-password" placeholder="Identification Number"><br>	
+									<div class="input-width sign-up-cover-style">
+										<p class="sign-up-header"><font class="required-box">*</font> Identification Number</p>	
+										<input ng-model="vendor.identification_num" required class="signup-inputbox-style input-width" type="text" name="confirm-password" placeholder="Identification Number"><br>	
+									</div>
 
 									<!-- Provider Number -->
-									<input ng-model="vendor.provider_num" required class="signup-inputbox-style input-width" type="text" name="confirm-password" placeholder="Provider Number"><br>	
+									<div class="input-width sign-up-cover-style">
+										<p class="sign-up-header"><font class="required-box">*</font> Provider Number</p>	
+										<input ng-model="vendor.provider_num" required class="signup-inputbox-style input-width" type="text" name="confirm-password" placeholder="Provider Number"><br>	
+									</div>
 
 									<!-- Button -->
 									<div class="input-width" style="margin-top:15px; margin-bottom:15px;">
