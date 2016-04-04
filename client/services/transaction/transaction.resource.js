@@ -8,8 +8,7 @@ angular.module('acholic')
       },
       query:{
         method: 'GET',
-        url:'/api/transactions/receipt',
-        isArray: true
+        url:'/api/transactions/receipt'
       },
       saveCart: {
       	method: 'POST',

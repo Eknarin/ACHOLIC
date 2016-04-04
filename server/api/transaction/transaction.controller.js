@@ -15,7 +15,7 @@ function handleError (res, err) {
  * @param res
  */
 exports.index = function (req, res) {
-  Receipt.find({userId: req.query.userId}).populate('transaction_id').exec(function (err, transactions) {
+  Receipt.paginate({userId: req.query.userId},{ page: req.query.page, limit: 10, populate: 'transaction_id'},function (err, transactions) {
     if (err) { return handleError(res, err); }
     return res.status(200).json(transactions);
   });
