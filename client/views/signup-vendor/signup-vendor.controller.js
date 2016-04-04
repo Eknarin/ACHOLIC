@@ -9,14 +9,24 @@ angular.module('acholic')
     });
 
     $scope.onSubmit= function(){
-      Auth.signupVendor($scope.vendor)
-          .then(function () {
-            console.log('set as vendor!!!');
-            $location.path('/');
-          })
-          .catch(function (err) {
-            console.log(err);
-      });
+      if($scope.vendor.identification_num == null){
+        alert("Please enter your Identification Number.");
+        return;
+      }
+      if($scope.vendor.provider_num == null){
+        alert("Please enter your Tourist Business license Number.");
+        return;
+      }
+      else{
+        Auth.signupVendor($scope.vendor)
+            .then(function () {
+              console.log('set as vendor!!!');
+              $location.path('/');
+            })
+            .catch(function (err) {
+              console.log(err);
+        });
+      }
     };
     
       $scope.tabs = ["active", "", "", ""];
