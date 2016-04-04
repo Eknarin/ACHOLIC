@@ -358,7 +358,7 @@ angular.module('acholic')
                 ].join(' ');
             }
             $scope.markers = [];
-            $scope.markers.push(marker)
+            $scope.markers.push(marker);
             $scope.packages.info.location.lat = marker.position[0];
             $scope.packages.info.location.long = marker.position[1];
             $scope.packages.info.location.location_text = place.formatted_address;
