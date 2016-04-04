@@ -58,6 +58,7 @@ exports.createCart = function (req, res) {
   Transaction.create(req.body.items, function (err, transactions) {
     if (err) { return handleError(res, err); }
     var recep = new Receipt;
+    recep.total_price = 0;
     recep.user_id = transactions[0].user_id;
     for(var i = 0 ;i<transactions.length ;i++){
       recep.transaction_id.push(transactions[i]._id);
