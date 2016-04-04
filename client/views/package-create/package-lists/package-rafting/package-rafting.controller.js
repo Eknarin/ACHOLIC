@@ -71,26 +71,31 @@ angular.module('acholic')
 
     $scope.stageType = [];
 
-    $scope.stages = [];
+    // $scope.stages = [];
+    
+    $scope.stageHighlights = [];
   
-    $scope.addNewStage = function() {
-        $scope.stages.push($scope.stages.length);
+    $scope.addNewStageHighlight = function() {
+        // $scope.stages.push($scope.stages.length);
+        $scope.stageHighlights.push($scope.stageHighlights.length);
     };
         
-    $scope.removeStage = function(index) {
-        $scope.stages.splice(index,1);
+    $scope.removeStageHighlight = function(index) {
+        // $scope.stages.splice(index,1);
+        // $scope.stageType.splice(index,1); 
+        $scope.stageHighlights.splice(index,1);
         $scope.stageType.splice(index,1); 
     };
 
-    $scope.firstStage = "Stage";
-    $scope.setFirstStage = function(val){
-        $scope.firstStage = val;
-    };
+    // $scope.firstStage = "Stage";
+    // $scope.setFirstStage = function(val){
+    //     $scope.firstStage = val;
+    // };
 
-    $scope.lastStage = "Stage";
-    $scope.setLastStage = function(val){
-        $scope.lastStage = val;
-    };
+    // $scope.lastStage = "Stage";
+    // $scope.setLastStage = function(val){
+    //     $scope.lastStage = val;
+    // };
 
     // menu-bar function
  	var navListItems = $('ul.setup-panel li a'),
