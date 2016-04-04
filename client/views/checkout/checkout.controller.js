@@ -23,6 +23,7 @@ angular.module('acholic')
   			for(var j=0; j<carts[i].list.length ;j++){
   				var item = {
             packages_id: $scope.getPackage(carts[i].package)._id,
+            vendor_id: $scope.getPackage(carts[i].package).user_id,
             user_id: $scope.userId,
   					type: carts[i].list[j].type,
             price: carts[i].list[j].price,

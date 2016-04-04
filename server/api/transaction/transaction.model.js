@@ -5,6 +5,7 @@ var Schema = mongoose.Schema;
 
 var TransactionSchema = new Schema({
   user_id: { type: Schema.Types.ObjectId, ref: 'User' },
+  vendor_id: { type: Schema.Types.ObjectId, ref: 'User' },
   packages_id: [{ type: Schema.Types.ObjectId, ref: 'PackageItem' }],
   type: String,
   price: Number,
