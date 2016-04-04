@@ -1,9 +1,12 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('SignupVendorCtrl',['$scope', 'Auth','$location','$rootScope', function ($scope , Auth , $location,$rootScope) {
+  .controller('SignupVendorCtrl',['$scope', 'Auth','$location', function ($scope , Auth , $location) {
     $scope.vendor = {};
-    $scope.vendor.userId = $rootScope._user._id;
+    Auth.getUser().then(function(res){
+      $scope.vendor.userId = res._id;
+      $scope.vendor.email = res.email;
+    });
 
     $scope.onSubmit= function(){
       Auth.signupVendor($scope.vendor)
