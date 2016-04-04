@@ -53,6 +53,7 @@
 
 			<!-- Package General Information -->
 		    <div class="row setup-content" id="step-0">
+		    	<form name="form" novalidate>
 		    	<div class="col-xs-12 col-sm-12 col-md-12 fillform-cover-style">
 		    	 	<div  style="text-align: center;">
 			            <p class="fillform-content-header"> General Information</p>
@@ -68,7 +69,12 @@
 			   					<p class="package-create-topic-style"><font class="required-box">*</font> Pakage Name : </p>
 		    				</div>
 			      			<div class="col-xs-12 col-sm-12 col-md-8">
-				        		<input ng-model="packages.name" class="package-create-inputbox-style" type="text" required>
+				        		<input ng-model="packages.name" name="pac_name" class="package-create-inputbox-style" type="text" required>
+				       		</div>
+				       		<div class="col-xs-12 col-sm-12 col-md-4">
+				       		</div>
+				       		<div class="col-xs-12 col-sm-12 col-md-8" ng-show="form.pac_name.$touched">
+				       			<p style="text-align:center;color:orange;" ng-show="form.pac_name.$error.required">Please name your package.</p>
 				       		</div>
 			        	</div>		
 			        	<!-- Description -->
@@ -77,8 +83,13 @@
 			       				<p class="package-create-topic-style"><font class="required-box">*</font> Description : </p>
 			       			</div>
 			        		<div class="col-xs-12 col-sm-12 col-md-8">
-			        			<textarea ng-model="packages.description" class="package-create-inputbox-style form-control" rows="5" required></textarea>
+			        			<textarea ng-model="packages.description" name="pac_des" class="package-create-inputbox-style form-control" rows="5" required></textarea>
 			        		</div>
+			        		<div class="col-xs-12 col-sm-12 col-md-4">
+				       		</div>
+				       		<div class="col-xs-12 col-sm-12 col-md-8" ng-show="form.pac_des.$touched">
+				       			<p style="text-align:center;color:orange;" ng-show="form.pac_des.$error.required">Please fill the description.</p>
+				       		</div>
 			        	</div>        			
 
 			        	<!-- Location -->
@@ -87,8 +98,13 @@
 			   					<p class="package-create-topic-style"><font class="required-box">*</font> Location : </p>
 		    				</div>
 		    				<div class="col-xs-12 col-sm-12 col-md-8">
-			        			<input id="test"ng-model="testMap" ng-keypress="geocodeAddress()" class="package-create-inputbox-style form-control" required></input>
+			        			<input id="test"ng-model="testMap" name="pac_location" ng-keypress="geocodeAddress()" class="package-create-inputbox-style form-control" required></input>
 			        		</div>
+			        		<div class="col-xs-12 col-sm-12 col-md-4">
+				       		</div>
+				       		<div class="col-xs-12 col-sm-12 col-md-8" ng-show="form.pac_location.$touched">
+				       			<p style="text-align:center;color:orange;" ng-show="form.pac_location.$error.required">Please fill your package location.</p>
+				       		</div>
 			        	</div>
 
 			        	<!-- Map -->
@@ -104,7 +120,8 @@
 									    icon="{{marker.icon}}"></marker>									    
 								</ng-map>								
 				        	</div>
-			        	</div>			        	
+			        	</div>	
+			        	</form>		        	
 			        </div>
 			        <!-- Next Button -->
 			        <div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center; margin-top:20px;">
