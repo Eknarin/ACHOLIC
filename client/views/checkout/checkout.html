@@ -33,7 +33,7 @@
 					    <!-- Table Detail -->
 					    <tbody>
 					      <tr ng-repeat="item in cart track by $index">
-					        <td class="checkout-order-summary-table-detail">{{getPackage(item.packages_id).name}}</td>
+					        <td class="checkout-order-summary-table-detail"><a href="/packageDetail/{{item.packages_id}}" style="color:white">{{getPackage(item.packages_id).name}}</a></td>
 					        <td class="checkout-order-summary-table-detail">{{item.type}}</td>
 					        <td class="checkout-order-summary-table-detail">{{item.price}}</td>
 					       <!--  <td class="my-cart-table-detail"><button class="btn btn-danger" ng-click="removeItem(item)">Delete</button></td> -->
