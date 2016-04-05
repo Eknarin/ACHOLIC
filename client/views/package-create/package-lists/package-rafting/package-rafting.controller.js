@@ -48,7 +48,7 @@ angular.module('acholic')
         //stage
         $scope.packages.info.stages = $scope.stages;
         //stage type
-        $scope.packages.info.stage_type = $scope.stageType;
+        $scope.packages.info.stages_amount = $scope.stageHighlights.length;
 
         //start stage
         $scope.packages.info.start_location = $scope.firstStage;
@@ -69,7 +69,10 @@ angular.module('acholic')
         });   
     };
 
-    $scope.stageType = [];
+    $scope.stages = [{
+        name: '',
+        description: ''
+    }];
 
     // $scope.stages = [];
     
@@ -84,7 +87,7 @@ angular.module('acholic')
         // $scope.stages.splice(index,1);
         // $scope.stageType.splice(index,1); 
         $scope.stageHighlights.splice(index,1);
-        $scope.stageType.splice(index,1); 
+        $scope.stages.splice(index,1);
     };
 
     // $scope.firstStage = "Stage";

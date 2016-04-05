@@ -226,7 +226,7 @@
 				   					<p class="package-create-topic-style">Stage Amount : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input class="package-create-inputbox-style" type="number" min="0" placeholder="0" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+					        		<input ng-model="packages.info.stages_amount" class="package-create-inputbox-style" type="number" min="0" placeholder="0" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
 					       		</div>
 				        	</div>
 					        <!-- Stage Highlight and Description -->
@@ -237,8 +237,11 @@
 			    				<div class="col-xs-12 col-sm-12 col-md-12"> 					      			
 						       		<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:0px; padding-right:0px;"> 
 							       		<fieldset  ng-repeat="stageHighlight in stageHighlights">		
-							       			<div class="col-xs-10 col-sm-10 col-md-10"> 		     
-										     	<textarea type="text" class="package-create-inputbox-style form-control" rows="3" name="" required style="width:100%; margin-bottom:15px;" data-ng-model="stageType[$index]"></textarea>
+							       			<div class="col-xs-10 col-sm-10 col-md-10">
+						       					<p>Stage name<p> 	
+							       				<input class="package-create-inputbox-style" data-ng-model="stages[$index].name">	
+							       				<p>Description<p> 	     
+										     	<textarea type="text" class="package-create-inputbox-style form-control" rows="3" name="" required style="width:100%; margin-bottom:15px;" data-ng-model="stages[$index].description"></textarea>
 										  	</div>
 										  	<div class="col-xs-2 col-sm-2 col-md-2">
 										      	<button class="btn btn-danger package-create-add-delete-button-style" style="width:100%; margin-bottom:15px;" ng-click="removeStageHighlight($index)">-</button>
