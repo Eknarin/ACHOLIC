@@ -262,12 +262,55 @@ angular.module('acholic')
 
   $scope.priceArrs = [];
   $scope.addPrice = function(){
+
+    if($scope.packages.info.info == null){
+        alert("Please fill out all details before submit.");
+        return;
+    }
+
     var addPrice = $scope.packages.info.info.price;
     var addPeople = $scope.packages.info.info.people;
     var addDistance = $scope.packages.info.info.distance;
     var addDuration = $scope.packages.info.info.duration;
     var addType = $scope.packages.info.info.type;
     var addBoat = $scope.boat_type;
+
+    var alertMess = "Please check ";
+    var lastMess = "field(s) and try again.";
+    var checkLoss = "";
+    var complete = true;
+
+
+
+    if(addPrice == null){
+        checkLoss = checkLoss + ".Price ";
+        complete = false;
+    }
+    if(addPeople == null){
+        checkLoss = checkLoss + ".People ";
+        complete = false;
+    }
+    if(addDistance == null){
+        checkLoss = checkLoss + ".Distance ";
+        complete = false;
+    }
+    if(addDuration == null){
+        checkLoss = checkLoss + ".Duration ";
+        complete = false;
+    }
+    if(addType == null){
+        checkLoss = checkLoss + ".Name ";
+        complete = false;
+    }
+    if(addBoat == null){
+        checkLoss = checkLoss + ".BoatType ";
+        complete = false;
+    }
+
+    if(!complete){
+        alert(alertMess+checkLoss+lastMess);
+        return;
+    }
     
     var priceObj = {
         price: addPrice, 
