@@ -1,3 +1,16 @@
 /**
  * my-transaction.scss
  */
+.transaction-table-header{
+	font-size: 15px;
+	border: 1px solid white;
+	color: #fb5858;
+	background-color: rgba(0, 0, 0, 0.85);
+	text-align: center;	
+}
+.transaction-table-detail{
+	font-size: 13px;
+	border: 1px solid white;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.65);
+}

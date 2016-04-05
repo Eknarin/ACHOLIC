@@ -1,3 +1,65 @@
-<div>
-  {{ vm.name }}
+<div class="container-fluid no-horizotal-padding" style="background-color:rgba(0,0,0,0.85);">		
+	<!-- Side menu-bar -->
+	<div class="col-xs-12 col-sm-12 col-md-3 side-menu-bar-cover">			
+		<!-- Sorting -->
+		<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="margin-bottom:10px;">
+			<div class="col-xs-12 col-sm-12 col-md-12">
+				<p style="font-size:30px;">Filter by Package Name</p>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:30px;">
+				<div>
+					<input type="checkbox" style="font-size:17px;"> All Package</input>
+				</div>
+				<div>
+					<input type="checkbox" style="font-size:17px;"> Package A</input>
+				</div>
+				<div>
+					<input type="checkbox" style="font-size:17px;"> Package B</input>
+				</div>
+				<div>
+					<input type="checkbox" style="font-size:17px;"> Package C</input>
+				</div>
+				<div>
+					<input type="checkbox" style="font-size:17px;"> Package D</input>
+				</div>	
+				<div>
+					<input type="checkbox" style="font-size:17px;"> Package E</input>
+				</div>						
+			</div>					
+		</div>		
+	</div>
+	<!-- Transaction table-->
+	<div class="col-xs-12 col-sm-12 col-md-9 main-background">			
+		<table class="table">
+			<thead>
+					<th class="transaction-table-header" style="vertical-align: top;"> Receipt No. </th>
+					<th class="transaction-table-header" style="vertical-align: top;"> Package Name </th>
+					<th class="transaction-table-header" style="vertical-align: top;"> Quantity </th>
+					<th class="transaction-table-header" style="vertical-align: top;"> Customer Name </th>
+					<th class="transaction-table-header" style="vertical-align: top;"> Sold Date </th>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="transaction-table-detail" style="vertical-align: top;"> YYYYY </td>
+					<td class="transaction-table-detail" style="vertical-align: top;"> YYYYY </td>
+					<td class="transaction-table-detail" style="vertical-align: top;"> YYYYY </td>
+					<td class="transaction-table-detail" style="vertical-align: top;"> YYYYY </td>
+					<td class="transaction-table-detail" style="vertical-align: top;"> YYYYY </td>
+				</tr>
+				<tr>
+					<td class="transaction-table-detail" style="vertical-align: top;"> YYYYY </td>
+					<td class="transaction-table-detail" style="vertical-align: top;"> YYYYY </td>
+					<td class="transaction-table-detail" style="vertical-align: top;"> YYYYY </td>
+					<td class="transaction-table-detail" style="vertical-align: top;"> YYYYY </td>
+					<td class="transaction-table-detail" style="vertical-align: top;"> YYYYY </td>
+				</tr>
+			</tbody>			
+		</table>
+		<!-- Page paginator -->
+		<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center; margin-top:15px;">
+			<uib-pagination total-items="totalItems" items-per-page="limit" ng-change="pageChanged(currentPage)" ng-model="currentPage" max-size="maxSize" class="pagination-md" boundary-links="true" rotate="false"></uib-pagination>
+		</div>
+	</div>
+
+	
 </div>
