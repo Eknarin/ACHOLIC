@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('acholic', [
+  'ngFacebook',
   'ngRoute',
   'ngCookies',
   'ngResource',
@@ -23,6 +24,19 @@ angular.module('acholic', [
     $locationProvider.html5Mode(true);
     $httpProvider.interceptors.push('authInterceptor');
 
+  })
+  .config( function( $facebookProvider ) {
+    $facebookProvider.setAppId(1587717998209272);
+    $facebookProvider.setPermissions("user_birthday,public_profile,email");
+  })
+  .run(function($rootScope){
+     (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));    
   })
   .factory('authInterceptor',
   function ($rootScope, $q, $cookieStore, $location) {

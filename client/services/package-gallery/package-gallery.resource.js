@@ -10,7 +10,7 @@ angular.module('acholic')
       	method: 'POST'
       },
       query: {
-        methoo: 'GET'
+        method: 'GET'
       }
     });
   });

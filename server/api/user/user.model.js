@@ -10,6 +10,7 @@ var UserSchema = new Schema({
   last_name: String,
   gender: String,
   date_of_birth: Date,
+  age_min: Number,
   phone_number: String,
   address: {
     address: String,
@@ -19,9 +20,11 @@ var UserSchema = new Schema({
   customer_exp: Number,
   rank: { type: Schema.Types.ObjectId, ref: 'RankCustomer' },
   image: { type: Schema.Types.ObjectId, ref: 'Image' }, 
+  facebook_image: String,
   role: String,
   vendor: { type: Schema.Types.ObjectId, ref: 'Vendor' },
   passwordHash: { type: String, select: false },
+  facebook_id: String,
   salt: { type: String, select: false },
   created_at: Date,
   updated_at: { type: Date, default: Date.now }

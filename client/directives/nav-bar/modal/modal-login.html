@@ -2,16 +2,31 @@
         <h2 class="modal-title">Sign in</h2>
       </div>
       <form ng-submit="login()">
-        <div class="modal-body">
-                <pre ng-if="vm.error">{{ vm.error | json }}</pre>  
+        <div class="modal-body" ng-show="!facebook_first">
+                <pre ng-if="vm.error">{{ vm.error | json }}</pre> 
                 <label><span class="glyphicon glyphicon-user"></span> Username</label></br>
                 <input class="col-md-10 col-xs-10 col-sm-10" type="email" ng-model="user.email" placeholder="email"></br></br></br>
                 <label><span class="glyphicon glyphicon-eye-open"></span> Password</label></br>
                 <input class="col-md-10 col-xs-10 col-sm-10" type="password" ng-model="user.password" placeholder="password"></br>
                 <div class="alertText" ng-show="showAlert"><p>The email address or password you entered is incorrect.</p></div>
-              </div>
-        <div class="modal-footer">
+        </div>
+        <div class="modal-footer" ng-show="!facebook_first">
+            <button type="button" ng-click="loginFacebook()" ng-hide="isLoggedIn" class="btn btn-default navbar-btn">
+                Login Facebook
+            </button>
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <button type="button" class="btn btn-default" ng-click="cancel()">Close</button>
           </div>
+
+           <div class="modal-body" ng-show="facebook_first">
+                <pre ng-if="vm.error">{{ vm.error | json }}</pre> 
+                <label><span class="glyphicon glyphicon-eye-open"></span> Password</label></br>
+                <input class="col-md-10 col-xs-10 col-sm-10" type="password" ng-model="person.password" placeholder="password"></br>
+                <div class="alertText" ng-show="showAlert"><p>The email address or password you entered is incorrect.</p></div>
+        </div>
+        <div class="modal-footer" ng-show="facebook_first">
+                <button type="button" ng-click="(faceLogin())" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-default" ng-click="cancel()">Close</button>
+          </div>
       </form>
+

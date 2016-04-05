@@ -34,6 +34,38 @@ exports.createCustomer = function (req, res) {
     });
   });
 };
+
+/**
+ * Creates a new user in the DB.
+ *
+ * @param req
+ * @param res
+ */
+exports.loginFacebook = function (req, res) {
+  User.findOne(req.body, function (err, user) {
+    if (err) { return handleError(res, err); }
+    res.status(201).json({
+      user: _.omit(user.toObject(), ['passwordHash', 'salt']),
+      token: authService.signToken(user._id)
+    });
+  });
+};
+
+
+/**
+ * Creates a new user in the DB.
+ *
+ * @param req
+ * @param res
+ */
+exports.checkUser = function (req, res) {
+  User.findOne({'facebook_id': req.query.userId}).exec(function (err, user) {
+    if (err) { return handleError(res, err); }
+    if (!user) { return res.json(401); }
+    return res.status(200).json(user);
+  });
+};
+
 /**
  * Creates a new user in the DB.
  *

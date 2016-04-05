@@ -81,6 +81,33 @@ angular.module('acholic')
       return deferred.promise;
     };
 
+    this.loginFacebook = function (user) {
+      var deferred = $q.defer();
+      $http.post('/api/users/facebook', user)
+        .then(function (res) {
+          $rootScope._user = res.data.user;
+          $cookieStore.put('token', res.data.token);
+          _ready.resolve(true);
+          deferred.resolve(res.data.user);
+        })
+        .catch(function (err) {
+          deferred.reject(err.data);
+        });
+      return deferred.promise;
+    };
+
+    this.checkUser = function(userId){
+      var deferred = $q.defer();
+      $http.get('/api/users/check-user', {params: {"userId": userId}})
+        .then(function (res) {
+          deferred.resolve(res.data);
+        })
+        .catch(function (err) {
+          deferred.reject(err.data);
+        });
+      return deferred.promise;
+    };
+
     /**
      * Logout
      */
