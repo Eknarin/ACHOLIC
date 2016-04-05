@@ -4,6 +4,7 @@ angular.module('acholic')
   .controller('CheckoutCtrl',['$scope','Auth','$location','Cart','PackageItem','Transaction', function ($scope,Auth,$location,Cart,PackageItem,Transaction) {
   	$scope.userId = {};
   	$scope.cart = [];
+    $scope.cart_show = [];
   	$scope.loading = false;
   	$scope.total_price = 0;
     $scope.package = [];
@@ -33,6 +34,11 @@ angular.module('acholic')
           for(var k = 0;k<carts[i].list[j].amount ;k++){
             $scope.cart.push(item);
           }
+          var temp = {
+            item : item,
+            amount: carts[i].list[j].amount
+          }
+          $scope.cart_show.push(temp);
   			}
   		}
   		$scope.loading = true;

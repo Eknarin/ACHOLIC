@@ -27,15 +27,17 @@
 					      <tr>
 					      	<th class="checkout-order-summary-table-header">Package</th>
 					        <th class="checkout-order-summary-table-header">Type</th>
-					        <th class="checkout-order-summary-table-header">Price (฿)</th>				       
+					        <th class="checkout-order-summary-table-header">Price (฿)</th>
+					        <th class="checkout-order-summary-table-header">Amount</th>					       
 					      </tr>
 					    </thead>
 					    <!-- Table Detail -->
 					    <tbody>
-					      <tr ng-repeat="item in cart track by $index">
-					        <td class="checkout-order-summary-table-detail"><a href="/packageDetail/{{item.packages_id}}" style="color:white">{{getPackage(item.packages_id).name}}</a></td>
-					        <td class="checkout-order-summary-table-detail">{{item.type}}</td>
-					        <td class="checkout-order-summary-table-detail">{{item.price}}</td>
+					      <tr ng-repeat="item in cart_show track by $index">
+					        <td class="checkout-order-summary-table-detail"><a href="/packageDetail/{{item.packages_id}}" style="color:white">{{getPackage(item.item.packages_id).name}}</a></td>
+					        <td class="checkout-order-summary-table-detail">{{item.item.type}}</td>
+					        <td class="checkout-order-summary-table-detail">{{item.item.price}}</td>
+					        <td class="checkout-order-summary-table-detail">{{item.amount}}</td>
 					       <!--  <td class="my-cart-table-detail"><button class="btn btn-danger" ng-click="removeItem(item)">Delete</button></td> -->
 					      </tr>
 					    </tbody>
