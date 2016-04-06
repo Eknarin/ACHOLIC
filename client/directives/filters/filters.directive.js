@@ -5,7 +5,7 @@ angular.module('acholic')
     return {
       restrict: 'EA',
       // templateUrl: 'directives/filters/filter-all/filter-all.html',
-      templateUrl: 'directives/filters/filter-rafting/filter-rafting.html',
+      templateUrl: 'directives/filters/filter-all/filter-all.html',
       controller: ['$scope' , function($scope){
     		//province filter
 			  $scope.provinces = [
@@ -105,7 +105,7 @@ angular.module('acholic')
 			  $scope.setRaftingLevel = function(value){
 			    $scope.selectedRaftingLevel = value;
 			  }
-
+			  // minimum rating filter
 			  $scope.minRate = [
 			    {rating: 'Rating 0'},
 			    {rating: 'Rating 0.5'},
