@@ -84,14 +84,22 @@
 					      		<form>
 
 					      			<!-- Address -->
-									<textarea ng-model="vendor.address.address" class="form-control signup-inputbox-style input-width" rows="5" name="address" placeholder="Address"></textarea>
+					      			<div class="input-width sign-up-cover-style">
+										<p class="sign-up-header">Address</p>	
+										<textarea ng-model="vendor.address.address" class="form-control signup-inputbox-style input-width" rows="5" name="address" placeholder="Address"></textarea>
+									</div>
 
 									<!-- Zip Code -->
-									<input ng-model="vendor.address.zip_code" class="signup-inputbox-style input-width" type="text" name="zipcode" placeholder="Zip Code"><br>
+									<div class="input-width sign-up-cover-style">
+										<p class="sign-up-header">Zip Code</p>	
+										<input ng-model="vendor.address.zip_code" class="signup-inputbox-style input-width" type="text" name="zipcode" placeholder="Zip Code"><br>
+									</div>
 
 									<!-- Phone -->
-									<p class="sign-up-header sign-up-cover-style"><font class="required-box">*</font> Phone</p>	
+									<div class="input-width sign-up-cover-style">
+										<p class="sign-up-header"><font class="required-box">*</font> Phone</p>	
 									<input ng-model="vendor.phone_number" required class="signup-inputbox-style input-width" type="text" name="phone" placeholder="Phone"><br>
+									</div>
 
 									<!-- Button -->
 									<div class="input-width" style="margin-top:15px; margin-bottom:15px;">
