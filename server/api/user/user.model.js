@@ -3,6 +3,7 @@
 var crypto = require('crypto');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var mongoosePaginate = require('mongoose-paginate');
 
 var UserSchema = new Schema({
   email: String,
@@ -26,10 +27,11 @@ var UserSchema = new Schema({
   passwordHash: { type: String, select: false },
   facebook_id: String,
   salt: { type: String, select: false },
-  created_at: Date,
-  updated_at: { type: Date, default: Date.now }
+  created_at: { type: Date, default: Date.now },
+  updated_at: Date
 });
 
+UserSchema.plugin(mongoosePaginate);
 /**
  * Virtuals
  */

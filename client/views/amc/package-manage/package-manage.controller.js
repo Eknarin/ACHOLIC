@@ -1,6 +1,6 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('AmcPackageCtrl', function () {
+  .controller('AmcPackageCtrl',['$scope','PackageItem', function ($scope,PackageItem) {
 
-  });
+  }]);

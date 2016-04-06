@@ -11,7 +11,35 @@ var Vendor = require('./vendor.model');
 function handleError (res, err) {
   return res.status(500).send(err);
 };
+/**
+ * Get list of User
+ *
+ * @param req
+ * @param res
+ */
+exports.index = function (req, res) {
+  User.paginate({},{ page: req.query.page, limit: 10},function (err, users) {
+    if (err) { return handleError(res, err); }
+    return res.status(200).json(users);
+  });
+};
 
+/**
+ * Deletes a Transaction from the DB.
+ *
+ * @param req
+ * @param res
+ */
+exports.destroy = function (req, res) {
+  User.findById(req.params.id, function (err, user) {
+    if (err) { return handleError(res, err); }
+    if (!user) { return res.status(404).end(); }
+    user.remove(function (err) {
+      if (err) { return handleError(res, err); }
+      return res.status(204).end();
+    });
+  });
+};
 /**
  * Creates a new user in the DB.
  *
@@ -100,7 +128,7 @@ exports.setVendor = function (req, res) {
  * @param res
  */
 exports.getMe = function (req, res) {
-  User.findById(req.user._id).exec(function (err, user) {
+  User.findById(req.user._id).populate('vendor').exec(function (err, user) {
     if (err) { return handleError(res, err); }
     if (!user) { return res.json(401); }
     return res.status(200).json(user);

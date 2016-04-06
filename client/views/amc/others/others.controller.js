@@ -1,6 +1,6 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('AmcOthersCtrl', function () {
+  .controller('AmcOthersCtrl',['$scope', function ($scope) {
 
-  });
+  }]);
