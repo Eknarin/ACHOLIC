@@ -132,13 +132,7 @@ angular.module('acholic')
      */
     this.isReadyLogged = function () {
       var def = $q.defer();
-
-        if ($rootScope._user.hasOwnProperty('_id')) {
           def.resolve($rootScope._user);
-        } else {
-          def.reject();
-        }
-
       return def.promise;
       // 0 = pending, 1 = resolve , 2 reject
     };
