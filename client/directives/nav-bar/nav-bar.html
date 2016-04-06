@@ -73,7 +73,7 @@
                     <li>&nbsp</li>
                   </ul>
                 </li>
-                <li class="dropdown" ng-show="Auth.isLogged() && user.role == 'Vendor'">
+                <li class="dropdown" ng-show="Auth.isLogged() && user.role == 'Vendor' || user.role == 'Admin'">
                   <a class="dropdown-toggle" href="#" data-toggle="dropdown" style="color:#fbd300;text-align:center;"><img src="../image/more.png" class="more-info-button"></a>
                   <ul class="dropdown-menu dropdown-menu-right drop-arrow" style="width:300px;">
                    <!-- User function -->
