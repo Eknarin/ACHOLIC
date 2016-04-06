@@ -3,9 +3,9 @@
 angular.module('acholic')
   .controller('PackageDetailCtrl',['$scope','itemData','$rootScope','Comment','PackageGallery','Bookmark','Auth','$uibModal',function ($scope , itemData, $rootScope, Comment,PackageGallery,Bookmark,Auth,$uibModal) {
 
-    $(window).scroll(function(){
-      $scope.sticky_relocate();  
-    });
+    // $(window).scroll(function(){
+    //   $scope.sticky_relocate();  
+    // });
 
     $scope.packageItem = itemData;
     $scope.comment = new Comment;
@@ -136,17 +136,17 @@ angular.module('acholic')
 
     return comdate;
   };
-  $scope.sticky_relocate = function() {
-    var window_top = $(window).scrollTop();
-    var div_top = $('#sticky-anchor').offset().top;
-    if (window_top > div_top) {
-        $('#sticky').addClass('stick');
-        $('#sticky-anchor').height($('#sticky').outerHeight());
-    } else {
-        $('#sticky').removeClass('stick');
-        $('#sticky-anchor').height(0);
-    }
-  };
+  // $scope.sticky_relocate = function() {
+  //   var window_top = $(window).scrollTop();
+  //   var div_top = $('#sticky-anchor').offset().top;
+  //   if (window_top > div_top) {
+  //       $('#sticky').addClass('stick');
+  //       $('#sticky-anchor').height($('#sticky').outerHeight());
+  //   } else {
+  //       $('#sticky').removeClass('stick');
+  //       $('#sticky-anchor').height(0);
+  //   }
+  // };
 
   $scope.openGallery = function(){
     

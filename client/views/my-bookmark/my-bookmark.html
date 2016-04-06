@@ -41,6 +41,9 @@
 
 			<!-- Bookmark Package -->
 			<div class="col-xs-12 col-sm-12 col-md-9 main-background">
+				<div class="col-xs-12 col-sm-12 col-md-12" ng-show="bookmarks.length == 0">
+					<h2 class="no_result">No Bookmark items</h2>
+				</div>
 				<div class="col-xs-12 col-sm-6 col-md-6" ng-repeat="bookmark in bookmarks">
 						<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding bookmark-package-cover" >
 							<div class="col-xs-12 col-sm-12 col-md-7">
