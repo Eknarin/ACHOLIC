@@ -12,9 +12,15 @@
 				<filters></filters>
 			</div>
 
-			<div class="col-xs-12 col-sm-12  col-md-9" style="padding-left:0px; padding-right:0px;" ng-show="loading">
+			<div class="col-xs-12 col-sm-12 col-md-9" style="padding-left:0px; padding-right:0px;" ng-show="loading">
 				<!-- Packages -->
 				<div class="main-background">	
+					<!-- Filter package type button -->
+					<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center">                      			
+						<button class="select-package-type-button select-package-type-button-active">Show All</button>
+						<button class="select-package-type-button">Rafting</button>
+						<button class="select-package-type-button">Diving</button>
+					</div>
 					<div class="row">
 						<div ng-repeat="package in packages">
 							<!-- Package -->

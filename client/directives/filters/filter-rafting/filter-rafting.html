@@ -1,74 +1,91 @@
-<!-- Package Type -->
-<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="margin-bottom:20px;">
-	<div class="col-xs-12 col-sm-12 col-md-12">
-		<p style="font-size:30px; text-align:left;">Package Type</p>
-	</div>
-	<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="margin-top:10px; margin-bottom:30px;">
-		<div class="col-xs-12 col-sm-12 col-md-12 package-type-button package-type-button-active">
-			<!-- ng-click="selectFolder(0, $event)" -->
-			Rafting
-		</div>
-		<div class="col-xs-12 col-sm-12 col-md-12 package-type-button">
-			Diving
-		</div>	
-	</div>
-<HR WIDTH="95%" NOSHADE>
 <!-- Rafting filter -->
 <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="margin-top:50px;">
-	<div class="col-xs-12 col-sm-12 col-md-12">
-		<p style="font-size:30px;  text-align:left;">Rafting Filter</p>
+	<div class="col-xs-12 col-sm-12 col-md-12 sidebar-header">
+		Rafting Filter
 	</div>
 	<!-- filter location -->
-	<div class="col-xs-12 col-sm-12 col-md-12 btn-group filter-dropdownbtn-style">
-		<button type="button" class="btn btn-default" style="width:89.8%; padding-left:0px" ng-bind='selected'> Province </button>
-		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width:10%">
-			<span class="caret"></span>
-			<span class="sr-only">Toggle Dropdown</span>
-		</button>
-		<ul class="dropdown-menu scrollable-menu" style="width:91.5%;margin-left:17px;">
-		    <li ng-repeat="p in provinces" ng-name="p.name" ng-model="p.name" ng-click="setProvince(p.name)"><a href="#">{{p.name}}</a></li>
-		</ul>
+	<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding">
+		<div class="col-xs-12 col-sm-12 col-md-12 filter-header">
+			Province
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 btn-group">
+			<button type="button" class="btn btn-default" style="width:89.8%; padding-left:0px" ng-bind='selectedProvince'></button>
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width:10%">
+				<span class="caret"></span>
+				<span class="sr-only">Toggle Dropdown</span>
+			</button>
+			<ul class="dropdown-menu scrollable-menu" style="width:91.5%;margin-left:17px;">
+			    <li ng-repeat="p in provinces" ng-name="p.name" ng-model="p.name" ng-click="setProvince(p.name)"><a href="#">{{p.name}}</a></li>
+			</ul>
+		</div>
 	</div>
 	<!-- filter level -->
-	<div class="col-xs-12 col-sm-12 col-md-12 btn-group filter-dropdownbtn-style">
-		<button type="button" class="btn btn-default" style="width:90%; padding-left:0px">Raftnig Level </button>
-		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width:10%">
-			<span class="caret"></span>
-			<span class="sr-only">Toggle Dropdown</span>
-		</button>
-		<ul class="dropdown-menu scrollable-menu" style="width:91.5%;margin-left:17px;">
-		    <!-- <li ng-repeat="t in types" ng-click="setType(t.name)"><a href="#">{{t.name}}</a></li> -->
-		    <li>AA</li>		    
-		</ul>
-	</div>
-	<!-- filter price -->
 	<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding">
-		<div class="col-md-12" style="height=15px;padding-top:5px; text-align:left;">		 
-			<label style="color:white; font-size:20px; margin-top:15px;">People Amount</label>		       	
+		<div class="col-xs-12 col-sm-12 col-md-12 filter-header">
+			Rafting Level
 		</div>
-		<div class="col-md-12">
-			<rzslider
-				rz-slider-model="peopleslider.min"
-				rz-slider-high="peopleslider.max"
-				rz-slider-options="peopleslider.options">
-			</rzslider>
+		<div class="col-xs-12 col-sm-12 col-md-12 btn-group">
+			<button type="button" class="btn btn-default" style="width:90%; padding-left:0px" ng-bind='selectedRaftingLevel'>Raftnig Level </button>
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width:10%">
+				<span class="caret"></span>
+				<span class="sr-only">Toggle Dropdown</span>
+			</button>
+			<ul class="dropdown-menu scrollable-menu" style="width:91.5%;margin-left:17px;">
+			    <li ng-repeat="level in raftingLevel" ng-click="setRaftingLevel(level.level)"><a href="#">{{level.level}}</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- filter rating -->
+	<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding">
+		<div class="col-xs-12 col-sm-12 col-md-12 filter-header">		 
+			Minimun Rating
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 btn-group">
+			<button type="button" class="btn btn-default" style="width:90%; padding-left:0px" ng-bind='selectedMinRate'>Raftnig Level </button>
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width:10%">
+				<span class="caret"></span>
+				<span class="sr-only">Toggle Dropdown</span>
+			</button>
+			<ul class="dropdown-menu scrollable-menu" style="width:91.5%;margin-left:17px;">
+			    <li ng-repeat="rate in minRate" ng-click="setMinRate(rate.rating)"><a href="#">{{rate.rating}}</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- filter people amount -->
+	<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding">
+		<div class="col-xs-12 col-sm-12 col-md-12 filter-header">		 
+			People Amount
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12">			
+			<input type="number" placeholder="0" min="0" class="filter-inputbox" onkeypress="return event.charCode >= 48 && event.charCode <= 57" style="width:70%;"></input>			
 		</div>	
-	</div>
+	</div>	
 	<!-- filter price -->
 	<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding">
-		<div class="col-md-12" style="height=15px;padding-top:5px; text-align:left;">		 
-			<label style="color:white; font-size:20px; margin-top:15px;">Minimum Price Rate</label>		       	
+		<div class="col-xs-12 col-sm-12 col-md-12 filter-header">		 
+			Price Rate	
 		</div>
-		<div class="col-md-12">
-			<rzslider
-				rz-slider-model="slider.min"
-				rz-slider-high="slider.max"
-				rz-slider-options="slider.options">
-			</rzslider>
+		<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="text-align:left;">
+			<div class="col-xs-6 col-sm-6 col-md-6">
+				<div class="col-xs-4 col-sm-4 col-md-4 no-horizotal-padding">
+					min
+				</div>
+				<div class="col-xs-8 col-sm-8 col-md-8 no-horizotal-padding">
+					<input type="number" placeholder="0" min="0" class="filter-inputbox" onkeypress="return event.charCode >= 48 && event.charCode <= 57" style="width:100px;"></input>
+				</div>
+			</div>
+			<div class="col-xs-6 col-sm-6 col-md-6">
+				<div class="col-xs-4 col-sm-4 col-md-4 no-horizotal-padding">
+					max
+				</div>
+				<div class="col-xs-8 col-sm-8 col-md-8 no-horizotal-padding">
+					<input type="number" placeholder="10000" min="0" class="filter-inputbox" onkeypress="return event.charCode >= 48 && event.charCode <= 57" style="width:100px;"></input>
+				</div>
+			</div>
 		</div>	
 	</div>
 	<!-- filter button -->
-	<div class="col-xs-12 col-sm-12 col-md-12 filter-dropdownbtn-style">
-		<button type="button" class="btn btn-warning btn-lg" style="margin-bottom:15px;color:black;border: 1px solid black;" ng-click="filtering()"> Filter </button>
+	<div class="col-xs-12 col-sm-12 col-md-12" style="margin-top:30px;">
+		<button type="button" class="btn btn-lg" style="margin-bottom:15px;color:white;border: 1px solid black; background-color:#fb5858;" ng-click="filtering()"> Filter </button>
 	</div>
 </div>

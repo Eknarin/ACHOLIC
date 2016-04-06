@@ -37,41 +37,10 @@
     font-size:25px;
     display:none;
 }
-
 .package_item{
 	margin-top:30px;
     overflow: auto;
 }
-.filter-cover-style{
-  background-color:rgba(0,0,0,0); 
-  color:white; 
-  padding-left:0px; 
-  padding-right:0px; 
-  padding-top:50px; 
-  padding-bottom:50px;
-  text-align:center;
-}
-.filter-dropdownbtn-style{
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-.dropdown_filter{
-    width:90%; 
-    text-align:left; 
-    color:grey;
-}
-.scrollable-menu {
-    height: auto;
-    max-height: 150px;
-    overflow-x: hidden;
-}
-.filter-section{
-    background: rgba(0, 0, 0, 0.6);
-    padding: 10px;
-    border-radius: 25px;
-    margin-bottom: 15px;
-}
-
 .package-style{
     background-color:rgba(0,0,0,0.85);
     padding-bottom:5%;
@@ -192,5 +161,34 @@
   padding-top: 25px;
   color: red;
   font-size: 18px;
+}
+.select-package-type-button{
+  background-color:transparent; 
+  color:white; 
+  font-size:22px; 
+  border:1px solid white;
+  margin-top: 15px;
+  margin-left: 15px;
+  margin-left: 15px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 5px;
+}
+.select-package-type-button-active{
+  background-color: rgba(0, 0, 0, 0.65);
+  color: rgba(251, 211, 0, 0.85);
+}
+button.select-package-type-button:hover{
+  color: rgba(0, 0, 0, 0.65);
+}
+button.select-package-type-button-active:hover{
+  color: white;
+}
+@media(min-width:767px){
+  .select-package-type-button{
+    font-size:25px;
+  }
 }
 

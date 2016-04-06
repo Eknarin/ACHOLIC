@@ -1,3 +1,51 @@
+/*
+* filter.scss
+*/
+
+.sidebar-header{
+	font-size:30px;  
+	text-align:left; 
+	color:#fbd300;
+	margin-bottom: 10px;
+}
+.filter-cover-style{
+  background-color:rgba(0,0,0,0); 
+  color:white; 
+  padding-left:0px; 
+  padding-right:0px; 
+  padding-top:50px; 
+  padding-bottom:50px;
+  text-align:center;
+}
+.dropdown_filter{
+    width:90%; 
+    text-align:left; 
+    color:grey;
+}
+.scrollable-menu {
+    height: auto;
+    max-height: 150px;
+    overflow-x: hidden;
+}
+// .filter-section{
+//     background: rgba(0, 0, 0, 0.6);
+//     padding: 10px;
+//     border-radius: 25px;
+//     margin-bottom: 15px;
+// }
+.filter-header{
+	text-align:left;
+	font-size:17px;
+	color: #fb5858;
+	margin-top: 20px;
+}
+.filter-inputbox{ 
+	height:27px; 
+	font-size:14px;
+	border-radius: 4px;
+	color: black;
+	padding-left:5px;
+}
 .package-type-button{
 	background-color: rgba(0, 0, 0, 0.45); 
 	font-size:16px; 

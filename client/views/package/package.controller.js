@@ -136,9 +136,9 @@ angular.module('acholic')
     $scope.filter = {};
     $scope.filter.priceMin = $scope.slider.min;
     $scope.filter.priceMax = $scope.slider.max;
-    $scope.filter.location = $scope.selected;
-    $scope.filter.tag = $scope.selectedType;
-    $scope.filter.people = $scope.guest;
+    // $scope.filter.location = $scope.selected;
+    // $scope.filter.tag = $scope.selectedType;
+    // $scope.filter.people = $scope.guest;
     $scope.packages = PackageItem.filter($scope.filter);
   };
 	
@@ -226,75 +226,82 @@ angular.module('acholic')
     {name: 'อุบลราชธานี'},
     {name: 'อำนาจเจริญ'}
   ];
-  $scope.selected = " Province ";
+  $scope.selectedProvince = " Province ";
   $scope.setProvince = function(value){
-    console.log(value);
-    $scope.selected = value;
+    $scope.selectedProvince = value;
+  }
+  
+  // rafting level filter
+  $scope.raftingLevel = [
+    {level: 'Level 1'},
+    {level: 'Level 2'},
+    {level: 'Level 3'},
+    {level: 'Level 4'},
+    {level: 'Level 5'},
+    {level: 'Level 6'}
+  ];
+  $scope.selectedRaftingLevel = "Rafting Level";
+  $scope.setRaftingLevel = function(value){
+    $scope.selectedRaftingLevel = value;
   }
 
-  //type filter
-  $scope.types = [
-    {name: 'ดำน้ำ'},
-    {name: 'ล่องแก่ง'},
-    {name: 'ปีนเขา'}
+  $scope.minRate = [
+    {rating: 'Rating 0'},
+    {rating: 'Rating 0.5'},
+    {rating: 'Rating 1'},
+    {rating: 'Rating 1.5'},
+    {rating: 'Rating 2'},
+    {rating: 'Rating 2.5'},
+    {rating: 'Rating 3'},
+    {rating: 'Rating 3.5'},
+    {rating: 'Rating 4'},
+    {rating: 'Rating 4.5'},
+    {rating: 'Rating 5'}
   ];
-  $scope.selectedType = " Tag "
-  $scope.setType = function(value){
-    $scope.selectedType = value;
-  };
-
-  //guest filter
-  $scope.guests = [
-    {n: 1},
-    {n: 2},
-    {n: 3},
-    {n: 4},
-    {n: 5}
-  ];
-  $scope.guest = $scope.guests[0].n;
-  $scope.setGuest = function(value){
-    $scope.guest = value;
-  };
-
-    $scope.openBookmarkModal = function(item){
-           var modalInstance = $uibModal.open({
-            animation: true,
-            templateUrl: 'views/package/modal/modal-bookmark.html',
-            controller: 'BookmarkModalCtrl',
-            size: 'md',
-            resolve: {
-              folderData:['Bookmark',function(Bookmark){
-                return Bookmark.queryFolder({userId: $scope.user._id}).$promise;
-              }],
-              userData: $scope.user,
-              packageData: function () {
-                return item;
-              }
+  $scope.selectedMinRate = "Minimun Rating";
+  $scope.setMinRate = function(value){
+    $scope.selectedMinRate = value;
+  }
+  $scope.openBookmarkModal = function(item){
+    var modalInstance = $uibModal.open({
+      animation: true,
+      templateUrl: 'views/package/modal/modal-bookmark.html',
+      controller: 'BookmarkModalCtrl',
+      size: 'md',
+      resolve: {
+        folderData:['Bookmark',function(Bookmark){
+          return Bookmark.queryFolder({userId: $scope.user._id}).$promise;
+        }],
+        userData: $scope.user,
+        packageData: function () {
+          return item;
+        }
+      }
+    }).result.then(function(res){
+        if(res)
+          for(var i = 0 ; i<$scope.packages.length ;i++){
+            if($scope.packages[i]._id == res.packageId){
+              $scope.packages[i].bookmark = res;
+              break;
             }
-          }).result.then(function(res){
-            if(res)
-            for(var i = 0 ; i<$scope.packages.length ;i++){
-              if($scope.packages[i]._id == res.packageId){
-                $scope.packages[i].bookmark = res;
-                break;
-              }
-            }
-          });
+          }
+        });
   };
   $scope.openAddToCartModal = function(item){
     var modalInstance = $uibModal.open({
-          animation: true,
-          templateUrl: 'views/package/modal/modal-addToCart.html',
-          controller: 'AddToCartModalCtrl',
-          size: 'md',
-          resolve: {
-            packageData:['PackageItem', function(PackageItem){
-              return PackageItem.query({id : item}).$promise;
-            }],
-            userData: $scope.user
-            }
-          }).result.then(function(res){
+      animation: true,
+      templateUrl: 'views/package/modal/modal-addToCart.html',
+      controller: 'AddToCartModalCtrl',
+      size: 'md',
+      resolve: {
+        packageData:['PackageItem', function(PackageItem){
+          return PackageItem.query({id : item}).$promise;
+          }] ,
+          userData: $scope.user
+        }
+        }).result.then(function(res){
             $scope.reloadCart();
           });
-        };        
+    };
+
   }]);
