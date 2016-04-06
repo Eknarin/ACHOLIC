@@ -17,6 +17,8 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/angularjs-slider/dist/rzslider.css">
     <link rel="stylesheet" href="bower_components/angularjs-datepicker/dist/angular-datepicker.min.css">
+    <link rel="stylesheet" href="bower_components/photoswipe/dist/photoswipe.css">
+    <link rel="stylesheet" href="bower_components/photoswipe/dist/default-skin/default-skin.css">
     <link rel="stylesheet" href="bower_components/bootstrap-star-rating/css/star-rating.min.css">
     <!-- endinject -->
 
@@ -28,6 +30,7 @@
     <link href="../../bower_components/bootstrap-star-rating/css/star-rating.css" media="all" rel="stylesheet" type="text/css" />
 
     <!-- endbuild -->
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
     <!-- build:js app.js -->
 
     <!-- bower:js -->
@@ -44,70 +47,99 @@
     <script src="bower_components/angularjs-datepicker/dist/angular-datepicker.min.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/ngmap/build/scripts/ng-map.js"></script>
+    <script src="bower_components/photoswipe/dist/photoswipe.js"></script>
+    <script src="bower_components/photoswipe/dist/photoswipe-ui-default.js"></script>
+    <script src="bower_components/ng-facebook/ngFacebook.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
-    <script src="../../bower_components/bootstrap-star-rating/js/star-rating.js" type="text/javascript"></script>
+    <script src="bower_components/bootstrap-star-rating/js/star-rating.min.js"></script>
     <!-- endinject -->
 
     <!-- inject:js -->
     <script src="app.js"></script>
-    <script src="views/signup-vendor/signup-vendor.js"></script>
-    <script src="views/signup-vendor/signup-vendor.controller.js"></script>
-    <script src="views/package/package.js"></script>
-    <script src="views/package/package.controller.js"></script>
-    <script src="views/profile/profile.js"></script>
-    <script src="views/profile/profile.controller.js"></script>
-    <script src="views/package-create/package-create.js"></script>
-    <script src="views/package-create/package-create.controller.js"></script>
-    <script src="views/signup-customer/signup-customer.js"></script>
-    <script src="views/signup-customer/signup-customer.controller.js"></script>
-    <script src="views/package-detail/package-detail.js"></script>
-    <script src="views/package-detail/package-detail.controller.js"></script>
-    <script src="views/my-package/my-package.js"></script>
-    <script src="views/my-package/my-package.controller.js"></script>
-    <script src="views/my-bookmark/my-bookmark.js"></script>
-    <script src="views/my-bookmark/my-bookmark.controller.js"></script>
-    <script src="views/home/home.js"></script>
-    <script src="views/home/home.controller.js"></script>
-    <script src="views/package-create/package-lists/package-trailRun/package-trailRun.js"></script>
-    <script src="views/package-create/package-lists/package-trailRun/package-trailRun.controller.js"></script>
-    <script src="views/package-create/package-lists/package-diving/package-diving.js"></script>
-    <script src="views/package-create/package-lists/package-diving/package-diving.controller.js"></script>
-    <script src="views/package-create/package-lists/package-rafting/package-raftring.js"></script>
-    <script src="views/package-create/package-lists/package-rafting/package-rafting.controller.js"></script>
+    <script src="directives/filters/filters.directive.js"></script>
+    <script src="directives/footer-bar/footer-bar.directive.js"></script>
+    <script src="directives/nav-bar/nav-bar.directive.js"></script>
+    <script src="directives/upload-image/upload-image.directive.js"></script>
+    <script src="directives/shop-cart/shop-cart.directive.js"></script>
+    <script src="directives/upload-multi-images/upload-multi-images.directive.js"></script>
+    <script src="directives/nav-bar/modal/log-in.controller.js"></script>
+    <script src="directives/nav-bar/modal/log-out.controller.js"></script>
+    <script src="directives/nav-bar/modal/sign-up.controller.js"></script>
+    <script src="services/auth/auth.js"></script>
+    <script src="services/bookmark/bookmark.resource.js"></script>
+    <script src="services/cart/cart.js"></script>
+    <script src="services/comment/comment.resource.js"></script>
+    <script src="services/image/image.resource.js"></script>
+    <script src="services/compare/compare.js"></script>
+    <script src="services/package-gallery/package-gallery.resource.js"></script>
     <script src="services/package-item/package-item.resource.js"></script>
+    <script src="services/socket/socket.service.js"></script>
     <script src="services/tag/tag.resource.js"></script>
     <script src="services/transaction/transaction.resource.js"></script>
-    <script src="services/socket/socket.service.js"></script>
-    <script src="services/payment-status/payment-status.resource.js"></script>
-    <script src="services/bookmark/bookmark.resource.js"></script>
-    <script src="services/comment/comment.resource.js"></script>
-    <script src="services/package-gallery/package-gallery.resource.js"></script>
-    <script src="services/image/image.resource.js"></script>
-    <script src="services/auth/auth.js"></script>
-    <script src="directives/nav-bar/modal/sign-up.controller.js"></script>
-    <script src="directives/nav-bar/modal/log-out.controller.js"></script>
-    <script src="directives/nav-bar/modal/log-in.controller.js"></script>
-    <script src="directives/upload-multi-images/upload-multi-images.directive.js"></script>
-    <script src="directives/upload-image/upload-image.directive.js"></script>
-    <script src="directives/nav-bar/nav-bar.directive.js"></script>
-    <script src="directives/footer-bar/footer-bar.directive.js"></script>
+    <script src="views/package-create/package-lists/package-diving/package-diving.controller.js"></script>
+    <script src="views/package-create/package-lists/package-diving/package-diving.js"></script>
+    <script src="views/package-create/package-lists/package-rafting/package-rafting.controller.js"></script>
+    <script src="views/package-create/package-lists/package-rafting/package-raftring.js"></script>
+    <script src="views/package-create/package-lists/package-trailRun/package-trailRun.controller.js"></script>
+    <script src="views/package-create/package-lists/package-trailRun/package-trailRun.js"></script>
+    <script src="views/amc/amc.controller.js"></script>
+    <script src="views/amc/amc.js"></script>
+    <script src="views/checkout/checkout.controller.js"></script>
+    <script src="views/checkout/checkout.js"></script>
+    <script src="views/compare/compare.controller.js"></script>
+    <script src="views/compare/compare.js"></script>
+    <script src="views/edit-package/edit-package.controller.js"></script>
+    <script src="views/edit-package/edit-package.js"></script>
+    <script src="views/home/home.controller.js"></script>
+    <script src="views/home/home.js"></script>
+    <script src="views/my-bookmark/my-bookmark.controller.js"></script>
+    <script src="views/my-bookmark/my-bookmark.js"></script>
+    <script src="views/my-package/my-package.controller.js"></script>
+    <script src="views/my-package/my-package.js"></script>
+    <script src="views/my-receipt/my-receipt.controller.js"></script>
+    <script src="views/my-receipt/my-receipt.js"></script>
+    <script src="views/my-transaction/my-transaction.controller.js"></script>
+    <script src="views/my-transaction/my-transaction.js"></script>
+    <script src="views/package/package.controller.js"></script>
+    <script src="views/package/package.js"></script>
+    <script src="views/package-detail/package-detail.controller.js"></script>
+    <script src="views/package-detail/package-detail.js"></script>
+    <script src="views/package-create/package-create.controller.js"></script>
+    <script src="views/package-create/package-create.js"></script>
+    <script src="views/profile/profile.controller.js"></script>
+    <script src="views/profile/profile.js"></script>
+    <script src="views/signup-customer/signup-customer.controller.js"></script>
+    <script src="views/signup-customer/signup-customer.js"></script>
+    <script src="views/signup-vendor/signup-vendor.controller.js"></script>
+    <script src="views/signup-vendor/signup-vendor.js"></script>
+    <script src="views/amc/main-cont/main-cont.controller.js"></script>
+    <script src="views/amc/main-cont/main-cont.js"></script>
+    <script src="views/amc/others/others.controller.js"></script>
+    <script src="views/amc/package-manage/package-manage.controller.js"></script>
+    <script src="views/amc/user-manage/user-manage.controller.js"></script>
+    <script src="views/my-bookmark/modal/modal-edit-bookmark-folder.controller.js"></script>
+    <script src="views/my-package/modal/modal-edit-package.controller.js"></script>
+    <script src="views/my-receipt/modal/modal-receipt-info.controller.js"></script>
+    <script src="views/package/modal/modal-addToCart.controller.js"></script>
+    <script src="views/package/modal/modal-bookmark.controller.js"></script>
     <!-- endinject -->
 
     <!-- endbuild -->
-
+    <script type="text/javascript">
+    angular.module('acholic').controller('IndexCtrl',['$rootScope', function( $rootScope ){
+        $rootScope.isVisible = true;
+    }]);
+    </script>
 </head>
-<body>
-<nav-bar ng-hide="hideit"></nav-bar>
+<body ng-controller="IndexCtrl">
+    <nav-bar ng-show="isVisible"></nav-bar>
 
-<div ng-view></div>
+    <div ng-view></div>
 
-<footer-bar ng-hide="hideit"></footer-bar>
+    <footer-bar ng-show="isVisible"></footer-bar>
 
-<script src="socket.io/socket.io.js"></script>
+    <script src="socket.io/socket.io.js"></script>
 
-<script src="http://localhost:35729/livereload.js?snipver=1"></script>
-
+    <script src="http://localhost:35729/livereload.js?snipver=1"></script>
 </body>
 </html>
