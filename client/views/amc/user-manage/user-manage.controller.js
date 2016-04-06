@@ -23,7 +23,6 @@ angular.module('acholic')
 	  		$scope.users[i].created_at = $scope.temp.getDate() +"/"+
   				$scope.temp.getMonth()+"/"+$scope.temp.getFullYear();
   		}
-
   	};
 
   	 $scope.pageChanged = function() {

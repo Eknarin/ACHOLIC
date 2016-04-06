@@ -38,6 +38,46 @@
 			<div class="col-xs-12 col-sm-12 col-md-9" style="padding-top: 15px; padding-bottom: 15px;  padding-left: 15px;padding-right: 15px; min-height: 620px; background-color:lightgrey;">
 				<div class="container-fluid" style="margin: 30px;">
 					<h1>Package Management</h1>
+					<div class="container-fluid" style="margin: 30px">
+						<div class="package-detail-table-cover">
+									<div class="col-xs-5 col-sm-5 col-md-5">
+							        	<p class="">Image</p>
+							        </div>	
+							        <div class="col-xs-3 col-sm-3 col-md-3">
+							        	<p class="">Name</p>
+							        </div>	        
+							        <div class="col-xs-2 col-sm-2 col-md-2">
+							        	<p class="">Created</p>
+							        </div>
+							        <div class="col-xs-1 col-sm-1 col-md-1">
+							        	<p class="">Edit</p>
+							        </div>
+							        <div class="col-xs-1 col-sm-1 col-md-1">
+							        	<p class="">Remove</p>
+							        </div>
+							        <HR WIDTH="100%" NOSHADE>
+							    </div>
+							    <!-- Table Detail -->
+							    <div class="package-detail-table-cover" ng-repeat="package in packages track by $index">
+							    	<div class="col-xs-5 col-sm-5 col-md-5">
+							        	<p class="">{{package.image}}</p>
+							        </div>	
+							        <div class="col-xs-3 col-sm-3 col-md-3">
+							        	<p class="">{{package.name}}</p>
+							        </div>	        
+							        <div class="col-xs-2 col-sm-2 col-md-2">
+							        	<p class="">{{package.created_at}}</p>
+							        </div>
+							        <div class="col-xs-1 col-sm-1 col-md-1">
+							        	<button class="btn-warning" type="button" ng-click="editPackage(package)">Edit</button>
+							        </div>		
+							         <div class="col-xs-1 col-sm-1 col-md-1">
+							        	<button class="btn-danger" type="button" ng-click="removePackage(package)">Remove</button>
+							        </div>		                
+							    </div>
+							    <uib-pagination style="float:right;" total-items="totalItems" items-per-page="limit" ng-change="pageChanged(currentPage)" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false"></uib-pagination>
+							</div>
+					</div>
 				</div>
 			</div>
 		</div>
