@@ -13,7 +13,13 @@ angular.module('acholic')
       }
 
       $scope.onSubmit= function(){
-      //check first name
+      if($scope.user.vendor){
+      	console.log("I'm the vendor");
+	      //check id
+	      
+	      //check travel issue 
+	  }
+	  //check first name
       if($scope.user.first_name == null){
         alert("Please enter your First Name.");
         return;
@@ -28,7 +34,8 @@ angular.module('acholic')
         alert("Please fill your Email.");
         return;
       }
-       else{
+
+      else{
         //update user data
       }
     };
