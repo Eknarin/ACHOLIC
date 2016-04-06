@@ -52,7 +52,6 @@ angular.module('acholic', [
 
       responseError: function (response) {
         if (response.status === 401) {
-          $location.path('/login');
           $cookieStore.remove('token');
           return $q.reject(response);
         }
@@ -66,12 +65,7 @@ angular.module('acholic', [
 
 .run(function($rootScope, $location){
   $rootScope.$on('$routeChangeStart', function(event, next, current){
-    if ($location.path() == '/login') {
-      $rootScope.hideit = true;
-    }
-    else {
-      $rootScope.hideit = false;
-    }
+    $rootScope.isVisible = true;
   });
 })
 
@@ -88,7 +82,7 @@ angular.module('acholic', [
             $location.path('/');
           }
         }).catch(function (err) {
-            console.log('refresh page and try again');
+            console.log(err);
             $location.path('/');
         });
       }
