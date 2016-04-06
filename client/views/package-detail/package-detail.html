@@ -5,7 +5,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 	<body>
-
 		<!-- Package Image -->
 		<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:0px; padding-right:0px;">
 			<img class="center-picture package-detail-picture" src=api/images/{{packageItem.image}}></img>
@@ -15,47 +14,51 @@
 		<div class="col-xs-12 col-sm-12 col-md-12 package-header-box">
 			<div class="container">
 				<div class="col-xs-12 col-sm-7 col-md-7">
-					<!-- Package Name -->
-					<div class="col-xs-12 col-sm-7 col-md-7 package-detail-header-overflow"> 
-						<p class="package-name-style">{{packageItem.name}}</p>
+					<!-- Vendor -->
+					<div class="col-xs-12 col-sm-4 col-md-3">
+						<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center;">
+							<img ng-show="packageItem.user_id.image" class="vendor-profile-image-style" src=api/images/{{packageItem.user_id.image}}></img>
+							<img ng-show="!packageItem.user_id.image" class="vendor-profile-image-style" src={{packageItem.user_id.facebook_image}}></img>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12">
+							<p class="package-detail-vendor-name">{{packageItem.user_id.first_name}}</p>
+						</div>
 					</div>
-					<!-- Rating -->
-					<div class="col-xs-12 col-sm-5 col-md-5 package-rating-style" style="padding-top:5px; padding-bottom:5px;">
-						<div class="col-xs-12 col-sm-12 col-md-12" style="" ng-app="" ng-init="nstar = 0" >
-							<img style="width:15px;height:15px;margin-left: 3px;" ng-repeat="i in getStar(packageItem.rating) track by $index" src="../image/star_rated.png">
-							<img style="width:15px;height:15px;margin-left: 3px;" ng-if="packageItem.rating%1 >= 0.5" src="../image/star_rated_half.png">
-							<img style="width:15px;height:15px;margin-left: 3px;" ng-repeat="i in getWhite(packageItem.rating) track by $index" src="../image/star_unrated.png">
+					<!-- Package General Infomation -->
+					<div class="col-xs-12 col-sm-12 col-md-9">						
+						<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding">
+							<!-- Package Name -->
+							<div class="col-xs-12 col-sm-12 col-md-7 no-horizotal-padding"> 
+								<p class="package-name-style">{{packageItem.name}}</p>
+							</div>
+							<!-- Rating -->
+							<div class="col-xs-12 col-sm-12 col-md-5 package-rating-style" style="padding-top:5px; padding-bottom:5px;">
+								<div class="col-xs-12 col-sm-12 col-md-12" style="" ng-app="" ng-init="nstar = 0" >
+									<img style="width:15px;height:15px;margin-left: 3px;" ng-repeat="i in getStar(packageItem.rating) track by $index" src="../image/star_rated.png">
+									<img style="width:15px;height:15px;margin-left: 3px;" ng-if="packageItem.rating%1 >= 0.5" src="../image/star_rated_half.png">
+									<img style="width:15px;height:15px;margin-left: 3px;" ng-repeat="i in getWhite(packageItem.rating) track by $index" src="../image/star_unrated.png">
+								</div>
+							</div>	
+						</div>
+						<!-- Package Type -->
+						<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding package-detail-general-information-cover">
+							<font class="package-detail-general-information-header">Package Type : </font>
+							<font class="package-detail-general-information-detail">{{packageItem.map_id.map_table}}</font>
+						</div>
+						<!-- Limited age -->
+						<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding package-detail-general-information-cover">
+							<font class="package-detail-general-information-header">Limited Age : </font>
+							<font class="package-detail-general-information-detail">{{packageItem.map_id.map_id.age_limit}}</font>
+						</div>
+						<!-- Season -->
+						<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding package-detail-general-information-cover">
+							<font class="package-detail-general-information-header">Season : </font>
+							<!-- Range of season -->
+							<font class="package-detail-general-information-detail" ng-if="packageItem.map_id.map_id.season.month1">{{packageItem.map_id.map_id.season.month1}} to {{packageItem.map_id.map_id.season.month2}}</font>
+							<!-- Whole year -->
+							<font class="package-detail-general-information-detail" ng-if="packageItem.map_id.map_id.season.year">{{packageItem.map_id.map_id.season.year}}</font>
 						</div>
 					</div>					
-					<!-- Location -->
-					<div class="col-xs-12 col-sm-12 col-md-12 package-location-style">
-						<div class="col-xs-12 col-sm-7 col-md-7 no-horizotal-padding">
-							<!-- Provider name -->
-							<div class="col-xs-12 col-sm-12 col-md-12 package-detail-subdetail-box-style no-horizotal-padding">
-								<div class="col-xs-6 col-sm-6 col-md-4" style="text-align:center;">
-									<img ng-show="packageItem.user_id.image" class="vendor-profile-image-top-style" src=api/images/{{packageItem.user_id.image}}></img>
-									<img ng-show="!packageItem.user_id.image" class="vendor-profile-image-top-style" src={{packageItem.user_id.facebook_image}}></img>
-								</div>
-								<div class="col-xs-6 col-sm-6 col-md-6">
-									<p class="package-detail-title-style" style="text-align:left;padding-top:25px;">{{packageItem.user_id.first_name}}</p>
-								</div>
-							</div>
-							<div class="col-xs-12 col-sm-12 col-md-12">
-								<p>&nbsp</p>
-							</div>
-						</div>
-						<div class="col-xs-12 col-sm-5 col-md-5 package-group-tag-style">
-							<!-- Tag -->
-							<div class="col-xs-6 col-ms-6 col-md-6" style="padding-left:0px; padding-right:0px;">
-								<img style="width:40px; height:40px;" src="../image/rafting.png">
-							</div>							
-							<!-- Age Limit -->
-							<div class="col-xs-6 col-ms-6 col-md-6" style="padding-left:0px; padding-right:0px;">
-								{{packageItem.map_id.map_id.age_limit}}
-								<img style="width:40px; height:40px;" src="../image/age.png">
-							</div>
-						</div>
-					</div>	
 				</div>
 				<!-- "Bookmark" and "Add to Cart" button -->
 				<div class="col-xs-12 col-sm-5 col-md-5" style="text-align:center;">
@@ -67,9 +70,6 @@
 						<button type="button" ng-show="!like" ng-click="openBookmarkModal(packageItem._id)" class="btn package-button-style" style="background-color:#fb5858; color:white;">BookMark</button>
 						<button type="button" ng-show="like" class="btn package-button-style" style="background-color:white; color:#fb5858;" ng-click="unlike(packageItem)">Unbookmark</button>
 					</div>
-					<!-- <div class="col-xs-12 col-sm-12 col-md-12">
-						<button type="button" class="btn package-button-style" style="background-color:#e1bd00; color:white;">Add to Cart</button>
-					</div> -->
 				</div>
 			</div>
 		</div>
@@ -80,23 +80,23 @@
 				<div class="col-xs-12 col-sm-12 col-md-12 package-detail-box">
 					<div class="col-xs-12 col-sm-8 col-md-8">
 						<div class="col-xs-12 col-sm-12 col-md-12">
-							<p class="package-detail-title-style">About Package</p>
+							<p class="package-detail-insight-header">About Package</p>
 						</div>
 
 						<!-- Package Description -->
 						<div class="col-xs-12 col-sm-12 col-md-12">
-							<p class="package-detail-detail-style">{{packageItem.description}} </p>
+							<p class="package-detail-insight-detail">{{packageItem.description}} </p>
 						</div>
 						<HR WIDTH="95%" NOSHADE>
 
 						<!-- Location -->
 						<div class="col-xs-12 col-sm-12 col-md-12">
 							<div class="col-xs-12 col-sm-2 col-md-2" style="padding-left:0px;">
-								<p class="package-detail-topic-group-style">Location</p>
+								<p class="package-detail-insight-header">Location</p>
 							</div>
 							<div class="col-xs-12 col-sm-10 col-md-10">	
 								<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding">
-									<p class="package-detail-detail-style">{{packageItem.map_id.map_id.location.location_text}}</p>
+									<p class="package-detail-insight-detail">{{packageItem.map_id.map_id.location.location_text}}</p>
 								</div>
 								<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding">
 									<ng-map center="{{packageItem.map_id.map_id.location.location_text}}" style="margin-bottom:15px;" zoom="16">
@@ -106,58 +106,44 @@
 							</div>							
 						</div>
 						<HR WIDTH="95%" NOSHADE>
-						<!-- Level, Distance, Width, Depth -->
+						<!-- Rafting Place -->
 						<div class="col-xs-12 col-sm-12 col-md-12">
-							<div class="col-xs-12 col-sm-2 col-md-2" style="padding-left:0px;">
-								<p class="package-detail-topic-group-style">River</p>
+							<div class="col-xs-12 col-sm-2 col-md-2 no-horizotal-padding">
+								<p class="package-detail-insight-header">Place</p>
 							</div>
-							<div class="col-xs-6 col-sm-5 col-md-5">
-								<p class="package-detail-detail-style"> 
-									<font class="package-detail-subdetail-topic-style">Width : </font>
-									{{packageItem.map_id.map_id.river_width}} m
-								</p>
-								<p class="package-detail-detail-style"> 
-									<font class="package-detail-subdetail-topic-style">Depth : </font>
-									{{packageItem.map_id.map_id.river_depth}} m
-								</p>							
-							</div>
-							<div class="col-xs-6 col-sm-5 col-md-5">
-								<p class="package-detail-detail-style">
-									<font class="package-detail-subdetail-topic-style">Level :</font>  
-									{{packageItem.map_id.map_id.level}}
-								</p>							
+							<div class="col-xs-12 col-sm-10 col-md-10 no-horizotal-padding">
+								<div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom:10px;">
+									<font class="package-detail-insight-sub-header">Rafting Place : </font>
+									<font class="package-detail-insight-detail">{{packageItem.map_id.map_id.river_line}}</font>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom:10px;">
+									<font class="package-detail-insight-sub-header">Rafting Level : </font>
+									<font class="package-detail-insight-detail">{{packageItem.map_id.map_id.level}}</font>
+								</div>
 							</div>
 						</div>
 						<HR WIDTH="95%" NOSHADE>
 
-						<!-- Amount, Type, StartPoint, EndPoint -->
+						<!-- Stage -->
 						<div class="col-xs-12 col-sm-12 col-md-12">
-							<div class="col-xs-12 col-sm-2 col-md-2" style="padding-left:0px;">
-								<p class="package-detail-topic-group-style">Stage</p>
+							<div class="col-xs-12 col-sm-2 col-md-2 no-horizotal-padding">
+								<p class="package-detail-insight-header">Stage</p>
 							</div>
-							<div class="col-xs-12 col-sm-5 col-md-5">
-								<p class="package-detail-detail-style">
-									<font class="package-detail-subdetail-topic-style"> Start Point : </font>
-									{{packageItem.map_id.map_id.start_location}}
-								</p>
-								<p class="package-detail-detail-style">
-									<font class="package-detail-subdetail-topic-style"> End Point : </font>
-									{{packageItem.map_id.map_id.end_location}} 
-								</p>
-							</div>
-							<div class="col-xs-12 col-sm-5 col-md-5">
-								
-								<div class="col-xs-2 col-sm-3 col-md-2" style="padding-left:0px; padding-right:0px;">	
-									<p class="package-detail-detail-style">
-										<font class="package-detail-subdetail-topic-style"> Type :  </font>					
-									</p>
+							<div class="col-xs-12 col-sm-10 col-md-10 no-horizotal-padding">
+								<div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom:10px;">
+									<font class="package-detail-insight-sub-header">Stage Amount : </font>
+									<font class="package-detail-insight-detail">{{packageItem.map_id.map_id.stages_amount}}</font>
 								</div>
-								<div class="col-xs-10 col-sm-9 col-md-10" style="padding-left:0px; padding-right:0px;">	
-									<p class="package-detail-detail-style">								
-										<font ng-repeat="stageType in stageTypes">
-											{{stageType}}<br>
-										</font>
-									</p>
+								<div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom:10px;">
+									<font class="package-detail-insight-sub-header">Stage Highlight : </font>
+									<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" ng-repeat="stage in packageItem.map_id.map_id.stages">
+										<div class="col-xs-12 col-sm-5 col-md-4"> 
+											<font class="package-detail-insight-detail">{{stage.name}}</font>
+										</div>
+										<div class="col-xs-12 col-sm-7 col-md-8"> 
+											<p class="package-detail-insight-detail" style="padding-left:10px;">{{stage.description}}</p>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -165,8 +151,8 @@
 
 						<!-- Price Rate -->
 						<div class="col-xs-12 col-sm-12 col-md-12">
-							<div class="col-xs-12 col-sm-2 col-md-2" style="padding-left:0px;">
-								<p class="package-detail-topic-group-style">Price Rate</p>
+							<div class="col-xs-12 col-sm-2 col-md-2 no-horizotal-padding">
+								<p class="package-detail-insight-header">Price Rate</p>
 							</div>
 							<div class="col-xs-12 col-sm-10 col-md-10 package-detail-table-cover">
 								<!-- Table Header -->
@@ -212,31 +198,31 @@
 
 						<!-- Sub Details -->
 						<div class="col-xs-12 col-sm-12 col-md-12">
-							<div class="col-xs-12 col-sm-2 col-md-2" style="padding-left:0px;">
-								<p class="package-detail-topic-group-style" style="">More Details</p>
+							<div class="col-xs-12 col-sm-2 col-md-2 no-horizotal-padding">
+								<p class="package-detail-insight-header">More Details</p>
 							</div>
-							<div class="col-xs-12 col-sm-7 col-md-7">
+							<div class="col-xs-12 col-sm-10 col-md-10 no-horizotal-padding">
 								<!-- Provide Things -->
 								<div class="col-xs-12 col-sm-12 col-md-12 package-detail-subdetail-box-style">
-									<p class="package-detail-subdetail-topic-style"> Provide Things </p>
-									<p class="package-detail-detail-style package-deatail-moredetail-detail" ng-repeat="equipmentProvide in equipmentProvides">• {{equipmentProvide}}</p>
+									<p class="package-detail-insight-sub-header"> Provide Things </p>
+									<p class="package-detail-insight-detail" ng-repeat="equipmentProvide in equipmentProvides" style="padding-left:15px;">• {{equipmentProvide}}</p>
 								</div>
 								<!-- Require Things -->
 								<div class="col-xs-12 col-sm-12 col-md-12 package-detail-subdetail-box-style">
 									<p class="package-detail-subdetail-topic-style"> Require Things </p>
-									<p class="package-detail-detail-style package-deatail-moredetail-detail" ng-repeat="equipmentRequire in equipmentRequires" >• {{equipmentRequire}}</p>
+									<p class="package-detail-insight-detail" ng-repeat="equipmentRequire in equipmentRequires" style="padding-left:15px;">• {{equipmentRequire}}</p>
 								</div>
 
 								<!-- Skill Require -->
 								<div class="col-xs-12 col-sm-12 col-md-12 package-detail-subdetail-box-style">
 									<p class="package-detail-subdetail-topic-style"> Skill Required </p>
-									<p class="package-detail-detail-style package-deatail-moredetail-detail" ng-repeat="skillRequire in skillRequires">• {{skillRequire}}</p>
+									<p class="package-detail-insight-detail" ng-repeat="skillRequire in skillRequires" style="padding-left:15px;">• {{skillRequire}}</p>
 								</div>
 
 								<!-- Include Activity -->
 								<div class="col-xs-12 col-sm-12 col-md-12 package-detail-subdetail-box-style">
 									<p class="package-detail-subdetail-topic-style"> Include Activity </p>
-									<p class="package-detail-detail-style package-deatail-moredetail-detail" ng-repeat="activity in activities">• {{activity}}</p>
+									<p class="package-detail-insight-detail" ng-repeat="activity in activities" style="padding-left:15px;">• {{activity}}</p>
 								</div>							
 							</div>
 						</div>					
@@ -274,45 +260,49 @@
 		</div>
 
 		<!-- Comment and Rating -->
-		<div class="container-fluid" style="margin-bottom:30px;">	
+		<div class="container-fluid">	
 			<div class="container">		
 				<div class="col-xs-12 col-sm-1 col-md-1">
 				</div>
 				<div class="col-xs-12 col-sm-10 col-md-10">
-					<div class="col-xs-2 col-sm-2 col-md-2">
-						<img ng-show="packageItem.user_id.image" class="vendor-profile-image-style" src=api/images/{{packageItem.user_id.image}}></img>
-						<img ng-show="!packageItem.user_id.image"  class="vendor-profile-image-style" src={{packageItem.user_id.facebook_image}}></img>
+					<!-- About Vendor -->
+					<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding">
+						<!-- Vendor Image -->
+						<div class="col-xs-12 col-sm-4 col-md-2" style="text-align:center;">
+							<img ng-show="packageItem.user_id.image" class="vendor-profile-image-style" src=api/images/{{packageItem.user_id.image}}></img>
+							<img ng-show="!packageItem.user_id.image"  class="vendor-profile-image-style" src={{packageItem.user_id.facebook_image}}></img>
+						</div>
+						<!-- Vendror Description -->
+						<div class="col-xs-12 col-sm-8 col-md-10">
+							<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding package-detail-comment-header">
+								About the Vendor, {{packageItem.user_id.first_name}}
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding package-detail-comment-header">	
+								<div class="col-xs-6 col-sm-6 col-md-5 no-horizotal-padding" style="text-align:left;">	
+									<p class="package-detail-comment-sub-header">Tourist Business license no. : </p>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-7 no-horizotal-padding">
+									<p class="package-detail-comment-sub-header" ng-show="packageItem.user_id.provider_num != null" style="text-align:left;">{{packageItem.user_id.provider_num}}</p>
+									<p class="package-detail-comment-sub-header" ng-show="packageItem.user_id.provider_num == null" style="text-align:left;"> - </p>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding package-detail-comment-header">	
+								<div class="col-xs-6 col-sm-6 col-md-5 no-horizotal-padding" style="text-align:left;">	
+									<p class="package-detail-comment-sub-header">Member since : </p>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-7 no-horizotal-padding">
+									<p class="package-detail-comment-sub-header" style="text-align:left;" ng-bind="getCommonDate(packageItem.user_id.updated_at)"></p>
+								</div>
+							</div>
+						</div>
 					</div>
-					<!-- about vendor -->
-					<div class="col-xs-10 col-sm-10 col-md-10">
-						<div class="col-md-12">
-							<p class="package-detail-title-style" style="text-align:left;">About the Vendor, {{packageItem.user_id.first_name}}</p>
-						</div>
-						<div class="col-xs-12 col-sm-12 col-md-12">
-							<div class="col-xs-6 col-sm-6 col-md-6">
-								<p class="package-detail-topic-group-style" style="text-align:left;">Tourist Business license no. </p>
-							</div>
-							<div class="col-xs-6 col-sm-6 col-md-6">
-								<p class="package-detail-topic-group-style" ng-show="packageItem.user_id.provider_num != null" style="text-align:left;">{{packageItem.user_id.provider_num}}</p>
-								<p class="package-detail-topic-group-style" ng-show="packageItem.user_id.provider_num == null" style="text-align:left;"> - </p>
-							</div>
-						</div>
-						<div class="col-xs-12 col-sm-12 col-md-12">
-							<div class="col-xs-6 col-sm-6 col-md-6">
-								<p class="package-detail-topic-group-style" style="text-align:left;">Member since </p>
-							</div>
-							<div class="col-xs-6 col-sm-6 col-md-6">
-								<p class="package-detail-topic-group-style" style="text-align:left;" ng-bind="getCommonDate(packageItem.user_id.updated_at)"></p>
-							</div>
-						</div>
-					</div>					
 					<div class="col-xs-12 col-sm-12 col-md-12">
 						<p>&nbsp</p>
 						<hr>
 					</div>
 					<!-- start comment -->
 					<div class="col-xs-12 col-sm-12 col-md-12">
-						<p class="package-detail-title-style">Comment and Rating</p>
+						<p class="package-detail-comment-header">Comment and Rating</p>
 					</div>
 					<!-- Comments -->
 					<div class="col-xs-12 col-sm-12 col-md-12" style="margin-top:10px; margin-bottom:10px;">
@@ -341,8 +331,8 @@
 					<HR WIDTH="100%" style="border: 1px solid #787878;">
 
 					<div class="col-xs-12 col-sm-12 col-md-12">
-						<p class="package-detail-title-style" style="color:#fb5858;" ng-show="comments.length != 0">Comments</p>
-						<p class="package-detail-title-style" style="color:red;" ng-show="comments.length == 0">No Comments</p>
+						<p class="package-detail-comment-header" style="color:#fb5858;" ng-show="comments.length != 0">Comments</p>
+						<p class="package-detail-comment-header" style="color:red;" ng-show="comments.length == 0">No Comments</p>
 					</div>
 
 					<!-- Package Comments -->					
@@ -350,7 +340,7 @@
 						<div class="col-xs-12 col-sm-2 col-md-2" style="text-align:center" >
 							<img ng-show="comment.user_id.image" class="package-detail-comment-profile-image" ng-src="api/images/{{comment.user_id.image}}"></img>
 							<img ng-show="!comment.user_id.image" class="package-detail-comment-profile-image" ng-src="{{comment.user_id.facebook_image}}"></img>
-							<p class="package-detail-comment-header">{{comment.user_id.first_name}}</p>
+							<p class="package-detail-comment-sub-header">{{comment.user_id.first_name}}</p>
 						</div>
 						<div class="col-xs-12 col-sm-10 col-md-10 package-detail-comment-cover">
 							<p class="package-detail-comment-detail">{{comment.text}}</p>
