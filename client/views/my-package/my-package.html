@@ -16,6 +16,9 @@
 			<!-- My Package -->
 			<div class="col-xs-12 col-sm-12  col-md-9" style="padding-left:0px; padding-right:0px;">
 				<div class="main-background">
+					<div class="col-xs-12 col-sm-12 col-md-12" ng-show="package.length == 0">
+						<h2 class="no_result">No items in My package.</h2>
+					</div>
 					<!-- Filter package type button -->
 					<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center">                      			
 						<button class="select-package-type-button select-package-type-button-active">Show All</button>

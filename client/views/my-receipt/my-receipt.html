@@ -26,6 +26,9 @@
 			</div>
 			<!-- Bookmark Package -->
 			<div class="col-xs-12 col-sm-12 col-md-9 main-background">
+				<div class="col-xs-12 col-sm-12 col-md-12" ng-show="receipts.length == 0">
+					<h2 class="no_result">No Receipt.</h2>
+				</div>
 				<div ng-repeat="receipt in receipts" class="col-xs-12 col-sm-12 col-md-12" style="margin-top:15px; margin-bottom:15px;">
 					<div class="col-xs-12 col-sm-1 col-md-1">
 					</div>
