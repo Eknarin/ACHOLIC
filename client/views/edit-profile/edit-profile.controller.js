@@ -30,8 +30,25 @@ angular.module('acholic')
 	      if($scope.user.vendor){
 	      	console.log("I'm the vendor");
 		      //check id
-		      
+		      if($scope.user.vendor.identification_num == null){
+		        alert("Please enter your Identification Number.");
+		        return;
+		      }
 		      //check travel issue 
+		      if($scope.user.vendor.provider_num == null){
+		        alert("Please enter your Tourist Business license no.");
+		        return;
+		      }
+		      //check email
+		      if($scope.user.vendor.alt_email == null){
+		        alert("Please enter Vendor Email.");
+		        return;
+		      }
+		      //check phone
+		      if($scope.user.vendor.phone_number == null){
+		        alert("Please enter Vendor Phone Number.");
+		        return;
+		      }
 		  }
 		  //check first name
 	      if($scope.user.first_name == null){

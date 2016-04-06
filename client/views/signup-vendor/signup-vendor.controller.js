@@ -5,7 +5,7 @@ angular.module('acholic')
     $scope.vendor = {};
     Auth.getUser().then(function(res){
       $scope.vendor.userId = res._id;
-      $scope.vendor.email = res.email;
+      $scope.vendor.alt_email = res.email;
       $scope.vendor.phone_number = res.phone_number;
     });
 

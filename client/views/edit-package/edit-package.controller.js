@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('EditPackageCtrl',['$scope','PackageItem','$location','$rootScope','$timeout','PackageGallery','packageData',function ($scope, PackageItem ,$location , $rootScope , $timeout,PackageGallery,packageData) {
-  	$scope.packages = packageData;
+  .controller('EditPackageCtrl',['$scope','packageData','PackageItem','$location','$rootScope','$timeout','PackageGallery',function ($scope ,packageData, PackageItem ,$location , $rootScope , $timeout,PackageGallery) {
+    $scope.packages = packageData;
     $scope.packageType = PackageItem.package_type({id : packageData.map_id._id}).$promise.then(function(res){
         $scope.packages.map_id = res.map_id;
         $scope.provide = res.map_id.equipments_provide;
@@ -16,6 +16,7 @@ angular.module('acholic')
         $scope.firstStage = res.map_id.start_location;
         $scope.lastStage = res.map_id.end_location;
         $scope.priceArrs = res.map_id.info;
+        $scope.stageHighlights = res.map_id.stages;
         $scope.prepration = res.map_id.prepration;
         $scope.testMap = res.map_id.location.location_text;
     });
@@ -34,6 +35,20 @@ angular.module('acholic')
     $scope.activities = "";
     $scope.packages.rating = 0;
 
+    $scope.seasonMonth = false;
+
+    console.log($scope.packages);
+
+
+    $scope.checkSeason = function(){
+        if ($scope.seas == "Whole Year") {
+            $scope.seasonMonth = false;
+        } else{
+            $scope.seasonMonth = true;
+        }
+    }
+
+
     $scope.onSubmit = function(){
         //provide
         $scope.packages.info.equipments_provide = $scope.provide.split(",");
@@ -45,10 +60,14 @@ angular.module('acholic')
         $scope.packages.info.activities = $scope.activities.split(",");
 
         //season
-        $scope.packages.info.season = $scope.seas+$scope.month1+$scope.month2;
-
+        $scope.packages.info.season = {};
+        $scope.packages.info.season.year = $scope.seas;
+        $scope.packages.info.season.month1 = $scope.month1;
+        $scope.packages.info.season.month2 = $scope.month2;
+        //stage
+        $scope.packages.info.stages = $scope.stages;
         //stage type
-        $scope.packages.info.stage_type = $scope.stageType;
+        $scope.packages.info.stages_amount = $scope.stageHighlights.length;
 
         //start stage
         $scope.packages.info.start_location = $scope.firstStage;
@@ -61,40 +80,47 @@ angular.module('acholic')
 
          //min price
         $scope.packages.price = $scope.findMinPrice();   
-        // $scope.gallery.$save().then(function(res){
-        //     $scope.packages.info.images = res._id;
-        //     $scope.packages.$save().then(function(){
-        //         $location.path("/package");
-        //     });
-        // });   
-        console.log('Under maintiance');
+        $scope.gallery.$save().then(function(res){
+            $scope.packages.info.image_gallery = res._id;
+            $scope.packages.$save().then(function(){
+                $location.path("/package");
+            });
+        });   
     };
 
-    $scope.stageType = [];
+    $scope.stages = [{
+        name: '',
+        description: ''
+    }];
 
-    $scope.stages = [];
+    // $scope.stages = [];
+    
+    $scope.stageHighlights = [];
   
-    $scope.addNewStage = function() {
-        $scope.stages.push($scope.stages.length);
+    $scope.addNewStageHighlight = function() {
+        // $scope.stages.push($scope.stages.length);
+        $scope.stageHighlights.push($scope.stageHighlights.length);
     };
         
-    $scope.removeStage = function(index) {
+    $scope.removeStageHighlight = function(index) {
+        // $scope.stages.splice(index,1);
+        // $scope.stageType.splice(index,1); 
+        $scope.stageHighlights.splice(index,1);
         $scope.stages.splice(index,1);
-        $scope.stageType.splice(index,1); 
     };
 
-    $scope.firstStage = "Stage";
-    $scope.setFirstStage = function(val){
-        $scope.firstStage = val;
-    };
+    // $scope.firstStage = "Stage";
+    // $scope.setFirstStage = function(val){
+    //     $scope.firstStage = val;
+    // };
 
-    $scope.lastStage = "Stage";
-    $scope.setLastStage = function(val){
-        $scope.lastStage = val;
-    };
+    // $scope.lastStage = "Stage";
+    // $scope.setLastStage = function(val){
+    //     $scope.lastStage = val;
+    // };
 
     // menu-bar function
- 	var navListItems = $('ul.setup-panel li a'),
+    var navListItems = $('ul.setup-panel li a'),
     allWells = $('.setup-content');
 
     allWells.hide();
@@ -118,8 +144,49 @@ angular.module('acholic')
    
     //next and previous tab
     var state = [0, 1, 2, 3];
-    var currenstate = 0;     
+    var currenstate = 0;  
+    var req = "Please check all required(*) fields."
+
+    var canNext0 = true;   
     $scope.activeNextTab = function(){
+        if(currenstate == 0){
+            if($scope.packages == null){
+                alert(req);
+                return;
+            }
+            if($scope.packages.name == null){
+                alert(req);
+                return;
+            }
+            if($scope.packages.description == null){
+                alert(req);
+                return;
+            }
+            if($scope.testMap == null){
+                alert(req);
+                return;
+            }
+        } 
+        else if(currenstate == 1){
+            if($scope.packages.info == null){
+                alert(req);
+                return;
+            }
+            if($scope.packages.map_id.river_line == null){
+                alert(req);
+                return;
+            }
+            if($scope.packages.map_id.level == null){
+                alert(req);
+                return;
+            }
+        }
+        else if(currenstate == 2){
+            if($scope.provide == ""){
+                alert(req);
+                return;
+            }
+        }
         $('ul.setup-panel li:eq('+ (state[currenstate+1]) +')').removeClass('disabled');  
         $('ul.setup-panel li a[href=\"#step-' + state[currenstate+1] + '\"]').trigger('click'); 
         currenstate += 1;
@@ -132,7 +199,91 @@ angular.module('acholic')
         currenstate = index;
     };
 
-  $scope.seas = "Whole year";
+    $scope.provinces = [
+    {name: 'กรุงเทพมหานคร'},
+    {name: 'กระบี่'},
+    {name: 'กาญจนบุรี'},
+    {name: 'กาฬสินธุ์'},
+    {name: 'กำแพงเพชร'},
+    {name: 'ขอนแก่น'},
+    {name: 'จันทบุรี'},
+    {name: 'ฉะเชิงเทรา'},
+    {name: 'ชลบุรี'},
+    {name: 'ชัยนาท'},
+    {name: 'ชัยภูมิ'},
+    {name: 'ชุมพร'},
+    {name: 'เชียงราย'},
+    {name: 'เชียงใหม่'},
+    {name: 'ตรัง'},
+    {name: 'ตราด'},
+    {name: 'ตาก'},
+    {name: 'นครนายก'},
+    {name: 'นครปฐม'},
+    {name: 'นครพนม'},
+    {name: 'นครราชสีมา'},
+    {name: 'นครศรีธรรมราช'},
+    {name: 'นครสวรรค์'},
+    {name: 'นนทบุรี'},
+    {name: 'นราธิวาส'},
+    {name: 'น่าน'},
+    {name: 'บึงกาฬ'},
+    {name: 'บุรีรัมย์'},
+    {name: 'ปทุมธานี'},
+    {name: 'ประจวบคีรีขันธ์'},
+    {name: 'ปราจีนบุรี'},
+    {name: 'ปัตตานี'},
+    {name: 'พระนครศรีอยุธยา'},
+    {name: 'พังงา'},
+    {name: 'พัทลุง'},
+    {name: 'พิจิตร'},
+    {name: 'พิษณุโลก'},
+    {name: 'เพชรบุรี'},
+    {name: 'เพชรบูรณ์'},
+    {name: 'แพร่'},
+    {name: 'พะเยา'},
+    {name: 'ภูเก็ต'},
+    {name: 'มหาสารคาม'},
+    {name: 'มุกดาหาร'},
+    {name: 'แม่ฮ่องสอน'},
+    {name: 'ยะลา'},
+    {name: 'ยโสธร'},
+    {name: 'ร้อยเอ็ด'},
+    {name: 'ระนอง'},
+    {name: 'ระยอง'},
+    {name: 'ราชบุรี'},
+    {name: 'ลพบุรี'},
+    {name: 'ลำปาง'},
+    {name: 'ลำพูน'},
+    {name: 'เลย'},
+    {name: 'ศรีสะเกษ'},
+    {name: 'สกลนคร'},
+    {name: 'สงขลา'},
+    {name: 'สตูล'},
+    {name: 'สมุทรปราการ'},
+    {name: 'สมุทรสงคราม'},
+    {name: 'สมุทรสาคร'},
+    {name: 'สระแก้ว'},
+    {name: 'สระบุรี'},
+    {name: 'สิงห์บุรี'},
+    {name: 'สุโขทัย'},
+    {name: 'สุพรรณบุรี'},
+    {name: 'สุราษฎร์ธานี'},
+    {name: 'สุรินทร์'},
+    {name: 'หนองคาย'},
+    {name: 'หนองบัวลำภู'},
+    {name: 'อ่างทอง'},
+    {name: 'อุดรธานี'},
+    {name: 'อุทัยธานี'},
+    {name: 'อุตรดิตถ์'},
+    {name: 'อุบลราชธานี'},
+    {name: 'อำนาจเจริญ'}
+  ];
+  $scope.selected = "Province";
+  $scope.setProvince = function(value){
+    $scope.selected = value;
+  };
+
+  $scope.seas = "Whole Year";
   $scope.month1 = "";
   $scope.month2 = "";
 
@@ -157,16 +308,73 @@ angular.module('acholic')
   $scope.setMonth2 = function(value){
     $scope.month2 = " to "+value;
   };
+  $scope.boats = [
+    {type : 'เรือยาง'},
+    {type : 'แพ'},
+    {type : 'แคนู'},
+    {type : 'คายัค'}
+  ];
+  
+  $scope.setBoat = function(value){    
+    $scope.boat_type = value;
+  }
+
 
   $scope.priceArrs = [];
   $scope.addPrice = function(){
+
+    if($scope.packages.info.info == null){
+        alert("Please fill out all details before submit.");
+        return;
+    }
+
     var addPrice = $scope.packages.info.info.price;
     var addPeople = $scope.packages.info.info.people;
     var addDistance = $scope.packages.info.info.distance;
     var addDuration = $scope.packages.info.info.duration;
-    var addBoat = $scope.packages.info.info.boat_type;
+    var addType = $scope.packages.info.info.type;
+    var addBoat = $scope.boat_type;
+
+    var alertMess = "Please check ";
+    var lastMess = "field(s) and try again.";
+    var checkLoss = "";
+    var complete = true;
+
+
+
+    if(addPrice == null){
+        checkLoss = checkLoss + ".Price ";
+        complete = false;
+    }
+    if(addPeople == null){
+        checkLoss = checkLoss + ".People ";
+        complete = false;
+    }
+    if(addDistance == null){
+        checkLoss = checkLoss + ".Distance ";
+        complete = false;
+    }
+    if(addDuration == null){
+        checkLoss = checkLoss + ".Duration ";
+        complete = false;
+    }
+    if(addType == null){
+        checkLoss = checkLoss + ".Name ";
+        complete = false;
+    }
+    if(addBoat == null){
+        checkLoss = checkLoss + ".BoatType ";
+        complete = false;
+    }
+
+    if(!complete){
+        alert(alertMess+checkLoss+lastMess);
+        return;
+    }
+    
     var priceObj = {
         price: addPrice, 
+        type: addType,
         people: addPeople, 
         distance: addDistance, 
         duration: addDuration, 
@@ -176,6 +384,7 @@ angular.module('acholic')
 
     //empty input fields
     $scope.packages.info.info.price = "";
+    $scope.packages.info.info.type = "";
     $scope.packages.info.info.people = "";
     $scope.packages.info.info.distance = "";
     $scope.packages.info.info.duration = "";
@@ -209,6 +418,7 @@ angular.module('acholic')
         ],
         zoom: 12
     };
+
     $scope.reRednerMap = function() {
       $timeout(function() {
          angular.forEach($scope.maps, function(index) {
@@ -254,11 +464,11 @@ angular.module('acholic')
                 ].join(' ');
             }
             $scope.markers = [];
-            $scope.markers.push(marker)
+            $scope.markers.push(marker);
             $scope.packages.info.location.lat = marker.position[0];
             $scope.packages.info.location.long = marker.position[1];
             $scope.packages.info.location.location_text = place.formatted_address;
-            $scope.reRednerMap();     
+            $scope.reRednerMap();
         });
 
     };
