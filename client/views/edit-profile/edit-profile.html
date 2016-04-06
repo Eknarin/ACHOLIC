@@ -146,7 +146,7 @@
 					      				<img ng-show="user.image" class="edit-profile-image-style" ng-src=api/images/{{user.image}}></img>
 					      				<img ng-show="!user.image && user.facebook_image" class="edit-profile-image-style" ng-src={{user.facebook_image}}></img>
 					      			</div>
-					      			<div class="col-xs-12 col-sm-12 col-md-12 upload-image-style center-picture">
+					      			<div class="col-xs-12 col-sm-12 col-md-12 upload-image-style center-picture" ng-show="user.image">
 										<upload-image image="user.image"></upload-image>
 									</div>
 					      			<!-- Button -->
