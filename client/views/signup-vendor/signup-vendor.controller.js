@@ -6,7 +6,10 @@ angular.module('acholic')
     Auth.getUser().then(function(res){
       $scope.vendor.userId = res._id;
       $scope.vendor.email = res.email;
+      $scope.vendor.phone_number = res.phone_number;
     });
+
+
 
     $scope.onSubmit= function(){
       if($scope.vendor.identification_num == null){
@@ -15,6 +18,10 @@ angular.module('acholic')
       }
       if($scope.vendor.provider_num == null){
         alert("Please enter your Tourist Business license Number.");
+        return;
+      }
+      if($scope.vendor.phone_number == null){
+        alert("Please enter your Phone number.");
         return;
       }
       else{
