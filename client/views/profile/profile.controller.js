@@ -17,7 +17,7 @@ angular.module('acholic')
         $location.path('/signup/vendor');
   	};
 
-    $scope.editCustomer = function(){
+    $scope.editProfile = function(){
       if($scope.user.role === 'Vendor')
         console.log('edit Vendor profile!!!');
       else if(($scope.user.role === 'Customer'))
