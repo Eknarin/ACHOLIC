@@ -132,7 +132,13 @@ angular.module('acholic')
      */
     this.isReadyLogged = function () {
       var def = $q.defer();
-          def.resolve($rootScope._user);
+      if ($cookieStore.get('token')) {
+        $http.get('/api/users/me')
+          .then(function (res) {
+            $rootScope._user = res.data;
+            def.resolve($rootScope._user);
+          });
+      } 
       return def.promise;
       // 0 = pending, 1 = resolve , 2 reject
     };
