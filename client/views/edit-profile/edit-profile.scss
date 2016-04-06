@@ -1,3 +1,13 @@
 /**
  * edit-profile.scss
  */
+.edit-profile-image-style{
+ 	height: 150px;
+  	width: 150px;
+  	-webkit-border-radius: 50%;
+  	-moz-border-radius: 50%;
+  	-ms-border-radius: 50%;
+  	-o-border-radius: 50%;
+  	border-radius: 50%;
+  	border: 1px solid white;
+ }

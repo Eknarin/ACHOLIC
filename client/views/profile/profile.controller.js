@@ -18,9 +18,10 @@ angular.module('acholic')
   	};
 
     $scope.editProfile = function(){
-      if($scope.user.role === 'Vendor')
-        console.log('edit Vendor profile!!!');
-      else if(($scope.user.role === 'Customer'))
-        console.log('edit Customer profile!!!');
+      $location.path('/edit-profile');
+      // if($scope.user.role === 'Vendor')
+      //   console.log('edit Vendor profile!!!');
+      // else if(($scope.user.role === 'Customer'))
+      //   console.log('edit Customer profile!!!');
     };
 }]);
