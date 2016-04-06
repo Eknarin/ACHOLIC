@@ -12,7 +12,6 @@ angular.module('acholic')
     $scope.comment.user_id = $rootScope._user._id;
     $scope.comment.package_id = $scope.packageItem._id;
     $scope.imageGallery = [];
-    console.log($scope.packageItem);
     $scope.comment.rate = 0;
     var items = [];
 

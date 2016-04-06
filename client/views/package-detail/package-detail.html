@@ -33,7 +33,8 @@
 							<!-- Provider name -->
 							<div class="col-xs-12 col-sm-12 col-md-12 package-detail-subdetail-box-style no-horizotal-padding">
 								<div class="col-xs-6 col-sm-6 col-md-4" style="text-align:center;">
-									<img class="vendor-profile-image-top-style" src=api/images/{{packageItem.user_id.image}}></img>
+									<img ng-show="packageItem.user_id.image" class="vendor-profile-image-top-style" src=api/images/{{packageItem.user_id.image}}></img>
+									<img ng-show="!packageItem.user_id.image" class="vendor-profile-image-top-style" src={{packageItem.user_id.facebook_image}}></img>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<p class="package-detail-title-style" style="text-align:left;padding-top:25px;">{{packageItem.user_id.first_name}}</p>
@@ -279,7 +280,8 @@
 				</div>
 				<div class="col-xs-12 col-sm-10 col-md-10">
 					<div class="col-xs-2 col-sm-2 col-md-2">
-						<img class="vendor-profile-image-style" src=api/images/{{packageItem.user_id.image}}></img>
+						<img ng-show="packageItem.user_id.image" class="vendor-profile-image-style" src=api/images/{{packageItem.user_id.image}}></img>
+						<img ng-show="!packageItem.user_id.image"  class="vendor-profile-image-style" src={{packageItem.user_id.facebook_image}}></img>
 					</div>
 					<!-- about vendor -->
 					<div class="col-xs-10 col-sm-10 col-md-10">
@@ -346,12 +348,13 @@
 					<!-- Package Comments -->					
 					<div class="col-xs-12 col-sm-12 col-md-12" ng-repeat="comment in comments.slice().reverse()">
 						<div class="col-xs-12 col-sm-2 col-md-2" style="text-align:center" >
-							<img class="package-detail-comment-profile-image" ng-src="api/images/{{comment.user_id.image}}"></img>
+							<img ng-show="comment.user_id.image" class="package-detail-comment-profile-image" ng-src="api/images/{{comment.user_id.image}}"></img>
+							<img ng-show="!comment.user_id.image" class="package-detail-comment-profile-image" ng-src="{{comment.user_id.facebook_image}}"></img>
 							<p class="package-detail-comment-header">{{comment.user_id.first_name}}</p>
 						</div>
 						<div class="col-xs-12 col-sm-10 col-md-10 package-detail-comment-cover">
 							<p class="package-detail-comment-detail">{{comment.text}}</p>
-							<p class="package-detail-comment-date" style="padding-top:10px;" ng-bind="getCommonDate(comment.updated_at)"></p>								
+							<p class="package-detail-comment-date" style="padding-top:10px;" ng-bind="getCommonDate(comment.created_at)"></p>								
 						</div>
 						<HR WIDTH="100%" NOSHADE>				
 					</div>
