@@ -130,16 +130,18 @@
                 </li>
                 <!-- Dropdown User Menu -->
                 <li class="dropdown" ng-if="Auth.isLogged()">
-                  <a class="dropdown-toggle" href="#"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: #fbd300; top: 0px; padding-top: 15px; padding-bottom: 15px;"><img class="nav-small-profile-image-style" ng-src=api/images/{{user.image}}></img>  {{user.first_name}} <span class="caret"></span></a>
+                  <a ng-show="user.image" class="dropdown-toggle" href="#"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: #fbd300; top: 0px; padding-top: 15px; padding-bottom: 15px;"><img class="nav-small-profile-image-style" ng-src=api/images/{{user.image}}></img>  {{user.first_name}} <span class="caret"></span></a>
+                  <a ng-show="!user.image" class="dropdown-toggle" href="#"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: #fbd300; top: 0px; padding-top: 15px; padding-bottom: 15px;"><img class="nav-small-profile-image-style" ng-src={{user.facebook_image}}></img>  {{user.first_name}} <span class="caret"></span></a>
                   <ul class="col-xs-12 col-sm-12 col-md-6 dropdown-menu dropdown-menu-right drop-arrow" style="padding-top:15px; width:300px; padding-bottom:0px; background-color:#fff; border-radius:0px;">
                     <!-- Profile Picture -->
                     <div class="col-xs-5 col-sm-5 col-md-5" style="text-align:center; background-color:white;">
-                      <img class="nav-profile-image-style" ng-src=api/images/{{user.image}}></img>
+                      <img ng-show="user.image" class="nav-profile-image-style" ng-src=api/images/{{user.image}}></img>
+                      <img ng-show="!user.image" class="nav-profile-image-style" ng-src={{user.facebook_image}}></img>
                     </div>
                     <!-- Info -->
                     <div class="col-xs-7 col-sm-7 col-md-7" style="background-color:white; padding-bottom:8px;">
                       <div class="col-xs-12 col-sm-12 col-md-12">
-                        <p class="nav-profile-name-style user-text-overflow">{{user.first_name}} {{user.last_name}}</p> 
+                        <p class="nav-profile-name-style ">{{user.first_name}} {{user.last_name}}</p> 
                       </div>
                       <div class="col-xs-12 col-sm-12 col-md-12">
                         <p class="nav-profile-name-style">{{user.role}}</p> 
