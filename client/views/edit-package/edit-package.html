@@ -180,7 +180,7 @@
 				   					<p class="package-create-topic-style">Age not under : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.info.age_limit" class="package-create-inputbox-style" type="number" min="0" placeholder="0" required>
+					        		<input ng-model="packages.map_id.age_limit" class="package-create-inputbox-style" type="number" min="0" placeholder="0" required>
 					       		</div>
 				        	</div>	
 		   				</div>
@@ -218,7 +218,7 @@
 									<input type="radio" name="level" ng-model="packages.map_id.level" value="Level 5"> Level 5 : Expert<br>
 									<input type="radio" name="level" ng-model="packages.map_id.level" value="Level 6"> Level 6 : Danger<br>
 					       		</div>
-					       		<p style="text-align:center;color:orange;" ng-show="packages.info.level == null">Please select the package highest rafting level.</p>
+					       		<p style="text-align:center;color:orange;" ng-show="packages.map_id.level == null">Please select the package highest rafting level.</p>
 				        	</div>	
 		   				</div>
 		   				<!-- Stage Information -->
@@ -232,7 +232,7 @@
 				   					<p class="package-create-topic-style">Stage Amount : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.info.stages_amount" class="package-create-inputbox-style" type="number" min="0" placeholder="0" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+					        		<input ng-model="packages.map_id.stages_amount" class="package-create-inputbox-style" type="number" min="0" placeholder="0" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
 					       		</div>
 				        	</div>
 					        <!-- Stage Highlight and Description -->
@@ -245,9 +245,9 @@
 							       		<fieldset  ng-repeat="stageHighlight in stageHighlights">		
 							       			<div class="col-xs-10 col-sm-10 col-md-10">
 						       					<p>Stage name<p> 	
-							       				<input class="package-create-inputbox-style" data-ng-model="stages[$index].name">	
+							       				<input class="package-create-inputbox-style" data-ng-model="stageHighlights[$index].name">	
 							       				<p>Description<p> 	     
-										     	<textarea type="text" class="package-create-inputbox-style form-control" rows="3" name="" required style="width:100%; margin-bottom:15px;" data-ng-model="stages[$index].description"></textarea>
+										     	<textarea type="text" class="package-create-inputbox-style form-control" rows="3" name="" required style="width:100%; margin-bottom:15px;" data-ng-model="stageHighlights[$index].description"></textarea>
 										  	</div>
 										  	<div class="col-xs-2 col-sm-2 col-md-2">
 										      	<button class="btn btn-danger package-create-add-delete-button-style" style="width:100%; margin-bottom:15px;" ng-click="removeStageHighlight($index)">-</button>
