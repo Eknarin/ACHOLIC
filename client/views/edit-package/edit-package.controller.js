@@ -119,7 +119,47 @@ angular.module('acholic')
     //next and previous tab
     var state = [0, 1, 2, 3];
     var currenstate = 0;     
+    var req = "Please check all required(*) fields."
     $scope.activeNextTab = function(){
+        if(currenstate == 0){
+            if($scope.packages == null){
+                alert(req);
+                return;
+            }
+            if($scope.packages.name == null){
+                alert(req);
+                return;
+            }
+            if($scope.packages.description == null){
+                alert(req);
+                return;
+            }
+            if($scope.testMap == null){
+                alert(req);
+                return;
+            }
+        } 
+        else if(currenstate == 1){
+            if($scope.packages.info == null){
+                alert(req);
+                return;
+            }
+            if($scope.packages.map_id.river_line == null){
+                alert(req);
+                return;
+            }
+            if($scope.packages.map_id.level == null){
+                alert(req);
+                return;
+            }
+        }
+        else if(currenstate == 2){
+            if($scope.provide == ""){
+                alert(req);
+                return;
+            }
+        }
+
         $('ul.setup-panel li:eq('+ (state[currenstate+1]) +')').removeClass('disabled');  
         $('ul.setup-panel li a[href=\"#step-' + state[currenstate+1] + '\"]').trigger('click'); 
         currenstate += 1;
