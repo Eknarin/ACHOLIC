@@ -5,7 +5,21 @@ angular.module('acholic')
 
   	console.log($scope.user);
 
-  	$scope.user.date_of_birth = $scope.user.date_of_birth.substring(0, 10);
+  	//Check BD
+  	if($scope.user.date_of_birth)
+  		$scope.user.date_of_birth = $scope.user.date_of_birth.substring(0, 10);
+
+  	//Check gender from Facebook
+  	if($scope.user.gender === 'female' || $scope.user.gender === 'Women'){
+  		$scope.user.gender = 'Women'
+  	}
+  	else if($scope.user.gender === 'male' || $scope.user.gender === 'Men'){
+  		$scope.user.gender = 'Men'
+  	}
+  	else{
+  		$scope.user.gender = 'Other'
+  	}
+
   	$scope.tabs = ["active", "", "", ""];
   	$scope.activeTab = function(goto){
         $scope.tabs = ["", "", "", ""];
