@@ -5,7 +5,7 @@ angular.module('acholic')
     $routeProvider
       .when('/amc/other', {
         templateUrl: 'views/amc/others/others.html',
-        controller: 'AmcOtherCtrl',
+        controller: 'AmcOthersCtrl',
         access: {
 	        requiresLogin: true,
 	        requiredPermissions: ['Admin']
