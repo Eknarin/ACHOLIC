@@ -30,6 +30,11 @@ angular.module('acholic')
         alert("Please re-enter your password in confirm field.");
         return;
       }
+      //check phone
+      if($scope.user.phone_number == null){
+        alert("Please fill your phone number.");
+        return;
+      }
 
       //check password matching
       if($scope.user.password != $scope.user.repassword){

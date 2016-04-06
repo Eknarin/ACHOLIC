@@ -27,31 +27,36 @@ angular.module('acholic')
       }
 
       $scope.onSubmit= function(){
-      if($scope.user.vendor){
-      	console.log("I'm the vendor");
-	      //check id
-	      
-	      //check travel issue 
-	  }
-	  //check first name
-      if($scope.user.first_name == null){
-        alert("Please enter your First Name.");
-        return;
-      }
-      //check last name
-      if($scope.user.last_name == null){
-        alert("Please enter your Last Name.");
-        return;
-      }
-      //check email
-      if($scope.user.email == null){
-        alert("Please fill your Email.");
-        return;
-      }
+	      if($scope.user.vendor){
+	      	console.log("I'm the vendor");
+		      //check id
+		      
+		      //check travel issue 
+		  }
+		  //check first name
+	      if($scope.user.first_name == null){
+	        alert("Please enter your First Name.");
+	        return;
+	      }
+	      //check last name
+	      if($scope.user.last_name == null){
+	        alert("Please enter your Last Name.");
+	        return;
+	      }
+	      //check email
+	      if($scope.user.email == null){
+	        alert("Please fill your Email.");
+	        return;
+	      }
+	      //check phone number
+	      if($scope.user.phone_number == null){
+	        alert("Please fill your Phone number.");
+	        return;
+	      }
 
-      else{
-        //update user data
-      }
+	      else{
+	        //update user data
+	      }
     };
 
   }]);
