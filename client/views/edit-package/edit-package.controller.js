@@ -19,9 +19,16 @@ angular.module('acholic')
         $scope.stageHighlights = res.map_id.stages;
         $scope.prepration = res.map_id.prepration;
         $scope.testMap = res.map_id.location.location_text;
+        $scope.gallery = res.map_id.image_gallery;
+        if($scope.gallery){
+            PackageGallery.query({id: $scope.gallery}).$promise.then(function(res){
+                $scope.imageGallery = res.images;
+            });
+        }
     });
-    $scope.gallery = new PackageGallery;
-    $scope.gallery.images = [];
+    
+
+
     $scope.packages.info = {};
     $scope.packages.info.stages = [];
     $scope.packages.info.equipments_provide = [];
