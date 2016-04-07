@@ -8,9 +8,44 @@
 	<body>
 		<div class="container-fluid" style="padding-left:0px; padding-right:0px; background-color:rgba(0,0,0,0.85);">	
 			<!-- filter -->
-			<div class="col-xs-12 col-sm-12 col-md-3 filter-cover-style" style="padding-top:70px;">
+			<!-- <div class="col-xs-12 col-sm-12 col-md-3 filter-cover-style" style="padding-top:70px;">
 				<p style="font-size:30px;">My Package</p>
 				<filters></filters>
+			</div> -->
+			<!-- Side menu-bar -->
+			<div class="col-xs-12 col-sm-12 col-md-3 side-menu-bar-cover">
+				<!-- Bookmark Folder -->
+				<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="margin-top:50px;">
+					<div class="col-xs-12 col-sm-12 col-md-12">
+						<p style="font-size:30px;">My Package</p>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-12 bookmark-folder-button bookmark-folder-button-active" ng-click="selectFolder(0, $event)">
+						All Packages
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-12 bookmark-folder-button" ng-click="selectFolder(1, $event)">
+						Bougth Packages
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-12 bookmark-folder-button" ng-click="selectFolder(2, $event)">
+						Packages Report
+					</div>
+				</div>
+				<!-- Sorting -->
+				<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="margin-top:30px;">
+					<div class="col-xs-12 col-sm-12 col-md-12">
+						<p style="font-size:30px;">Sort by</p>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:30px;">
+						<div>
+							<input type="checkbox" ng-model="name_check" style="font-size:17px;"> Name</input>
+						</div>
+						<div>
+							<input type="checkbox" ng-model="rating_check" style="font-size:17px;"> Rating</input>
+						</div>
+						<div>
+							<input type="checkbox" ng-model="create_check" style="font-size:17px;"> Create Date</input>
+						</div>							
+					</div>					
+				</div>
 			</div>
 
 			<!-- My Package -->
@@ -20,11 +55,11 @@
 						<h2 class="no_result">No items in My package.</h2>
 					</div>
 					<!-- Filter package type button -->
-					<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center">                      			
+					<!-- <div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center">                      			
 						<button class="select-package-type-button select-package-type-button-active">Show All</button>
 						<button class="select-package-type-button">Rafting</button>
 						<button class="select-package-type-button">Diving</button>
-					</div>							
+					</div>		 -->					
 					<div class="row">
 						<div class="col-xs-12 col-sm-6 col-md-4 package-cover" ng-repeat="p in package">
 							<div class="my-package-style" style="height:370px;">

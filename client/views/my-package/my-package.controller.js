@@ -185,5 +185,24 @@ angular.module('acholic')
     }
     return new Array(5-$scope.yStar);
   };
+
+  $scope.selectFolder = function(id, event){
+    // $scope.selected_folder = folderId;
+    // if(folderId == 0){
+    //   $scope.query_all();
+    // }else{
+    //   $scope.query(folderId);
+    // }
+    $scope.activeButton(event);
+
+  };
+
+  $scope.activeButton = function(event){
+    var bookMarkButton = $(event.target);
+    
+    $('.bookmark-folder-button').removeClass('bookmark-folder-button-active');
+    bookMarkButton.addClass('bookmark-folder-button-active');
+  };
    
   }]);
+
