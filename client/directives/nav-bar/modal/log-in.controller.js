@@ -4,7 +4,7 @@ angular.module('acholic')
   .controller('LoginCtrl',['$scope','$http','$location','$rootScope','Auth','$uibModalInstance','$facebook', function ($scope ,$http, $location,$rootScope ,Auth , $uibModalInstance,$facebook) {
 
      $scope.showAlert = false;
-     $scope.user = { email: 'test@test.com', password: 'test' };
+     $scope.user = { email: '', password: '' };
      $scope.isLoggedIn = false;
      $scope.facebook_first = false;
 
@@ -14,8 +14,7 @@ angular.module('acholic')
             if(faceUser != 401){
               Auth.loginFacebook(faceUser)
                 .then(function (res2) {
-                  $location.path('/');
-                  $uibModalInstance.close();
+                  $uibModalInstance.close(faceUser);
                 })
                 .catch(function (err) {
                   $scope.showAlert = true;
