@@ -44,7 +44,7 @@ var myNav = angular.module('acholic');
             size: 'lg'
           }).result.then(function(res){
             $scope.user = res;
-            $window.location.reload();
+            // $window.location.reload();
           });
         };
 
