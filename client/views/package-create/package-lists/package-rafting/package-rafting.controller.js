@@ -20,6 +20,8 @@ angular.module('acholic')
 
     $scope.seasonMonth = false;
 
+    var packNum = 0;
+
 
     $scope.checkSeason = function(){
         if ($scope.seas == "Whole Year") {
@@ -149,6 +151,10 @@ angular.module('acholic')
             }
         } 
         else if(currenstate == 1){
+            if(packNum == 0){
+              alert(req);
+              return;
+            }
             if($scope.packages.info == null){
                 alert(req);
                 return;
@@ -353,6 +359,8 @@ angular.module('acholic')
         return;
     }
     
+    packNum = packNum + 1;
+
     var priceObj = {
         price: addPrice, 
         type: addType,
