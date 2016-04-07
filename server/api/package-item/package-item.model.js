@@ -10,6 +10,7 @@ var PackageItemSchema = new Schema({
   price: Number,
   rating: { type: Number, min: 0, max: 5 },
   created_at: { type: Date, default: Date.now },
+  package_type: String,
   map_id: { type: Schema.Types.ObjectId, ref: 'PackageMap' },
   image: { type: Schema.Types.ObjectId, ref: 'Image' },
   user_id: { type: Schema.Types.ObjectId, ref:'User'},

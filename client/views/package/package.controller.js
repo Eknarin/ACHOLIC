@@ -26,7 +26,6 @@ angular.module('acholic')
   });
 
   $scope.loadBookmarks = function(){
-    console.log($scope.bookmarks);
     for(var i = 0 ; i<$scope.packages.length ;i++){
       for(var j = 0; j<$scope.bookmarks.length ;j++){
         if(!$scope.packages[i].bookmark)
@@ -79,16 +78,6 @@ angular.module('acholic')
     $scope.createDate = $scope.temp.getDate() + "/" + ($scope.temp.getMonth() + 1) + "/" + $scope.temp.getFullYear();
     return $scope.createDate;
   }
-
-  $scope.setPage = function (pageNo) {
-    $scope.currentPage = pageNo;
-  };
-
-  $scope.pageChanged = function() {
-    PackageItem.query({q: $location.search().q , page: $scope.currentPage}).$promise.then(function(result){
-      $scope.packages = result.docs;
-    });
-  };
 
 
 	$scope.slider = {

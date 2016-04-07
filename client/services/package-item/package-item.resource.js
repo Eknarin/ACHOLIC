@@ -37,6 +37,10 @@ angular.module('acholic')
       package_type: {
         method: 'GET',
         url: '/api/packageItem/package-type'
+      },
+      type_filter:{
+        method: 'GET',
+        url: '/api/packageItem/type'
       }
     });
   });

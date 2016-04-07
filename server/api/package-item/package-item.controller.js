@@ -63,6 +63,19 @@ function checkPackage (type) {
  * @param req
  * @param res
  */
+ exports.indexType = function (req, res) {
+  PackageItem.paginate({'package_type': req.query.type},{ page: req.query.page, limit: 9},function(err, packageItem) {
+   if (err) { return handleError(res, err); }
+         return res.status(200).json(packageItem);
+  });
+};
+
+/**
+ * Get list of PackageItem
+ *
+ * @param req
+ * @param res
+ */
  exports.myPackage = function (req, res) {
   PackageItem.paginate({'user_id' : req.query.q}, { page: req.query.page, limit: 9}, function(err, result) {
    if (err) { return handleError(res, err); }
@@ -167,6 +180,7 @@ function checkPackage (type) {
       map.map_id = packageDetail._id;
       map.save();
       packageItem.map_id = map._id;
+      packageItem.package_type = req.body.type;
       packageItem.save();
     });
     return res.status(201).json(packageItem);
