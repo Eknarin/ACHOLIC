@@ -21,65 +21,128 @@
 
 				</div>
 				<div class="col-xs-12 col-sm-5 col-md-5 profile-cover-style" style="background-color:rgba(0,0,0,0.75);">
-					<!-- General Information -->
-					<div class="col-xs-12 col-sm-12 col-md-12">
-						<p class="profile-information-header">General Information</p>
-						<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:15%">
-							<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
-								<p class="profile-information-detail">Gender :</p> 
+					
+					  <ul class="nav nav-tabs profile-tab-style">
+					    <li class="active"><a data-toggle="tab" data-target="#home" style="color:white;font-size:16px;">Customer</a></li>
+					    <li ng-show="user.role == 'Vendor'"><a data-toggle="tab" style="color:white;font-size:16px;" data-target="#menu1">Vendor</a></li>
+					  </ul>
+
+					  <div class="tab-content">
+					    <div id="home" class="tab-pane fade in active">
+					      <!-- General Information -->
+							<div class="col-xs-12 col-sm-12 col-md-12" style="padding-top:25px;">
+								<p class="profile-information-header">General Information</p>
+								<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:15%">
+									<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
+										<p class="profile-information-detail">Gender :</p> 
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<p class="profile-information-detail">{{user.gender}}</p> 								
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
+										<p class="profile-information-detail">Date of birth  :</p> 
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<p class="profile-information-detail">{{user.date_of_birth}}</p> 
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
+										<p class="profile-information-detail">Role :</p> 
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<p class="profile-information-detail">{{user.role}}</p> 
+									</div>							
+								</div>
 							</div>
-							<div class="col-xs-6 col-sm-6 col-md-6">
-								<p class="profile-information-detail">{{user.gender}}</p> 								
+							<!-- Contact -->
+							<div class="col-xs-12 col-sm-12 col-md-12">
+								<p class="profile-information-header">Contact</p>
+								<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:15%">
+									<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
+										<p class="profile-information-detail">Email :</p> 
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<p class="profile-information-detail">{{user.email}}</p> 
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
+										<p class="profile-information-detail">Phone :</p> 
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<p ng-show="user.phone_number" class="profile-information-detail">{{user.phone_number}}</p> 
+										<p ng-show="!user.phone_number" class="profile-information-detail"> - </p> 
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
+										<p class="profile-information-detail">Address :</p> 
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<p ng-show="user.address.address" class="profile-information-detail">{{user.address.address}}</p> 
+										<p ng-show="!user.address.address" class="profile-information-detail"> - </p>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
+										<p class="profile-information-detail">Zipcode :</p> 
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<p  ng-show="user.address.zip_code" class="profile-information-detail">{{user.address.zip_code}}</p> 
+										<p ng-show="!user.address.zip_code" class="profile-information-detail"> - </p> 
+									</div>
+								</div>
 							</div>
-							<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
-								<p class="profile-information-detail">Date of birth  :</p> 
+					    </div>
+					    <div id="menu1" class="tab-pane fade" ng-show="user.role == 'Vendor'">
+					      <!-- General Vendor Information -->
+							<div class="col-xs-12 col-sm-12 col-md-12" style="padding-top:25px;">
+								<p class="profile-information-header">Vendor Information</p>
+								<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:15%">
+									<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
+										<p class="profile-information-detail">Email :</p> 
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<p class="profile-information-detail" ng-show="user.vendor.alt_email">{{user.vendor.alt_email}}</p> 
+										<p class="profile-information-detail" ng-show="!user.vendor.alt_email">-</p>								
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
+										<p class="profile-information-detail">ID Number :</p>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<p class="profile-information-detail">{{user.vendor.identification_num}}</p> 
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
+										<p class="profile-information-detail">Tourist Business license no. :</p> 
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<p class="profile-information-detail">{{user.vendor.provider_num}}</p> 
+									</div>							
+								</div>
 							</div>
-							<div class="col-xs-6 col-sm-6 col-md-6">
-								<p class="profile-information-detail">{{user.date_of_birth}}</p> 
+							<!-- Vendor Contact -->
+							<div class="col-xs-12 col-sm-12 col-md-12">
+								<p class="profile-information-header">Contact</p>
+								<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:15%">
+									<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
+										<p class="profile-information-detail">Address :</p> 
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<p class="profile-information-detail">{{user.vendor.address.address}}</p> 
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
+										<p class="profile-information-detail">Zipcode :</p> 
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<p ng-show="user.phone_number" class="profile-information-detail">{{user.vendor.address.zip_code}}</p> 
+										<p ng-show="!user.phone_number" class="profile-information-detail"> - </p> 
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
+										<p class="profile-information-detail">Phone :</p> 
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<p ng-show="user.address.address" class="profile-information-detail">{{user.vendor.phone_number}}</p> 
+										<p ng-show="!user.address.address" class="profile-information-detail"> - </p>
+									</div>
+								</div>
 							</div>
-							<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
-								<p class="profile-information-detail">Role :</p> 
-							</div>
-							<div class="col-xs-6 col-sm-6 col-md-6">
-								<p class="profile-information-detail">{{user.role}}</p> 
-							</div>							
-						</div>
-					</div>
-					<!-- Contact -->
-					<div class="col-xs-12 col-sm-12 col-md-12">
-						<p class="profile-information-header">Contact</p>
-						<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:15%">
-							<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
-								<p class="profile-information-detail">Email :</p> 
-							</div>
-							<div class="col-xs-6 col-sm-6 col-md-6">
-								<p class="profile-information-detail">{{user.email}}</p> 
-							</div>
-							<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
-								<p class="profile-information-detail">Phone :</p> 
-							</div>
-							<div class="col-xs-6 col-sm-6 col-md-6">
-								<p ng-show="user.phone_number" class="profile-information-detail">{{user.phone_number}}</p> 
-								<p ng-show="!user.phone_number" class="profile-information-detail"> - </p> 
-							</div>
-							<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
-								<p class="profile-information-detail">Address :</p> 
-							</div>
-							<div class="col-xs-6 col-sm-6 col-md-6">
-								<p ng-show="user.address.address" class="profile-information-detail">{{user.address.address}}</p> 
-								<p ng-show="!user.address.address" class="profile-information-detail"> - </p>
-							</div>
-							<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
-								<p class="profile-information-detail">Zipcode :</p> 
-							</div>
-							<div class="col-xs-6 col-sm-6 col-md-6">
-								<p  ng-show="user.address.zip_code" class="profile-information-detail">{{user.address.zip_code}}</p> 
-								<p ng-show="!user.address.zip_code" class="profile-information-detail"> - </p> 
-							</div>
-						</div>
-					</div>
+					    </div>
+					  </div>
 					<!-- Edit Button -->
-					<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center; margin-top:50px;">
+					<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center; margin-top:30px;">
 						<button type="button" class="btn btn-success" ng-click="editProfile()">Edit Profile</button>
 						<button type="button" ng-show="user.role != 'Vendor'" class="btn btn-primary" ng-click="setVendor()">Become Vendor</button>
 					</div>

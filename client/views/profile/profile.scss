@@ -23,7 +23,6 @@
 	margin-top: 5px;
 }
 .profile-cover-style{
-	padding-top:5%; 
 	padding-bottom:5%;
 	max-height: 510.25px;
 }
@@ -32,6 +31,22 @@
 }
 .profile-information-detail{
 	font-size: 15px;
+}
+
+.profile-tab-style > li > a{
+  background-color: #DA9009;
+    border: medium none;
+    color:#fff;
+}
+.profile-tab-style > li > a:hover{
+  background-color: #DA9009;
+    border: medium none;
+    color:#fff;
+}
+.profile-tab-style > li > a:hover{
+  background-color: #DA9009;
+    border: medium none;
+    color:#fff;
 }
 
 @media(min-width:767px){

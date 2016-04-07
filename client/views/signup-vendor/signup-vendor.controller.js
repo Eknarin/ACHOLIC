@@ -40,6 +40,6 @@ angular.module('acholic')
       $scope.activeTab = function(goto){
         $scope.tabs = ["", "", "", ""];
         $scope.tabs[goto] = "active";
-        console.log($scope.tabs);
+        // console.log($scope.tabs);
       }
   }]);
