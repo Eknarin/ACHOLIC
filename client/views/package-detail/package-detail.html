@@ -156,42 +156,28 @@
 							</div>
 							<div class="col-xs-12 col-sm-10 col-md-10 package-detail-table-cover">
 								<!-- Table Header -->
-								<div class="package-detail-table-cover">
-									<div class="col-xs-3 col-sm-3 col-md-3">
-							        	<p class="package-detail-table-header">Boat</p>
-							        </div>
-							        <div class="col-xs-2 col-sm-2 col-md-2">
-							        	<p class="package-detail-table-header">Price (฿)</p>
-							        </div>
-							        <div class="col-xs-2 col-sm-2 col-md-2">
-							        	<p class="package-detail-table-header">People</p>
-							        </div>
-							        <div class="col-xs-2 col-sm-2 col-md-2">
-							        	<p class="package-detail-table-header">Distance (km)</p>
-							        </div>
-							        <div class="col-xs-3 col-sm-3 col-md-3">
-							        	<p class="package-detail-table-header">Duration (hr)</p>
-							        </div>							        
-							        <HR WIDTH="100%" NOSHADE>
-							    </div>
-							    <!-- Table Detail -->
-							    <div class="package-detail-table-cover" ng-repeat="packageInfo in packageInfos">
-							    	<div class="col-xs-3 col-sm-3 col-md-3">
-					                    <p class="package-create-table-header">{{packageInfo.boat_type}}</p>
-				                    </div>
-							    	<div class="col-xs-2 col-sm-2 col-md-2">
-					                    <p class="package-create-table-header">{{packageInfo.price}}</p>
-					                </div>
-					                <div class="col-xs-2 col-sm-2 col-md-2">
-					                    <p class="package-create-table-header">{{packageInfo.people}}</p>
-					                </div>
-					                <div class="col-xs-2 col-sm-2 col-md-2">
-					                    <p class="package-create-table-header">{{packageInfo.distance}}</p>
-				                    </div>
-					                <div class="col-xs-3 col-sm-3 col-md-3">
-					                    <p class="package-create-table-header">{{packageInfo.duration}}</p>
-					                </div>					                
-							    </div>
+								<table class="table" style="color:white;">
+					    			<theader>
+					    				<tr>
+					    					<th class="package-detail-table-header" style="border-top: 0px;">Name</th>	
+					    					<th class="package-detail-table-header" style="text-align:center; border-top: 0px;">Price (฿)</th>
+					    					<th class="package-detail-table-header" style="text-align:center; border-top: 0px;">People</th>
+					    					<th class="package-detail-table-header" style="text-align:center; border-top: 0px;">Distance (km)</th>
+					    					<th class="package-detail-table-header" style="text-align:center; border-top:0px;">Duration (hr)</th>
+					    					<th class="package-detail-table-header" style="border-top:0px;">Extra Info.</th>
+					    				</tr>
+					    			</theader>
+					    			<tbody>
+					    				<tr ng-repeat="packageInfo in packageInfos">
+					    					<td class="package-detail-table-detail">{{packageInfo.type}}</td>			
+					    					<td class="package-detail-table-detail" style="text-align:center;">{{packageInfo.price}}</td>
+					    					<td class="package-detail-table-detail" style="text-align:center;">{{packageInfo.people}}</td>
+					    					<td class="package-detail-table-detail" style="text-align:center;">{{packageInfo.distance}}</td>
+					    					<td class="package-detail-table-detail" style="text-align:center;">{{packageInfo.duration}}</td>
+					    					<td class="package-detail-table-detail" ng-if="packageInfo.boat_type">{{packageInfo.boat_type}}</td>
+					    				</tr>   				
+					    			</tbody>
+					    		</table>
 							</div>
 						</div>
 						<HR WIDTH="95%" NOSHADE>
@@ -204,25 +190,49 @@
 							<div class="col-xs-12 col-sm-10 col-md-10 no-horizotal-padding">
 								<!-- Provide Things -->
 								<div class="col-xs-12 col-sm-12 col-md-12 package-detail-subdetail-box-style">
-									<p class="package-detail-insight-sub-header"> Provide Things </p>
-									<p class="package-detail-insight-detail" ng-repeat="equipmentProvide in equipmentProvides" style="padding-left:15px;">• {{equipmentProvide}}</p>
+									<div class="col-xs-12 col-sm-4 col-md-4 no-horizotal-padding">
+										<p class="package-detail-insight-sub-header"> Provide Things </p>
+									</div>
+									<div class="col-xs-12 col-sm-8 col-md-8 no-horizotal-padding">
+										<div class="col-xs-12 col-sm-6 col-md-6 no-horizotal-padding" ng-repeat="equipmentProvide in equipmentProvides">
+											<p class="package-detail-insight-detail">{{equipmentProvide}}</p>
+										</div>
+									</div>
 								</div>
 								<!-- Require Things -->
 								<div class="col-xs-12 col-sm-12 col-md-12 package-detail-subdetail-box-style">
-									<p class="package-detail-subdetail-topic-style"> Require Things </p>
-									<p class="package-detail-insight-detail" ng-repeat="equipmentRequire in equipmentRequires" style="padding-left:15px;">• {{equipmentRequire}}</p>
+									<div class="col-xs-12 col-sm-4 col-md-4 no-horizotal-padding">
+										<p class="package-detail-subdetail-topic-style"> Require Things </p>
+									</div>
+									<div class="col-xs-12 col-sm-8 col-md-8 no-horizotal-padding">
+										<div class="col-xs-12 col-sm-6 col-md-6 no-horizotal-padding" ng-repeat="equipmentRequire in equipmentRequires">							
+											<p class="package-detail-insight-detail">{{equipmentRequire}}</p>
+										</div>
+									</div>
 								</div>
 
 								<!-- Skill Require -->
 								<div class="col-xs-12 col-sm-12 col-md-12 package-detail-subdetail-box-style">
-									<p class="package-detail-subdetail-topic-style"> Skill Required </p>
-									<p class="package-detail-insight-detail" ng-repeat="skillRequire in skillRequires" style="padding-left:15px;">• {{skillRequire}}</p>
+									<div class="col-xs-12 col-sm-4 col-md-4 no-horizotal-padding">
+										<p class="package-detail-subdetail-topic-style"> Skill Required </p>
+									</div>
+									<div class="col-xs-12 col-sm-8 col-md-8 no-horizotal-padding">
+										<div class="col-xs-12 col-sm-6 col-md-6 no-horizotal-padding" ng-repeat="skillRequire in skillRequires">	
+											<p class="package-detail-insight-detail">{{skillRequire}}</p>
+										</div>
+									</div>
 								</div>
 
 								<!-- Include Activity -->
-								<div class="col-xs-12 col-sm-12 col-md-12 package-detail-subdetail-box-style">
-									<p class="package-detail-subdetail-topic-style"> Include Activity </p>
-									<p class="package-detail-insight-detail" ng-repeat="activity in activities" style="padding-left:15px;">• {{activity}}</p>
+								<div class="col-xs-12 col-sm-12 col-md-12 package-detail-subdetail-box-style">			
+									<div class="col-xs-12 col-sm-4 col-md-4 no-horizotal-padding">
+										<p class="package-detail-subdetail-topic-style"> Include Activity </p>
+									</div>
+									<div class="col-xs-12 col-sm-8 col-md-8 no-horizotal-padding">
+										<div class="col-xs-12 col-sm-6 col-md-6 no-horizotal-padding" ng-repeat="activity in activities">
+											<p class="package-detail-insight-detail">{{activity}}</p>
+										</div>
+									</div>
 								</div>							
 							</div>
 						</div>					

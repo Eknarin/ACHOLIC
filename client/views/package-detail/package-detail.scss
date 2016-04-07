@@ -111,11 +111,6 @@
 	color:#fb5858;
 	font-size: 10px;
 }
-.package-detail-table-cover{
-	padding-left: 0px;
-	padding-right: 0px;
-}
-
 .package-detail-comment-header{
 	font-size: 20px;
 }
@@ -161,6 +156,15 @@
 .package-detail-fix-box-position{
 	position:relative;	
 }
+.package-detail-table-cover{
+	// width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.package-detail-table-detail{
+	color:white;
+	font-size: 10px;
+}
 
 @media(min-width:767px){
 	.package-name-style{
@@ -180,6 +184,9 @@
 		text-align: left;
 	}
 	.package-detail-table-header{
+		font-size: 12px;
+	}
+	.package-detail-table-detail{
 		font-size: 12px;
 	}
 	.package-detail-comment-cover{	
