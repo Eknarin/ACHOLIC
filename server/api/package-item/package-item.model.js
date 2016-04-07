@@ -8,6 +8,7 @@ var PackageItemSchema = new Schema({
   name: { type: String, required: true, unique: true },
   description: String,
   price: Number,
+  province: String,
   rating: { type: Number, min: 0, max: 5 },
   created_at: { type: Date, default: Date.now },
   package_type: String,
