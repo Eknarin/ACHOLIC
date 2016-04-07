@@ -14,7 +14,7 @@ angular.module('acholic')
     $scope.imageGallery = [];
     $scope.comment.rate = 0;
     var items = [];
-
+    console.log($scope.packageItem );
     $scope.like = false;
     $scope.loading1 = false;
 

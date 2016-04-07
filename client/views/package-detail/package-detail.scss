@@ -18,6 +18,24 @@
 .package-name-style{
 	font-size: 22px;
 	color: white;
+	text-align: center;
+}
+.package-detail-vendor-name{
+	text-align:center; 
+	padding-top:10px; 
+	color:white;
+	font-size: 15px;
+}
+.package-detail-general-information-cover{
+	text-align: center;
+}
+.package-detail-general-information-header{
+	font-size: 16px;
+	color: #fb5858;
+}
+.package-detail-general-information-detail{
+	font-size: 16px;
+	color: white;
 }
 .package-location-style{
 	font-size: 14px;
@@ -35,9 +53,6 @@
 	text-align: center;
 	padding-top: 5px;
 }
-.package-group-tag-style{
-	text-align: center;
-}
 .package-button-style{
 	width:200px; 
 	margin-top:15px; 
@@ -48,13 +63,39 @@
 	padding-bottom: 15px;
 	color: white;
 }
-.package-detail-title-style{
-	font-size: 20px;
+.package-detail-comment-header{
+	font-size: 14px;
 	text-align:center;
+	color: black;
 }
+.package-detail-comment-sub-header{
+	font-size: 15px;
+	color: #A9A9A9;
+}
+.package-detail-comment-comment{
+	font-size: 15px;
+}
+// .package-detail-title-style{
+// 	font-size: 20px;
+// 	text-align:center;
+// }
+.package-detail-insight-header{
+	font-size: 18px;
+	color:#fbd300;
+}
+.package-detail-insight-sub-header{
+	font-size: 14px;
+	color:#fb5858;	
+}
+.package-detail-insight-detail{
+	font-size: 14px;
+	color: white;
+	margin-bottom: 10px;
+}
+
 .package-detail-topic-group-style{
 	font-size: 16px;
-	color:#A9A9A9;
+	color:#A9A9A9;	
 }
 .package-detail-detail-style{
 	font-size: 14px;
@@ -74,12 +115,9 @@
 	padding-left: 0px;
 	padding-right: 0px;
 }
-.package-deatail-moredetail-detail{
-	padding-left: 15px;
-}
+
 .package-detail-comment-header{
-	font-size: 14px;
-	color: #b3b3b3;
+	font-size: 20px;
 }
 .package-detail-comment-cover{	
 	text-align: center;
@@ -93,7 +131,7 @@
 	color: #b3b3b3;	
 }
 .package-detail-comment-profile-image{
- 	height: auto;
+ 	height: 90px;
   	width: 90px;
   	-webkit-border-radius: 50%;
   	-moz-border-radius: 50%;
@@ -103,16 +141,6 @@
   	border: 3px solid white;
  }
 .vendor-profile-image-style{
- 	height: auto;
-  	width: 40px;
-  	-webkit-border-radius: 50%;
-  	-moz-border-radius: 50%;
-  	-ms-border-radius: 50%;
-  	-o-border-radius: 50%;
-  	border-radius: 50%;
-  	border: 2px solid white;
-}
-.vendor-profile-image-top-style{
  	height: 90px;
   	width: 90px;
   	-webkit-border-radius: 50%;
@@ -137,25 +165,25 @@
 @media(min-width:767px){
 	.package-name-style{
 		font-size: 24px;
+		text-align: left;
 	}
 	.package-group-tag-style{
 		text-align: right;
 	}
-	.package-detail-title-style{
-	text-align:left;
+	.package-detail-comment-header{
+		text-align: left;
 	}
 	.package-rating-style{
 		text-align: right;
+	}
+	.package-detail-general-information-cover{
+		text-align: left;
 	}
 	.package-detail-table-header{
 		font-size: 12px;
 	}
 	.package-detail-comment-cover{	
 		text-align: left;
-	}
-	.vendor-profile-image-style{
-	  	width: 100px;
-	  	height: 100px;
 	}
 	.package-detail-fix-box-position{
 		position: fixed;
