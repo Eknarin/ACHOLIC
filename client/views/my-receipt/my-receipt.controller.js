@@ -18,7 +18,7 @@ angular.module('acholic')
         $scope.loading = true;
       });
    });
-
+  console.log($scope.receipts);
   $scope.openReceiptInfoModal = function(item){
            var modalInstance = $uibModal.open({
             animation: true,

@@ -350,11 +350,15 @@
 					        	<!-- Price Name -->
 					        	<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding">
 					        		<div class="col-xs-9 col-sm-9 col-md-9">
-					        			<p style="font-size:18px;">{{priceArr.boat_type}}</p>
+					        			<p style="font-size:25px; margin-bottom:0px; color:#fbd300;">{{priceArr.type}}</p>
 					        		</div>
 					        		<div class="col-xs-3 col-sm-3 col-md-3" >					        		
 					        			<img src="../../image/remove-button.png" style="width:30px; height:30px; float:right;" ng-click="deleteRow($index)"></img>		
 					        		</div>
+					        	</div>
+					        	<!-- Boat Type -->
+					        	<div class="col-xs-12 col-sm-12 col-md-12">
+					        		<p style="font-size:18px;">{{priceArr.boat_type}}</p>					        
 					        	</div>
 					        	<!-- Price & People -->
 					        	<div class="col-xs-12 col-sm-12 col-md-12">
@@ -445,6 +449,22 @@
 			        </div>
 
 			        <div class="col-xs-12 col-sm-6 col-md-6">           
+			      		<!-- Package Expired date -->
+		   				<div class="col-xs-12 col-sm-12 col-md-12 fillform-content-style">
+		   					<div  class="col-xs-12 col-sm-12 col-md-12" style="text-align: center;">
+					           	<p class="fillform-content-sub-header">Expired Date</p>					           
+					        </div>
+						    <div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
+				       			<div class="col-xs-12 col-sm-12 col-md-4" style="padding-right:0px;">
+				   					<p class="package-create-topic-style"><font class="required-box">*</font> Expired Date : </p>
+			    				</div>
+				       			<div class="col-xs-12 col-sm-12 col-md-8">
+					        		<datepicker date-format="dd-MM-yyyy" date-year-title="selected title">
+										  <input class="package-create-inputbox-style" type="text"/>
+									</datepicker>
+					       		</div>	
+					       	</div>			        	
+					    </div>
 			      		<!-- Before Rafting -->
 		   				<div class="col-xs-12 col-sm-12 col-md-12 fillform-content-style">
 		   					<div  class="col-xs-12 col-sm-12 col-md-12" style="text-align: center;">
@@ -469,7 +489,7 @@
 					        		<textarea  ng-model="packages.info.prepration"  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Wear comforable suit"></textarea >
 					        	</div>
 				        	</div>
-					    </div>
+					    </div>					    
 			        </div>
 			        <div class="col-xs-12 col-sm-12 col-md-12" style="text-align: center; margin-top:20px;">
 			           	<button type="button" class="btn btn-danger" ng-click="previousTab()">Back</button>
