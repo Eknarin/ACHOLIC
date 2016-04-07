@@ -40,15 +40,11 @@
 						</div>
 						<div class="col-xs-12 col-sm-5 col-md-5 no-horizotal-padding">
 							<div class="col-xs-12 col-sm-12 col-md-12">
-								<p class="receipt-total-price-style">{{receipts.total_price}}</p>
+								<p class="receipt-total-price-style">{{receipt.total_price}}</p>
 							</div>
 							<div class="col-xs-12 col-sm-12 col-md-12 receipt-button-cover">
-								<!-- <div class="col-xs-6 col-sm-6 col-md-6"> -->
-									<button class="btn btn-primary" ng-click="openReceiptInfoModal(receipt)">View</button>
-								<!-- </div> -->
-								<!-- <div class="col-xs-6 col-sm-6 col-md-6"> -->
-									<button class="btn btn-danger">Delete</button>
-								<!-- </div> -->
+								<button class="btn btn-primary" ng-click="openReceiptInfoModal(receipt)"><img src="../image/view.png" style="width:20px; height:20px;"></img></button>
+								<button class="btn btn-danger"><img src="../image/delete.png" style="width:20px; height:20px;"></img></button>
 							</div>
 						</div>
 					</div>					
