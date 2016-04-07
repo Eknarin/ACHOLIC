@@ -1,17 +1,17 @@
-<div class="modal-header">
-  <p style="font-size:30px;">Receipt : {{receipt._id}}</p>
-  <p style="font-size:15px;">Purcahsed at : {{receipt.created_at}}</p>
+<div class="modal-header" style=" background-color:#e1bd00;">
+  <p class="receipt-header" style="color:#c84646">Receipt : <font class="receipt-detail">{{receipt._id}}</font></p>
+  <p class="receipt-purchased-date" style="color:black">Purcahsed at : {{receipt.created_at}}</p>
 
 </div>
 <div class="modal-body" style="padding-bottom:0px;">    
 	<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" >
         <div class="col-xs-5 col-sm-5 col-md-5 no-horizotal-padding">
-            <p class="modal-receipt-header">Type<p>
+            <p class="modal-receipt-header">Package Name<p>
         </div>
-        <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
+        <div class="col-xs-3 col-sm-3 col-md-3 no-horizotal-padding">
             <p class="modal-receipt-header">Price (฿)</p>
         </div>
-        <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
+        <div class="col-xs-4 col-sm-4 col-md-4 no-horizotal-padding">
             <p class="modal-receipt-header">Serial</p>
         </div>
     </div>          
@@ -20,22 +20,20 @@
         <div class="col-xs-5 col-sm-5 col-md-5 no-horizotal-padding">
             <p class="modal-receipt-detail">{{transaction.type}}<p>
         </div>
-        <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
+        <div class="col-xs-3 col-sm-3 col-md-3 no-horizotal-padding">
             <p class="modal-receipt-detail">{{transaction.price}}</p>
         </div>
-        <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
+        <div class="col-xs-4 col-sm-4 col-md-4 no-horizotal-padding">
             <p class="modal-receipt-detail">{{transaction.serial}}</p>             
         </div>      
         <HR WIDTH="100%" NOSHADE>        
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding">
-        <div class="col-xs-6 col-sm-5 col-md-5 no-horizotal-padding">
-            <p class="modal-receipt-total-price">Total (฿) : {{receipt.total_price}}<p>
-        </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="text-align:center; background-color:rgba(0, 0, 0, 0.75);">
+        <p class="modal-receipt-total-price">Total (฿) : {{receipt.total_price}}<p>
     </div>
 
 </div>
 <div class="modal-body bookmark-body-style" style="padding-bottom:15px;">
   <HR WIDTH="100%" NOSHADE>
-  <button type="button" class="btn btn-default" ng-click="closeModal()">Close</button>
+  <button type="button" class="btn btn-danger" ng-click="closeModal()">Close</button>
 </div>

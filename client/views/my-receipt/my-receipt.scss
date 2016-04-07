@@ -27,6 +27,18 @@
 	margin-bottom: 0px;
 	padding-top: 10px;
 }
+.receipt-header{
+	font-size: 20px;
+	color: #fb5858;
+}
+.receipt-detail{
+	font-size: 18px;
+	color: white;
+}
+.receipt-purchased-date{
+	font-size:12px; 
+	color:#b3b3b3;
+}
 
 @media(min-width:767px){
 	.receipt-total-price-style{
