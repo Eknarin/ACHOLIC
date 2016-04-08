@@ -249,14 +249,15 @@ function checkPackage (type) {
  * @param res
  */
  exports.updatePackage = function (req, res) {
-    console.log(req.body);
+
     var Obj = checkPackage(req.body.type);
-    // Obj.findById(req.body.info, function (err, packageDetail){
-    //   var updated = _.merge(packageDetail, req.body);
-    //   updated.save(function (err) {
-    //     if (err) { return handleError(res, err); }
-    //     return res.status(200).json(packageDetail);
-    // });
+    Obj.findById(req.params.id, function (err, packageDetail){
+      var updated = _.merge(packageDetail, req.body);
+      updated.save(function (err) {
+        if (err) { return handleError(res, err); }
+        return res.status(200).json(packageDetail);
+    });
+    });
   };
 
 /**
