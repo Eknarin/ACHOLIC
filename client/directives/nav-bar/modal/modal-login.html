@@ -22,7 +22,7 @@
                 <pre ng-if="vm.error">{{ vm.error | json }}</pre> 
                 <label><span class="glyphicon glyphicon-eye-open"></span> Password</label></br>
                 <input class="col-md-10 col-xs-10 col-sm-10" type="password" ng-model="person.password" placeholder="password"></br>
-                <div class="alertText" ng-show="showAlert"><p>The email address or password you entered is incorrect.</p></div>
+                <div class="alertText" ng-show="showAlert && !facebook_first"><p>The email address or password you entered is incorrect.</p></div>
         </div>
         <div class="modal-footer" ng-show="facebook_first">
                 <button type="button" ng-click="(faceLogin())" class="btn btn-primary">Submit</button>
