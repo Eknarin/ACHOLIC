@@ -8,13 +8,25 @@ angular.module('acholic')
     $scope.packageType = PackageItem.package_type({id : packageData.map_id.map_id._id,package_type: packageData.package_type}).$promise.then(function(res){
         $scope.info = res;
         $scope.testMap = res.location.location_text;
-        console.log(res);
-    //     $scope.packages.map_id = res.map_id;
+        // console.log(res);
+        $scope.packageTab2 = res;
+        console.log($scope.packageTab2);
+        // $scope.packages.map_id = res.map_id;
     //     $scope.provide = res.map_id.equipments_provide;
     //     $scope.require = res.map_id.equipments_require;
     //     $scope.skill = res.map_id.skills_require;
     //     $scope.activities = res.map_id.activities;
-    //     $scope.seas = res.map_id.season.year;
+        if(res.season.month1){
+            $scope.seas = "From";
+            $scope.month1 = res.season.month1;
+            $scope.month2 = res.season.month2;
+            $scope.seasonMonth = true;
+        }
+        else{
+            $scope.seas = "Whole Year";
+            $scope.seasonMonth = false;
+        }
+        console.log("Season : "+$scope.seas);
     //     $scope.month1 = res.map_id.season.month1;
     //     $scope.month2 = res.map_id.season.month2;
     //     $scope.stageType = res.map_id.stage_type;
@@ -33,20 +45,20 @@ angular.module('acholic')
     });
     
 
-    $scope.packages.info = {};
-    $scope.packages.info.stages = [];
-    $scope.packages.info.equipments_provide = [];
-    $scope.packages.type = "PackageRafting";
-    $scope.packages.user_id = $rootScope._user._id;
-    $scope.packages.info.location = {};
-    $scope.provide = "";
-    $scope.require = "";
-    $scope.skill = "";
-    $scope.minPrice = 9000000;
-    $scope.activities = "";
-    $scope.packages.rating = 0;
+    // $scope.packages.info = {};
+    // $scope.packages.info.stages = [];
+    // $scope.packages.info.equipments_provide = [];
+    // $scope.packages.type = "PackageRafting";
+    // $scope.packages.user_id = $rootScope._user._id;
+    // $scope.packages.info.location = {};
+    // $scope.provide = "";
+    // $scope.require = "";
+    // $scope.skill = "";
+    // $scope.minPrice = 9000000;
+    // $scope.activities = "";
+    // $scope.packages.rating = 0;
 
-    $scope.seasonMonth = false;
+    // $scope.seasonMonth = false;
 
     // console.log($scope.packages);
 
@@ -69,25 +81,6 @@ angular.module('acholic')
         $scope.packages.info.skills_require = $scope.skill.split(",");
         //skill
         $scope.packages.info.activities = $scope.activities.split(",");
-
-        //season
-        $scope.packages.info.season = {};
-        $scope.packages.info.season.year = $scope.seas;
-        $scope.packages.info.season.month1 = $scope.month1;
-        $scope.packages.info.season.month2 = $scope.month2;
-        //stage
-        $scope.packages.info.stages = $scope.stages;
-        //stage type
-        $scope.packages.info.stages_amount = $scope.stageHighlights.length;
-
-        //start stage
-        $scope.packages.info.start_location = $scope.firstStage;
-
-        //end stage
-        $scope.packages.info.end_location = $scope.lastStage;
-
-        //infos
-        $scope.packages.info.info = $scope.priceArrs;
 
          //min price
         $scope.packages.price = $scope.findMinPrice();   
@@ -170,6 +163,10 @@ angular.module('acholic')
                 return;
             }
             if($scope.packages.description == null){
+                alert(req);
+                return;
+            }
+            if($scope.selectedProvince == null){
                 alert(req);
                 return;
             }
@@ -289,12 +286,14 @@ angular.module('acholic')
     {name: 'อุบลราชธานี'},
     {name: 'อำนาจเจริญ'}
   ];
-  $scope.selected = "Province";
+
+  $scope.selectedProvince = $scope.packages.province;
   $scope.setProvince = function(value){
-    $scope.selected = value;
+    $scope.selectedProvince = value;
   };
 
-  $scope.seas = "Whole Year";
+  // $scope.seas = $scope.packageTab2.;
+  console.log($scope.packageTab2);
   $scope.month1 = "";
   $scope.month2 = "";
 
@@ -438,6 +437,24 @@ angular.module('acholic')
       }, 100);
     };
 
+    var geocoder = new google.maps.Geocoder;
+    $scope.doSth = function(){
+      geocoder.geocode({'location': this.getPosition()}, function(results, status) {
+        if (status === google.maps.GeocoderStatus.OK) {
+          if (results[1]) {
+            $scope.packageTab2.location.lat = results[1].geometry.location.lat();
+            $scope.packageTab2.location.long = results[1].geometry.location.lng();
+            $scope.packageTab2.location.location_text = results[1].formatted_address;
+            $scope.testMap = results[1].formatted_address;
+          } else {
+            window.alert('No results found');
+          }
+        } else {
+          window.alert('Geocoder failed due to: ' + status);
+        }
+      });
+    };
+
     $scope.geocodeAddress = function(geocoder, resultsMap) {
         var input = document.querySelector("#test");
         var autocomplete = new google.maps.places.Autocomplete(input);
@@ -476,9 +493,12 @@ angular.module('acholic')
             }
             $scope.markers = [];
             $scope.markers.push(marker);
-            $scope.packages.info.location.lat = marker.position[0];
-            $scope.packages.info.location.long = marker.position[1];
-            $scope.packages.info.location.location_text = place.formatted_address;
+            // $scope.packageTab2.location.lat = marker.position[0];
+            // $scope.packageTab2.location.long = marker.position[1];
+            // $scope.packageTab2.location.location_text = place.formatted_address;
+            // $scope.packages.info.location.lat = marker.position[0];
+            // $scope.packages.info.location.long = marker.position[1];
+            // $scope.packages.info.location.location_text = place.formatted_address;
             $scope.reRednerMap();
         });
 
