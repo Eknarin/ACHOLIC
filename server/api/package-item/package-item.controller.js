@@ -130,6 +130,19 @@ function checkPackage (type) {
  * @param req
  * @param res
  */
+ exports.myPackageAll = function (req, res) {
+  PackageItem.find({'user_id' : req.query.q}, function(err, result) {
+   if (err) { return handleError(res, err); }
+   return res.status(200).json(result);
+ });
+};
+
+/**
+ * Get list of PackageItem
+ *
+ * @param req
+ * @param res
+ */
  exports.package_type = function (req, res) {
   var Obj = checkPackage(req.query.package_type);
     Obj.findOne({'_id':req.query.id}, function (err, packageDetail){
