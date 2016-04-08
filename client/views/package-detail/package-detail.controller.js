@@ -57,6 +57,7 @@ angular.module('acholic')
 
     $scope.addToCart = function(){
       Cart.addItem($scope.packageInfos, $scope.packageItem._id);
+      $scope.reloadCart();
     }
 
     $scope.unlike = function(packageId){
