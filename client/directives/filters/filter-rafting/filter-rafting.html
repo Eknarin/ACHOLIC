@@ -19,22 +19,6 @@
 			</ul>
 		</div>
 	</div>
-	<!-- filter level -->
-	<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding">
-		<div class="col-xs-12 col-sm-12 col-md-12 filter-header">
-			Rafting Level
-		</div>
-		<div class="col-xs-12 col-sm-12 col-md-12 btn-group">
-			<button type="button" class="btn btn-default" style="width:90%; padding-left:0px" ng-bind='selectedRaftingLevel'>Raftnig Level </button>
-			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width:10%">
-				<span class="caret"></span>
-				<span class="sr-only">Toggle Dropdown</span>
-			</button>
-			<ul class="dropdown-menu scrollable-menu" style="width:91.5%;margin-left:17px;">
-			    <li ng-repeat="level in raftingLevel" ng-click="setRaftingLevel(level.level)"><a href="#">{{level.level}}</a></li>
-			</ul>
-		</div>
-	</div>
 	<!-- filter rating -->
 	<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding">
 		<div class="col-xs-12 col-sm-12 col-md-12 filter-header">		 
@@ -48,6 +32,22 @@
 			</button>
 			<ul class="dropdown-menu scrollable-menu" style="width:91.5%;margin-left:17px;">
 			    <li ng-repeat="rate in minRate" ng-click="setMinRate(rate.rating)"><a href="#">{{rate.rating}}</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- filter level -->
+	<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding">
+		<div class="col-xs-12 col-sm-12 col-md-12 filter-header">
+			Rafting Level
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 btn-group">
+			<button type="button" class="btn btn-default" style="width:90%; padding-left:0px" ng-bind='selectedRaftingLevel'>Raftnig Level </button>
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width:10%">
+				<span class="caret"></span>
+				<span class="sr-only">Toggle Dropdown</span>
+			</button>
+			<ul class="dropdown-menu scrollable-menu" style="width:91.5%;margin-left:17px;">
+			    <li ng-repeat="level in raftingLevel" ng-click="setRaftingLevel(level.level)"><a href="#">{{level.level}}</a></li>
 			</ul>
 		</div>
 	</div>

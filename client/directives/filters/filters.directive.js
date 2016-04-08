@@ -128,6 +128,22 @@ angular.module('acholic')
 			  	$scope.selectedRaftingLevel = value;
 			  	$scope.extra = value;
 			  }
+              $scope.selectedDivingType = "-";
+              $scope.divingTypes = [
+                {type: "น้ำตื้น"},
+                {type: "น้ำลึก"}
+              ];
+              $scope.setDivingType = function(value){
+                $scope.selectedDivingType = value;
+              }
+              $scope.selectedDivingSide = "-";
+              $scope.divingSides = [
+                {side: "อ่าวไทย"},
+                {side: "อันดามัน"}
+              ];
+              $scope.setDivingSide = function(value){
+                $scope.selectedDivingSide = value;
+              }
 			  // minimum rating filter
 			  $scope.minRate = [
 			  {rating: 0},
@@ -147,6 +163,7 @@ angular.module('acholic')
 			  	$scope.selectedMinRate = value;
 			  }
 			}],
+
 			link: function (scope, element) {
 
 			}
