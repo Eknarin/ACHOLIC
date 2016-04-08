@@ -17,6 +17,7 @@ router.get('/:id', controller.show);
 router.post('/', controller.create);
 
 router.put('/:id', controller.update);
+router.put('/package/:id', controller.updatePackage);
 
 router.delete('/:id', controller.destroy);
 
