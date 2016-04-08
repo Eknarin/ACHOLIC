@@ -13,6 +13,7 @@ angular.module('acholic')
       $scope.user = res;
       Transaction.query({user_id: $scope.user._id,page:$scope.currentPage}).$promise.then(function(res){
         $scope.receipts = res.docs;
+        console.log($scope.receipts);
         $scope.limit = res.limit;
         $scope.totalItems = res.total;
         $scope.loading = true;

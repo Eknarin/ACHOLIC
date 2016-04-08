@@ -10,6 +10,7 @@ router.get('/type', controller.indexType);
 router.get('/package-type',controller.package_type)
 router.get('/list', controller.indexList);
 router.get('/myPackage', controller.myPackage);
+router.get('/myPackageAll', controller.myPackageAll);
 router.get('/filter', controller.filter);
 router.get('/recommend', controller.recommend);
 router.get('/:id', controller.show);
