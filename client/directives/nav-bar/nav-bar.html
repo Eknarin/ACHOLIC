@@ -41,8 +41,8 @@
                   </div>
                   <!-- Dropdown utilities menu -->
                   <div class="col-xs-6 col-sm-3 col-md-1 utilities-dropdown-menu no-horizotal-padding" style="margin-top:5px;">
-                    <li ng-show="!Auth.isLogged()">
-                      <a href="/package" style="color:#fbd300; padding-top:25px; padding-bottom:25px;">Packages</a>
+                    <li ng-show="!Auth.isLogged()" style="text-align:center; padding-top:10px;">
+                      <a href="/package" style="color:#fbd300; padding:5px;">Packages</a>
                     </li>
                     <li class="dropdown" ng-show="Auth.isLogged() && user.role == 'Customer'">
                       <a class="dropdown-toggle" href="#" data-toggle="dropdown" style="color:#fbd300;text-align:center;">
@@ -127,18 +127,19 @@
                         </div>
                         <li>&nbsp</li>
                       </ul>
-                    </li>
-                    <!-- Dropdown SignIn/SignUp menu -->
-                    <li class="dropdown" ng-show="!Auth.isLogged()">
-                      <a href="#"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#fbd300; padding-top:25px; padding-bottom:25px;">Sign In <span class="caret"></span></a>
-                      <ul class="dropdown-menu">
-                        <li><a ng-click="openLogin()" style="color:#fbd300">Sign In</a></li>
-                        <li><a ng-click="openSignup()" style="color:#fbd300">Sign Up</a></li>
-                      </ul>
-                    </li>
+                    </li>                    
                   </div>
                   <!-- Dropdown User Menu -->
-                  <div class="col-xs-6 col-sm-3 col-md-2 user-dropdown-menu no-horizotal-padding" style="margin-top:5px;">
+                  <div class="col-xs-6 col-sm-3 col-md-2 user-dropdown-menu no-horizotal-padding" style="margin-top:5px;">  
+                    <!-- Dropdown SignIn/SignUp menu -->
+                    <li class="dropdown" ng-show="!Auth.isLogged()" style="text-align:center; padding-top:10px;">
+                      <a href="#"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#fbd300; padding:5px;">Sign In <span class="caret"></span></a>
+                      <ul class="dropdown-menu" style="background-color:white;">
+                        <li><a ng-click="openLogin()" style="color:#fbd300;">Sign In</a></li>
+                        <li><a ng-click="openSignup()" style="color:#fbd300;">Sign Up</a></li>
+                      </ul>
+                    </li>
+
                     <li class="dropdown" ng-if="Auth.isLogged()">
                       <a ng-show="user.image" class="dropdown-toggle" href="#"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#fbd300; top: 0px; padding:25px;"><img class="nav-small-profile-image-style" ng-src=api/images/{{user.image}}></img>  {{user.first_name}} <span class="caret"></span></a>
                       <a ng-show="!user.image" class="dropdown-toggle" href="#"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#fbd300; top: 0px; padding:25px;"><img class="nav-small-profile-image-style" ng-src={{user.facebook_image}}></img>  {{user.first_name}} <span class="caret"></span></a>
