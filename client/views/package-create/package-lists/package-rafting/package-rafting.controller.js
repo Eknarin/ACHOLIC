@@ -416,6 +416,24 @@ angular.module('acholic')
       }, 100);
     };
 
+    var geocoder = new google.maps.Geocoder;
+    $scope.doSth = function(){
+      geocoder.geocode({'location': this.getPosition()}, function(results, status) {
+        if (status === google.maps.GeocoderStatus.OK) {
+          if (results[1]) {
+            $scope.packages.info.location.lat = results[1].geometry.location.lat();
+            $scope.packages.info.location.long = results[1].geometry.location.lng();
+            $scope.packages.info.location.location_text = results[1].formatted_address;
+            $scope.testMap = results[1].formatted_address;
+          } else {
+            window.alert('No results found');
+          }
+        } else {
+          window.alert('Geocoder failed due to: ' + status);
+        }
+      });
+    };
+
     $scope.geocodeAddress = function(geocoder, resultsMap) {
         var input = document.querySelector("#test");
         var autocomplete = new google.maps.places.Autocomplete(input);
