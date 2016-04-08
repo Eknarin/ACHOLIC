@@ -147,7 +147,10 @@
 									    icon="{{marker.icon}}">
 									</marker>
 									<marker ng-if="markers.length == 0"
-										position="{{packageTab2.location.lat}},{{packageTab2.location.long}}">
+										position="{{packageTab2.location.lat}},{{packageTab2.location.long}}"
+								        animation="DROP"
+										draggable="true"
+								        on-dragend="doSth()">
 									</marker>									    
 								</ng-map>			
 				        	</div>

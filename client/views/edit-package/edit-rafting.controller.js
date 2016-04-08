@@ -27,6 +27,14 @@ angular.module('acholic')
             $scope.seasonMonth = false;
         }
         console.log("Season : "+$scope.seas);
+
+        $scope.map = {
+        center:[
+            $scope.packageTab2.location.lat,
+            $scope.packageTab2.location.long
+        ],
+        zoom: 12
+    };
     //     $scope.month1 = res.map_id.season.month1;
     //     $scope.month2 = res.map_id.season.month2;
     //     $scope.stageType = res.map_id.stage_type;
@@ -421,13 +429,6 @@ angular.module('acholic')
       };
 
     $scope.markers = [];
-    $scope.map = {
-        center:[
-            13.73842,
-            100.530925
-        ],
-        zoom: 12
-    };
 
     $scope.reRednerMap = function() {
       $timeout(function() {
