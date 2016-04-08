@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('PackageDetailCtrl',['$scope','itemData','$rootScope','Comment','PackageGallery','Bookmark','Auth','$uibModal',function ($scope , itemData, $rootScope, Comment,PackageGallery,Bookmark,Auth,$uibModal) {
+  .controller('PackageDetailCtrl',['$scope','itemData','$rootScope','Comment','PackageGallery','Bookmark','Auth','$uibModal','Cart',function ($scope , itemData, $rootScope, Comment,PackageGallery,Bookmark,Auth,$uibModal,Cart) {
 
     // $(window).scroll(function(){
     //   $scope.sticky_relocate();  
@@ -14,7 +14,6 @@ angular.module('acholic')
     $scope.imageGallery = [];
     $scope.comment.rate = 0;
     var items = [];
-    console.log($scope.packageItem );
     $scope.like = false;
     $scope.loading1 = false;
 
@@ -55,6 +54,10 @@ angular.module('acholic')
         $scope.like = true;
       });
     };
+
+    $scope.addToCart = function(){
+      Cart.addItem($scope.packageInfos, $scope.packageItem._id);
+    }
 
     $scope.unlike = function(packageId){
       //delete this package from bookmark
