@@ -75,33 +75,17 @@ angular.module('acholic')
         name: '',
         description: ''
     }];
-
-    // $scope.stages = [];
     
     $scope.stageHighlights = [];
   
     $scope.addNewStageHighlight = function() {
-        // $scope.stages.push($scope.stages.length);
         $scope.stageHighlights.push($scope.stageHighlights.length);
     };
         
     $scope.removeStageHighlight = function(index) {
-        // $scope.stages.splice(index,1);
-        // $scope.stageType.splice(index,1); 
         $scope.stageHighlights.splice(index,1);
         $scope.stages.splice(index,1);
-    };
-
-    // $scope.firstStage = "Stage";
-    // $scope.setFirstStage = function(val){
-    //     $scope.firstStage = val;
-    // };
-
-    // $scope.lastStage = "Stage";
-    // $scope.setLastStage = function(val){
-    //     $scope.lastStage = val;
-    // };
-
+    };  
     // menu-bar function
  	var navListItems = $('ul.setup-panel li a'),
     allWells = $('.setup-content');
