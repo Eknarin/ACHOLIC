@@ -43,21 +43,21 @@
 					      			<!-- First Name -->
 					      			<div class="input-width sign-up-cover-style">
 										<p class="sign-up-header"><font class="required-box">*</font> First Name</p>					
-										<input required ng-model="user.first_name" class="signup-inputbox-style input-width" type="text" name="FirstName"><br>
+										<input required ng-model="user_edit.first_name" class="signup-inputbox-style input-width" type="text" name="FirstName"><br>
 									</div>
 
 									<!-- Last Name -->
 									<div class="input-width sign-up-cover-style">
 										<p class="sign-up-header"><font class="required-box">*</font> Last Name</p>	
-										<input required ng-model="user.last_name" class="signup-inputbox-style input-width" type="text" name="LastName"><br>
+										<input required ng-model="user_edit.last_name" class="signup-inputbox-style input-width" type="text" name="LastName"><br>
 									</div>
 									<!-- Gender -->
 									<div class="input-width sign-up-cover-style">
 										<p class="sign-up-header">Gender</p>
 										<div style="padding-left:50px; text-align:left;">
-											<input type="radio" ng-model="user.gender" value="Men" name="gender"> MEN<br>
-											<input type="radio" ng-model="user.gender" value="Women" name="gender"> WOMEN<br>
-											<input type="radio" ng-model="user.gender" value="Other" name="gender"> OTHER<br>
+											<input type="radio" ng-model="user_edit.gender" value="Men" name="gender"> MEN<br>
+											<input type="radio" ng-model="user_edit.gender" value="Women" name="gender"> WOMEN<br>
+											<input type="radio" ng-model="user_edit.gender" value="Other" name="gender"> OTHER<br>
 										</div>
 									</div>	
 
@@ -65,7 +65,7 @@
 									<div class="input-width sign-up-cover-style">
 										<p class="sign-up-header">Birth Date</p>
 										<datepicker date-format="dd-MM-yyyy" date-year-title="selected title">
-										  <input class="signup-inputbox-style input-width" ng-model="user.date_of_birth" type="text"/>
+										  <input class="signup-inputbox-style input-width" ng-model="user_edit.date_of_birth" type="text"/>
 										</datepicker>
 									</div>	
 
@@ -84,23 +84,23 @@
 					      			<!-- Email -->
 					      			<div class="input-width sign-up-cover-style">
 										<p class="sign-up-header"><font class="required-box">*</font> Email</p>	
-										<input required ng-model="user.email" class="signup-inputbox-style input-width" type="text" name="email"><br>
+										<input required ng-model="user_edit.email" class="signup-inputbox-style input-width" type="text" name="email"><br>
 									</div>
 									<div class="vendor-information">
 										<!-- Vendor Email -->
-						      			<div class="input-width sign-up-cover-style" ng-show="user.vendor">
+						      			<div class="input-width sign-up-cover-style" ng-show="user_edit.vendor">
 											<p class="sign-up-header"><font class="required-box">*</font> Vendor Email</p>	
-											<input required ng-model="user.vendor.alt_email" class="signup-inputbox-style input-width" type="text" name="email"><br>
+											<input required ng-model="user_edit.vendor.alt_email" class="signup-inputbox-style input-width" type="text" name="email"><br>
 										</div>
 										<!-- ID Number -->
-										<div class="input-width sign-up-cover-style" ng-show="user.vendor">
+										<div class="input-width sign-up-cover-style" ng-show="user_edit.vendor">
 											<p class="sign-up-header"><font class="required-box">*</font> Identification Number</p>	
-											<input ng-model="user.vendor.identification_num" name="id_num" required class="signup-inputbox-style input-width" type="text" pattern="[0-9]{13}" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="confirm-password" placeholder="13 number digits"><br>	
+											<input ng-model="user_edit.vendor.identification_num" name="id_num" required class="signup-inputbox-style input-width" type="text" pattern="[0-9]{13}" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="confirm-password" placeholder="13 number digits"><br>	
 										</div>
 										<!-- Provider Number -->
-										<div class="input-width sign-up-cover-style" ng-show="user.vendor">
+										<div class="input-width sign-up-cover-style" ng-show="user_edit.vendor">
 											<p class="sign-up-header"><font class="required-box">*</font> Tourist Business license no.</p>	
-											<input ng-model="user.vendor.provider_num" name="provider" required pattern="[0-9]{2}/[0-9]{5}" class="signup-inputbox-style input-width" type="text" name="confirm-password" placeholder="xx/xxxxx"><br>	
+											<input ng-model="user_edit.vendor.provider_num" name="provider" required pattern="[0-9]{2}/[0-9]{5}" class="signup-inputbox-style input-width" type="text" name="confirm-password" placeholder="xx/xxxxx"><br>	
 										</div>
 									</div>
 								
@@ -121,39 +121,39 @@
 					      			<!-- Address -->
 					      			<div class="input-width sign-up-cover-style">
 										<p class="sign-up-header">Address</p>	
-										<textarea ng-model="user.address.address" class="form-control signup-inputbox-style input-width" rows="5" name="address"></textarea>
+										<textarea ng-model="user_edit.address.address" class="form-control signup-inputbox-style input-width" rows="5" name="address"></textarea>
 									</div>
 
 									<!-- Zip Code -->
 									<div class="input-width sign-up-cover-style">
 										<p class="sign-up-header">Zipcode</p>	
-										<input ng-model="user.address.zip_code"  class="signup-inputbox-style input-width" type="text" name="zipcode"><br>
+										<input ng-model="user_edit.address.zip_code"  class="signup-inputbox-style input-width" type="text" name="zipcode"><br>
 									</div>
 
 									<!-- Phone -->
 									<div class="input-width sign-up-cover-style">
 										<p class="sign-up-header"><font class="required-box">*</font> Phone</p>	
-										<input ng-model="user.phone_number"  required class="signup-inputbox-style input-width" type="text" name="phone"><br>	
+										<input ng-model="user_edit.phone_number"  required class="signup-inputbox-style input-width" type="text" name="phone"><br>	
 									</div>								
 								</form>
-					      		<form ng-show="user.vendor">
+					      		<form ng-show="user_edit.vendor">
 					      			<div class="vendor-information">
 						      			<!-- Vendor Address -->
 						      			<div class="input-width sign-up-cover-style">
 											<p class="sign-up-header">Vendor Address</p>	
-											<textarea ng-model="user.vendor.address.address" class="form-control signup-inputbox-style input-width" rows="5" name="address"></textarea>
+											<textarea ng-model="user_edit.vendor.address.address" class="form-control signup-inputbox-style input-width" rows="5" name="address"></textarea>
 										</div>
 
 										<!-- Vendor Zip Code -->
 										<div class="input-width sign-up-cover-style">
 											<p class="sign-up-header">Vendor Zipcode</p>	
-											<input ng-model="user.vendor.address.zip_code"  class="signup-inputbox-style input-width" type="text" name="zipcode"><br>
+											<input ng-model="user_edit.vendor.address.zip_code"  class="signup-inputbox-style input-width" type="text" name="zipcode"><br>
 										</div>
 
 										<!-- vendor Phone -->
 										<div class="input-width sign-up-cover-style">
 											<p class="sign-up-header"><font class="required-box">*</font> Vendor Phone</p>	
-											<input ng-model="user.vendor.phone_number"  required class="signup-inputbox-style input-width" type="text" name="phone"><br>	
+											<input ng-model="user_edit.vendor.phone_number"  required class="signup-inputbox-style input-width" type="text" name="phone"><br>	
 										</div>	
 									</div>					
 								</form>
@@ -172,11 +172,11 @@
 					      				<p style="font-size:20px"><font class="required-box">*</font> PROFILE IMAGE</p>
 					      			</div>
 					      			<div class="col-xs-12 col-sm-12 col-md-12">
-					      				<img ng-show="user.image" class="edit-profile-image-style" ng-src=api/images/{{user.image}}></img>
-					      				<img ng-show="!user.image && user.facebook_image" class="edit-profile-image-style" ng-src={{user.facebook_image}}></img>
+					      				<img ng-show="user_edit.image" class="edit-profile-image-style" ng-src=api/images/{{user_edit.image}}></img>
+					      				<img ng-show="!user_edit.image && user_edit.facebook_image" class="edit-profile-image-style" ng-src={{user_edit.facebook_image}}></img>
 					      			</div>
-					      			<div class="col-xs-12 col-sm-12 col-md-12 upload-image-style center-picture" ng-show="user.image" ng-show="!file">
-										<upload-image image="user.image"></upload-image>
+					      			<div class="col-xs-12 col-sm-12 col-md-12 upload-image-style center-picture" ng-show="user_edit.image" ng-show="!file">
+										<upload-image image="user_edit.image"></upload-image>
 									</div>
 					      			<!-- Button -->
 									<div class="col-xs-12 col-sm-12 col-md-12" style="margin-top:15px; margin-bottom:15px;">

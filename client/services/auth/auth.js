@@ -18,6 +18,22 @@ angular.module('acholic')
       _ready.reject();
     }
 
+    this.reloadUser = function(){
+      var deferred = $q.defer();
+        if ($cookieStore.get('token')) {
+        $http.get('/api/users/me')
+          .then(function (res) {
+            $rootScope._user = res.data;
+            deferred.resolve();
+          })
+          .finally(function () {
+            _ready.resolve(true);
+          });
+      } else {
+        _ready.reject();
+      }
+      return deferred.promise;
+    };
     /**
      * Signup
      *
