@@ -13,8 +13,9 @@ angular.module('acholic')
 			pageLimit: '=limit'
 		},
 		controller: ['$scope','PackageItem', function($scope,PackageItem){
-			$scope.filt = {};
 			$scope.price = {};
+			$scope.price.min = 0;
+			$scope.price.max = 10000;
 			$scope.getTemplateUrl = function() {
 				if($scope.itemType === "all"){
 					return "directives/filters/filter-all/filter-all.html";
@@ -27,29 +28,37 @@ angular.module('acholic')
 
 
             $scope.$watch("itemType",function( newValue, oldValue ) {
+            	var pro = "";
+            	if($scope.selectedProvince != "-")
+					pro = $scope.selectedProvince;
                 if($scope.itemType === "all"){
-                PackageItem.query({page: 1}).$promise.then(function(res){
+                PackageItem.query({province: pro,page: 1,rating: $scope.selectedMinRate,price_max: $scope.price.max,price_min:$scope.price.min}).$promise.then(function(res){
                 	$scope.items = res.docs;
                 	$scope.pageTotal = res.total;
                 	$scope.pageCurrent = res.page;
                 	$scope.pageLimit = res.limit;
+                	console.log(res);
                 });}else{
-                PackageItem.type_filter({type: newValue,page:1}).$promise.then(function(res){
+                PackageItem.type_filter({package_type:$scope.itemType,province: pro,page: 1,rating: $scope.selectedMinRate,price_max: $scope.price.max,price_min:$scope.price.min}).$promise.then(function(res){
                 	$scope.items = res.docs;
                 	$scope.pageTotal = res.total;
                 	$scope.pageCurrent = res.page;
                 	$scope.pageLimit = res.limit;
+                	console.log(res);
                 });
             }
                 }
             );
 
             $scope.$watch("pageCurrent",function( newValue, oldValue ) {
+            	var pro = "";
+            	if($scope.selectedProvince != "-")
+					pro = $scope.selectedProvince;
                 if($scope.itemType === "all"){
-                PackageItem.query({page: newValue}).$promise.then(function(res){
+                PackageItem.query({province: pro,page: newValue,rating: $scope.selectedMinRate,price_max: $scope.price.max,price_min:$scope.price.min}).$promise.then(function(res){
                 	$scope.items = res.docs;
                 });}else{
-                PackageItem.type_filter({type: $scope.itemType,page:newValue}).$promise.then(function(res){
+                PackageItem.type_filter({package_type:$scope.itemType,province: pro,page: 1,rating: $scope.selectedMinRate,price_max: $scope.price.max,price_min:$scope.price.min}).$promise.then(function(res){
                 	$scope.items = res.docs;
                 });
             }
@@ -57,10 +66,24 @@ angular.module('acholic')
             );
 
 			$scope.filtering = function(){
-				console.log($scope.selectedProvince);
-				console.log($scope.selectedRaftingLevel);
-				console.log($scope.selectedMinRate);
-				console.log($scope.price);
+				var pro = "";
+            	if($scope.selectedProvince != "-")
+					pro = $scope.selectedProvince;
+				if($scope.itemType === "all"){
+                PackageItem.all({province: pro,page: 1,rating: $scope.selectedMinRate,price_max: $scope.price.max,price_min:$scope.price.min}).$promise.then(function(res){
+                	$scope.items = res.docs;
+                	$scope.pageTotal = res.total;
+                	$scope.pageCurrent = res.page;
+                	$scope.pageLimit = res.limit;
+                });}else{
+                PackageItem.type_filter({package_type:$scope.itemType,province: pro,page: 1,rating: $scope.selectedMinRate,price_max: $scope.price.max,price_min:$scope.price.min}).$promise.then(function(res){
+                	$scope.items = res.docs;
+                	$scope.pageTotal = res.total;
+                	$scope.pageCurrent = res.page;
+                	$scope.pageLimit = res.limit;
+                	console.log(res);
+                });
+            }
 			};
     		//province filter
     		$scope.provinces = [
@@ -95,32 +118,32 @@ angular.module('acholic')
 
 			  // rafting level filter
 			  $scope.raftingLevel = [
-			  {level: 'Level 1'},
-			  {level: 'Level 2'},
-			  {level: 'Level 3'},
-			  {level: 'Level 4'},
-			  {level: 'Level 5'},
-			  {level: 'Level 6'}
+			  {level: 1},
+			  {level: 2},
+			  {level: 3},
+			  {level: 4},
+			  {level: 5},
+			  {level: 6}
 			  ];
-			  $scope.selectedRaftingLevel = "-";
+			  $scope.selectedRaftingLevel = 1;
 			  $scope.setRaftingLevel = function(value){
 			  	$scope.selectedRaftingLevel = value;
 			  }
 			  // minimum rating filter
 			  $scope.minRate = [
-			  {rating: 'Rating 0'},
-			  {rating: 'Rating 0.5'},
-			  {rating: 'Rating 1'},
-			  {rating: 'Rating 1.5'},
-			  {rating: 'Rating 2'},
-			  {rating: 'Rating 2.5'},
-			  {rating: 'Rating 3'},
-			  {rating: 'Rating 3.5'},
-			  {rating: 'Rating 4'},
-			  {rating: 'Rating 4.5'},
-			  {rating: 'Rating 5'}
+			  {rating: 0},
+			  {rating: 0.5},
+			  {rating: 1},
+			  {rating: 1.5},
+			  {rating: 2},
+			  {rating: 2.5},
+			  {rating: 3},
+			  {rating: 3.5},
+			  {rating: 4},
+			  {rating: 4.5},
+			  {rating: 5}
 			  ];
-			  $scope.selectedMinRate = "-";
+			  $scope.selectedMinRate = 0;
 			  $scope.setMinRate = function(value){
 			  	$scope.selectedMinRate = value;
 			  }

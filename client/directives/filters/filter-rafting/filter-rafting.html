@@ -57,7 +57,7 @@
 			People Amount
 		</div>
 		<div class="col-xs-12 col-sm-12 col-md-12">			
-			<input type="number" placeholder="0" min="0" class="filter-inputbox" onkeypress="return event.charCode >= 48 && event.charCode <= 57" style="width:70%;"></input>			
+			<input ng-model="people" type="number" placeholder="0" min="0" class="filter-inputbox" onkeypress="return event.charCode >= 48 && event.charCode <= 57" style="width:70%;"></input>			
 		</div>	
 	</div>	
 	<!-- filter price -->
@@ -71,7 +71,7 @@
 					min
 				</div>
 				<div class="col-xs-8 col-sm-8 col-md-8 no-horizotal-padding">
-					<input type="number" placeholder="0" min="0" class="filter-inputbox" onkeypress="return event.charCode >= 48 && event.charCode <= 57" style="width:100px;"></input>
+					<input ng-model="price.min" type="number" placeholder="0" min="0" class="filter-inputbox" onkeypress="return event.charCode >= 48 && event.charCode <= 57" style="width:100px;"></input>
 				</div>
 			</div>
 			<div class="col-xs-6 col-sm-6 col-md-6">
@@ -79,7 +79,7 @@
 					max
 				</div>
 				<div class="col-xs-8 col-sm-8 col-md-8 no-horizotal-padding">
-					<input type="number" placeholder="10000" min="0" class="filter-inputbox" onkeypress="return event.charCode >= 48 && event.charCode <= 57" style="width:100px;"></input>
+					<input ng-model="price.max"  type="number" placeholder="10000" min="0" class="filter-inputbox" onkeypress="return event.charCode >= 48 && event.charCode <= 57" style="width:100px;"></input>
 				</div>
 			</div>
 		</div>	

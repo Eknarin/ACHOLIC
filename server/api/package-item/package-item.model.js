@@ -20,6 +20,7 @@ var PackageItemSchema = new Schema({
 
 PackageItemSchema.plugin(mongoosePaginate);
 
+
 module.exports = mongoose.model('PackageItem', PackageItemSchema ,'PackageItem');
 
   // people: {

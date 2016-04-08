@@ -6,6 +6,10 @@ angular.module('acholic')
       update: {
         method: 'PUT'
       },
+      all:{
+        method: 'GET',
+        url: '/api/packageItem/all'
+      },
       query: {
         method: 'GET'
       },
@@ -40,7 +44,8 @@ angular.module('acholic')
       },
       type_filter:{
         method: 'GET',
-        url: '/api/packageItem/type'
+        url: '/api/packageItem/type',
+        isArray: true
       }
     });
   });

@@ -1,6 +1,7 @@
 'use strict';
 
 var _ = require('lodash');
+var queryPaginate = require('mongoose-query-paginate');
 var PackageItem = require('./package-item.model');
 var PackageMap = require('./package-map.model');
 var PackageDiving = require('./package-lists/package-diving.model');
@@ -11,6 +12,7 @@ var PackageTrailRun = require('./package-lists/package-trailRun.model');
 function handleError (res, err) {
   return res.status(500).send(err);
 }
+
 
 function checkPackage (type) {
   if(type == "PackageDiving"){
@@ -29,6 +31,21 @@ function checkPackage (type) {
  */
  exports.index = function (req, res) {
   PackageItem.paginate({'name' : new RegExp(req.query.q)}, { page: req.query.page, limit: 9}, function(err, result) {
+   if (err) { return handleError(res, err); }
+   return res.status(200).json(result);
+ });
+};
+
+/**
+ * Get list of PackageItem
+ *
+ * @param req
+ * @param res
+ */
+ exports.indexFilter = function (req, res) {
+  PackageItem.paginate({'province': new RegExp(req.query.province),
+    'price': {$gte:req.query.price_min,$lte:req.query.price_max},
+    'rating':{$gte:req.query.rating}}, { page: req.query.page, limit: 9}, function(err, result) {
    if (err) { return handleError(res, err); }
    return res.status(200).json(result);
  });
@@ -64,9 +81,33 @@ function checkPackage (type) {
  * @param res
  */
  exports.indexType = function (req, res) {
-  PackageItem.paginate({'package_type': req.query.type},{ page: req.query.page, limit: 9},function(err, packageItem) {
+  var options = {
+      perPage: 9,
+      delta  : 3,
+      page   : req.query.page
+    };
+    console.log(req.query);
+  PackageItem.find({'package_type':req.query.package_type,'province': new RegExp(req.query.province),
+    'price': {$gte:req.query.price_min,$lte:req.query.price_max},
+    'rating':{$gte:req.query.rating}}).populate('map_id').exec(function(err, packageItem) {
    if (err) { return handleError(res, err); }
-         return res.status(200).json(packageItem);
+      // var option = {
+      //     path: 'map_id.map_id',
+      //     model: packageItem[0].map_id.map_table
+      //   };
+         // return res.status(200).json(packageItem);
+         console.log(packageItem);
+          return res.status(200).json(packageItem);
+     // PackageMap.populate(packageItem ,option,function (err, packageDetail) {
+     //    // 'province': req.query.province, 
+     //    // 'price': { $gte: req.query.min, $lte: req.query.max },
+     //    // 'map_id.map_id.level': req.query.level,
+     //    // 'rating': {$gte: req.query.rating}).exec(function(err, packageFilter){
+     //    //   console.log(packageFilter);
+     //    // })
+     //    // console.log(packageDetail);
+     //  return res.status(200).json(packageDetail);
+     // });
   });
 };
 
@@ -97,7 +138,7 @@ function checkPackage (type) {
           model: result.map_table
         };
 
-     PackageMap.populate(result ,options, function (err, packageDetail) {
+     PackageMap.populate(result ,options, function (err, packageDetail) {x
       return res.status(200).json(packageDetail);
      });
    });
