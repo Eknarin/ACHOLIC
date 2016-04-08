@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('MyPackageCtrl',['$scope','PackageItem','Auth', '$uibModal', function ($scope, PackageItem,Auth, $uibModal) {
+  .controller('MyPackageCtrl',['$scope','$location','PackageItem','Auth', '$uibModal', function ($scope, $location, PackageItem,Auth, $uibModal) {
   	$scope.user = {};
   	$scope.package = {};
   	Auth.getUser().then(function(res){
@@ -195,7 +195,7 @@ angular.module('acholic')
     // }
     $scope.activeButton(event);
     if(id == 1){
-      location.href = "/my-transaction";
+      $location.path("/my-transaction");
     }
 
   };
