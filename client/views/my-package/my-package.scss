@@ -1,8 +1,10 @@
 /**
  * my-package.scss
  */
- .my-package-header-size{
- 	font-size: 37px;
+ .my-package-header{
+ 	font-size: 30px;
+  text-align: center;
+  margin-bottom: 10px;
  }
 .my-package-style{
 	background-color:rgba(0,0,0,0.85);
@@ -28,7 +30,5 @@
     display:block;
 }
 @media(min-width:767px){
-	.my-package-header-size{
- 		font-size:50px;
- 	}
+
 }
