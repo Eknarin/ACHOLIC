@@ -132,6 +132,10 @@
 	padding-bottom:15px;
 	margin-bottom: 15px;
 }
+.package-type-icon{
+	width: 90px;
+	height: 90px;
+}
 
 @media(min-width:767px){
 	.create-package-header-size{
@@ -175,6 +179,10 @@
 		height:35px; 
 		font-size:17px;
 	}
+	.package-type-icon{
+		width: 150px;
+		height: 150px;
+	}
 }
 
 .must-comma{
@@ -190,6 +198,8 @@
 .create-button-cover{
 	padding-left: 15px;
 	padding-right: 15px;
+	margin-top: 15px;
+	margin-bottom: 15px;
 }
 .create-button-style{
 	border: 3px solid white; 
