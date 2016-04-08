@@ -44,8 +44,7 @@ angular.module('acholic')
       },
       type_filter:{
         method: 'GET',
-        url: '/api/packageItem/type',
-        isArray: true
+        url: '/api/packageItem/type'
       }
     });
   });
