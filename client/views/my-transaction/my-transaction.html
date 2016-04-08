@@ -39,20 +39,20 @@
 					<th class="transaction-table-header" style="vertical-align: top;"> Sold Date </th>
 			</thead>
 			<tbody>
-				<tr>
+				<tr ng-repeat="receipt in receipts">
+					<td class="transaction-table-detail" style="vertical-align: top;"> {{receipt._id}} </td>
 					<td class="transaction-table-detail" style="vertical-align: top;"> YYYYY </td>
+					<td class="transaction-table-detail" style="vertical-align: top;"> {{receipt.transaction_id.length}} </td>
 					<td class="transaction-table-detail" style="vertical-align: top;"> YYYYY </td>
-					<td class="transaction-table-detail" style="vertical-align: top;"> YYYYY </td>
-					<td class="transaction-table-detail" style="vertical-align: top;"> YYYYY </td>
-					<td class="transaction-table-detail" style="vertical-align: top;"> YYYYY </td>
+					<td class="transaction-table-detail" style="vertical-align: top;"> {{receipt.created_at}} </td>
 				</tr>
-				<tr>
+				<!-- <tr>
 					<td class="transaction-table-detail" style="vertical-align: top;"> YYYYY </td>
 					<td class="transaction-table-detail" style="vertical-align: top;"> YYYYY </td>
 					<td class="transaction-table-detail" style="vertical-align: top;"> YYYYY </td>
 					<td class="transaction-table-detail" style="vertical-align: top;"> YYYYY </td>
 					<td class="transaction-table-detail" style="vertical-align: top;"> YYYYY </td>
-				</tr>
+				</tr> -->
 			</tbody>			
 		</table>
 		<!-- Page paginator -->
