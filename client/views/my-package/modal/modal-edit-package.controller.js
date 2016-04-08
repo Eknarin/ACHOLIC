@@ -6,7 +6,11 @@ angular.module('acholic')
       $uibModalInstance.close();
   };
   $scope.openEditPage = function(){
-  	$location.path('/edit-package/'+packageData._id);
+  	if(packageData.package_type == "PackageRafting")
+  		{$location.path('/edit-rafting/'+packageData._id);}
+  	else{
+  		$location.path('/edit-diving/'+packageData._id);
+  	}
   	$uibModalInstance.close();
   };
 }]);

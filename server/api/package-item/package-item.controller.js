@@ -131,16 +131,10 @@ function checkPackage (type) {
  * @param res
  */
  exports.package_type = function (req, res) {
-  PackageMap.findById(req.query.id).exec(function(err, result) {
+  var Obj = checkPackage(req.query.package_type);
+    Obj.findOne({'_id':req.query.id}, function (err, packageDetail){
      if (err) { return handleError(res, err); }
-     var options = {
-          path: 'map_id',
-          model: result.map_table
-        };
-
-     PackageMap.populate(result ,options, function (err, packageDetail) {x
       return res.status(200).json(packageDetail);
-     });
    });
 };
 
@@ -247,6 +241,23 @@ function checkPackage (type) {
     });
   });
 };
+
+/**
+ * Updates an existing PackageItem in the DB.
+ *
+ * @param req
+ * @param res
+ */
+ exports.updatePackage = function (req, res) {
+    console.log(req.body);
+    var Obj = checkPackage(req.body.type);
+    // Obj.findById(req.body.info, function (err, packageDetail){
+    //   var updated = _.merge(packageDetail, req.body);
+    //   updated.save(function (err) {
+    //     if (err) { return handleError(res, err); }
+    //     return res.status(200).json(packageDetail);
+    // });
+  };
 
 /**
  * Deletes a PackageItem from the DB.

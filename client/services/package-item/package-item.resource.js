@@ -6,6 +6,10 @@ angular.module('acholic')
       update: {
         method: 'PUT'
       },
+      updatePackage: {
+        method: 'PUT',
+        url: '/api/packageItem/package/:id'
+      },
       all:{
         method: 'GET',
         url: '/api/packageItem/all'
