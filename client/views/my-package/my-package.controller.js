@@ -194,6 +194,9 @@ angular.module('acholic')
     //   $scope.query(folderId);
     // }
     $scope.activeButton(event);
+    if(id == 1){
+      location.href = "/my-transaction";
+    }
 
   };
 
