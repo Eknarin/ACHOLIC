@@ -9,6 +9,7 @@ angular.module('acholic')
           	$facebook.logout();
           });
           $uibModalInstance.close($rootScope._user);
+          location.reload();
         };
 
      $scope.cancel = function () {

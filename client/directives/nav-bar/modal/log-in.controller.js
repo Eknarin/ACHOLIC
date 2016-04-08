@@ -15,6 +15,7 @@ angular.module('acholic')
               Auth.loginFacebook(faceUser)
                 .then(function (res2) {
                   $uibModalInstance.close(faceUser);
+                  location.reload();
                 })
                 .catch(function (err) {
                   $scope.showAlert = true;
@@ -53,6 +54,7 @@ angular.module('acholic')
           Auth.login($scope.user)
             .then(function (res) {
               $uibModalInstance.close($rootScope._user);
+              location.reload();
             })
             .catch(function (err) {
               $scope.showAlert = true;
