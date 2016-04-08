@@ -5,6 +5,8 @@ var router = express.Router();
 var controller = require('./transaction.controller');
 
 router.get('/receipt', controller.index);
+router.get('/transac', controller.indexTran);
+router.get('/package', controller.indexTranPack);
 router.get('/:id', controller.show);
 
 router.post('/cart', controller.createCart);

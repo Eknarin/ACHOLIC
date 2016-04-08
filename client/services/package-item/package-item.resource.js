@@ -26,6 +26,11 @@ angular.module('acholic')
         method: 'GET',
         url: '/api/packageItem/myPackage'
       },
+      myPackageAll: {
+        method: 'GET',
+        url: '/api/packageItem/myPackageAll',
+        isArray: true
+      },
       delete: {
       	method: 'DELETE'
       },

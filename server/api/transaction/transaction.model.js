@@ -3,6 +3,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var shortid = require('shortid');
+var mongoosePaginate = require('mongoose-paginate');
 
 var TransactionSchema = new Schema({
   user_id: { type: Schema.Types.ObjectId, ref: 'User' },
@@ -18,5 +19,7 @@ var TransactionSchema = new Schema({
   created_at: { type: Date, default: Date.now },
   updated_at: Date
 });
+
+TransactionSchema.plugin(mongoosePaginate);
 
 module.exports = mongoose.model('Transaction', TransactionSchema ,'Transaction');

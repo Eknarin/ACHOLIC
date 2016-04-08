@@ -7,24 +7,10 @@
 				<p style="font-size:30px;">Filter by Package Name</p>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:30px;">
-				<div>
-					<input type="checkbox" style="font-size:17px;"> All Package</input>
-				</div>
-				<div>
-					<input type="checkbox" style="font-size:17px;"> Package A</input>
-				</div>
-				<div>
-					<input type="checkbox" style="font-size:17px;"> Package B</input>
-				</div>
-				<div>
-					<input type="checkbox" style="font-size:17px;"> Package C</input>
-				</div>
-				<div>
-					<input type="checkbox" style="font-size:17px;"> Package D</input>
-				</div>	
-				<div>
-					<input type="checkbox" style="font-size:17px;"> Package E</input>
-				</div>						
+				<p ng-click="choosePack(0)"> all </p>
+				<div ng-repeat="package in packages">
+					<p ng-click="choosePack(package._id)"> {{package.name}}</p>
+				</div>					
 			</div>					
 		</div>		
 	</div>
@@ -34,17 +20,17 @@
 			<thead>
 					<th class="transaction-table-header" style="vertical-align: top;"> Receipt No. </th>
 					<th class="transaction-table-header" style="vertical-align: top;"> Package Name </th>
-					<th class="transaction-table-header" style="vertical-align: top;"> Quantity </th>
 					<th class="transaction-table-header" style="vertical-align: top;"> Customer Name </th>
 					<th class="transaction-table-header" style="vertical-align: top;"> Sold Date </th>
+					<th class="transaction-table-header" style="vertical-align: top;"> Activate </th>
 			</thead>
 			<tbody>
 				<tr ng-repeat="receipt in receipts">
 					<td class="transaction-table-detail" style="vertical-align: top;"> {{receipt._id}} </td>
-					<td class="transaction-table-detail" style="vertical-align: top;"> YYYYY </td>
-					<td class="transaction-table-detail" style="vertical-align: top;"> {{receipt.transaction_id.length}} </td>
-					<td class="transaction-table-detail" style="vertical-align: top;"> YYYYY </td>
+					<td class="transaction-table-detail" style="vertical-align: top;"> {{getPackge(receipt.packages_id[0]).name}} </td>
+					<td class="transaction-table-detail" style="vertical-align: top;"> {{receipt.user_id.first_name}} {{receipt.user_id.last_name}} </td>
 					<td class="transaction-table-detail" style="vertical-align: top;"> {{receipt.created_at}} </td>
+					<td class="transaction-table-detail" style="vertical-align: top;"> {{receipt.active_status}} </td>
 				</tr>
 				<!-- <tr>
 					<td class="transaction-table-detail" style="vertical-align: top;"> YYYYY </td>
