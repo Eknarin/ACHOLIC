@@ -16,6 +16,7 @@ angular.module('acholic')
 			$scope.price = {};
 			$scope.price.min = 0;
 			$scope.price.max = 10000;
+			$scope.extra = 0;
 			$scope.getTemplateUrl = function() {
 				if($scope.itemType === "all"){
 					return "directives/filters/filter-all/filter-all.html";
@@ -37,14 +38,12 @@ angular.module('acholic')
                 	$scope.pageTotal = res.total;
                 	$scope.pageCurrent = res.page;
                 	$scope.pageLimit = res.limit;
-                	console.log(res);
                 });}else{
-                PackageItem.type_filter({package_type:$scope.itemType,province: pro,page: 1,rating: $scope.selectedMinRate,price_max: $scope.price.max,price_min:$scope.price.min}).$promise.then(function(res){
+                PackageItem.type_filter({extra: $scope.extra,package_type:$scope.itemType,province: pro,page: 1,rating: $scope.selectedMinRate,price_max: $scope.price.max,price_min:$scope.price.min}).$promise.then(function(res){
                 	$scope.items = res.docs;
                 	$scope.pageTotal = res.total;
                 	$scope.pageCurrent = res.page;
                 	$scope.pageLimit = res.limit;
-                	console.log(res);
                 });
             }
                 }
@@ -58,7 +57,7 @@ angular.module('acholic')
                 PackageItem.query({province: pro,page: newValue,rating: $scope.selectedMinRate,price_max: $scope.price.max,price_min:$scope.price.min}).$promise.then(function(res){
                 	$scope.items = res.docs;
                 });}else{
-                PackageItem.type_filter({package_type:$scope.itemType,province: pro,page: 1,rating: $scope.selectedMinRate,price_max: $scope.price.max,price_min:$scope.price.min}).$promise.then(function(res){
+                PackageItem.type_filter({extra: $scope.extra,package_type:$scope.itemType,province: pro,page: 1,rating: $scope.selectedMinRate,price_max: $scope.price.max,price_min:$scope.price.min}).$promise.then(function(res){
                 	$scope.items = res.docs;
                 });
             }
@@ -76,12 +75,11 @@ angular.module('acholic')
                 	$scope.pageCurrent = res.page;
                 	$scope.pageLimit = res.limit;
                 });}else{
-                PackageItem.type_filter({package_type:$scope.itemType,province: pro,page: 1,rating: $scope.selectedMinRate,price_max: $scope.price.max,price_min:$scope.price.min}).$promise.then(function(res){
+                PackageItem.type_filter({extra: $scope.extra,package_type:$scope.itemType,province: pro,page: 1,rating: $scope.selectedMinRate,price_max: $scope.price.max,price_min:$scope.price.min}).$promise.then(function(res){
                 	$scope.items = res.docs;
                 	$scope.pageTotal = res.total;
                 	$scope.pageCurrent = res.page;
                 	$scope.pageLimit = res.limit;
-                	console.log(res);
                 });
             }
 			};
@@ -128,6 +126,7 @@ angular.module('acholic')
 			  $scope.selectedRaftingLevel = 1;
 			  $scope.setRaftingLevel = function(value){
 			  	$scope.selectedRaftingLevel = value;
+			  	$scope.extra = value;
 			  }
 			  // minimum rating filter
 			  $scope.minRate = [

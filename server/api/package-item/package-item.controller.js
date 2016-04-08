@@ -1,7 +1,6 @@
 'use strict';
 
 var _ = require('lodash');
-var queryPaginate = require('mongoose-query-paginate');
 var PackageItem = require('./package-item.model');
 var PackageMap = require('./package-map.model');
 var PackageDiving = require('./package-lists/package-diving.model');
@@ -81,33 +80,34 @@ function checkPackage (type) {
  * @param res
  */
  exports.indexType = function (req, res) {
-  var options = {
-      perPage: 9,
-      delta  : 3,
-      page   : req.query.page
-    };
-    console.log(req.query);
   PackageItem.find({'package_type':req.query.package_type,'province': new RegExp(req.query.province),
     'price': {$gte:req.query.price_min,$lte:req.query.price_max},
     'rating':{$gte:req.query.rating}}).populate('map_id').exec(function(err, packageItem) {
    if (err) { return handleError(res, err); }
-      // var option = {
-      //     path: 'map_id.map_id',
-      //     model: packageItem[0].map_id.map_table
-      //   };
-         // return res.status(200).json(packageItem);
-         console.log(packageItem);
-          return res.status(200).json(packageItem);
-     // PackageMap.populate(packageItem ,option,function (err, packageDetail) {
-     //    // 'province': req.query.province, 
-     //    // 'price': { $gte: req.query.min, $lte: req.query.max },
-     //    // 'map_id.map_id.level': req.query.level,
-     //    // 'rating': {$gte: req.query.rating}).exec(function(err, packageFilter){
-     //    //   console.log(packageFilter);
-     //    // })
-     //    // console.log(packageDetail);
-     //  return res.status(200).json(packageDetail);
-     // });
+    if(packageItem.length){
+      var option = {
+          path: 'map_id.map_id',
+          model: packageItem[0].map_id.map_table
+      };
+     PackageMap.populate(packageItem ,option,function (err, packageDetail) {
+        var item_list = [];
+        for(var i = 0;i<packageDetail.length ;i++){
+          if(req.query.package_type == "PackageRafting")
+            {
+              var arr = packageDetail[i].map_id.map_id.level.split(" ");
+              var num = Number(arr[1]);
+            if(num >= req.query.extra)
+              {
+                var index = item_list.indexOf(i);
+                item_list.push(packageDetail[i]._id);
+              }
+            }
+        }
+        PackageItem.paginate({'_id' : { $in : item_list }},{page: req.query.page, limit: 9},function(err,result) {
+            return res.status(200).json(result);
+        });
+     });
+   }
   });
 };
 

@@ -252,6 +252,7 @@ angular.module('acholic')
   $scope.selectedProvince = "Province";
   $scope.setProvince = function(value){
     $scope.selectedProvince = value;
+    $scope.packages.province = value;
   };
 
   $scope.seas = "Whole Year";

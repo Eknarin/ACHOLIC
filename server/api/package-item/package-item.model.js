@@ -22,22 +22,3 @@ PackageItemSchema.plugin(mongoosePaginate);
 
 
 module.exports = mongoose.model('PackageItem', PackageItemSchema ,'PackageItem');
-
-  // people: {
-  //   min: Number,
-  //   max: Number,
-  // },
-  // price: Number,
-  // contact: {
-  //   email: String,
-  //   phone_number: String
-  // },
-  // location: String,
-  // office_time: {
-  //   open_time: String,
-  //   close_time: String,
-  //   note: String
-  // },
-  // availability: Boolean,
-  // tag: [String],
-  // image: { type: Schema.Types.ObjectId, ref: 'Image' },
