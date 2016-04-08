@@ -26,15 +26,17 @@ angular.module('acholic')
             $scope.seas = "Whole Year";
             $scope.seasonMonth = false;
         }
-        console.log("Season : "+$scope.seas);
 
         $scope.map = {
-        center:[
-            $scope.packageTab2.location.lat,
-            $scope.packageTab2.location.long
-        ],
-        zoom: 12
-    };
+            center:[
+                $scope.packageTab2.location.lat,
+                $scope.packageTab2.location.long
+            ],
+            zoom: 12
+        };
+
+        $scope.stageHighlights = res.stages;
+        $scope.priceArrs = res.info;
     //     $scope.month1 = res.map_id.season.month1;
     //     $scope.month2 = res.map_id.season.month2;
     //     $scope.stageType = res.map_id.stage_type;
@@ -120,16 +122,6 @@ angular.module('acholic')
         $scope.stageHighlights.splice(index,1);
         $scope.stages.splice(index,1);
     };
-
-    // $scope.firstStage = "Stage";
-    // $scope.setFirstStage = function(val){
-    //     $scope.firstStage = val;
-    // };
-
-    // $scope.lastStage = "Stage";
-    // $scope.setLastStage = function(val){
-    //     $scope.lastStage = val;
-    // };
 
     // menu-bar function
     var navListItems = $('ul.setup-panel li a'),
@@ -320,11 +312,11 @@ angular.module('acholic')
     {name: 'December'}
   ];
   $scope.setMonth1 = function(value){
-    $scope.month1 = " "+value;
+    $scope.month1 = value;
   };
 
   $scope.setMonth2 = function(value){
-    $scope.month2 = " to "+value;
+    $scope.month2 = value;
   };
   $scope.boats = [
     {type : 'เรือยาง'},

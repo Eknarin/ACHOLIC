@@ -214,7 +214,7 @@
 				   					<p class="package-create-topic-style">Age not under : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.map_id.age_limit" class="package-create-inputbox-style" type="number" min="0" placeholder="0" required>
+					        		<input ng-model="packageTab2.age_limit" class="package-create-inputbox-style" type="number" min="0" placeholder="0" required>
 					       		</div>
 				        	</div>	
 		   				</div>
@@ -230,7 +230,7 @@
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
 					        		<!-- <input ng-model="packages.info.river_line" name="riv-name" class="package-create-inputbox-style form-control" type="text" required></input> -->
-					        		<input ng-model="packages.map_id.river_line" name="riv_name" class="package-create-inputbox-style form-control" required type="text">
+					        		<input ng-model="packageTab2.river_line" name="riv_name" class="package-create-inputbox-style form-control" required type="text">
 					       		</div>
 					       		<div class="col-xs-12 col-sm-12 col-md-4">
 					       		</div>
@@ -245,12 +245,12 @@
 				   					<p class="package-create-topic-style"><font class="required-box">*</font> Highest Level : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8 package-create-bullet-group-style">
-									<input type="radio" name="level" ng-model="packages.map_id.level" value="Level 1"> Level 1 : Easy<br>
-									<input type="radio" name="level" ng-model="packages.map_id.level" value="Level 2"> Level 2 : Normal<br>
-									<input type="radio" name="level" ng-model="packages.map_id.level" value="Level 3"> Level 3 : Moderate<br>
-									<input type="radio" name="level" ng-model="packages.map_id.level" value="Level 4"> Level 4 : Hard<br>	
-									<input type="radio" name="level" ng-model="packages.map_id.level" value="Level 5"> Level 5 : Expert<br>
-									<input type="radio" name="level" ng-model="packages.map_id.level" value="Level 6"> Level 6 : Danger<br>
+									<input type="radio" name="level" ng-model="packageTab2.level" value="Level 1"> Level 1 : Easy<br>
+									<input type="radio" name="level" ng-model="packageTab2.level" value="Level 2"> Level 2 : Normal<br>
+									<input type="radio" name="level" ng-model="packageTab2.level" value="Level 3"> Level 3 : Moderate<br>
+									<input type="radio" name="level" ng-model="packageTab2.level" value="Level 4"> Level 4 : Hard<br>	
+									<input type="radio" name="level" ng-model="packageTab2.level" value="Level 5"> Level 5 : Expert<br>
+									<input type="radio" name="level" ng-model="packageTab2.level" value="Level 6"> Level 6 : Danger<br>
 					       		</div>
 					       		<p style="text-align:center;color:orange;" ng-show="packages.map_id.level == null">Please select the package highest rafting level.</p>
 				        	</div>	
@@ -266,7 +266,7 @@
 				   					<p class="package-create-topic-style">Stage Amount : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.map_id.stages_amount" class="package-create-inputbox-style" type="number" min="0" placeholder="0" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+					        		<input ng-model="packageTab2.stages_amount" class="package-create-inputbox-style" type="number" min="0" placeholder="0" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
 					       		</div>
 				        	</div>
 					        <!-- Stage Highlight and Description -->
