@@ -9,33 +9,34 @@
 		<div class="container-fluid no-horizotal-padding" style="background-color:rgba(0,0,0,0.85);">		
 			<!-- Side menu-bar -->
 			<div class="col-xs-12 col-sm-12 col-md-3 side-menu-bar-cover">			
-				<!-- Sorting -->
-				<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="margin-bottom:10px;">
-					<div class="col-xs-12 col-sm-12 col-md-12">
-						<p style="font-size:30px;">Sort by</p>
+				<!-- Bookmark Folder -->
+				<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding">
+					<div class="col-xs-12 col-sm-12 col-md-12 bookmark-header">
+						Bookmarks
 					</div>
-					<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:30px;">
+					<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="margin-top:50px;">
+						<div class="col-xs-12 col-sm-12 col-md-12 bookmark-folder-button bookmark-folder-button-active" ng-click="selectFolder(0, $event)">
+							All bookmarks ({{main_bookmark_total}})
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12 bookmark-folder-button" ng-repeat="bookmarkFolder in bookmarkFolders" ng-click="selectFolder(bookmarkFolder._id, $event)">
+							{{bookmarkFolder.folder}} ({{bookmarkFolder.total}})
+							<img src="../../image/edit-bookmark-folder.png" style="width:25px; height:25px; float:right" ng-click="openEditBookmarkFolderModal(bookmarkFolder)"></img>
+						</div>
+					</div>
+				</div>
+				<!-- Sorting -->
+				<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="margin-top:50px;">
+					<div class="col-xs-12 col-sm-12 col-md-12 sidebar-header">
+						Sort by
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:30px; font-size:17px;">
 						<div>
-							<input type="checkbox" ng-model="rating_check" style="font-size:17px;"> Rating</input>
+							<input type="checkbox" ng-model="rating_check"> Rating</input>
 						</div>
 						<div>
-							<input type="checkbox" ng-model="create_check" style="font-size:17px;"> Create Date</input>
+							<input type="checkbox" ng-model="create_check"> Create Date</input>
 						</div>							
 					</div>					
-				</div>
-				<HR WIDTH="95%" NOSHADE>
-				<!-- Bookmark Folder -->
-				<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="margin-top:50px;">
-					<div class="col-xs-12 col-sm-12 col-md-12">
-						<p style="font-size:30px;">Bookmarks</p>
-					</div>
-					<div class="col-xs-12 col-sm-12 col-md-12 bookmark-folder-button bookmark-folder-button-active" ng-click="selectFolder(0, $event)">
-						All bookmarks ({{main_bookmark_total}})
-					</div>
-					<div class="col-xs-12 col-sm-12 col-md-12 bookmark-folder-button" ng-repeat="bookmarkFolder in bookmarkFolders" ng-click="selectFolder(bookmarkFolder._id, $event)">
-						{{bookmarkFolder.folder}} ({{bookmarkFolder.total}})
-						<img src="../../image/edit-bookmark-folder.png" style="width:25px; height:25px; float:right" ng-click="openEditBookmarkFolderModal(bookmarkFolder)"></img>
-					</div>
 				</div>
 			</div>
 
