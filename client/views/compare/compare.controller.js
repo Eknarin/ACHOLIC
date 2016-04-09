@@ -6,6 +6,14 @@ angular.module('acholic')
   	$scope.comparePackage =  Compare.getCompare();
   	$scope.loadItem = false;
 
+    $scope.labels =["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"];
+
+    $scope.data = [
+      [65, 59, 90, 81, 56, 55, 40],
+      [28, 48, 40, 19, 96, 27, 100],
+      [10, 20, 30, 40, 50, 60, 70]
+    ];
+
     if($scope.comparePackage.length > 0)
     	PackageItem.list({items: $scope.comparePackage}).$promise.then(function(res){
     		$scope.comparePackage.items = res;
