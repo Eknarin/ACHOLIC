@@ -4,6 +4,7 @@ angular.module('acholic')
   .controller('EditRaftingPackageCtrl',['$scope','packageData','PackageItem','$location','$rootScope','$timeout','PackageGallery',function ($scope ,packageData, PackageItem ,$location , $rootScope , $timeout,PackageGallery) {
     $scope.packages = packageData;
     $scope.info = {};
+    $scope.minPrice = 9000000;
     console.log(packageData);//
 
     $scope.packageType = PackageItem.package_type({id : packageData.map_id.map_id._id,package_type: packageData.package_type}).$promise.then(function(res){
@@ -56,18 +57,7 @@ angular.module('acholic')
     }
 
 
-    $scope.onSubmit = function(){
-        //provide
-        // $scope.packages.info.equipments_provide = $scope.provide.split(",");
-        // //require
-        // $scope.packages.info.equipments_require = $scope.require.split(",");
-        // //skill
-        // $scope.packages.info.skills_require = $scope.skill.split(",");
-        // //skill
-        // $scope.packages.info.activities = $scope.activities.split(",");
-
-        //  //min price
-        // $scope.packages.price = $scope.findMinPrice();   
+    $scope.onSubmit = function(){  
         // $scope.gallery.$save().then(function(res){
         //     $scope.packages.info.image_gallery = res._id;
         //     $scope.packages.$save().then(function(){
@@ -102,13 +92,24 @@ angular.module('acholic')
         //activities
         $scope.packageTab2.activities = $scope.activities.split(",");
 
-    
+        //min price
+        $scope.packages.price = $scope.findMinPrice(); 
 
-        console.log("======================");
-        console.log($scope.packages);
-        console.log($scope.packageTab2);
-        console.log($scope.imageGallery);
+    };
 
+    // find min price in priceArrs
+    $scope.findMinPrice = function(){
+        var temp = 0;
+        for(var i=0; i < $scope.packageTab2.info.length; i++){
+            temp = parseInt($scope.packageTab2.info[i].price);
+            console.log("TEMP : "+temp+" MIN : "+ $scope.minPrice);
+            if($scope.minPrice > temp){
+                $scope.minPrice = temp;
+                console.log("Change : "+$scope.minPrice);
+            }
+        }        
+        console.log("Min Price = "+$scope.minPrice);
+        return $scope.minPrice;
     };
 
     $scope.stages = [{
