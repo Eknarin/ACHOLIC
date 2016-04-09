@@ -24,10 +24,6 @@ angular.module('acholic')
   		});
   	});
 
-    $scope.deletePackage = function(id){
-      console.log("delete package "+id);
-    }
-
     $scope.pageChanged = function() {
      if($scope.rating_check){
          PackageItem.myPackage({rating:$scope.rating_filter, q: $scope.user._id , page: $scope.currentPage}).$promise.then(function(res){

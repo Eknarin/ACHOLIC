@@ -15,6 +15,17 @@ function handleError (res, err) {
  * @param res
  */
 exports.index = function (req, res) {
+  if(req.query.price)
+  Receipt.paginate({'user_id': req.query.user_id},{sort: {'total_price': req.query.price}, page: req.query.page, limit: 10, populate: 'transaction_id'},function (err, transactions) {
+    if (err) { return handleError(res, err); }
+    return res.status(200).json(transactions);
+  });
+  else if(req.query.create)
+  Receipt.paginate({'user_id': req.query.user_id},{sort: {'created_at': req.query.create}, page: req.query.page, limit: 10, populate: 'transaction_id'},function (err, transactions) {
+    if (err) { return handleError(res, err); }
+    return res.status(200).json(transactions);
+  });
+  else
   Receipt.paginate({'user_id': req.query.user_id},{ page: req.query.page, limit: 10, populate: 'transaction_id'},function (err, transactions) {
     if (err) { return handleError(res, err); }
     return res.status(200).json(transactions);
