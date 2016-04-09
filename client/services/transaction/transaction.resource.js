@@ -6,6 +6,14 @@ angular.module('acholic')
       update: {
         method: 'PUT'
       },
+      serial: {
+        method: 'GET',
+        url:'/api/transactions/serial'
+      },
+      serialActivate:{
+         method: 'POST',
+        url:'/api/transactions/serial'
+      },
       query:{
         method: 'GET',
         url:'/api/transactions/receipt'

@@ -11,6 +11,8 @@ angular.module('acholic')
     $scope.maxSize = 5;
     $scope.limit = 1;
     $scope.totalItems = 1;
+    $scope.serial = "";
+    $scope.serial_code = {};
 
   	Auth.getUser().then(function(res){
         $scope.user = res;
@@ -24,6 +26,24 @@ angular.module('acholic')
           });
         });
    });
+
+    $scope.checkSerial = function(){
+      Transaction.serial({'serial':$scope.serial}).$promise.then(function(serial){
+        if(serial._id)
+          $scope.serial_code = serial;
+        else
+          console.log('no serial found!!');
+      });
+    };
+
+    $scope.activateSerial = function(){
+      if($scope.serial_code._id)
+      Transaction.serialActivate({'serial':$scope.serial}).$promise.then(function(serial){
+        $scope.serial = "";
+        $scope.serial_code = {};
+        console.log('activated');
+      });
+    };
 
     $scope.choosePack = function(packageId){
       if(packageId == 0){

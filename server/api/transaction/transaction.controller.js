@@ -22,6 +22,35 @@ exports.index = function (req, res) {
 };
 
 /**
+ * Get Serail
+ *
+ * @param req
+ * @param res
+ */
+exports.serial = function (req, res) {
+  Transaction.findOne({'serial': req.query.serial}).populate('user_id').exec(function (err, transactions) {
+    console.log(req.query.serial);
+    if (err) { return handleError(res, err); }
+    return res.status(200).json(transactions);
+  });
+};
+
+/**
+ * Activate serail
+ *
+ * @param req
+ * @param res
+ */
+exports.serialActivate = function (req, res) {
+  Transaction.findOne({'serial': req.body.serial},function (err, transaction) {
+    if (err) { return handleError(res, err); }
+    if (!transaction) { return res.status(404).end(); }
+    transaction.active_status = true;
+    transaction.save();
+    return res.status(200).json(transaction);
+  });
+};
+/**
  * Get list of Transaction
  *
  * @param req

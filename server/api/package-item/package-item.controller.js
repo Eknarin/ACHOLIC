@@ -118,6 +118,17 @@ function checkPackage (type) {
  * @param res
  */
  exports.myPackage = function (req, res) {
+  if(req.query.rating)
+  PackageItem.paginate({'user_id' : req.query.q}, {sort: {'rating': req.query.rating}, page: req.query.page, limit: 9}, function(err, result) {
+   if (err) { return handleError(res, err); }
+   return res.status(200).json(result);
+ });
+  else if(req.query.create)
+  PackageItem.paginate({'user_id' : req.query.q}, {sort: {'created_at': req.query.create}, page: req.query.page, limit: 9}, function(err, result) {
+   if (err) { return handleError(res, err); }
+   return res.status(200).json(result);
+ });
+  else
   PackageItem.paginate({'user_id' : req.query.q}, { page: req.query.page, limit: 9}, function(err, result) {
    if (err) { return handleError(res, err); }
    return res.status(200).json(result);

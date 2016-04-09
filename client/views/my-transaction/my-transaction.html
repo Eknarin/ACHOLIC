@@ -4,12 +4,30 @@
 		<!-- Sorting -->
 		<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="margin-bottom:10px;">
 			<div class="col-xs-12 col-sm-12 col-md-12">
-				<p style="font-size:30px;">Filter by Package Name</p>
+				<p style="font-size:20px;">Serial confirmation</p>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12">
+				<div class="contianer" >
+					<input class="bookmark-input-box" style="color: #C0C0C0;" ng-model="serial" type="text" placeholder="Type serail here"></input>
+					<button type"button" ng-click="checkSerial()">Check</button>
+					<br>
+
+					<p style="font-size:15px;">Status        : {{serial_code.active_status}}</p>
+					<p style="font-size:15px;">Serial Code   : {{serial_code.serial}}</p>
+					<p style="font-size:15px;">Purchase Date : {{serial_code.created_at}}</p>
+					<p style="font-size:15px;">Customer Name : {{serial_code.user_id.first_name}}</p>
+					<button type"button" ng-click="activateSerial()">Activate Serial</button>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12">
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12">
+				<p style="font-size:20px;">Package transaction</p>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:30px;">
-				<p ng-click="choosePack(0)"> all </p>
+				<p style="font-size:20px;" ng-click="choosePack(0)"> all </p>
 				<div ng-repeat="package in packages">
-					<p ng-click="choosePack(package._id)"> {{package.name}}</p>
+					<p ng-click="choosePack(package._id)" style="font-size:20px;"> {{package.name}}</p>
 				</div>					
 			</div>					
 		</div>		
