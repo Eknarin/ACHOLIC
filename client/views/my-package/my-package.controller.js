@@ -9,14 +9,46 @@ angular.module('acholic')
     $scope.rating_filter = 0;
     $scope.create_filter = 0;
     $scope.loading = false;
+    $scope.limit = 0;
+    $scope.totalItems = 0;
+    $scope.currentPage = 1;
 
   	Auth.getUser().then(function(res){
   		$scope.user = res;
   		PackageItem.myPackage({q: $scope.user._id , page: 1}).$promise.then(function(res){
 	  		$scope.package = res.docs;
          $scope.loading = true;
+         $scope.limit = res.limit;
+      $scope.totalItems = res.total;
+      $scope.currentPage = res.page;
   		});
   	});
+
+    $scope.pageChanged = function() {
+     if($scope.rating_check){
+         PackageItem.myPackage({rating:$scope.rating_filter, q: $scope.user._id , page: $scope.currentPage}).$promise.then(function(res){
+          $scope.package = res.docs;
+          $scope.limit = res.limit;
+          $scope.totalItems = res.total;
+          $scope.currentPage = res.page;
+        });
+      }else if($scope.create_check){
+        PackageItem.myPackage({create:$scope.create_filter, q: $scope.user._id , page: $scope.currentPage}).$promise.then(function(res){
+          $scope.package = res.docs;
+          $scope.limit = res.limit;
+          $scope.totalItems = res.total;
+          $scope.currentPage = res.page;
+        });
+      }
+      else{
+        PackageItem.myPackage({q: $scope.user._id , page: $scope.currentPage}).$promise.then(function(res){
+          $scope.package = res.docs;
+          $scope.limit = res.limit;
+          $scope.totalItems = res.total;
+          $scope.currentPage = res.page;
+        });
+      }
+  };
 
     $scope.$watch('rating_check', function() {
       if($scope.loading)
@@ -24,11 +56,17 @@ angular.module('acholic')
         $scope.rating_filter = -1;
         PackageItem.myPackage({rating:$scope.rating_filter, q: $scope.user._id , page: 1}).$promise.then(function(res){
           $scope.package = res.docs;
+           $scope.limit = res.limit;
+          $scope.totalItems = res.total;
+          $scope.currentPage = res.page;
         });
       } else {
         $scope.rating_filter = 0;
         PackageItem.myPackage({q: $scope.user._id , page: 1}).$promise.then(function(res){
           $scope.package = res.docs;
+           $scope.limit = res.limit;
+          $scope.totalItems = res.total;
+          $scope.currentPage = res.page;
         });
       };
     });
@@ -39,11 +77,17 @@ angular.module('acholic')
         $scope.create_filter = -1;
         PackageItem.myPackage({create:$scope.create_filter, q: $scope.user._id , page: 1}).$promise.then(function(res){
           $scope.package = res.docs;
+           $scope.limit = res.limit;
+          $scope.totalItems = res.total;
+          $scope.currentPage = res.page;
         });
       } else {
         $scope.create_filter = 0;
         PackageItem.myPackage({q: $scope.user._id , page: 1}).$promise.then(function(res){
           $scope.package = res.docs;
+           $scope.limit = res.limit;
+          $scope.totalItems = res.total;
+          $scope.currentPage = res.page;
         });
       }
     });
@@ -52,10 +96,16 @@ angular.module('acholic')
       if($scope.rating_check)
       PackageItem.myPackage({q: $scope.user._id , page: 1}).$promise.then(function(res){
         $scope.package = res.docs;
+         $scope.limit = res.limit;
+          $scope.totalItems = res.total;
+          $scope.currentPage = res.page;
       });
       if($scope.create_check)
       PackageItem.myPackage({q: $scope.user._id , page: 1}).$promise.then(function(res){
         $scope.package = res.docs;
+         $scope.limit = res.limit;
+          $scope.totalItems = res.total;
+          $scope.currentPage = res.page;
       });
     };
 
