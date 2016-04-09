@@ -17,14 +17,12 @@ angular.module('acholic')
       if($scope.loading)
       if($scope.rating_check){
         $scope.rating_filter = -1;
-        console.log('rating 0' );
         if($scope.selected_folder == 0)
           $scope.query_all();
         else
           $scope.query($scope.selected_folder);
       } else {
         $scope.rating_filter = 0;
-        console.log('rating 1' );
         if($scope.selected_folder == 0)
           $scope.query_all();
         else
@@ -36,14 +34,12 @@ angular.module('acholic')
       if($scope.loading)
       if($scope.create_check){
         $scope.create_filter = -1;
-        console.log('Create 0' );
         if($scope.selected_folder == 0)
           $scope.query_all();
         else
           $scope.query($scope.selected_folder);
       } else {
         $scope.create_filter = 0;
-        console.log('Create 1' );
         if($scope.selected_folder == 0)
           $scope.query_all();
         else

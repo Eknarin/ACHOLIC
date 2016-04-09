@@ -4,144 +4,61 @@ angular.module('acholic')
   .controller('MyPackageCtrl',['$scope','$location','PackageItem','Auth', '$uibModal', function ($scope, $location, PackageItem,Auth, $uibModal) {
   	$scope.user = {};
   	$scope.package = {};
+    $scope.rating_check = false;
+    $scope.create_check = false;
+    $scope.rating_filter = 0;
+    $scope.create_filter = 0;
+    $scope.loading = false;
+
   	Auth.getUser().then(function(res){
   		$scope.user = res;
   		PackageItem.myPackage({q: $scope.user._id , page: 1}).$promise.then(function(res){
 	  		$scope.package = res.docs;
+         $scope.loading = true;
   		});
   	});
 
+    $scope.$watch('rating_check', function() {
+      if($scope.loading)
+      if($scope.rating_check){
+        $scope.rating_filter = -1;
+        PackageItem.myPackage({rating:$scope.rating_filter, q: $scope.user._id , page: 1}).$promise.then(function(res){
+          $scope.package = res.docs;
+        });
+      } else {
+        $scope.rating_filter = 0;
+        PackageItem.myPackage({q: $scope.user._id , page: 1}).$promise.then(function(res){
+          $scope.package = res.docs;
+        });
+      };
+    });
 
-    $scope.slider = {
-      min: 0,
-      max: 10000,
-      options: {
-        floor: 0,//should find min price of package
-        ceil: 10000//should find max price of package
+    $scope.$watch('create_check', function() {
+      if($scope.loading)
+      if($scope.create_check){
+        $scope.create_filter = -1;
+        PackageItem.myPackage({create:$scope.create_filter, q: $scope.user._id , page: 1}).$promise.then(function(res){
+          $scope.package = res.docs;
+        });
+      } else {
+        $scope.create_filter = 0;
+        PackageItem.myPackage({q: $scope.user._id , page: 1}).$promise.then(function(res){
+          $scope.package = res.docs;
+        });
       }
-    };    
+    });
 
-    $scope.filtering = function(){
-      $scope.filter = {};
-      $scope.filter.priceMin = $scope.slider.min;
-      $scope.filter.priceMax = $scope.slider.max;
-      $scope.filter.location = $scope.selected;
-      $scope.filter.tag = $scope.selectedType;
-      $scope.filter.people = $scope.guest;
-      $scope.packages = PackageItem.filter($scope.filter);
+    $scope.queryFilter = function(){
+      if($scope.rating_check)
+      PackageItem.myPackage({q: $scope.user._id , page: 1}).$promise.then(function(res){
+        $scope.package = res.docs;
+      });
+      if($scope.create_check)
+      PackageItem.myPackage({q: $scope.user._id , page: 1}).$promise.then(function(res){
+        $scope.package = res.docs;
+      });
     };
-    //province filter
-  $scope.provinces = [
-    {name: 'กรุงเทพมหานคร'},
-    {name: 'กระบี่'},
-    {name: 'กาญจนบุรี'},
-    {name: 'กาฬสินธุ์'},
-    {name: 'กำแพงเพชร'},
-    {name: 'ขอนแก่น'},
-    {name: 'จันทบุรี'},
-    {name: 'ฉะเชิงเทรา'},
-    {name: 'ชลบุรี'},
-    {name: 'ชัยนาท'},
-    {name: 'ชัยภูมิ'},
-    {name: 'ชุมพร'},
-    {name: 'เชียงราย'},
-    {name: 'เชียงใหม่'},
-    {name: 'ตรัง'},
-    {name: 'ตราด'},
-    {name: 'ตาก'},
-    {name: 'นครนายก'},
-    {name: 'นครปฐม'},
-    {name: 'นครพนม'},
-    {name: 'นครราชสีมา'},
-    {name: 'นครศรีธรรมราช'},
-    {name: 'นครสวรรค์'},
-    {name: 'นนทบุรี'},
-    {name: 'นราธิวาส'},
-    {name: 'น่าน'},
-    {name: 'บึงกาฬ'},
-    {name: 'บุรีรัมย์'},
-    {name: 'ปทุมธานี'},
-    {name: 'ประจวบคีรีขันธ์'},
-    {name: 'ปราจีนบุรี'},
-    {name: 'ปัตตานี'},
-    {name: 'พระนครศรีอยุธยา'},
-    {name: 'พังงา'},
-    {name: 'พัทลุง'},
-    {name: 'พิจิตร'},
-    {name: 'พิษณุโลก'},
-    {name: 'เพชรบุรี'},
-    {name: 'เพชรบูรณ์'},
-    {name: 'แพร่'},
-    {name: 'พะเยา'},
-    {name: 'ภูเก็ต'},
-    {name: 'มหาสารคาม'},
-    {name: 'มุกดาหาร'},
-    {name: 'แม่ฮ่องสอน'},
-    {name: 'ยะลา'},
-    {name: 'ยโสธร'},
-    {name: 'ร้อยเอ็ด'},
-    {name: 'ระนอง'},
-    {name: 'ระยอง'},
-    {name: 'ราชบุรี'},
-    {name: 'ลพบุรี'},
-    {name: 'ลำปาง'},
-    {name: 'ลำพูน'},
-    {name: 'เลย'},
-    {name: 'ศรีสะเกษ'},
-    {name: 'สกลนคร'},
-    {name: 'สงขลา'},
-    {name: 'สตูล'},
-    {name: 'สมุทรปราการ'},
-    {name: 'สมุทรสงคราม'},
-    {name: 'สมุทรสาคร'},
-    {name: 'สระแก้ว'},
-    {name: 'สระบุรี'},
-    {name: 'สิงห์บุรี'},
-    {name: 'สุโขทัย'},
-    {name: 'สุพรรณบุรี'},
-    {name: 'สุราษฎร์ธานี'},
-    {name: 'สุรินทร์'},
-    {name: 'หนองคาย'},
-    {name: 'หนองบัวลำภู'},
-    {name: 'อ่างทอง'},
-    {name: 'อุดรธานี'},
-    {name: 'อุทัยธานี'},
-    {name: 'อุตรดิตถ์'},
-    {name: 'อุบลราชธานี'},
-    {name: 'อำนาจเจริญ'}
-  ];
-  $scope.selected = " Location ";
-  $scope.setProvince = function(value){
-    console.log(value);
-    $scope.selected = value;
-  }
 
-  //type filter
-  $scope.types = [
-    {name: 'ดำน้ำ'},
-    {name: 'ล่องแก่ง'},
-    {name: 'ปีนเขา'}
-  ];
-  $scope.selectedType = " Tag "
-  $scope.setType = function(value){
-    $scope.selectedType = value;
-  };
-
-  //guest filter
-  $scope.guests = [
-    {n: 1},
-    {n: 2},
-    {n: 3},
-    {n: 4},
-    {n: 5}
-  ];
-  $scope.guest = $scope.guests[0].n;
-  $scope.setGuest = function(value){
-    $scope.guest = value;
-  };
-
-
-    // get package create date
     $scope.getCreateDate = function(timeStamp){
       $scope.temp = new Date(timeStamp);
       $scope.createDate = $scope.temp.getDate() + "/" + ($scope.temp.getMonth() + 1) + "/" + $scope.temp.getFullYear();   
@@ -187,12 +104,6 @@ angular.module('acholic')
   };
 
   $scope.selectFolder = function(id, event){
-    // $scope.selected_folder = folderId;
-    // if(folderId == 0){
-    //   $scope.query_all();
-    // }else{
-    //   $scope.query(folderId);
-    // }
     $scope.activeButton(event);
     if(id == 1){
       $location.path("/my-transaction");
