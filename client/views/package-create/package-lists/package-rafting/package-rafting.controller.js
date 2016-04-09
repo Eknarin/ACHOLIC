@@ -46,9 +46,11 @@ angular.module('acholic')
         $scope.packages.info.season = {};
         if($scope.seas == "Whole Year"){
             $scope.packages.info.season.year = $scope.seas;
+            $scope.packages.info.season.month1 = "";
+            $scope.packages.info.season.month2 = "";
         }
         else{
-            $scope.packages.info.season.year = $scope.seas;
+            $scope.packages.info.season.year = "";
             $scope.packages.info.season.month1 = $scope.month1;
             $scope.packages.info.season.month2 = $scope.month2;
         }
