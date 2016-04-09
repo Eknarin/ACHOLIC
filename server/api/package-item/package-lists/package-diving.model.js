@@ -20,7 +20,8 @@ var DivingSchema = new Schema({
 		month1: String,
 		month2: String
 	},	
-	sea: String,
+	diving_type: String,
+	diving_side: String,
 	age_limit: Number,
 	activites: String,
 	equipments_provide: [String],
