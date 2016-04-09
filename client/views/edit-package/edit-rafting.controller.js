@@ -6,6 +6,7 @@ angular.module('acholic')
     $scope.info = {};
     $scope.minPrice = 9000000;
     console.log(packageData);//
+    $scope.gallery = new PackageGallery;
 
     $scope.packageType = PackageItem.package_type({id : packageData.map_id.map_id._id,package_type: packageData.package_type}).$promise.then(function(res){
         $scope.info = res;
@@ -39,13 +40,13 @@ angular.module('acholic')
         $scope.skill = $scope.packageTab2.skills_require.toString();
         $scope.activities = $scope.packageTab2.activities.toString();
 
-        $scope.gallery = $scope.packageTab2.image_gallery;
-        if($scope.gallery){
-            PackageGallery.query({id: $scope.gallery}).$promise.then(function(res){
-                $scope.imageGallery = res.images;
-                console.log($scope.imageGallery);
+        if($scope.packageTab2.image_gallery){
+            PackageGallery.query({id: $scope.packageTab2.image_gallery}).$promise.then(function(res){
+                $scope.gallery.images = res.images;
             });
         }
+        else
+            $scope.gallery.images = [];
     });
 
     $scope.checkSeason = function(){
@@ -94,13 +95,20 @@ angular.module('acholic')
 
         //min price
         $scope.packages.price = $scope.findMinPrice(); 
+
         PackageItem.update($scope.packages).$promise.then(function(res1){
-            console.log(res1);
-            PackageItem.updatePackage($scope.packageTab2).$promise.then(function(res2){
-                console.log(res2);
+            // console.log(res1);
+
+            console.log($scope.gallery.images);
+
+            $scope.gallery.$save().then(function(res){
+                $scope.packageTab2.image_gallery = res._id;
+                PackageItem.updatePackage($scope.packageTab2).$promise.then(function(res2){
+                    $location.path("/package");
+                });
             });
         });
-        // console.log()
+
 
     };
 
