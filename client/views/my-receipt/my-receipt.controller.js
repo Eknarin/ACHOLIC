@@ -8,17 +8,83 @@ angular.module('acholic')
   $scope.maxSize = 5;
   $scope.limit = 1;
   $scope.totalItems = 1;
+  $scope.create_check = false;
+  $scope.price_check = false;
+  $scope.rating_filter = 0;
+  $scope.price_filter = 0;
+
+  $scope.pageChanged = function() {
+     if($scope.price_check){
+         Transaction.query({price:$scope.price_filter,user_id:$scope.user._id,page:$scope.currentPage}).$promise.then(function(res){
+          $scope.receipts = res.docs;
+          $scope.limit = res.limit;
+          $scope.totalItems = res.total;
+        });
+      }else if($scope.create_check){
+        Transaction.query({create:$scope.create_filter,user_id:$scope.user._id,page:$scope.currentPage}).$promise.then(function(res){
+          $scope.receipts = res.docs;
+          $scope.limit = res.limit;
+          $scope.totalItems = res.total;
+      });
+      }
+      else{
+        Transaction.query({user_id:$scope.user._id,page:$scope.currentPage}).$promise.then(function(res){
+          $scope.receipts = res.docs;
+          $scope.limit = res.limit;
+          $scope.totalItems = res.total;
+      });
+      }
+  };
+
+
+    $scope.$watch('price_check', function() {
+      if($scope.price_check){
+        $scope.price_filter = -1;
+        Transaction.query({price:$scope.price_filter,user_id:$scope.user._id,page:1}).$promise.then(function(res){
+          $scope.receipts = res.docs;
+          $scope.limit = res.limit;
+          $scope.totalItems = res.total;
+      });
+      } else {
+        $scope.price_filter = 0;
+        Transaction.query({user_id: $scope.user._id,page:1}).$promise.then(function(res){
+          $scope.receipts = res.docs;
+          $scope.limit = res.limit;
+          $scope.totalItems = res.total;
+      });
+      };
+    });
+
+    $scope.$watch('create_check', function() {
+      if($scope.create_check){
+        $scope.create_filter = -1;
+         Transaction.query({create:$scope.create_filter,user_id:$scope.user._id,page:1}).$promise.then(function(res){
+          $scope.receipts = res.docs;
+          $scope.limit = res.limit;
+          $scope.totalItems = res.total;
+      });
+      } else {
+        $scope.create_filter = 0;
+        $scope.create_filter = -1;
+         Transaction.query({user_id:$scope.user._id,page:1}).$promise.then(function(res){
+          $scope.receipts = res.docs;
+          $scope.limit = res.limit;
+          $scope.totalItems = res.total;
+      });
+      }
+    });
+
 
   Auth.getUser().then(function(res){
       $scope.user = res;
-      Transaction.query({user_id: $scope.user._id,page:$scope.currentPage}).$promise.then(function(res){
+      Transaction.query({user_id: $scope.user._id,page:1}).$promise.then(function(res){
         $scope.receipts = res.docs;
-        console.log($scope.receipts);
         $scope.limit = res.limit;
         $scope.totalItems = res.total;
         $scope.loading = true;
       });
    });
+
   $scope.openReceiptInfoModal = function(item){
            var modalInstance = $uibModal.open({
             animation: true,
@@ -33,13 +99,6 @@ angular.module('acholic')
           });
   }; 
 
-  $scope.pageChanged = function() {
-    Transaction.query({user_id: $scope.user._id,page: $scope.currentPage}).$promise.then(function(res){
-        $scope.receipts = res.docs;
-        $scope.limit = res.limit;
-        $scope.totalItems = res.total;
-      });
-  };
 
   $scope.setPage = function (pageNo) {
      $scope.currentPage = pageNo;

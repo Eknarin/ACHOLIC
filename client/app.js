@@ -7,6 +7,7 @@ angular.module('acholic', [
   'ngResource',
   'ngSanitize',
   'ngAnimate',
+  'chart.js',
   'ui.bootstrap',
   'growlNotifications',
   'btford.socket-io',
@@ -26,6 +27,17 @@ angular.module('acholic', [
     $httpProvider.interceptors.push('authInterceptor');
 
   })
+   .config(['ChartJsProvider', function (ChartJsProvider) {
+      // Configure all charts
+      ChartJsProvider.setOptions({
+        colours: ['#FF5252', '#FF8A80'],
+        responsive: false
+      });
+      // Configure all line charts
+      ChartJsProvider.setOptions('Line', {
+        datasetFill: false
+      });
+    }])
   .config( function( $facebookProvider ) {
     $facebookProvider.setAppId(1587717998209272);
     $facebookProvider.setPermissions("user_birthday,public_profile,email");
