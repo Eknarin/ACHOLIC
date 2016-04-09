@@ -252,7 +252,7 @@
 									<input type="radio" name="level" ng-model="packageTab2.level" value="Level 5"> Level 5 : Expert<br>
 									<input type="radio" name="level" ng-model="packageTab2.level" value="Level 6"> Level 6 : Danger<br>
 					       		</div>
-					       		<p style="text-align:center;color:orange;" ng-show="packages.map_id.level == null">Please select the package highest rafting level.</p>
+					       		<p style="text-align:center;color:orange;" ng-show="packageTab2.level == null">Please select the package highest rafting level.</p>
 				        	</div>	
 		   				</div>
 		   				<!-- Stage Information -->
@@ -500,7 +500,7 @@
 				       				<p class="package-create-topic-style">Suggestion : </p>
 				       			</div>
 				       			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<textarea  ng-model="packages.map_id.prepration"  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Wear comforable suit"></textarea >
+					        		<textarea  ng-model="packageTab2.prepration"  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Wear comforable suit"></textarea >
 					        	</div>
 				        	</div>
 					    </div>

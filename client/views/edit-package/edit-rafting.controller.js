@@ -4,18 +4,14 @@ angular.module('acholic')
   .controller('EditRaftingPackageCtrl',['$scope','packageData','PackageItem','$location','$rootScope','$timeout','PackageGallery',function ($scope ,packageData, PackageItem ,$location , $rootScope , $timeout,PackageGallery) {
     $scope.packages = packageData;
     $scope.info = {};
-    console.log(packageData);
+    console.log(packageData);//
+
     $scope.packageType = PackageItem.package_type({id : packageData.map_id.map_id._id,package_type: packageData.package_type}).$promise.then(function(res){
         $scope.info = res;
         $scope.testMap = res.location.location_text;
-        // console.log(res);
         $scope.packageTab2 = res;
-        console.log($scope.packageTab2);
-        // $scope.packages.map_id = res.map_id;
-    //     $scope.provide = res.map_id.equipments_provide;
-    //     $scope.require = res.map_id.equipments_require;
-    //     $scope.skill = res.map_id.skills_require;
-    //     $scope.activities = res.map_id.activities;
+        console.log($scope.packageTab2);//
+
         if(res.season.month1){
             $scope.seas = "From";
             $scope.month1 = res.season.month1;
@@ -37,41 +33,19 @@ angular.module('acholic')
 
         $scope.stageHighlights = res.stages;
         $scope.priceArrs = res.info;
-    //     $scope.month1 = res.map_id.season.month1;
-    //     $scope.month2 = res.map_id.season.month2;
-    //     $scope.stageType = res.map_id.stage_type;
-    //     $scope.firstStage = res.map_id.start_location;
-    //     $scope.lastStage = res.map_id.end_location;
-    //     $scope.priceArrs = res.map_id.info;
-    //     $scope.stageHighlights = res.map_id.stages;
-    //     $scope.prepration = res.map_id.prepration;
-    //     $scope.testMap = res.map_id.location.location_text;
-    //     $scope.gallery = res.map_id.image_gallery;
-    //     if($scope.gallery){
-    //         PackageGallery.query({id: $scope.gallery}).$promise.then(function(res){
-    //             $scope.imageGallery = res.images;
-    //         });
-    //     }
+        $scope.provide = $scope.packageTab2.equipments_provide.toString();
+        $scope.require = $scope.packageTab2.equipments_require.toString();
+        $scope.skill = $scope.packageTab2.skills_require.toString();
+        $scope.activities = $scope.packageTab2.activities.toString();
+
+        $scope.gallery = $scope.packageTab2.image_gallery;
+        if($scope.gallery){
+            PackageGallery.query({id: $scope.gallery}).$promise.then(function(res){
+                $scope.imageGallery = res.images;
+                console.log($scope.imageGallery);
+            });
+        }
     });
-    
-
-    // $scope.packages.info = {};
-    // $scope.packages.info.stages = [];
-    // $scope.packages.info.equipments_provide = [];
-    // $scope.packages.type = "PackageRafting";
-    // $scope.packages.user_id = $rootScope._user._id;
-    // $scope.packages.info.location = {};
-    // $scope.provide = "";
-    // $scope.require = "";
-    // $scope.skill = "";
-    // $scope.minPrice = 9000000;
-    // $scope.activities = "";
-    // $scope.packages.rating = 0;
-
-    // $scope.seasonMonth = false;
-
-    // console.log($scope.packages);
-
 
     $scope.checkSeason = function(){
         if ($scope.seas == "Whole Year") {
@@ -84,22 +58,57 @@ angular.module('acholic')
 
     $scope.onSubmit = function(){
         //provide
-        $scope.packages.info.equipments_provide = $scope.provide.split(",");
-        //require
-        $scope.packages.info.equipments_require = $scope.require.split(",");
-        //skill
-        $scope.packages.info.skills_require = $scope.skill.split(",");
-        //skill
-        $scope.packages.info.activities = $scope.activities.split(",");
+        // $scope.packages.info.equipments_provide = $scope.provide.split(",");
+        // //require
+        // $scope.packages.info.equipments_require = $scope.require.split(",");
+        // //skill
+        // $scope.packages.info.skills_require = $scope.skill.split(",");
+        // //skill
+        // $scope.packages.info.activities = $scope.activities.split(",");
 
-         //min price
-        $scope.packages.price = $scope.findMinPrice();   
-        $scope.gallery.$save().then(function(res){
-            $scope.packages.info.image_gallery = res._id;
-            $scope.packages.$save().then(function(){
-                $location.path("/package");
-            });
-        });   
+        //  //min price
+        // $scope.packages.price = $scope.findMinPrice();   
+        // $scope.gallery.$save().then(function(res){
+        //     $scope.packages.info.image_gallery = res._id;
+        //     $scope.packages.$save().then(function(){
+        //         $location.path("/package");
+        //     });
+        // });  
+        //province
+        $scope.packages.province = $scope.selectedProvince;
+
+        //season
+        $scope.packageTab2.season = {};
+        if($scope.seas == "Whole Year"){
+            $scope.packageTab2.season.year = $scope.seas;
+            $scope.packageTab2.season.month1 = "";
+            $scope.packageTab2.season.month2 = "";
+        }
+        else{
+            $scope.packageTab2.season.year = "";
+            $scope.packageTab2.season.month1 = $scope.month1;
+            $scope.packageTab2.season.month2 = $scope.month2;
+        }
+
+        //provide
+        $scope.packageTab2.equipments_provide = $scope.provide.split(",");
+
+        //require
+        $scope.packageTab2.equipments_require = $scope.require.split(",");
+
+        //skill
+        $scope.packageTab2.skills_require = $scope.skill.split(",");
+
+        //activities
+        $scope.packageTab2.activities = $scope.activities.split(",");
+
+    
+
+        console.log("======================");
+        console.log($scope.packages);
+        console.log($scope.packageTab2);
+        console.log($scope.imageGallery);
+
     };
 
     $scope.stages = [{
@@ -107,18 +116,14 @@ angular.module('acholic')
         description: ''
     }];
 
-    // $scope.stages = [];
     
     $scope.stageHighlights = [];
   
     $scope.addNewStageHighlight = function() {
-        // $scope.stages.push($scope.stages.length);
-        $scope.stageHighlights.push($scope.stageHighlights.length);
+        $scope.stageHighlights.push($scope.stageHighlights);
     };
         
     $scope.removeStageHighlight = function(index) {
-        // $scope.stages.splice(index,1);
-        // $scope.stageType.splice(index,1); 
         $scope.stageHighlights.splice(index,1);
         $scope.stages.splice(index,1);
     };
@@ -176,15 +181,15 @@ angular.module('acholic')
             }
         } 
         else if(currenstate == 1){
-            if($scope.packages.info == null){
+            if($scope.packageTab2 == null){
                 alert(req);
                 return;
             }
-            if($scope.packages.map_id.river_line == null){
+            if($scope.packageTab2.river_line == null){
                 alert(req);
                 return;
             }
-            if($scope.packages.map_id.level == null){
+            if($scope.packageTab2.level == null){
                 alert(req);
                 return;
             }
@@ -292,8 +297,6 @@ angular.module('acholic')
     $scope.selectedProvince = value;
   };
 
-  // $scope.seas = $scope.packageTab2.;
-  console.log($scope.packageTab2);
   $scope.month1 = "";
   $scope.month2 = "";
 
@@ -486,12 +489,11 @@ angular.module('acholic')
             }
             $scope.markers = [];
             $scope.markers.push(marker);
-            // $scope.packageTab2.location.lat = marker.position[0];
-            // $scope.packageTab2.location.long = marker.position[1];
-            // $scope.packageTab2.location.location_text = place.formatted_address;
-            // $scope.packages.info.location.lat = marker.position[0];
-            // $scope.packages.info.location.long = marker.position[1];
-            // $scope.packages.info.location.location_text = place.formatted_address;
+
+            $scope.packageTab2.location.lat = marker.position[0];
+            $scope.packageTab2.location.long = marker.position[1];
+            $scope.packageTab2.location.location_text = place.formatted_address;
+
             $scope.reRednerMap();
         });
 

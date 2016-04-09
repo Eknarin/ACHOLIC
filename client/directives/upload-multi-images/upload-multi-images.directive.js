@@ -36,7 +36,8 @@ angular.module('acholic')
 
 		 $scope.removeRow = function(idx){
 		 	$scope.images.splice(idx, 1);
-		 	$scope.files.splice(idx, 1);
+		 	if($scope.files)
+		 		$scope.files.splice(idx, 1);
 		 	$scope.counter -= 1;
 		 	// delete choosen image from db;
 		 };
