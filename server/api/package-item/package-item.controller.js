@@ -275,14 +275,17 @@ function checkPackage (type) {
  exports.updatePackage = function (req, res) {
     PackageMap.findOne({map_id: req.body._id},function(err,pack){
       var Obj = checkPackage(pack.map_table);
-      Obj.findById(req.params.id, function (err, packageDetail){
-        var updated = _.merge(packageDetail, req.body);
-          updated.save(function (err) {
+      Obj.findById(req.params.id, function (err, pack2){
             if (err) { return handleError(res, err); }
-            return res.status(200).json(packageDetail);
-        });
+            pack2.remove(function (err) {
+              Obj.create(req.body, function (err, packageDetail){
+                      if (err) { return handleError(res, err); }
+                      return res.status(200).json(packageDetail);
+                });
+              });
+            });
+
       });
-    });
   };
 
 /**
