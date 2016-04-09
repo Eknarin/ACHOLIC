@@ -8,6 +8,7 @@ angular.module('acholic', [
   'ngSanitize',
   'ngAnimate',
   'ui.bootstrap',
+  'growlNotifications',
   'btford.socket-io',
   'rzModule',
   'ngFileUpload',
