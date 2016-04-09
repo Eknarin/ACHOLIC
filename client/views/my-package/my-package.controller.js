@@ -133,6 +133,20 @@ angular.module('acholic')
             
           });
   };
+  $scope.openDeleteMyPackageModal = function(item){
+           var modalInstance = $uibModal.open({
+            animation: true,
+            templateUrl: 'views/my-package/modal/delete-package.html',
+            controller: 'DeleteMyPackageModalCtrl',
+            size: 'md',
+            resolve: {
+              packageData: item
+            }
+          }).result.then(function(res){
+            var index = $scope.package.indexOf(res);
+            $scope.package.splice(index, 1);
+          });
+  };
   $scope.rate = 0;
   $scope.getStar = function(num) {
     if(num == null){
