@@ -273,14 +273,15 @@ function checkPackage (type) {
  * @param res
  */
  exports.updatePackage = function (req, res) {
-
-    var Obj = checkPackage(req.body.type);
-    Obj.findById(req.params.id, function (err, packageDetail){
-      var updated = _.merge(packageDetail, req.body);
-      updated.save(function (err) {
-        if (err) { return handleError(res, err); }
-        return res.status(200).json(packageDetail);
-    });
+    PackageMap.findOne({map_id: req.body._id},function(err,pack){
+      var Obj = checkPackage(pack.map_table);
+      Obj.findById(req.params.id, function (err, packageDetail){
+        var updated = _.merge(packageDetail, req.body);
+          updated.save(function (err) {
+            if (err) { return handleError(res, err); }
+            return res.status(200).json(packageDetail);
+        });
+      });
     });
   };
 

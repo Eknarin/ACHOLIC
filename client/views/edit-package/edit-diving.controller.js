@@ -3,7 +3,6 @@
 angular.module('acholic')
   .controller('EditDivingPackageCtrl',['$scope','packageData','PackageItem','$location','$rootScope','$timeout','PackageGallery',function ($scope ,packageData, PackageItem ,$location , $rootScope , $timeout,PackageGallery) {
     $scope.packages = packageData;
-    console.log(packageData);
     $scope.packageType = PackageItem.package_type({id : packageData.map_id._id}).$promise.then(function(res){
         $scope.packages.map_id = res.map_id;
         $scope.provide = res.map_id.equipments_provide;
@@ -43,8 +42,6 @@ angular.module('acholic')
     $scope.packages.rating = 0;
 
     $scope.seasonMonth = false;
-
-    console.log($scope.packages);
 
 
     $scope.checkSeason = function(){

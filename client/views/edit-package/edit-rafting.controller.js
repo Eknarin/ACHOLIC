@@ -94,6 +94,13 @@ angular.module('acholic')
 
         //min price
         $scope.packages.price = $scope.findMinPrice(); 
+        PackageItem.update($scope.packages).$promise.then(function(res1){
+            console.log(res1);
+            PackageItem.updatePackage($scope.packageTab2).$promise.then(function(res2){
+                console.log(res2);
+            });
+        });
+        // console.log()
 
     };
 
