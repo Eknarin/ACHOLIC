@@ -44,9 +44,14 @@ angular.module('acholic')
 
         //season
         $scope.packages.info.season = {};
-        $scope.packages.info.season.year = $scope.seas;
-        $scope.packages.info.season.month1 = $scope.month1;
-        $scope.packages.info.season.month2 = $scope.month2;
+        if($scope.seas == "Whole Year"){
+            $scope.packages.info.season.year = $scope.seas;
+        }
+        else{
+            $scope.packages.info.season.year = $scope.seas;
+            $scope.packages.info.season.month1 = $scope.month1;
+            $scope.packages.info.season.month2 = $scope.month2;
+        }
         //stage
         $scope.packages.info.stages = $scope.stages;
         //stage type
@@ -274,11 +279,11 @@ angular.module('acholic')
     {name: 'December'}
   ];
   $scope.setMonth1 = function(value){
-    $scope.month1 = " "+value;
+    $scope.month1 = value;
   };
 
   $scope.setMonth2 = function(value){
-    $scope.month2 = " to "+value;
+    $scope.month2 = value;
   };
   $scope.boats = [
     {type : 'เรือยาง'},
