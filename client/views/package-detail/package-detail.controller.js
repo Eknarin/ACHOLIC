@@ -143,11 +143,16 @@ angular.module('acholic')
   });
 
   $scope.postComment = function(){
-    $scope.comment.$save().then(function(res){
-      $scope.comments.push(res);
+    if($scope.user._id == $scope.packageItem.user_id._id){//vendor try to comment his package
+      alert("You can not Comment & Rate your package.");
+      return;
+    } else {
+      $scope.comment.$save().then(function(res){
+        $scope.comments.push(res);
 
-      location.reload();
-    });
+        location.reload();
+      });
+    }
   };
 
   $scope.getCommonDate = function(cdate){
