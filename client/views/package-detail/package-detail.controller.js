@@ -61,6 +61,15 @@ angular.module('acholic')
       $scope.isAddCart = false;
     }
 
+    $scope.checkNotAddCart = function(){
+      for (var i = 0; i < $scope.packageInfos.length; i++) {
+        if($scope.packageInfos[i].amount){
+          return false;
+        }
+      };
+      return true;//enable cart button
+    }
+
     $scope.addToCart = function(){
       $scope.isAddCart = true;
       Cart.addItem($scope.packageInfos, $scope.packageItem._id);
