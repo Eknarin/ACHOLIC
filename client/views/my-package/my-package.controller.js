@@ -172,6 +172,9 @@ angular.module('acholic')
     if(id == 1){
       $location.path("/my-transaction");
     }
+    else if(id == 2){
+      $location.path("/my-package-report");
+    }
 
   };
 
