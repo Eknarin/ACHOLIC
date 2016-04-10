@@ -3,28 +3,10 @@
 angular.module('acholic')
   .controller('EditDivingPackageCtrl',['$scope','packageData','PackageItem','$location','$rootScope','$timeout','PackageGallery',function ($scope ,packageData, PackageItem ,$location , $rootScope , $timeout,PackageGallery) {
     $scope.packages = packageData;
-    $scope.packageType = PackageItem.package_type({id : packageData.map_id._id}).$promise.then(function(res){
-        $scope.packages.map_id = res.map_id;
-        $scope.provide = res.map_id.equipments_provide;
-        $scope.require = res.map_id.equipments_require;
-        $scope.skill = res.map_id.skills_require;
-        $scope.activities = res.map_id.activities;
-        $scope.seas = res.map_id.season.year;
-        $scope.month1 = res.map_id.season.month1;
-        $scope.month2 = res.map_id.season.month2;
-        $scope.stageType = res.map_id.stage_type;
-        $scope.firstStage = res.map_id.start_location;
-        $scope.lastStage = res.map_id.end_location;
-        $scope.priceArrs = res.map_id.info;
-        $scope.stageHighlights = res.map_id.stages;
-        $scope.prepration = res.map_id.prepration;
-        $scope.testMap = res.map_id.location.location_text;
-        $scope.gallery = res.map_id.image_gallery;
-        if($scope.gallery){
-            PackageGallery.query({id: $scope.gallery}).$promise.then(function(res){
-                $scope.imageGallery = res.images;
-            });
-        }
+     $scope.packageType = PackageItem.package_type({id : packageData.map_id.map_id._id,package_type: packageData.package_type}).$promise.then(function(res){
+        $scope.info = res;
+        console.log($scope.packages);
+        console.log(res)
     });
     
 
