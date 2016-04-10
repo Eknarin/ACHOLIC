@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('MyPackageCtrl',['$scope','$location','PackageItem','Auth', '$uibModal', function ($scope, $location, PackageItem,Auth, $uibModal) {
+  .controller('MyPackageCtrl',['$scope','$location','PackageItem','Auth', '$uibModal', 'Transaction', function ($scope, $location, PackageItem,Auth, $uibModal, Transaction) {
   	$scope.user = {};
   	$scope.package = {};
     $scope.rating_check = false;
@@ -16,11 +16,15 @@ angular.module('acholic')
   	Auth.getUser().then(function(res){
   		$scope.user = res;
   		PackageItem.myPackage({q: $scope.user._id , page: 1}).$promise.then(function(res){
-	  		$scope.package = res.docs;
+	  		 $scope.package = res.docs;
          $scope.loading = true;
          $scope.limit = res.limit;
-      $scope.totalItems = res.total;
-      $scope.currentPage = res.page;
+          $scope.totalItems = res.total;
+          $scope.currentPage = res.page;
+          $scope.soldEachPack = new Array($scope.package.length);
+          for (var i = 0; i < $scope.package.length; i++) {
+            $scope.choosePack($scope.package[i]._id, i);
+          };
   		});
   	});
 
@@ -31,6 +35,10 @@ angular.module('acholic')
           $scope.limit = res.limit;
           $scope.totalItems = res.total;
           $scope.currentPage = res.page;
+          $scope.soldEachPack = new Array($scope.package.length);
+          for (var i = 0; i < $scope.package.length; i++) {
+            $scope.choosePack($scope.package[i]._id, i);
+          };
         });
       }else if($scope.create_check){
         PackageItem.myPackage({create:$scope.create_filter, q: $scope.user._id , page: $scope.currentPage}).$promise.then(function(res){
@@ -38,6 +46,10 @@ angular.module('acholic')
           $scope.limit = res.limit;
           $scope.totalItems = res.total;
           $scope.currentPage = res.page;
+          $scope.soldEachPack = new Array($scope.package.length);
+          for (var i = 0; i < $scope.package.length; i++) {
+            $scope.choosePack($scope.package[i]._id, i);
+          };
         });
       }
       else{
@@ -46,6 +58,10 @@ angular.module('acholic')
           $scope.limit = res.limit;
           $scope.totalItems = res.total;
           $scope.currentPage = res.page;
+          $scope.soldEachPack = new Array($scope.package.length);
+          for (var i = 0; i < $scope.package.length; i++) {
+            $scope.choosePack($scope.package[i]._id, i);
+          };
         });
       }
   };
@@ -59,6 +75,10 @@ angular.module('acholic')
            $scope.limit = res.limit;
           $scope.totalItems = res.total;
           $scope.currentPage = res.page;
+          $scope.soldEachPack = new Array($scope.package.length);
+          for (var i = 0; i < $scope.package.length; i++) {
+            $scope.choosePack($scope.package[i]._id, i);
+          };
         });
       } else {
         $scope.rating_filter = 0;
@@ -67,6 +87,10 @@ angular.module('acholic')
            $scope.limit = res.limit;
           $scope.totalItems = res.total;
           $scope.currentPage = res.page;
+          $scope.soldEachPack = new Array($scope.package.length);
+          for (var i = 0; i < $scope.package.length; i++) {
+            $scope.choosePack($scope.package[i]._id, i);
+          };
         });
       };
     });
@@ -80,6 +104,10 @@ angular.module('acholic')
            $scope.limit = res.limit;
           $scope.totalItems = res.total;
           $scope.currentPage = res.page;
+          $scope.soldEachPack = new Array($scope.package.length);
+          for (var i = 0; i < $scope.package.length; i++) {
+            $scope.choosePack($scope.package[i]._id, i);
+          };
         });
       } else {
         $scope.create_filter = 0;
@@ -88,6 +116,10 @@ angular.module('acholic')
            $scope.limit = res.limit;
           $scope.totalItems = res.total;
           $scope.currentPage = res.page;
+          $scope.soldEachPack = new Array($scope.package.length);
+          for (var i = 0; i < $scope.package.length; i++) {
+            $scope.choosePack($scope.package[i]._id, i);
+          };
         });
       }
     });
@@ -99,6 +131,10 @@ angular.module('acholic')
          $scope.limit = res.limit;
           $scope.totalItems = res.total;
           $scope.currentPage = res.page;
+          $scope.soldEachPack = new Array($scope.package.length);
+          for (var i = 0; i < $scope.package.length; i++) {
+            $scope.choosePack($scope.package[i]._id, i);
+          };
       });
       if($scope.create_check)
       PackageItem.myPackage({q: $scope.user._id , page: 1}).$promise.then(function(res){
@@ -106,6 +142,10 @@ angular.module('acholic')
          $scope.limit = res.limit;
           $scope.totalItems = res.total;
           $scope.currentPage = res.page;
+          $scope.soldEachPack = new Array($scope.package.length);
+          for (var i = 0; i < $scope.package.length; i++) {
+            $scope.choosePack($scope.package[i]._id, i);
+          };
       });
     };
 
@@ -183,6 +223,13 @@ angular.module('acholic')
     
     $('.bookmark-folder-button').removeClass('bookmark-folder-button-active');
     bookMarkButton.addClass('bookmark-folder-button-active');
+  };
+
+  $scope.choosePack = function(packageId, index){
+     Transaction.queryPack({vendor_id: $scope.user._id,package_id:packageId}).$promise.then(function(res){
+        $scope.soldEachPack[index] = res.total;
+    });
+
   };
    
   }]);
