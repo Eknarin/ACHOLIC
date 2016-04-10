@@ -141,7 +141,7 @@
 								</div>
 								<div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom:10px;">
 									<font class="package-detail-insight-sub-header">Stage Highlight : </font>
-									<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" ng-repeat="stage in packageItem.map_id.map_id.stages">
+									<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" ng-repeat="stage in packageItem.map_id.map_id.stages track by $index">
 										<div class="col-xs-12 col-sm-5 col-md-4"> 
 											<font class="package-detail-insight-detail">{{stage.name}}</font>
 										</div>
@@ -173,7 +173,7 @@
 					    				</tr>
 					    			</theader>
 					    			<tbody>
-					    				<tr ng-repeat="packageInfo in packageInfos">
+					    				<tr ng-repeat="packageInfo in packageInfos track by $index">
 					    					<td class="package-detail-table-detail">{{packageInfo.type}}</td>			
 					    					<td class="package-detail-table-detail" style="text-align:center;">{{packageInfo.price}}</td>
 					    					<td class="package-detail-table-detail" style="text-align:center;">{{packageInfo.people}}</td>
@@ -199,7 +199,7 @@
 										<p class="package-detail-insight-sub-header"> Provide Things </p>
 									</div>
 									<div class="col-xs-12 col-sm-8 col-md-8 no-horizotal-padding">
-										<div class="col-xs-12 col-sm-6 col-md-6 no-horizotal-padding" ng-repeat="equipmentProvide in equipmentProvides">
+										<div class="col-xs-12 col-sm-6 col-md-6 no-horizotal-padding" ng-repeat="equipmentProvide in equipmentProvides track by $index">
 											<p class="package-detail-insight-detail" style="text-align:left;" ng-if="!equipmentProvide"> - </p>
 											<p class="package-detail-insight-detail" ng-if="equipmentProvide">{{equipmentProvide}}</p>
 										</div>
@@ -211,7 +211,7 @@
 										<p class="package-detail-subdetail-topic-style"> Require Things </p>
 									</div>
 									<div class="col-xs-12 col-sm-8 col-md-8 no-horizotal-padding">
-										<div class="col-xs-12 col-sm-6 col-md-6 no-horizotal-padding" ng-repeat="equipmentRequire in equipmentRequires">
+										<div class="col-xs-12 col-sm-6 col-md-6 no-horizotal-padding" ng-repeat="equipmentRequire in equipmentRequires track by $index">
 											<p class="package-detail-insight-detail" style="text-align:left;" ng-if="!equipmentRequire"> - </p>					
 											<p class="package-detail-insight-detail" ng-if="equipmentRequire">{{equipmentRequire}}</p>
 										</div>
@@ -224,7 +224,7 @@
 										<p class="package-detail-subdetail-topic-style"> Skill Required </p>
 									</div>
 									<div class="col-xs-12 col-sm-8 col-md-8 no-horizotal-padding">
-										<div class="col-xs-12 col-sm-6 col-md-6 no-horizotal-padding" ng-repeat="skillRequire in skillRequires">
+										<div class="col-xs-12 col-sm-6 col-md-6 no-horizotal-padding" ng-repeat="skillRequire in skillRequires track by $index">
 											<p class="package-detail-insight-detail" style="text-align:left;" ng-if="!skillRequire"> - </p>			
 											<p class="package-detail-insight-detail" ng-if="skillRequire">{{skillRequire}}</p>
 										</div>
@@ -237,7 +237,7 @@
 										<p class="package-detail-subdetail-topic-style"> Include Activity </p>
 									</div>
 									<div class="col-xs-12 col-sm-8 col-md-8 no-horizotal-padding">
-										<div class="col-xs-12 col-sm-6 col-md-6 no-horizotal-padding" ng-repeat="activity in activities">
+										<div class="col-xs-12 col-sm-6 col-md-6 no-horizotal-padding" ng-repeat="activity in activities track by $index">
 											<p class="package-detail-insight-detail" style="text-align:left;" ng-if="!activity"> - </p>	
 											<p class="package-detail-insight-detail" ng-if="activity">{{activity}}</p>
 										</div>
@@ -253,7 +253,7 @@
 								<p class="package-detail-title-style">Add to Cart</p>
 							</div>
 							<HR WIDTH="95%" NOSHADE>
-							<div class="col-xs-12 col-sm-12 col-md-12" ng-repeat="packageInfo in packageInfos">
+							<div class="col-xs-12 col-sm-12 col-md-12" ng-repeat="packageInfo in packageInfos track by $index">
 								<!-- Boat Type -->
 								<div class="col-xs-5 col-sm-5 col-md-5">
 									<p>{{packageInfo.boat_type}}</p>
@@ -357,7 +357,7 @@
 					</div>
 
 					<!-- Package Comments -->					
-					<div class="col-xs-12 col-sm-12 col-md-12" ng-repeat="comment in comments.slice().reverse()">
+					<div class="col-xs-12 col-sm-12 col-md-12" ng-repeat="comment in comments.slice().reverse() track by $index">
 						<div class="col-xs-12 col-sm-2 col-md-2" style="text-align:center" >
 							<img ng-show="comment.user_id.image" class="package-detail-comment-profile-image" ng-src="api/images/{{comment.user_id.image}}"></img>
 							<img ng-show="!comment.user_id.image" class="package-detail-comment-profile-image" ng-src="{{comment.user_id.facebook_image}}"></img>
