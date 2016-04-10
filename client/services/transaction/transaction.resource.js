@@ -22,6 +22,11 @@ angular.module('acholic')
         method: 'GET',
         url:'/api/transactions/transac'
       },
+      queryTranAll:{
+        method: 'GET',
+        url:'/api/transactions/transacAll',
+        isArray: true
+      },
       queryPack:{
         method: 'GET',
         url:'/api/transactions/package'

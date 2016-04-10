@@ -89,6 +89,18 @@ exports.indexTran = function (req, res) {
  * @param req
  * @param res
  */
+exports.indexAllTran = function (req, res) {
+  Transaction.find({'vendor_id': req.query.vendor_id}).populate('user_id').exec(function (err, transactions) {
+    if (err) { return handleError(res, err); }
+    return res.status(200).json(transactions);
+  });
+};
+/**
+ * Get list of Transaction
+ *
+ * @param req
+ * @param res
+ */
 exports.indexTranPack = function (req, res) {
   Transaction.paginate({'vendor_id': req.query.vendor_id,'packages_id': req.query.package_id},{ page: req.query.page, limit: 10,populate:'user_id'},function (err, transactions) {
     if (err) { return handleError(res, err); }

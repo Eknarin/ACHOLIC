@@ -6,6 +6,7 @@ var controller = require('./transaction.controller');
 
 router.get('/receipt', controller.index);
 router.get('/transac', controller.indexTran);
+router.get('/transacAll', controller.indexAllTran);
 router.get('/package', controller.indexTranPack);
 router.get('/serial', controller.serial);
 router.post('/serial', controller.serialActivate);
