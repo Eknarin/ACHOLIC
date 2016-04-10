@@ -3,6 +3,16 @@
 var _ = require('lodash');
 var Transaction = require('./transaction.model');
 var Receipt = require('./receipt.model');
+var nodemailer = require("nodemailer");
+var User = require('../user/user.model');
+
+var transporter = nodemailer.createTransport({
+ service: "Gmail",  // sets automatically host, port and connection security settings
+   auth: {
+       user: "mostmarkofficial@gmail.com",
+       pass: "Mostmark123"
+   }
+});
 
 function handleError (res, err) {
   return res.status(500).send(err);
@@ -40,7 +50,6 @@ exports.index = function (req, res) {
  */
 exports.serial = function (req, res) {
   Transaction.findOne({'serial': req.query.serial}).populate('user_id').exec(function (err, transactions) {
-    console.log(req.query.serial);
     if (err) { return handleError(res, err); }
     return res.status(200).json(transactions);
   });
@@ -132,6 +141,17 @@ exports.createCart = function (req, res) {
     }
     recep.payment_status = false;
     recep.save();
+    User.findById(recep.user_id,function(err,user){
+        var mailOptions = {
+            from: 'mostmarkofficial@gmail.com',
+            to: user.email,
+            subject: 'Receipt number : '+recep._id ,
+            text: 'Hello, '+user.first_name+' '+user.last_name+'Your had created new transaction on our Mostmark website. The total price is '+recep.total_price+' Bath.'
+        };
+        transporter.sendMail(mailOptions, function(err) {
+          console.log('Message sent!');
+        });
+    });
     return res.status(201).json(transactions);
   });
 };

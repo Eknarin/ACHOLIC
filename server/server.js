@@ -25,8 +25,18 @@ seeder.connect(config.mongo.uri, function() {
 });
 
 var app = express();
+var nodemailer = require("nodemailer");
 var server = require('http').createServer(app);
 var socket = require('socket.io')(server, { serveClient: true });
+
+var transporter = nodemailer.createTransport({
+ service: "Gmail",  // sets automatically host, port and connection security settings
+   auth: {
+       user: "mostmarkofficial@gmail.com",
+       pass: "Mostmark123"
+   }
+});
+
 require('./config/sockets.js')(socket);
 require('./config/express')(app);
 require('./routes')(app);
