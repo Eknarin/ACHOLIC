@@ -6,7 +6,7 @@ angular.module('acholic')
      $scope.packageType = PackageItem.package_type({id : packageData.map_id.map_id._id,package_type: packageData.package_type}).$promise.then(function(res){
         $scope.info = res;
         console.log($scope.packages);
-        console.log(res)
+        console.log(res);
     });
     
 
