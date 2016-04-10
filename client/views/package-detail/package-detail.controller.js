@@ -55,7 +55,14 @@ angular.module('acholic')
       });
     };
 
+    $scope.isAddCart = false;
+
+    $scope.closeNoti = function(){
+      $scope.isAddCart = false;
+    }
+
     $scope.addToCart = function(){
+      $scope.isAddCart = true;
       Cart.addItem($scope.packageInfos, $scope.packageItem._id);
       $scope.reloadCart();
     }

@@ -166,14 +166,22 @@
 	font-size: 10px;
 }
 
-.growl-notification {
-    background: red;
+growl-notifications {
+    position: fixed;
+    top: 150px;
+    right: 10px;
+    z-index: 1000;
+}
+
+growl-notifications growl-notification {
+    background: rgba(58,223,0,0.9);
     color: white;
     padding: 15px 30px;
-    width: 200px;
+    width: 300px;
     display: block;
     border-radius: 5px;
     margin-top: 15px;
+    border: 2px solid orange;
 }
 
 @media(min-width:767px){
