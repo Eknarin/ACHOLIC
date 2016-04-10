@@ -105,10 +105,10 @@ function checkPackage (type) {
           else if(req.query.package_type == "PackageDiving")
             {
               var item_list = packageDetail;
-              if(req.query.extra !== '')
-                var arr = packageDetail[i].map_id.map_id.diving_side;
-              if(req.query.extra2 !== '')
-                var arr = packageDetail[i].map_id.map_id.diving_type;
+              // if(req.query.extra !== '')
+              //   var arr = packageDetail[i].map_id.map_id.diving_side;
+              // if(req.query.extra2 !== '')
+              //   var arr = packageDetail[i].map_id.map_id.diving_type;
             }
         }
         PackageItem.paginate({'_id' : { $in : item_list }},{page: req.query.page, limit: 9},function(err,result) {

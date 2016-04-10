@@ -222,7 +222,7 @@
 				   					<p class="package-create-topic-style"><font class="required-box">*</font> Diving place : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">					        		
-					        		<input ng-model="packages.info.river_line" name="riv_name" class="package-create-inputbox-style form-control" required type="text">
+					        		<input ng-model="packages.info.diving_place" name="riv_name" class="package-create-inputbox-style form-control" required type="text">
 					       		</div>
 					       		<div class="col-xs-12 col-sm-12 col-md-4">
 					       		</div>
@@ -259,7 +259,8 @@
 				   					<p class="package-create-topic-style"><font class="required-box">*</font> Sight (m) : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">					        		
-					        		<input class="package-create-inputbox-style" type="number" min="0" placeholder="0" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+					        		<input ng-model="packages.info.sight" class="package-create-inputbox-style" 
+					        		type="number" min="0" placeholder="0" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
 					       		</div>
 					       		<div class="col-xs-12 col-sm-12 col-md-4">
 					       		</div>
@@ -273,7 +274,7 @@
 				   					<p class="package-create-topic-style"><font class="required-box">*</font> Depth (m) : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">					        		
-					        		<input class="package-create-inputbox-style" type="number" min="0" placeholder="0" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+					        		<input ng-model="packages.info.depth" class="package-create-inputbox-style" type="number" min="0" placeholder="0" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
 					       		</div>
 					       		<div class="col-xs-12 col-sm-12 col-md-4">
 					       		</div>

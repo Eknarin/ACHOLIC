@@ -2,90 +2,90 @@
 
 angular.module('acholic')
   .controller('PackageDivingCtrl',['$scope','packageData','PackageItem','$location','$rootScope','$timeout','PackageGallery',function ($scope ,packageData, PackageItem ,$location , $rootScope , $timeout,PackageGallery) {
-  	// $scope.packages = packageData;
-   //  $scope.gallery = new PackageGallery;
-   //  $scope.gallery.images = [];
-   //  $scope.packages.info = {};
-   //  $scope.packages.info.stages = [];
-   //  $scope.packages.info.equipments_provide = [];
-   //  $scope.packages.type = "PackageRafting";
-   //  $scope.packages.user_id = $rootScope._user._id;
-   //  $scope.packages.info.location = {};
-   //  $scope.provide = "";
-   //  $scope.require = "";
-   //  $scope.skill = "";
-   //  $scope.minPrice = 9000000;
-   //  $scope.activities = "";
-   //  $scope.packages.rating = 0;
+  	$scope.packages = packageData;
+    $scope.gallery = new PackageGallery;
+    $scope.gallery.images = [];
+    $scope.packages.info = {};
+    $scope.packages.info.stages = [];
+    $scope.packages.info.equipments_provide = [];
+    $scope.packages.type = "PackageDiving";
+    $scope.packages.user_id = $rootScope._user._id;
+    $scope.packages.info.location = {};
+    $scope.provide = "";
+    $scope.require = "";
+    $scope.skill = "";
+    $scope.minPrice = 9000000;
+    $scope.activities = "";
+    $scope.packages.rating = 0;
 
-   //  $scope.seasonMonth = false;
+    $scope.seasonMonth = false;
 
-   //  var packNum = 0;
+    var packNum = 0;
 
 
-   //  $scope.checkSeason = function(){
-   //      if ($scope.seas == "Whole Year") {
-   //          $scope.seasonMonth = false;
-   //      } else{
-   //          $scope.seasonMonth = true;
-   //      }
-   //  }
+    $scope.checkSeason = function(){
+        if ($scope.seas == "Whole Year") {
+            $scope.seasonMonth = false;
+        } else{
+            $scope.seasonMonth = true;
+        }
+    }
 
 
     $scope.onSubmit = function(){
-        // //provide
-        // $scope.packages.info.equipments_provide = $scope.provide.split(",");
-        // //require
-        // $scope.packages.info.equipments_require = $scope.require.split(",");
-        // //skill
-        // $scope.packages.info.skills_require = $scope.skill.split(",");
-        // //skill
-        // $scope.packages.info.activities = $scope.activities.split(",");
+        //provide
+        $scope.packages.info.equipments_provide = $scope.provide.split(",");
+        //require
+        $scope.packages.info.equipments_require = $scope.require.split(",");
+        //skill
+        $scope.packages.info.skills_require = $scope.skill.split(",");
+        //skill
+        $scope.packages.info.activities = $scope.activities.split(",");
 
-        // //season
-        // $scope.packages.info.season = {};
-        // $scope.packages.info.season.year = $scope.seas;
-        // $scope.packages.info.season.month1 = $scope.month1;
-        // $scope.packages.info.season.month2 = $scope.month2;
-        // //stage
-        // $scope.packages.info.stages = $scope.stages;
-        // //stage type
-        // $scope.packages.info.stages_amount = $scope.stageHighlights.length;
+        //season
+        $scope.packages.info.season = {};
+        $scope.packages.info.season.year = $scope.seas;
+        $scope.packages.info.season.month1 = $scope.month1;
+        $scope.packages.info.season.month2 = $scope.month2;
+        //stage
+        $scope.packages.info.stages = $scope.stages;
+        //stage type
+        $scope.packages.info.stages_amount = $scope.stageHighlights.length;
 
-        // //start stage
-        // $scope.packages.info.start_location = $scope.firstStage;
+        //start stage
+        $scope.packages.info.start_location = $scope.firstStage;
 
-        // //end stage
-        // $scope.packages.info.end_location = $scope.lastStage;
+        //end stage
+        $scope.packages.info.end_location = $scope.lastStage;
 
-        // //infos
-        // $scope.packages.info.info = $scope.priceArrs;
+        //infos
+        $scope.packages.info.info = $scope.priceArrs;
 
-        //  //min price
-        // $scope.packages.price = $scope.findMinPrice();   
-        // $scope.gallery.$save().then(function(res){
-        //     $scope.packages.info.image_gallery = res._id;
-        //     $scope.packages.$save().then(function(){
-        //         $location.path("/package");
-        //     });
-        // });   
+         //min price
+        $scope.packages.price = $scope.findMinPrice();   
+        $scope.gallery.$save().then(function(res){
+            $scope.packages.info.image_gallery = res._id;
+            $scope.packages.$save().then(function(){
+                $location.path("/package");
+            });
+        });   
     };
 
-    // $scope.stages = [{
-    //     name: '',
-    //     description: ''
-    // }];
+    $scope.stages = [{
+        name: '',
+        description: ''
+    }];
     
-    // $scope.stageHighlights = [];
+    $scope.stageHighlights = [];
   
-    // $scope.addNewStageHighlight = function() {
-    //     $scope.stageHighlights.push($scope.stageHighlights.length);
-    // };
+    $scope.addNewStageHighlight = function() {
+        $scope.stageHighlights.push($scope.stageHighlights.length);
+    };
         
-    // $scope.removeStageHighlight = function(index) {
-    //     $scope.stageHighlights.splice(index,1);
-    //     $scope.stages.splice(index,1);
-    // };  
+    $scope.removeStageHighlight = function(index) {
+        $scope.stageHighlights.splice(index,1);
+        $scope.stages.splice(index,1);
+    };  
     // menu-bar function
  	var navListItems = $('ul.setup-panel li a'),
     allWells = $('.setup-content');
@@ -140,14 +140,6 @@ angular.module('acholic')
               return;
             }
             if($scope.packages.info == null){
-                alert(req);
-                return;
-            }
-            if($scope.packages.info.river_line == null){
-                alert(req);
-                return;
-            }
-            if($scope.packages.info.level == null){
                 alert(req);
                 return;
             }
@@ -252,6 +244,7 @@ angular.module('acholic')
   $scope.selectedProvince = "Province";
   $scope.setProvince = function(value){
     $scope.selectedProvince = value;
+    $scope.packages.province = value;
   };
 
   $scope.seas = "Whole Year";
@@ -294,101 +287,102 @@ angular.module('acholic')
   ];
   $scope.setDivingSide = function(value){    
     $scope.diving_side = value;
+    $scope.packages.info.diving_side = value;
   }
 
 
 
-  // $scope.priceArrs = [];
-  // $scope.addPrice = function(){
+  $scope.priceArrs = [];
+  $scope.addPrice = function(){
 
-  //   if($scope.packages.info.info == null){
-  //       alert("Please fill out all details before submit.");
-  //       return;
-  //   }
+    if($scope.packages.info.info == null){
+        alert("Please fill out all details before submit.");
+        return;
+    }
 
-  //   var addPrice = $scope.packages.info.info.price;
-  //   var addPeople = $scope.packages.info.info.people;
-  //   var addDistance = $scope.packages.info.info.distance;
-  //   var addDuration = $scope.packages.info.info.duration;
-  //   var addType = $scope.packages.info.info.type;
-  //   var addBoat = $scope.boat_type;
+    var addPrice = $scope.packages.info.info.price;
+    var addPeople = $scope.packages.info.info.people;
+    var addDistance = $scope.packages.info.info.distance;
+    var addDuration = $scope.packages.info.info.duration;
+    var addType = $scope.packages.info.info.type;
+    var addDiving = $scope.diving_type;
 
-  //   var alertMess = "Please check ";
-  //   var lastMess = "field(s) and try again.";
-  //   var checkLoss = "";
-  //   var complete = true;
+    var alertMess = "Please check ";
+    var lastMess = "field(s) and try again.";
+    var checkLoss = "";
+    var complete = true;
 
 
 
-  //   if(addPrice == null){
-  //       checkLoss = checkLoss + ".Price ";
-  //       complete = false;
-  //   }
-  //   if(addPeople == null){
-  //       checkLoss = checkLoss + ".People ";
-  //       complete = false;
-  //   }
-  //   if(addDistance == null){
-  //       checkLoss = checkLoss + ".Distance ";
-  //       complete = false;
-  //   }
-  //   if(addDuration == null){
-  //       checkLoss = checkLoss + ".Duration ";
-  //       complete = false;
-  //   }
-  //   if(addType == null){
-  //       checkLoss = checkLoss + ".Name ";
-  //       complete = false;
-  //   }
-  //   if(addBoat == null){
-  //       checkLoss = checkLoss + ".BoatType ";
-  //       complete = false;
-  //   }
+    if(addPrice == null){
+        checkLoss = checkLoss + ".Price ";
+        complete = false;
+    }
+    if(addPeople == null){
+        checkLoss = checkLoss + ".People ";
+        complete = false;
+    }
+    if(addDistance == null){
+        checkLoss = checkLoss + ".Distance ";
+        complete = false;
+    }
+    if(addDuration == null){
+        checkLoss = checkLoss + ".Duration ";
+        complete = false;
+    }
+    if(addType == null){
+        checkLoss = checkLoss + ".Name ";
+        complete = false;
+    }
+    if(addDiving == null){
+        checkLoss = checkLoss + ".DivingType ";
+        complete = false;
+    }
 
-  //   if(!complete){
-  //       alert(alertMess+checkLoss+lastMess);
-  //       return;
-  //   }
+    if(!complete){
+        alert(alertMess+checkLoss+lastMess);
+        return;
+    }
     
-  //   packNum = packNum + 1;
+    packNum = packNum + 1;
 
-  //   var priceObj = {
-  //       price: addPrice, 
-  //       type: addType,
-  //       people: addPeople, 
-  //       distance: addDistance, 
-  //       duration: addDuration, 
-  //       boat_type: addBoat};
+    var priceObj = {
+        price: addPrice, 
+        type: addType,
+        people: addPeople, 
+        distance: addDistance, 
+        duration: addDuration, 
+        diving_type: addDiving};
 
-  //   $scope.priceArrs.push(priceObj);
+    $scope.priceArrs.push(priceObj);
 
-  //   //empty input fields
-  //   $scope.packages.info.info.price = "";
-  //   $scope.packages.info.info.type = "";
-  //   $scope.packages.info.info.people = "";
-  //   $scope.packages.info.info.distance = "";
-  //   $scope.packages.info.info.duration = "";
-  //   $scope.packages.info.info.boat_type = "";
-  // };
+    //empty input fields
+    $scope.packages.info.info.price = "";
+    $scope.packages.info.info.type = "";
+    $scope.packages.info.info.people = "";
+    $scope.packages.info.info.distance = "";
+    $scope.packages.info.info.duration = "";
+    $scope.packages.info.info.diving_type = "";
+  };
 
-  // // find min price in priceArrs
-  //   $scope.findMinPrice = function(){
-  //       var temp = 0;
-  //       for(var i=0; i<$scope.priceArrs.length; i++){
-  //           temp = parseInt($scope.priceArrs[i].price);
-  //           console.log("TEMP : "+temp+" MIN : "+$scope.minPrice);
-  //           if($scope.minPrice > temp){
-  //               $scope.minPrice = temp;
-  //               console.log("Change : "+$scope.minPrice);
-  //           }
-  //       }        
-  //       console.log("Min Price = "+$scope.minPrice);
-  //       return $scope.minPrice;
-  //   };
-  //   $scope.deleteRow = function(index) {
-  //       console.log('delete');
-  //       $scope.priceArrs.splice(index,1);
-  //     };
+  // find min price in priceArrs
+    $scope.findMinPrice = function(){
+        var temp = 0;
+        for(var i=0; i<$scope.priceArrs.length; i++){
+            temp = parseInt($scope.priceArrs[i].price);
+            console.log("TEMP : "+temp+" MIN : "+$scope.minPrice);
+            if($scope.minPrice > temp){
+                $scope.minPrice = temp;
+                console.log("Change : "+$scope.minPrice);
+            }
+        }        
+        console.log("Min Price = "+$scope.minPrice);
+        return $scope.minPrice;
+    };
+    $scope.deleteRow = function(index) {
+        console.log('delete');
+        $scope.priceArrs.splice(index,1);
+      };
 
     $scope.markers = [];
     $scope.map = {

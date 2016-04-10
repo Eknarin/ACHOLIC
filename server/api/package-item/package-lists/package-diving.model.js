@@ -5,37 +5,41 @@ var Schema = mongoose.Schema;
 
 var DivingSchema = new Schema({
 	location: {
-		province: String,
-		place: String
+		location_text: String,
+		lat: String,
+		long: String
 	},
+	diving_place: String,
 	info:[{
-		type: String,
-		price: Number
+		type: {type: String},
+		diving_type: String,
+		people: String,
+		distance: String,
+		price: String,
+		duration: String
 	}],
+	level: String,
 	sight: Number,
-	sea_depth: Number,
-	level: Number,
+	depth: Number,
+	expired: String,
+	stages_amount: Number,
+	stages: [{
+		name: String,
+		description: String
+	}],
 	season:{
 		year: String,
 		month1: String,
 		month2: String
 	},	
-	diving_type: String,
-	diving_side: String,
 	age_limit: Number,
-	activites: String,
+	activities: [String],
 	equipments_provide: [String],
 	equipments_require: [String],
 	prepration: String,
-	skills_require: String,
-	schedule: String,
-	note: String,
-	office_time: {
-		open_time: String,
-		close_time: String,
-		note: String
-	},
-	image_gallery: Schema.Types.ObjectId
+	skills_require: [String],
+	image_gallery: { type: Schema.Types.ObjectId, ref: 'PackageGallery' },
+	diving_side: String
 });
 
 module.exports = mongoose.model('PackageDiving', DivingSchema ,'PackageDiving');

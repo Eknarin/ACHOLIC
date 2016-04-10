@@ -55,41 +55,41 @@ angular.module('acholic')
 
     $scope.onSubmit = function(){
         //provide
-        $scope.packages.info.equipments_provide = $scope.provide.split(",");
-        //require
-        $scope.packages.info.equipments_require = $scope.require.split(",");
-        //skill
-        $scope.packages.info.skills_require = $scope.skill.split(",");
-        //skill
-        $scope.packages.info.activities = $scope.activities.split(",");
+        // $scope.packages.info.equipments_provide = $scope.provide.split(",");
+        // //require
+        // $scope.packages.info.equipments_require = $scope.require.split(",");
+        // //skill
+        // $scope.packages.info.skills_require = $scope.skill.split(",");
+        // //skill
+        // $scope.packages.info.activities = $scope.activities.split(",");
 
-        //season
-        $scope.packages.info.season = {};
-        $scope.packages.info.season.year = $scope.seas;
-        $scope.packages.info.season.month1 = $scope.month1;
-        $scope.packages.info.season.month2 = $scope.month2;
-        //stage
-        $scope.packages.info.stages = $scope.stages;
-        //stage type
-        $scope.packages.info.stages_amount = $scope.stageHighlights.length;
+        // //season
+        // $scope.packages.info.season = {};
+        // $scope.packages.info.season.year = $scope.seas;
+        // $scope.packages.info.season.month1 = $scope.month1;
+        // $scope.packages.info.season.month2 = $scope.month2;
+        // //stage
+        // $scope.packages.info.stages = $scope.stages;
+        // //stage type
+        // $scope.packages.info.stages_amount = $scope.stageHighlights.length;
 
-        //start stage
-        $scope.packages.info.start_location = $scope.firstStage;
+        // //start stage
+        // $scope.packages.info.start_location = $scope.firstStage;
 
-        //end stage
-        $scope.packages.info.end_location = $scope.lastStage;
+        // //end stage
+        // $scope.packages.info.end_location = $scope.lastStage;
 
-        //infos
-        $scope.packages.info.info = $scope.priceArrs;
+        // //infos
+        // $scope.packages.info.info = $scope.priceArrs;
 
-         //min price
-        $scope.packages.price = $scope.findMinPrice();   
-        $scope.gallery.$save().then(function(res){
-            $scope.packages.info.image_gallery = res._id;
-            $scope.packages.$save().then(function(){
-                $location.path("/package");
-            });
-        });   
+        //  //min price
+        // $scope.packages.price = $scope.findMinPrice();   
+        // $scope.gallery.$save().then(function(res){
+        //     $scope.packages.info.image_gallery = res._id;
+        //     $scope.packages.$save().then(function(){
+        //         $location.path("/package");
+        //     });
+        // });   
     };
 
     $scope.stages = [{
