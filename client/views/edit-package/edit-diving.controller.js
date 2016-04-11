@@ -3,28 +3,50 @@
 angular.module('acholic')
   .controller('EditDivingPackageCtrl',['$scope','packageData','PackageItem','$location','$rootScope','$timeout','PackageGallery',function ($scope ,packageData, PackageItem ,$location , $rootScope , $timeout,PackageGallery) {
     $scope.packages = packageData;
-     $scope.packageType = PackageItem.package_type({id : packageData.map_id.map_id._id,package_type: packageData.package_type}).$promise.then(function(res){
-        $scope.info = res;
-        console.log($scope.packages);
-        console.log(res);
-    });
-    
-
-    $scope.packages.info = {};
-    $scope.packages.info.stages = [];
-    $scope.packages.info.equipments_provide = [];
-    $scope.packages.type = "PackageRafting";
-    $scope.packages.user_id = $rootScope._user._id;
-    $scope.packages.info.location = {};
-    $scope.provide = "";
-    $scope.require = "";
-    $scope.skill = "";
     $scope.minPrice = 9000000;
-    $scope.activities = "";
-    $scope.packages.rating = 0;
+    $scope.gallery = new PackageGallery;
+    console.log($scope.packages);
 
-    $scope.seasonMonth = false;
+     $scope.packageType = PackageItem.package_type({id : packageData.map_id.map_id._id,package_type: packageData.package_type}).$promise.then(function(res){
+        $scope.packageTab2 = res;
+        console.log(res);
+        $scope.testMap = res.location.location_text;
 
+        if(res.season.month1){
+            $scope.seas = "From";
+            $scope.month1 = res.season.month1;
+            $scope.month2 = res.season.month2;
+            $scope.seasonMonth = true;
+        }
+        else{
+            $scope.seas = "Whole Year";
+            $scope.seasonMonth = false;
+        }
+
+        $scope.map = {
+            center:[
+                $scope.packageTab2.location.lat,
+                $scope.packageTab2.location.long
+            ],
+            zoom: 12
+        };
+
+        $scope.diving_side = $scope.packageTab2.diving_side;
+        $scope.stageHighlights = res.stages;
+        $scope.priceArrs = res.info;
+        $scope.provide = $scope.packageTab2.equipments_provide.toString();
+        $scope.require = $scope.packageTab2.equipments_require.toString();
+        $scope.skill = $scope.packageTab2.skills_require.toString();
+        $scope.activities = $scope.packageTab2.activities.toString();
+
+        if($scope.packageTab2.image_gallery){
+            PackageGallery.query({id: $scope.packageTab2.image_gallery}).$promise.then(function(res){
+                $scope.gallery.images = res.images;
+            });
+        }
+        else
+            $scope.gallery.images = [];
+    }); 
 
     $scope.checkSeason = function(){
         if ($scope.seas == "Whole Year") {
@@ -34,76 +56,88 @@ angular.module('acholic')
         }
     }
 
-
     $scope.onSubmit = function(){
+        //province
+        $scope.packages.province = $scope.selectedProvince;
+
+        //season
+        $scope.packageTab2.season = {};
+        if($scope.seas == "Whole Year"){
+            $scope.packageTab2.season.year = $scope.seas;
+            $scope.packageTab2.season.month1 = "";
+            $scope.packageTab2.season.month2 = "";
+        }
+        else{
+            $scope.packageTab2.season.year = "";
+            $scope.packageTab2.season.month1 = $scope.month1;
+            $scope.packageTab2.season.month2 = $scope.month2;
+        }
+
         //provide
-        // $scope.packages.info.equipments_provide = $scope.provide.split(",");
-        // //require
-        // $scope.packages.info.equipments_require = $scope.require.split(",");
-        // //skill
-        // $scope.packages.info.skills_require = $scope.skill.split(",");
-        // //skill
-        // $scope.packages.info.activities = $scope.activities.split(",");
+        $scope.packageTab2.equipments_provide = $scope.provide.split(",");
 
-        // //season
-        // $scope.packages.info.season = {};
-        // $scope.packages.info.season.year = $scope.seas;
-        // $scope.packages.info.season.month1 = $scope.month1;
-        // $scope.packages.info.season.month2 = $scope.month2;
-        // //stage
-        // $scope.packages.info.stages = $scope.stages;
-        // //stage type
-        // $scope.packages.info.stages_amount = $scope.stageHighlights.length;
+        //require
+        $scope.packageTab2.equipments_require = $scope.require.split(",");
 
-        // //start stage
-        // $scope.packages.info.start_location = $scope.firstStage;
+        //skill
+        $scope.packageTab2.skills_require = $scope.skill.split(",");
 
-        // //end stage
-        // $scope.packages.info.end_location = $scope.lastStage;
+        //activities
+        $scope.packageTab2.activities = $scope.activities.split(",");
 
-        // //infos
-        // $scope.packages.info.info = $scope.priceArrs;
+        //min price
+        $scope.packages.price = $scope.findMinPrice(); 
 
-        //  //min price
-        // $scope.packages.price = $scope.findMinPrice();   
-        // $scope.gallery.$save().then(function(res){
-        //     $scope.packages.info.image_gallery = res._id;
-        //     $scope.packages.$save().then(function(){
-        //         $location.path("/package");
+        console.log("------------");
+        console.log($scope.packages);
+        console.log($scope.packageTab2);
+
+        // PackageItem.update($scope.packages).$promise.then(function(res1){
+        //     // console.log(res1);
+
+        //     console.log($scope.gallery.images);
+
+        //     $scope.gallery.$save().then(function(res){
+        //         $scope.packageTab2.image_gallery = res._id;
+        //         PackageItem.updatePackage($scope.packageTab2).$promise.then(function(res2){
+        //             $location.path("/package");
+        //         });
         //     });
-        // });   
+        // });
+
+
+    };
+
+    // find min price in priceArrs
+    $scope.findMinPrice = function(){
+        var temp = 0;
+        for(var i=0; i < $scope.packageTab2.info.length; i++){
+            temp = parseInt($scope.packageTab2.info[i].price);
+            console.log("TEMP : "+temp+" MIN : "+ $scope.minPrice);
+            if($scope.minPrice > temp){
+                $scope.minPrice = temp;
+                console.log("Change : "+$scope.minPrice);
+            }
+        }        
+        console.log("Min Price = "+$scope.minPrice);
+        return $scope.minPrice;
     };
 
     $scope.stages = [{
         name: '',
         description: ''
     }];
-
-    // $scope.stages = [];
     
     $scope.stageHighlights = [];
   
     $scope.addNewStageHighlight = function() {
-        // $scope.stages.push($scope.stages.length);
         $scope.stageHighlights.push($scope.stageHighlights.length);
     };
         
     $scope.removeStageHighlight = function(index) {
-        // $scope.stages.splice(index,1);
-        // $scope.stageType.splice(index,1); 
         $scope.stageHighlights.splice(index,1);
         $scope.stages.splice(index,1);
     };
-
-    // $scope.firstStage = "Stage";
-    // $scope.setFirstStage = function(val){
-    //     $scope.firstStage = val;
-    // };
-
-    // $scope.lastStage = "Stage";
-    // $scope.setLastStage = function(val){
-    //     $scope.lastStage = val;
-    // };
 
     // menu-bar function
     var navListItems = $('ul.setup-panel li a'),
@@ -154,15 +188,19 @@ angular.module('acholic')
             }
         } 
         else if(currenstate == 1){
-            if($scope.packages.info == null){
+            if($scope.packageTab2 == null){
                 alert(req);
                 return;
             }
-            if($scope.packages.map_id.river_line == null){
+            if($scope.diving_side == null){
                 alert(req);
                 return;
             }
-            if($scope.packages.map_id.level == null){
+            if($scope.packageTab2.sight == null){
+                alert(req);
+                return;
+            }
+            if($scope.packageTab2.depth == null){
                 alert(req);
                 return;
             }
@@ -264,9 +302,9 @@ angular.module('acholic')
     {name: 'อุบลราชธานี'},
     {name: 'อำนาจเจริญ'}
   ];
-  $scope.selected = "Province";
+  $scope.selectedProvince = $scope.packages.province;
   $scope.setProvince = function(value){
-    $scope.selected = value;
+    $scope.selectedProvince = value;
   };
 
   $scope.seas = "Whole Year";
@@ -288,23 +326,30 @@ angular.module('acholic')
     {name: 'December'}
   ];
   $scope.setMonth1 = function(value){
-    $scope.month1 = " "+value;
+    $scope.month1 = value;
   };
 
   $scope.setMonth2 = function(value){
-    $scope.month2 = " to "+value;
+    $scope.month2 = value;
   };
-  $scope.boats = [
-    {type : 'เรือยาง'},
-    {type : 'แพ'},
-    {type : 'แคนู'},
-    {type : 'คายัค'}
+
+  $scope.divingTypes = [
+    {type : 'ดำน้ำลึก'},
+    {type : 'ดำน้ำตื้น'}
   ];
-  
-  $scope.setBoat = function(value){    
-    $scope.boat_type = value;
+  // $scope.diving_type = $scope.packageTab2.diving_type;
+  $scope.setDivingType = function(value){    
+    $scope.diving_type = value;
   }
 
+  $scope.divingSides = [
+    {side : 'อ่าวไทย'},
+    {side : 'อันดามัน'}
+  ];
+  // $scope.diving_side = $scope.packageTab2.diving_side;
+  $scope.setDivingSide = function(value){    
+    $scope.diving_side = value;
+  }
 
   $scope.priceArrs = [];
   $scope.addPrice = function(){
@@ -319,7 +364,7 @@ angular.module('acholic')
     var addDistance = $scope.packages.info.info.distance;
     var addDuration = $scope.packages.info.info.duration;
     var addType = $scope.packages.info.info.type;
-    var addBoat = $scope.boat_type;
+    var addDiving = $scope.diving_type;
 
     var alertMess = "Please check ";
     var lastMess = "field(s) and try again.";
@@ -348,8 +393,8 @@ angular.module('acholic')
         checkLoss = checkLoss + ".Name ";
         complete = false;
     }
-    if(addBoat == null){
-        checkLoss = checkLoss + ".BoatType ";
+    if(addDiving == null){
+        checkLoss = checkLoss + ".DivingType ";
         complete = false;
     }
 
@@ -357,14 +402,14 @@ angular.module('acholic')
         alert(alertMess+checkLoss+lastMess);
         return;
     }
-    
+
     var priceObj = {
         price: addPrice, 
         type: addType,
         people: addPeople, 
         distance: addDistance, 
         duration: addDuration, 
-        boat_type: addBoat};
+        diving_type: addDiving};
 
     $scope.priceArrs.push(priceObj);
 
@@ -374,7 +419,7 @@ angular.module('acholic')
     $scope.packages.info.info.people = "";
     $scope.packages.info.info.distance = "";
     $scope.packages.info.info.duration = "";
-    $scope.packages.info.info.boat_type = "";
+    $scope.packages.info.info.diving_type = "";
   };
 
   // find min price in priceArrs
@@ -397,13 +442,6 @@ angular.module('acholic')
       };
 
     $scope.markers = [];
-    $scope.map = {
-        center:[
-            13.73842,
-            100.530925
-        ],
-        zoom: 12
-    };
 
     $scope.reRednerMap = function() {
       $timeout(function() {
@@ -411,6 +449,24 @@ angular.module('acholic')
             google.maps.event.trigger(index, 'resize');
           });
       }, 100);
+    };
+
+    var geocoder = new google.maps.Geocoder;
+    $scope.doSth = function(){
+      geocoder.geocode({'location': this.getPosition()}, function(results, status) {
+        if (status === google.maps.GeocoderStatus.OK) {
+          if (results[1]) {
+            $scope.packageTab2.location.lat = results[1].geometry.location.lat();
+            $scope.packageTab2.location.long = results[1].geometry.location.lng();
+            $scope.packageTab2.location.location_text = results[1].formatted_address;
+            $scope.testMap = results[1].formatted_address;
+          } else {
+            window.alert('No results found');
+          }
+        } else {
+          window.alert('Geocoder failed due to: ' + status);
+        }
+      });
     };
 
     $scope.geocodeAddress = function(geocoder, resultsMap) {
@@ -451,9 +507,11 @@ angular.module('acholic')
             }
             $scope.markers = [];
             $scope.markers.push(marker);
-            $scope.packages.info.location.lat = marker.position[0];
-            $scope.packages.info.location.long = marker.position[1];
-            $scope.packages.info.location.location_text = place.formatted_address;
+
+            $scope.packageTab2.location.lat = marker.position[0];
+            $scope.packageTab2.location.long = marker.position[1];
+            $scope.packageTab2.location.location_text = place.formatted_address;
+
             $scope.reRednerMap();
         });
 

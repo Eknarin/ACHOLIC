@@ -139,12 +139,20 @@
 			       			</div>
 			       			<div class="col-xs-12 col-sm-12 col-md-8">				        		 
 								 <ng-map center="{{map.center}}" zoom="12" on-click="addMarker(event)">
-									<marker ng-repeat="marker in markers" 
+									<marker ng-if="markers.length != 0" ng-repeat="marker in markers" 
 										position="{{marker.position}}"
 										optimized="{{marker.optimized}}"
 								        animation="DROP"
 								        draggable="true"
-									    icon="{{marker.icon}}"></marker>									    
+								        on-dragend="doSth()"
+									    icon="{{marker.icon}}">
+									</marker>
+									<marker ng-if="markers.length == 0"
+										position="{{packageTab2.location.lat}},{{packageTab2.location.long}}"
+								        animation="DROP"
+										draggable="true"
+								        on-dragend="doSth()">
+									</marker>	
 								</ng-map>			
 				        	</div>
 			        	</div>	        	
@@ -207,7 +215,7 @@
 				   					<p class="package-create-topic-style">Age not under : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.info.age_limit" class="package-create-inputbox-style" type="number" min="0" placeholder="0" required>
+					        		<input ng-model="packageTab2.age_limit" class="package-create-inputbox-style" type="number" min="0" placeholder="0" required>
 					       		</div>
 				        	</div>	
 		   				</div>
@@ -222,7 +230,7 @@
 				   					<p class="package-create-topic-style"><font class="required-box">*</font> Diving place : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">					        		
-					        		<input ng-model="packages.info.river_line" name="riv_name" class="package-create-inputbox-style form-control" required type="text">
+					        		<input ng-model="packageTab2.diving_place" name="riv_name" class="package-create-inputbox-style form-control" required type="text">
 					       		</div>
 					       		<div class="col-xs-12 col-sm-12 col-md-4">
 					       		</div>
@@ -259,7 +267,7 @@
 				   					<p class="package-create-topic-style"><font class="required-box">*</font> Sight (m) : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">					        		
-					        		<input class="package-create-inputbox-style" type="number" min="0" placeholder="0" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+					        		<input class="package-create-inputbox-style" ng-model="packageTab2.sight" type="number" min="0" placeholder="0" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
 					       		</div>
 					       		<div class="col-xs-12 col-sm-12 col-md-4">
 					       		</div>
@@ -273,7 +281,7 @@
 				   					<p class="package-create-topic-style"><font class="required-box">*</font> Depth (m) : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">					        		
-					        		<input class="package-create-inputbox-style" type="number" min="0" placeholder="0" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+					        		<input class="package-create-inputbox-style" ng-model="packageTab2.depth" type="number" min="0" placeholder="0" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
 					       		</div>
 					       		<div class="col-xs-12 col-sm-12 col-md-4">
 					       		</div>
@@ -293,7 +301,7 @@
 				   					<p class="package-create-topic-style">Stage Amount : </p>
 			    				</div>
 				      			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<input ng-model="packages.info.stages_amount" class="package-create-inputbox-style" type="number" min="0" placeholder="0" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+					        		<input class="package-create-inputbox-style" ng-model="packageTab2.stages_amount" type="number" min="0" placeholder="0" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
 					       		</div>
 				        	</div>
 					        <!-- Stage Highlight and Description -->
@@ -306,9 +314,9 @@
 							       		<fieldset  ng-repeat="stageHighlight in stageHighlights">		
 							       			<div class="col-xs-10 col-sm-10 col-md-10">
 						       					<p>Stage name<p> 	
-							       				<input class="package-create-inputbox-style" data-ng-model="stages[$index].name">	
+							       				<input class="package-create-inputbox-style" data-ng-model="stageHighlights[$index].name">	
 							       				<p>Description<p> 	     
-										     	<textarea type="text" class="package-create-inputbox-style form-control" rows="3" name="" required style="width:100%; margin-bottom:15px;" data-ng-model="stages[$index].description"></textarea>
+										     	<textarea type="text" class="package-create-inputbox-style form-control" rows="3" name="" required style="width:100%; margin-bottom:15px;" data-ng-model="stageHighlights[$index].description"></textarea>
 										  	</div>
 										  	<div class="col-xs-2 col-sm-2 col-md-2">
 										      	<button class="btn btn-danger package-create-add-delete-button-style" style="width:100%; margin-bottom:15px;" ng-click="removeStageHighlight($index)">-</button>
@@ -547,7 +555,7 @@
 				       				<p class="package-create-topic-style">Suggestion : </p>
 				       			</div>
 				       			<div class="col-xs-12 col-sm-12 col-md-8">
-					        		<textarea  ng-model="packages.info.prepration"  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Wear comforable suit"></textarea >
+					        		<textarea  ng-model="packageTab2.prepration"  class="package-create-inputbox-style form-control" rows="5" placeholder="e.x. Wear comforable suit"></textarea >
 					        	</div>
 				        	</div>
 					    </div>					    
