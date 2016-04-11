@@ -298,6 +298,14 @@ angular.module('acholic')
     $scope.boat_type = value;
   }
 
+  $scope.expireMonths = [
+    {month : '3'},
+    {month : '6'},
+    {month : '9'}
+  ];
+  $scope.setExpireMonth = function(value){
+    $scope.expire_month = value;
+  }
 
   $scope.priceArrs = [];
   $scope.addPrice = function(){

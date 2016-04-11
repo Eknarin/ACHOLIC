@@ -485,9 +485,19 @@
 					   					<p class="package-create-topic-style"><font class="required-box">*</font> Expired Date : </p>
 				    				</div>
 					       			<div class="col-xs-12 col-sm-12 col-md-8">
-						        		<datepicker date-format="dd-MM-yyyy" date-year-title="selected title">
+						        		<!-- <datepicker date-format="dd-MM-yyyy" date-year-title="selected title">
 											  <input class="package-create-inputbox-style" type="text"/>
-										</datepicker>
+										</datepicker> -->
+										<div class="btn-group">
+											<button type="button" class="btn btn-default package-create-dropdown-select" ng-bind='expire_month'> </button>
+											<button type="button" class="btn btn-default dropdown-toggle package-create-dropdown-menu-button" data-toggle="dropdown">
+											<span class="caret"></span>
+											<span class="sr-only">Toggle Dropdown</span>
+											</button>
+											<ul class="dropdown-menu scrollable-menu ">
+												<li ng-repeat="expireMonth in expireMonths" ng-click="setExpireMonth(expireMonth.month)" class="package-create-dropdown-list-style"><a href="#">{{expireMonth.month}}</a></li>
+											</ul>
+										</div>
 						       		</div>	
 						       	</div>			        	
 						    </div>
