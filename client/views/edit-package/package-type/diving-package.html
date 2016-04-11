@@ -133,7 +133,7 @@
 			        	</div>
 
 			        	<!-- Map -->
-			       		<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover">
+			       		<div class="col-xs-12 col-sm-12 col-md-12 package-create-input-cover" ng-show="loading">
 			       			<div class="col-xs-12 col-sm-12 col-md-4">
 			       				<p class="package-create-topic-style">Map : </p>
 			       			</div>
@@ -310,21 +310,21 @@
 				   					<p class="package-create-topic-style">Stage Highlight and Description : </p>		    				
 			    				</div>
 			    				<div class="col-xs-12 col-sm-12 col-md-12"> 					      			
-						       		<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:0px; padding-right:0px;"> 
-							       		<fieldset  ng-repeat="stageHighlight in stageHighlights">		
-							       			<div class="col-xs-10 col-sm-10 col-md-10">
+						       		<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:0px; padding-right:0px;" ng-show="loading"> 
+							       		<fieldset  ng-repeat="stageHighlight in stageHighlights track by $index">	
+										 	<div class="col-xs-10 col-sm-10 col-md-10">
 						       					<p>Stage name<p> 	
-							       				<input class="package-create-inputbox-style" data-ng-model="stageHighlights[$index].name">	
+							       				<input class="package-create-inputbox-style" data-ng-model="stages[$index].name">	
 							       				<p>Description<p> 	     
-										     	<textarea type="text" class="package-create-inputbox-style form-control" rows="3" name="" required style="width:100%; margin-bottom:15px;" data-ng-model="stageHighlights[$index].description"></textarea>
+										     	<textarea type="text" class="package-create-inputbox-style form-control" rows="3" name="" required style="width:100%; margin-bottom:15px;" data-ng-model="stages[$index].description"></textarea>
 										  	</div>
 										  	<div class="col-xs-2 col-sm-2 col-md-2">
-										      	<button class="btn btn-danger package-create-add-delete-button-style" style="width:100%; margin-bottom:15px;" ng-click="removeStageHighlight($index)">-</button>
+										      	<p id="DelHL" class="btn btn-danger" style="width:100%; margin-bottom:15px;" ng-click="setDel($index)">-</p>
 										 	</div>
 										</fieldset>
 									</div>
 									<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:0px; padding-right:0px; text-align:center;"> 
-										<button class="btn btn-success addfields" ng-click="addNewStageHighlight()">Add Highlight</button>
+										<p id="addHL" class="btn btn-success addfields" ng-click="addNewStageHighlight()">Add Highlight</p>
 									</div>
 						       	</div>
 					        </div>		   					
@@ -588,7 +588,7 @@
 			            </div>
 			            <div class="col-xs-12 col-sm-12 col-md-12" style="text-align: center; margin-top:20px;">
 			            	<button type="button" class="btn btn-danger" ng-click="previousTab()">Back</button>
-							<button type="button" class="btn btn-success" ng-click="onSubmit()">Create</button>
+							<button type="button" class="btn btn-success" ng-click="onSubmit()">Update</button>
 			            </div>	
 				    </div>
 				</div>		            		            	            

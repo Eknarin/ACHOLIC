@@ -5,11 +5,12 @@ angular.module('acholic')
     $scope.packages = packageData;
     $scope.minPrice = 9000000;
     $scope.gallery = new PackageGallery;
-    console.log($scope.packages);
+    // console.log($scope.packages);
+    $scope.loading = false;
 
      $scope.packageType = PackageItem.package_type({id : packageData.map_id.map_id._id,package_type: packageData.package_type}).$promise.then(function(res){
         $scope.packageTab2 = res;
-        console.log(res);
+        // console.log(res);
         $scope.testMap = res.location.location_text;
 
         if(res.season.month1){
@@ -32,7 +33,12 @@ angular.module('acholic')
         };
 
         $scope.diving_side = $scope.packageTab2.diving_side;
-        $scope.stageHighlights = res.stages;
+        $scope.stages = res.stages;
+        $scope.stageHighlights = [];
+        for (var i = 0; i < res.stages.length; i++) {
+            $scope.stageHighlights.push(i);
+        };
+        console.log(res.stages.length);
         $scope.priceArrs = res.info;
         $scope.provide = $scope.packageTab2.equipments_provide.toString();
         $scope.require = $scope.packageTab2.equipments_require.toString();
@@ -46,6 +52,7 @@ angular.module('acholic')
         }
         else
             $scope.gallery.images = [];
+        $scope.loading = true;
     }); 
 
     $scope.checkSeason = function(){
@@ -73,6 +80,9 @@ angular.module('acholic')
             $scope.packageTab2.season.month2 = $scope.month2;
         }
 
+        //diving side
+        $scope.packageTab2.diving_side = $scope.diving_side;
+
         //provide
         $scope.packageTab2.equipments_provide = $scope.provide.split(",");
 
@@ -88,24 +98,20 @@ angular.module('acholic')
         //min price
         $scope.packages.price = $scope.findMinPrice(); 
 
-        console.log("------------");
-        console.log($scope.packages);
-        console.log($scope.packageTab2);
+        // console.log($scope.packageTab2);
 
-        // PackageItem.update($scope.packages).$promise.then(function(res1){
-        //     // console.log(res1);
+        PackageItem.update($scope.packages).$promise.then(function(res1){
+            // console.log(res1);
 
-        //     console.log($scope.gallery.images);
+            console.log($scope.gallery.images);
 
-        //     $scope.gallery.$save().then(function(res){
-        //         $scope.packageTab2.image_gallery = res._id;
-        //         PackageItem.updatePackage($scope.packageTab2).$promise.then(function(res2){
-        //             $location.path("/package");
-        //         });
-        //     });
-        // });
-
-
+            $scope.gallery.$save().then(function(res){
+                $scope.packageTab2.image_gallery = res._id;
+                PackageItem.updatePackage($scope.packageTab2).$promise.then(function(res2){
+                    $location.path("/package");
+                });
+            });
+        });
     };
 
     // find min price in priceArrs
@@ -113,13 +119,10 @@ angular.module('acholic')
         var temp = 0;
         for(var i=0; i < $scope.packageTab2.info.length; i++){
             temp = parseInt($scope.packageTab2.info[i].price);
-            console.log("TEMP : "+temp+" MIN : "+ $scope.minPrice);
             if($scope.minPrice > temp){
                 $scope.minPrice = temp;
-                console.log("Change : "+$scope.minPrice);
             }
-        }        
-        console.log("Min Price = "+$scope.minPrice);
+        }      
         return $scope.minPrice;
     };
 
@@ -127,16 +130,25 @@ angular.module('acholic')
         name: '',
         description: ''
     }];
-    
-    $scope.stageHighlights = [];
   
     $scope.addNewStageHighlight = function() {
-        $scope.stageHighlights.push($scope.stageHighlights.length);
+        $scope.stageHighlights.push($scope.stages.length);
+        console.log($scope.stages);
+        console.log($scope.stageHighlights);
     };
-        
+    
+    $scope.setDel = function(id){
+        $scope.canDel = true;
+        $scope.removeStageHighlight(id);
+    }
+
+    $scope.canDel = false;
     $scope.removeStageHighlight = function(index) {
-        $scope.stageHighlights.splice(index,1);
-        $scope.stages.splice(index,1);
+        if($scope.canDel){
+            $scope.stageHighlights.splice(index,1);
+            $scope.stages.splice(index,1);
+            $scope.canDel = false;
+        }
     };
 
     // menu-bar function
@@ -427,13 +439,10 @@ angular.module('acholic')
         var temp = 0;
         for(var i=0; i<$scope.priceArrs.length; i++){
             temp = parseInt($scope.priceArrs[i].price);
-            console.log("TEMP : "+temp+" MIN : "+$scope.minPrice);
             if($scope.minPrice > temp){
                 $scope.minPrice = temp;
-                console.log("Change : "+$scope.minPrice);
             }
         }        
-        console.log("Min Price = "+$scope.minPrice);
         return $scope.minPrice;
     };
     $scope.deleteRow = function(index) {
@@ -493,7 +502,6 @@ angular.module('acholic')
                 $scope.map.setCenter(place.geometry.location);
                 $scope.map.setZoom(17);  // Why 17? Because it looks good.
             }
-
             marker.position = [place.geometry.location.lat(), place.geometry.location.lng()];
             // marker.setVisible(true);
 

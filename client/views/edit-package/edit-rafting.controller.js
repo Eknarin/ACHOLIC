@@ -33,7 +33,11 @@ angular.module('acholic')
             zoom: 12
         };
 
-        $scope.stageHighlights = res.stages;
+        $scope.stages = res.stages;
+        $scope.stageHighlights = [];
+        for (var i = 0; i < res.stages.length; i++) {
+            $scope.stageHighlights.push(i);
+        };
         $scope.priceArrs = res.info;
         $scope.provide = $scope.packageTab2.equipments_provide.toString();
         $scope.require = $scope.packageTab2.equipments_require.toString();
@@ -117,13 +121,10 @@ angular.module('acholic')
         var temp = 0;
         for(var i=0; i < $scope.packageTab2.info.length; i++){
             temp = parseInt($scope.packageTab2.info[i].price);
-            console.log("TEMP : "+temp+" MIN : "+ $scope.minPrice);
             if($scope.minPrice > temp){
                 $scope.minPrice = temp;
-                console.log("Change : "+$scope.minPrice);
             }
         }        
-        console.log("Min Price = "+$scope.minPrice);
         return $scope.minPrice;
     };
 
@@ -133,17 +134,30 @@ angular.module('acholic')
     }];
 
     
-    $scope.stageHighlights = [];
+    $scope.stages = [{
+        name: '',
+        description: ''
+    }];
   
     $scope.addNewStageHighlight = function() {
-        $scope.stageHighlights.push($scope.stageHighlights);
+        $scope.stageHighlights.push($scope.stages.length);
+        console.log($scope.stages);
+        console.log($scope.stageHighlights);
     };
-        
-    $scope.removeStageHighlight = function(index) {
-        $scope.stageHighlights.splice(index,1);
-        $scope.stages.splice(index,1);
-    };
+    
+    $scope.setDel = function(id){
+        $scope.canDel = true;
+        $scope.removeStageHighlight(id);
+    }
 
+    $scope.canDel = false;
+    $scope.removeStageHighlight = function(index) {
+        if($scope.canDel){
+            $scope.stageHighlights.splice(index,1);
+            $scope.stages.splice(index,1);
+            $scope.canDel = false;
+        }
+    };
     // menu-bar function
     var navListItems = $('ul.setup-panel li a'),
     allWells = $('.setup-content');
