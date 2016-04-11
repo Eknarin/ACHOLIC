@@ -44,8 +44,11 @@
         </div>
         <div class="modal-body">
           <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" >
-            <div class="col-xs-5 col-sm-5 col-md-5 no-horizotal-padding">
+            <div class="col-xs-3 col-sm-3 col-md-3 no-horizotal-padding">
               <p class="shop-cart-modal-header">Package<p>
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
+              <p class="shop-cart-modal-header">Type</p>
             </div>
             <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
               <p class="shop-cart-modal-header">Price (฿)</p>
@@ -63,11 +66,15 @@
           </div>          
           <HR WIDTH="100%" NOSHADE>
           <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" ng-repeat="c in cart">
-            <div class="col-xs-5 col-sm-5 col-md-5 no-horizotal-padding">
+            <div class="col-xs-3 col-sm-3 col-md-3 no-horizotal-padding">
               <p class="shop-cart-modal-detail">{{c.package.name}}<p>
+            </div>
+             <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
+              <p class="shop-cart-modal-detail">{{c.cart_item.type}}</p>              
             </div>
             <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
               <p class="shop-cart-modal-detail">{{c.cart_item.price}}</p>
+              <!-- {{c.cart_item.type}} -->
             </div>
             <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">             
                <input class="shop-cart-modal-amount-box" ng-model="c.cart_item.amount" type="number" min="0" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required></input>

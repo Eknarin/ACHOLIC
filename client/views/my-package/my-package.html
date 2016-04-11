@@ -47,13 +47,7 @@
 				<div class="main-background">
 					<div class="col-xs-12 col-sm-12 col-md-12" ng-show="package.length == 0">
 						<h2 class="no_result">No items in My package.</h2>
-					</div>
-					<!-- Filter package type button -->
-					<!-- <div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center">                      			
-						<button class="select-package-type-button select-package-type-button-active">Show All</button>
-						<button class="select-package-type-button">Rafting</button>
-						<button class="select-package-type-button">Diving</button>
-					</div>		 -->					
+					</div>					
 					<div class="row">
 						<div class="col-xs-12 col-sm-6 col-md-4 package-cover" ng-repeat="p in package">
 							<div class="my-package-style" style="height:370px;">
@@ -65,27 +59,37 @@
 									<p class="price">&nbsp{{p.price}} ฿</p>								
 								</div>						
 								<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding">
-									<!-- Package Name -->
-									<div class="col-xs-10 col-sm-10 col-md-10 text-padding package-header-overflow" style="padding-top:10px">
-										<p style="font-size: 25px;"><a href="/packageDetail/{{p._id}}" style="color:white">{{p.name}}</a></p>	
+									<div class="col-xs-10 col-sm-10 col-md-10 no-horizotal-padding"
+									>
+										<!-- Package Name -->
+										<div class="col-xs-12 col-sm-12 col-md-12 text-padding package-header-overflow" style="padding-top:10px">
+											<p style="font-size: 25px;"><a href="/packageDetail/{{p._id}}" style="color:white">{{p.name}}</a></p>	
+										</div>
+										<!-- Package Rating -->
+										<div class="col-xs-12 col-sm-12 col-md-12 text-padding" style="" ng-app="" ng-init="nstar = 0">
+											<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getStar(p.rating) track by $index" src="../image/star_rated.png">
+											<img style="width:20px;height:20px;margin-left: 3px;" ng-if="p.rating%1 >= 0.5" src="../image/star_rated_half.png">
+											<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getWhite(p.rating) track by $index" src="../image/star_unrated.png">
+										</div>
+										<!-- Sold amount -->
+										<div class="text-padding package-description-overflow" style="padding-top:10px">
+											<p style="color:#888888; overflow: hidden;">Sold amount : {{soldEachPack[$index]}}</p>	
+										</div>	
 									</div>
-									<!-- Edit Package -->
-									<div class="col-xs-2 col-sm-2 col-md-2 text-padding package-description-overflow" style="padding-top:10px; text-align:center;">
-										<img src="../../image/edit-my-package.png" style="width:30px; height:30px;" ng-click="openEditMyPackageModal(p)"></img>
-										<img src="../image/delete.png" style="width:30px; height:30px;" ng-click="openDeleteMyPackageModal(p)"></img>
-										<!-- <button class="btn btn-danger"><img src="../image/delete.png" style="width:20px; height:20px;"></img></button> -->
+									<div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding"
+									>
+										<!-- Edit Package -->
+										<div class="col-xs-12 col-sm-12 col-md-12 text-padding package-description-overflow" style="padding-top:10px; text-align:center;">
+											<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding">
+												<img src="../../image/edit-my-package.png" style="width:30px; height:30px;" ng-click="openEditMyPackageModal(p)"></img>
+											</div>
+											<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="margin-top:20px;">
+												<img src="../../image/remove-button.png" style="width:30px; height:30px;" ng-click="openDeleteMyPackageModal(p)"></img>
+											</div>
+											<!-- <button class="btn btn-danger"><img src="../image/delete.png" style="width:20px; height:20px;"></img></button> -->
+										</div>
 									</div>
 								</div>
-								<!-- Package Rating -->
-								<div class="text-padding" style="" ng-app="" ng-init="nstar = 0">
-									<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getStar(p.rating) track by $index" src="../image/star_rated.png">
-									<img style="width:20px;height:20px;margin-left: 3px;" ng-if="p.rating%1 >= 0.5" src="../image/star_rated_half.png">
-									<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getWhite(p.rating) track by $index" src="../image/star_unrated.png">
-								</div>
-								<!-- Sold amount -->
-								<div class="text-padding package-description-overflow" style="padding-top:10px">
-									<p style="color:#888888; overflow: hidden;">Sold amount : {{soldEachPack[$index]}}</p>	
-								</div>						
 							</div>
 							<!-- Package Publish Date  -->
 							<div class="package-footer-style text-padding">

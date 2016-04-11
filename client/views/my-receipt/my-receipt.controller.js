@@ -103,4 +103,10 @@ angular.module('acholic')
   $scope.setPage = function (pageNo) {
      $scope.currentPage = pageNo;
   };
+  // get date
+  $scope.getCreateDate = function(timeStamp){
+    $scope.temp = new Date(timeStamp);
+    $scope.createDate = $scope.temp.getDate() + "/" + ($scope.temp.getMonth() + 1) + "/" + $scope.temp.getFullYear();
+    return $scope.createDate;
+  }
 }]);

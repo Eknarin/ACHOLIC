@@ -3,62 +3,64 @@
 	<div class="col-xs-12 col-sm-12 col-md-3 side-menu-bar-cover">			
 		<!-- Sorting -->
 		<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="margin-bottom:10px;">
-			<div class="col-xs-12 col-sm-12 col-md-12">
-				<p style="font-size:20px;">Serial confirmation</p>
+			<div class="col-xs-12 col-sm-12 col-md-12 my-transaction-header">
+				Package Transaction
 			</div>
-			<div class="col-xs-12 col-sm-12 col-md-12">
-				<div class="contianer" >
-					<input class="bookmark-input-box" style="color: #C0C0C0;" ng-model="serial" type="text" placeholder="Type serail here"></input>
-					<button type"button" ng-click="checkSerial()">Check</button>
-					<br>
-
-					<p style="font-size:15px;">Status        : {{serial_code.active_status}}</p>
-					<p style="font-size:15px;">Serial Code   : {{serial_code.serial}}</p>
-					<p style="font-size:15px;">Purchase Date : {{serial_code.created_at}}</p>
-					<p style="font-size:15px;">Customer Name : {{serial_code.user_id.first_name}}</p>
-					<button type"button" ng-click="activateSerial()">Activate Serial</button>
+			<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="margin-top:50px;">
+				<div class="col-xs-12 col-sm-12 col-md-12 sidebar-header">
+					Serial confirmation
 				</div>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-12">
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-12">
-				<p style="font-size:20px;">Package transaction</p>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:30px;">
-				<p style="font-size:20px;" ng-click="choosePack(0)"> all </p>
-				<div ng-repeat="package in packages">
-					<p ng-click="choosePack(package._id)" style="font-size:20px;"> {{package.name}}</p>
-				</div>					
-			</div>					
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<div class="contianer" >
+						<input class="my-transaction-search-serial-inputbox" ng-model="serial" type="text" placeholder="Type serail here"></input>
+						
+						<button class="btn btn-primary"type"button" style="margin-top:15px;" ng-click="checkSerial()">Check</button>
+
+						<p class="my-transaction-sidebar-subheader">Status : <font style="color:white">{{serial_code.active_status}}</font></p>
+						<p class="my-transaction-sidebar-subheader">Serial Code   : <font style="color:white">{{serial_code.serial}}</font></p>
+						<p class="my-transaction-sidebar-subheader">Purchase Date : <font ng-if="serial_code.created_at != null"style="color:white" ng-bind="getCreateDate(serial_code.created_at)"></font></p>
+						<p class="my-transaction-sidebar-subheader">Customer Name : <font style="color:white">{{serial_code.user_id.first_name}}</font></p>
+						<div style="text-align:center;">
+							<button class="btn" type"button" ng-click="activateSerial()" style="color:black; background-color:#fbd300; font-size:18px; margin-top:30px;">Activate Serial</button>
+						</div>
+					</div>
+				</div>
+			</div>			
 		</div>		
 	</div>
 	<!-- Transaction table-->
 	<div class="col-xs-12 col-sm-12 col-md-9 main-background">			
-		<table class="table">
-			<thead>
-					<th class="transaction-table-header" style="vertical-align: top;"> Transaction No. </th>
-					<th class="transaction-table-header" style="vertical-align: top;"> Package Name </th>
-					<th class="transaction-table-header" style="vertical-align: top;"> Customer Name </th>
-					<th class="transaction-table-header" style="vertical-align: top;"> Sold Date </th>
-					<th class="transaction-table-header" style="vertical-align: top;"> Activated </th>
-			</thead>
-			<tbody>
-				<tr ng-repeat="receipt in receipts">
-					<td class="transaction-table-detail" style="vertical-align: top;"> {{receipt._id}} </td>
-					<td class="transaction-table-detail" style="vertical-align: top;"> {{getPackge(receipt.packages_id[0]).name}} </td>
-					<td class="transaction-table-detail" style="vertical-align: top;"> {{receipt.user_id.first_name}} {{receipt.user_id.last_name}} </td>
-					<td class="transaction-table-detail" style="vertical-align: top;"> {{receipt.created_at}} </td>
-					<td class="transaction-table-detail" style="vertical-align: top;"> {{receipt.active_status}} </td>
-				</tr>
-				<!-- <tr>
-					<td class="transaction-table-detail" style="vertical-align: top;"> YYYYY </td>
-					<td class="transaction-table-detail" style="vertical-align: top;"> YYYYY </td>
-					<td class="transaction-table-detail" style="vertical-align: top;"> YYYYY </td>
-					<td class="transaction-table-detail" style="vertical-align: top;"> YYYYY </td>
-					<td class="transaction-table-detail" style="vertical-align: top;"> YYYYY </td>
-				</tr> -->
-			</tbody>			
-		</table>
+		<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding">	
+			<!-- filter by package name -->
+			<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="margin-bottom:30px; text-align:center;">	
+				<button class="btn transaction-filter-package-type" ng-click="choosePack(0)"> 
+						Show All 
+				</button>
+				<button ng-repeat="package in packages" class="btn transaction-filter-package-type" ng-click="choosePack(package._id)"> 
+					{{package.name}}
+				</button>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding transaction-table-style">		
+				<table class="table">
+					<thead>
+							<th class="transaction-table-header" style="vertical-align: top;"> Transaction No. </th>
+							<th class="transaction-table-header" style="vertical-align: top;"> Package Name </th>
+							<th class="transaction-table-header" style="vertical-align: top;"> Customer Name </th>
+							<th class="transaction-table-header" style="vertical-align: top;"> Sold Date </th>
+							<th class="transaction-table-header" style="vertical-align: top;"> Activated </th>
+					</thead>
+					<tbody>
+						<tr ng-repeat="receipt in receipts">
+							<td class="transaction-table-detail" style="vertical-align: top;"> {{receipt._id}} </td>
+							<td class="transaction-table-detail" style="vertical-align: top;"> {{getPackge(receipt.packages_id[0]).name}} </td>
+							<td class="transaction-table-detail" style="vertical-align: top;"> {{receipt.user_id.first_name}} {{receipt.user_id.last_name}} </td>
+							<td class="transaction-table-detail" style="vertical-align: top;" ng-bind="getCreateDate(receipt.created_at)"></td>
+							<td class="transaction-table-detail" style="vertical-align: top;"> {{receipt.active_status}} </td>
+						</tr>
+					</tbody>			
+				</table>
+			</div>
+		</div>
 		<!-- Page paginator -->
 		<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center; margin-top:15px;">
 			<uib-pagination total-items="totalItems" items-per-page="limit" ng-change="pageChanged(currentPage)" ng-model="currentPage" max-size="maxSize" class="pagination-md" boundary-links="true" rotate="false"></uib-pagination>

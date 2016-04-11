@@ -1,12 +1,12 @@
 <div class="modal-header" style=" background-color:#e1bd00;">
   <p class="receipt-header" style="color:#c84646">Receipt : <font class="receipt-detail">{{receipt._id}}</font></p>
-  <p class="receipt-purchased-date" style="color:black">Purcahsed at : {{receipt.created_at}}</p>
+  <p class="receipt-purchased-date" style="color:black">Purcahsed at : <font ng-bind="getCreateDate(receipt.created_at)"></font></p>
 
 </div>
 <div class="modal-body" style="padding-bottom:0px;">    
 	<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" >
         <div class="col-xs-5 col-sm-5 col-md-5 no-horizotal-padding">
-            <p class="modal-receipt-header">Package Name<p>
+            <p class="modal-receipt-header">Package Type<p>
         </div>
         <div class="col-xs-3 col-sm-3 col-md-3 no-horizotal-padding">
             <p class="modal-receipt-header">Price (฿)</p>

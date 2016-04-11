@@ -59,7 +59,7 @@ angular.module('acholic')
        Transaction.queryPack({vendor_id: $scope.user._id,page:1,package_id:packageId}).$promise.then(function(res){
               $scope.receipts = res.docs;
               $scope.limit = res.limit;
-              $scope.totalItems = res.total;
+              $scope.totalItems = res.total;              
        });
      }
     };
@@ -89,5 +89,11 @@ angular.module('acholic')
           });
        }
     };
+    // get date
+    $scope.getCreateDate = function(timeStamp){
+      $scope.temp = new Date(timeStamp);
+      $scope.createDate = $scope.temp.getDate() + "/" + ($scope.temp.getMonth() + 1) + "/" + $scope.temp.getFullYear();
+      return $scope.createDate;
+    }
 
   }]);

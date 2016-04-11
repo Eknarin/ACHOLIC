@@ -69,7 +69,7 @@ angular.module('acholic')
       };
       return true;//enable cart button
     }
-
+    console.log($scope.packageItem);
     $scope.addToCart = function(){
       $scope.isAddCart = true;
       Cart.addItem($scope.packageInfos, $scope.packageItem._id);

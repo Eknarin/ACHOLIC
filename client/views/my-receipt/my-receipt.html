@@ -50,7 +50,7 @@
 								<font class="receipt-detail">{{receipt._id}}</font>
 							</div>
 							<div class="col-xs-12 col-sm-12 col-md-12">
-								<p class="receipt-purchased-date">Purchase date : {{receipt.created_at}}</p>
+								<p class="receipt-purchased-date">Purchase date :  <font ng-bind="getCreateDate(receipt.created_at)"></font></p>
 							</div>
 						</div>
 						<div class="col-xs-12 col-sm-5 col-md-5">

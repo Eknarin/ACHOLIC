@@ -111,12 +111,13 @@
 							</div>							
 						</div>
 						<HR WIDTH="95%" NOSHADE>
-						<!-- Rafting Place -->
+						
 						<div class="col-xs-12 col-sm-12 col-md-12">
 							<div class="col-xs-12 col-sm-2 col-md-2 no-horizotal-padding">
 								<p class="package-detail-insight-header">Place</p>
 							</div>
-							<div class="col-xs-12 col-sm-10 col-md-10 no-horizotal-padding">
+							<!-- Rafting Place -->
+							<div class="col-xs-12 col-sm-10 col-md-10 no-horizotal-padding" ng-if="packageItem.map_id.map_table == 'PackageRafting'">
 								<div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom:10px;">
 									<font class="package-detail-insight-sub-header">Rafting Place : </font>
 									<font class="package-detail-insight-detail">{{packageItem.map_id.map_id.river_line}}</font>
@@ -124,6 +125,25 @@
 								<div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom:10px;">
 									<font class="package-detail-insight-sub-header">Rafting Level : </font>
 									<font class="package-detail-insight-detail">{{packageItem.map_id.map_id.level}}</font>
+								</div>
+							</div>
+							<!-- Diving Place -->
+							<div class="col-xs-12 col-sm-10 col-md-10 no-horizotal-padding" ng-if="packageItem.map_id.map_table == 'PackageDiving'">
+								<div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom:10px;">
+									<font class="package-detail-insight-sub-header">Diving Place : </font>
+									<font class="package-detail-insight-detail">{{packageItem.map_id.map_id.diving_place}}</font>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom:10px;">
+									<font class="package-detail-insight-sub-header">Diving Side : </font>
+									<font class="package-detail-insight-detail">{{packageItem.map_id.map_id.diving_side}}</font>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom:10px;">
+									<font class="package-detail-insight-sub-header">Sight (m) : </font>
+									<font class="package-detail-insight-detail">{{packageItem.map_id.map_id.sight}}</font>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom:10px;">
+									<font class="package-detail-insight-sub-header">Depth (m) : </font>
+									<font class="package-detail-insight-detail">{{packageItem.map_id.map_id.depth}}</font>
 								</div>
 							</div>
 						</div>
@@ -169,7 +189,7 @@
 					    					<th class="package-detail-table-header" style="text-align:center; border-top: 0px;">People</th>
 					    					<th class="package-detail-table-header" style="text-align:center; border-top: 0px;">Distance (km)</th>
 					    					<th class="package-detail-table-header" style="text-align:center; border-top:0px;">Duration (hr)</th>
-					    					<th class="package-detail-table-header" style="border-top:0px;">Extra Info.</th>
+					    					<th class="package-detail-table-header" style="border-top:0px;">Extra Info.</th>					    					
 					    				</tr>
 					    			</theader>
 					    			<tbody>
@@ -179,7 +199,10 @@
 					    					<td class="package-detail-table-detail" style="text-align:center;">{{packageInfo.people}}</td>
 					    					<td class="package-detail-table-detail" style="text-align:center;">{{packageInfo.distance}}</td>
 					    					<td class="package-detail-table-detail" style="text-align:center;">{{packageInfo.duration}}</td>
-					    					<td class="package-detail-table-detail" ng-if="packageInfo.boat_type">{{packageInfo.boat_type}}</td>
+					    					<!-- If Rafting package -->
+					    					<td ng-if="packageItem.map_id.map_table == 'PackageRafting'" class="package-detail-table-detail" ng-if="packageInfo.boat_type">{{packageInfo.boat_type}}</td>
+					    					<!-- If Diving package -->
+					    					<td ng-if="packageItem.map_id.map_table == 'PackageDiving'" class="package-detail-table-detail" ng-if="packageInfo.boat_type">{{packageInfo.diving_type}}</td>
 					    				</tr>   				
 					    			</tbody>
 					    		</table>
@@ -254,10 +277,10 @@
 							</div>
 							<HR WIDTH="95%" NOSHADE>
 							<div class="col-xs-12 col-sm-12 col-md-12" ng-repeat="packageInfo in packageInfos track by $index">
-								<!-- Boat Type -->
+								<!-- Package Name -->
 								<div class="col-xs-5 col-sm-5 col-md-5">
-									<p>{{packageInfo.boat_type}}</p>
-								</div>
+									<p>{{packageInfo.type}}</p>
+								</div>								
 
 								<!-- Price -->
 								<div class="col-xs-4 col-sm-4 col-md-4">
