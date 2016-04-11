@@ -32,7 +32,7 @@ angular.module('acholic')
         };
 
         $scope.diving_side = $scope.packageTab2.diving_side;
-        $scope.stageHighlights = res.stages;
+        $scope.stages = res.stages;
         $scope.priceArrs = res.info;
         $scope.provide = $scope.packageTab2.equipments_provide.toString();
         $scope.require = $scope.packageTab2.equipments_require.toString();
@@ -131,7 +131,7 @@ angular.module('acholic')
     $scope.stageHighlights = [];
   
     $scope.addNewStageHighlight = function() {
-        $scope.stageHighlights.push($scope.stageHighlights.length);
+        $scope.stages.push($scope.stages[$scope.stages-1]);
     };
         
     $scope.removeStageHighlight = function(index) {
