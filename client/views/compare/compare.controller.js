@@ -22,8 +22,7 @@ angular.module('acholic')
     if($scope.comparePackage.length > 0)
     	PackageItem.list({items: $scope.comparePackage}).$promise.then(function(res){
     		$scope.comparePackage.items = res;
-    		$scope.loadItem = true;
-        console.log($scope.comparePackage.items);
+    		$scope.loadItem = true;        
         $scope.prepareData();
     	});  
 
@@ -57,7 +56,6 @@ angular.module('acholic')
         dataPicking[i] = temp;
     }
     $scope.graphDatas = dataPicking;
-    console.log($scope.graphDatas);
   };
 
   $scope.findAge = function(value){    
