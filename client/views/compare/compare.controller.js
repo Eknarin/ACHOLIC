@@ -38,7 +38,7 @@ angular.module('acholic')
           stage : 0
         };   
         // Age
-        temp.age = $scope.findAge($scope.comparePackage.items[i].age_limit);
+        temp.age = $scope.findAge($scope.comparePackage.items[i].map_id.map_id.age_limit);
         // Price
         // temp.minPrice = $scope.comparePackage.items[i].price;
         // Rating
@@ -60,7 +60,7 @@ angular.module('acholic')
     console.log($scope.graphDatas);
   };
 
-  $scope.findAge = function(value){
+  $scope.findAge = function(value){    
     if(value == null)
       return 0;
     else
