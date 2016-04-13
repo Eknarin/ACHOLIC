@@ -299,12 +299,13 @@ angular.module('acholic')
   }
 
   $scope.expireMonths = [
-    {month : '3'},
-    {month : '6'},
-    {month : '9'}
+    {month : 3},
+    {month : 6},
+    {month : 9}
   ];
   $scope.setExpireMonth = function(value){
     $scope.expire_month = value;
+    $scope.packages.info.expired = value;
   }
 
   $scope.priceArrs = [];

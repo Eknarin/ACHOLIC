@@ -76,7 +76,7 @@ angular.module('acholic')
     $scope.saveCart = function(){
       Transaction.saveCart({items: $scope.cart}).$promise.then(function(res){
         Cart.clearCart();
-        $location.path('/package');
+        $location.path('/my-receipt');
       });
     };
   }]);

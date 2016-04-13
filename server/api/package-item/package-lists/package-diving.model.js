@@ -21,7 +21,7 @@ var DivingSchema = new Schema({
 	level: String,
 	sight: Number,
 	depth: Number,
-	expired: String,
+	expired: Number,
 	stages_amount: Number,
 	stages: [{
 		name: String,

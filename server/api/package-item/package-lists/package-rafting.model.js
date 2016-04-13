@@ -23,6 +23,7 @@ var RaftingSchema = new Schema({
 	river_depth: Number,
 	level: String,
 	views: String,
+	expired: Number,
 	stages_amount: Number,
 	stages: [{
 		name: String,
