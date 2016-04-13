@@ -17,5 +17,18 @@ angular.module('acholic')
           });
         });
   	});
+    $scope.selectFolder = function(id){
+      // $scope.activeButton(event);
+      if(id == 0){
+        $location.path("/my-package");
+      }
+      else if(id == 1){
+        $location.path("/my-transaction");
+      }
+      else if(id == 2){
+        $location.path("/my-package-report");
+      }
+    };
+    
 
   }]);
