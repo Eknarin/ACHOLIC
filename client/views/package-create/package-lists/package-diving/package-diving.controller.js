@@ -247,6 +247,16 @@ angular.module('acholic')
     $scope.packages.province = value;
   };
 
+  $scope.expireMonths = [
+    {month : 3},
+    {month : 6},
+    {month : 9}
+  ];
+  $scope.setExpireMonth = function(value){
+    $scope.expire_month = value;
+    $scope.packages.info.expired = value;
+  }
+
   $scope.seas = "Whole Year";
   $scope.month1 = "";
   $scope.month2 = "";
