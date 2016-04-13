@@ -4,6 +4,7 @@ angular.module('acholic')
   .controller('ReceiptCtrl',['$scope','$rootScope','$location', '$uibModal','Transaction','Auth', function ($scope , $rootScope , $location, $uibModal,Transaction,Auth) {
   $scope.loading = false;
   $scope.receipts = [];
+  $scope.resOrder = [];
   $scope.currentPage = 1;
   $scope.maxSize = 5;
   $scope.limit = 1;
@@ -74,16 +75,29 @@ angular.module('acholic')
       }
     });
 
-
   Auth.getUser().then(function(res){
       $scope.user = res;
       Transaction.query({user_id: $scope.user._id,page:1}).$promise.then(function(res){
         $scope.receipts = res.docs;
+        for (var i = 0; i < $scope.receipts.length; i++) {
+          $scope.resOrder.push({
+            key: $scope.receipts[i]._id,
+            value: i+1
+          });
+        };
         $scope.limit = res.limit;
         $scope.totalItems = res.total;
         $scope.loading = true;
       });
    });
+
+  $scope.getOrder = function(id){
+    for (var i = 0; i < $scope.resOrder.length; i++) {
+      if($scope.resOrder[i].key == id)
+        return $scope.resOrder[i].value;
+    };
+    return 0;
+  };
 
   $scope.openReceiptInfoModal = function(item){
            var modalInstance = $uibModal.open({
