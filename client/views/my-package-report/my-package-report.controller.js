@@ -14,6 +14,9 @@ angular.module('acholic')
           Transaction.queryTranAll({vendor_id: $scope.user._id,page:1}).$promise.then(function(tran){
           	console.log('All the transactions from all packages');
           	console.log(tran);
+            $scope.findAllPackageId($scope.myPackages);
+            $scope.findAllPackageName($scope.myPackages);
+            $scope.findSoldRatePerPackage(tran);
           });
         });
   	});
@@ -29,6 +32,34 @@ angular.module('acholic')
         $location.path("/my-package-report");
       }
     };
-    
 
+    // find all package id
+    $scope.findAllPackageId = function(packages){
+      $scope.packageIdArr = new Array(packages.length);
+      for (var i = 0; i < $scope.packageIdArr.length; i++) {
+        $scope.packageIdArr[i] = packages[i]._id; 
+      }
+    };
+
+    // find all package name
+    $scope.findAllPackageName = function(packages){
+      $scope.packageNameArr = new Array(packages.length);
+      for (var i = 0; i < $scope.packageIdArr.length; i++) {
+        $scope.packageNameArr[i] = packages[i].name;
+      }
+    };
+    // find sold amount of each package
+    $scope.findSoldRatePerPackage = function(trans){
+      $scope.packageSoldAmount = new Array($scope.packageIdArr.length);
+      for (var i = 0; i < $scope.packageIdArr.length; i++) {      
+        $scope.packageSoldAmount[i] = 0;
+      };
+      for (var i = 0; i < trans.length; i++) {
+        for(var j=0; j < $scope.packageIdArr.length; j++){            
+           if(trans[i].packages_id == $scope.packageIdArr[j]){                               
+            $scope.packageSoldAmount[j] += 1;
+           }
+        }       
+      }
+    };
   }]);
