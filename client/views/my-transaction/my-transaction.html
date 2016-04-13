@@ -30,9 +30,29 @@
 	</div>
 	<!-- Transaction table-->
 	<div class="col-xs-12 col-sm-12 col-md-9 main-background">			
-		<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding">	
+		<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding">
+			<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="margin-top:50px;">
+				<div class="col-xs-12 col-sm-12 col-md-12 sidebar-header">
+					Serial confirmation
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<div class="contianer" >
+						<input class="my-transaction-search-serial-inputbox" ng-model="serial" type="text" placeholder="Type serail here"></input>
+						
+						<button class="btn btn-primary"type"button" style="margin-top:15px;" ng-click="checkSerial()">Check</button>
+
+						<p class="my-transaction-sidebar-subheader">Status : <font style="color:white">{{serial_code.active_status}}</font></p>
+						<p class="my-transaction-sidebar-subheader">Serial Code   : <font style="color:white">{{serial_code.serial}}</font></p>
+						<p class="my-transaction-sidebar-subheader">Purchase Date : <font ng-if="serial_code.created_at != null"style="color:white" ng-bind="getCreateDate(serial_code.created_at)"></font></p>
+						<p class="my-transaction-sidebar-subheader">Customer Name : <font style="color:white">{{serial_code.user_id.first_name}}</font></p>
+						<div style="text-align:center;">
+							<button class="btn" type"button" ng-click="activateSerial()" style="color:black; background-color:#fbd300; font-size:18px; margin-top:30px;">Activate Serial</button>
+						</div>
+					</div>
+				</div>
+			</div>
 			<!-- filter by package name -->
-			<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="margin-bottom:30px; text-align:center;">	
+			<!-- <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="margin-bottom:30px; text-align:center;">	
 				<button class="btn transaction-filter-package-type" ng-click="choosePack(0)"> 
 						Show All 
 				</button>
@@ -59,12 +79,10 @@
 						</tr>
 					</tbody>			
 				</table>
-			</div>
+			</div> -->
 		</div>
 		<!-- Page paginator -->
-		<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center; margin-top:15px;">
-			<uib-pagination total-items="totalItems" items-per-page="limit" ng-change="pageChanged(currentPage)" ng-model="currentPage" max-size="maxSize" class="pagination-md" boundary-links="true" rotate="false"></uib-pagination>
-		</div>
+		<!-- b  -->
 	</div>
 
 	
