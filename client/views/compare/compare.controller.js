@@ -7,6 +7,7 @@ angular.module('acholic')
   	$scope.loadItem = false;
     $scope.raftingItem = [];
     $scope.divingItem = [];
+    $scope.chooseType = 'PackageRafting';
 
     // Chart style
     var chartStyle = {     
@@ -32,6 +33,7 @@ angular.module('acholic')
             $scope.divingItem.push(res[i]);
           }
         };
+        $scope.packages = $scope.raftingItem;
         console.log($scope.comparePackage.items);
         console.log("----------------");
         console.log($scope.raftingItem);
@@ -42,10 +44,19 @@ angular.module('acholic')
         $scope.prepareData();
     	});  
 
+  $scope.choose = function(type){
+    if(type == 'PackageRafting'){
+      $scope.packages = $scope.raftingItem;
+    }
+    else{
+      $scope.packages = $scope.divingItem;
+    }
+    $scope.prepareData();
+  };
 
   $scope.prepareData = function(){
-    var dataPicking = new Array($scope.comparePackage.items.length);
-    for(var i=0; i<$scope.comparePackage.items.length; i++){     
+    var dataPicking = new Array($scope.packages.length);
+    for(var i = 0; i < $scope.packages.length; i++){     
         var temp = {
           age : 0,
           rating : 0,
@@ -53,7 +64,7 @@ angular.module('acholic')
           stage : 0
         };   
         // Age
-        temp.age = $scope.findAge($scope.comparePackage.items[i].map_id.map_id.age_limit);
+        temp.age = $scope.findAge($scope.packages[i].map_id.map_id.age_limit);
         // Price
         // temp.minPrice = $scope.comparePackage.items[i].price;
         // Rating
@@ -64,11 +75,11 @@ angular.module('acholic')
         // dataPicking[i][2] = parseInt($scope.comparePackage.items[i].map_id.map_id.stages_amount);
 
         // Rating
-        temp.rating = parseInt($scope.comparePackage.items[i].rating);
+        temp.rating = parseInt($scope.packages[i].rating);
         // Level
-        temp.level = parseInt($scope.findLevel($scope.comparePackage.items[i].map_id.map_id.level));
+        temp.level = parseInt($scope.findLevel($scope.packages[i].map_id.map_id.level));
         // Stage Amount
-        temp.stage = parseInt($scope.comparePackage.items[i].map_id.map_id.stages_amount);
+        temp.stage = parseInt($scope.packages[i].map_id.map_id.stages_amount);
         dataPicking[i] = temp;
     }
     $scope.graphDatas = dataPicking;
