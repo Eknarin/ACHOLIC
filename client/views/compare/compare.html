@@ -14,7 +14,11 @@
 			<div class="container">
 				<div class="col-xs-12 col-sm-12 col-md-12">
 					<p class="compare-header">Compare Packages</p>
-					
+					<!-- Filter package type button -->
+					<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center;padding-bottom:15px;">             
+						<button class="select-package-type-button select-package-type-button-active" ng-click="chooseType = 'PackageRafting'">Rafting</button>
+						<button class="select-package-type-button" ng-click="chooseType = 'PackageDiving'">Diving</button>
+					</div>
 				</div>
 				<div class="compare-cover-style">
 					<table class="table" style="color:white;">
@@ -22,7 +26,7 @@
 					    	<!-- Package Image -->
 					        <tr>
 					          <th style="border-top: 0px;"> </th>
-					            <td class="compare-table-header" style="border-top:0px; text-align:center;" ng-repeat="comparePackageItem in comparePackage.items"><img class="center-picture compare-image-style" style="width:320px;" ng-src=api/images/{{comparePackageItem.image}}></img></td>
+					            <td class="compare-table-header" style="border-top:0px; text-align:center;" ng-repeat="comparePackageItem in comparePackage.items"><img class="center-picture compare-image-style" style="width:320px;" ng-src=api/images/{{comparePackageItem.image}} ></img></td>
 					        </tr>					       
 					        <!-- Package Name -->
 					        <tr>

@@ -5,6 +5,8 @@ angular.module('acholic')
 
   	$scope.comparePackage =  Compare.getCompare();
   	$scope.loadItem = false;
+    $scope.raftingItem = [];
+    $scope.divingItem = [];
 
     // Chart style
     var chartStyle = {     
@@ -22,6 +24,20 @@ angular.module('acholic')
     if($scope.comparePackage.length > 0)
     	PackageItem.list({items: $scope.comparePackage}).$promise.then(function(res){
     		$scope.comparePackage.items = res;
+        for (var i = 0; i < res.length; i++) {
+          if(res[i].package_type == 'PackageRafting'){
+            $scope.raftingItem.push(res[i]);
+          }
+          else{
+            $scope.divingItem.push(res[i]);
+          }
+        };
+        console.log($scope.comparePackage.items);
+        console.log("----------------");
+        console.log($scope.raftingItem);
+        console.log("----------------");
+        console.log($scope.divingItem);
+
     		$scope.loadItem = true;        
         $scope.prepareData();
     	});  
