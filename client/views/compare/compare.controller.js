@@ -26,10 +26,10 @@ angular.module('acholic')
     	PackageItem.list({items: $scope.comparePackage}).$promise.then(function(res){
     		$scope.comparePackage.items = res;
         for (var i = 0; i < res.length; i++) {
-          if(res[i].package_type == 'PackageRafting'){
+          if(res[i].package_type == 'PackageRafting'){           
             $scope.raftingItem.push(res[i]);
           }
-          else{
+          else if(res[i].package_type == 'PackageDiving'){
             $scope.divingItem.push(res[i]);
           }
         };
@@ -41,22 +41,25 @@ angular.module('acholic')
         console.log($scope.divingItem);
 
     		$scope.loadItem = true;        
-        $scope.prepareData();
+        $scope.prepareRaftingData();
     	});  
-
+    
+  $scope.currentChoose = "PackageRafting";
   $scope.choose = function(type){
     if(type == 'PackageRafting'){
       $scope.packages = $scope.raftingItem;
+      $scope.currentChoose = "PackageRafting";
     }
-    else{
+    else if(type == 'PackageDiving'){
       $scope.packages = $scope.divingItem;
-    }
+      $scope.currentChoose = "PackageDiving";
+    }  
     $scope.prepareData();
   };
 
-  $scope.prepareData = function(){
-    var dataPicking = new Array($scope.packages.length);
-    for(var i = 0; i < $scope.packages.length; i++){     
+  $scope.prepareRaftingData = function(){
+    var dataPicking = new Array($scope.raftingItem.length);
+    for(var i = 0; i < $scope.raftingItem.length; i++){     
         var temp = {
           age : 0,
           rating : 0,
@@ -64,25 +67,21 @@ angular.module('acholic')
           stage : 0
         };   
         // Age
-        temp.age = $scope.findAge($scope.packages[i].map_id.map_id.age_limit);
-        // Price
-        // temp.minPrice = $scope.comparePackage.items[i].price;
+        temp.age = $scope.findAge($scope.raftingItem[i].map_id.map_id.age_limit);      
         // Rating
-        // dataPicking[i][0] = parseInt($scope.comparePackage.items[i].rating);
+        temp.rating = parseInt($scope.raftingItem[i].rating);
         // Level
-        // dataPicking[i][1] = parseInt($scope.findLevel($scope.comparePackage.items[i].map_id.map_id.level));
+        temp.level = parseInt($scope.findLevel($scope.raftingItem[i].map_id.map_id.level));
         // Stage Amount
-        // dataPicking[i][2] = parseInt($scope.comparePackage.items[i].map_id.map_id.stages_amount);
-
-        // Rating
-        temp.rating = parseInt($scope.packages[i].rating);
-        // Level
-        temp.level = parseInt($scope.findLevel($scope.packages[i].map_id.map_id.level));
-        // Stage Amount
-        temp.stage = parseInt($scope.packages[i].map_id.map_id.stages_amount);
+        temp.stage = parseInt($scope.raftingItem[i].map_id.map_id.stages_amount);
+        
         dataPicking[i] = temp;
     }
-    $scope.graphDatas = dataPicking;
+    $scope.raftingGraphDatas = dataPicking;
+  };
+
+  $scope.prepareDivingData = function(){
+
   };
 
   $scope.findAge = function(value){    
@@ -135,5 +134,8 @@ angular.module('acholic')
   $scope.rotateMore = function(){
     $('#expandButtmore').toggleClass('rotate-90deg');
   };
+
+  
+
 
   }]);
