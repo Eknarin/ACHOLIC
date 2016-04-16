@@ -2,9 +2,9 @@
 
 angular.module('acholic')
   .controller('AddToCartModalCtrl',['$scope','$uibModalInstance','userData','packageData','Cart', function ($scope, $uibModalInstance,userData, packageData,Cart) {
+   $scope.packageName = packageData.name;
    $scope.packages = packageData.map_id.map_id.info;
-   $scope.cart = [];
-
+   $scope.cart = [];   
    $scope.addToCart = function(){
     Cart.addItem($scope.packages,packageData._id);
     $uibModalInstance.close();
