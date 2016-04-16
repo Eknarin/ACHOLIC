@@ -1,3 +1,91 @@
+<!-- <!Doctype html>
+<html>
+	<head>
+		<title>ACHOLIC</title>
+		<meta charset = "utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<div class="container-fluid no-horizotal-padding" style="background-color:rgba(0,0,0,0.85);">	 -->	
+			<!-- Side menu-bar -->
+			<!-- <div class="col-xs-12 col-sm-12 col-md-3 side-menu-bar-cover">			 -->
+				<!-- Bookmark Folder -->
+				<!-- <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding">
+					<div class="col-xs-12 col-sm-12 col-md-12 bookmark-header">
+						Bookmarks
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="margin-top:50px;">
+						<div class="col-xs-12 col-sm-12 col-md-12 bookmark-folder-button bookmark-folder-button-active" ng-click="selectFolder(0, $event)">
+							All bookmarks ({{main_bookmark_total}})
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12 bookmark-folder-button" ng-repeat="bookmarkFolder in bookmarkFolders" ng-click="selectFolder(bookmarkFolder._id, $event)">
+							{{bookmarkFolder.folder}} ({{bookmarkFolder.total}})
+							<img src="../../image/edit-bookmark-folder.png" style="width:25px; height:25px; float:right" ng-click="openEditBookmarkFolderModal(bookmarkFolder)"></img>
+						</div>
+					</div>
+				</div> -->
+				<!-- Sorting -->
+				<!-- <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="margin-top:50px;">
+					<div class="col-xs-12 col-sm-12 col-md-12 sidebar-header">
+						Sort by
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:30px; font-size:17px;">
+						<div>
+							<input type="checkbox" ng-model="rating_check"> Rating</input>
+						</div>
+						<div>
+							<input type="checkbox" ng-model="create_check"> Create Date</input>
+						</div>							
+					</div>					
+				</div>
+			</div> -->
+
+			<!-- Bookmark Package -->
+			<!-- <div class="col-xs-12 col-sm-12 col-md-9 main-background">
+				<div class="col-xs-12 col-sm-12 col-md-12" ng-show="bookmarks.length == 0">
+					<h2 class="no_result">No Bookmark items</h2>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6" ng-repeat="bookmark in bookmarks">
+						<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding bookmark-package-cover" >
+							<div class="col-xs-12 col-sm-12 col-md-7">
+								<img class="center-picture bookmark-image-style" ng-src=api/images/{{bookmark.packageId.image}}></img>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-5 no-horizotal-padding"> -->
+								<!-- Name -->
+								<!-- <div class="col-xs-12 col-sm-12 col-md-12">
+									<p class="bookmark-package-name-style"><a href="/packageDetail/{{bookmark.packageId._id}}" style="color:white">{{bookmark.packageId.name}}</a></p>
+								</div> -->
+								<!-- Rating -->
+								<!-- <div class="col-xs-12 col-sm-12 col-md-12">								
+									<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getStar(bookmark.packageId.rating) track by $index" src="../image/star_rated.png">
+									<img style="width:20px;height:20px;margin-left: 3px;" ng-if="bookmark.packageId.rating%1 >= 0.5" src="../image/star_rated_half.png">
+									<img style="width:20px;height:20px;margin-left: 3px;" ng-repeat="i in getWhite(bookmark.packageId.rating) track by $index" src="../image/star_unrated.png">
+								</div> -->
+								<!-- Price -->
+								<!-- <div class="col-xs-12 col-sm-12 col-md-12 bookmark-package-price-style">
+									<p>{{bookmark.packageId.price}} ฿</p>
+								</div> -->
+								<!-- Remove & Add to Cart button -->
+								<!-- <div class="col-xs-12 col-sm-12 col-md-12 bookmark-package-button-cover-style">
+									<div class="col-xs-6 col-sm-6 col-md-6 bookmark-package-button-style">
+										<img src="../../image/add-package-to-cart.png" style="width:40px; height:40px;"></img>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6 bookmark-package-button-style">
+										<img src="../../image/remove-button.png" style="width:40px; height:40px;" ng-click="unBookmark(bookmark)"></img>		
+									</div>
+								</div>
+							</div>
+						</div>
+				</div> -->
+			
+				<!-- Page paginator -->
+				<!-- <div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center; margin-top:15px;">
+					<uib-pagination total-items="totalItems" items-per-page="limit" ng-change="pageChanged(currentPage)" ng-model="currentPage" max-size="maxSize" class="pagination-md" boundary-links="true" rotate="false"></uib-pagination>
+				</div>
+			</div>
+		</div>
+	</body>
+</html> -->
 <!Doctype html>
 <html>
 	<head>
@@ -12,11 +100,11 @@
 				<!-- Bookmark Folder -->
 				<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding">
 					<div class="col-xs-12 col-sm-12 col-md-12 bookmark-header">
-						Bookmarks
+						รายการโปรด
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="margin-top:50px;">
 						<div class="col-xs-12 col-sm-12 col-md-12 bookmark-folder-button bookmark-folder-button-active" ng-click="selectFolder(0, $event)">
-							All bookmarks ({{main_bookmark_total}})
+							รายการโปรดทั้งหมด ({{main_bookmark_total}})
 						</div>
 						<div class="col-xs-12 col-sm-12 col-md-12 bookmark-folder-button" ng-repeat="bookmarkFolder in bookmarkFolders" ng-click="selectFolder(bookmarkFolder._id, $event)">
 							{{bookmarkFolder.folder}} ({{bookmarkFolder.total}})
@@ -27,14 +115,14 @@
 				<!-- Sorting -->
 				<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="margin-top:50px;">
 					<div class="col-xs-12 col-sm-12 col-md-12 sidebar-header">
-						Sort by
+						เรียงลำดับ
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:30px; font-size:17px;">
 						<div>
-							<input type="checkbox" ng-model="rating_check"> Rating</input>
+							<input type="checkbox" ng-model="rating_check"> เรตติ้ง</input>
 						</div>
 						<div>
-							<input type="checkbox" ng-model="create_check"> Create Date</input>
+							<input type="checkbox" ng-model="create_check"> วันที่สร้างแพ็คเกจ</input>
 						</div>							
 					</div>					
 				</div>
@@ -43,7 +131,7 @@
 			<!-- Bookmark Package -->
 			<div class="col-xs-12 col-sm-12 col-md-9 main-background">
 				<div class="col-xs-12 col-sm-12 col-md-12" ng-show="bookmarks.length == 0">
-					<h2 class="no_result">No Bookmark items</h2>
+					<h2 class="no_result">ไม่มีรายการโปรด</h2>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-6" ng-repeat="bookmark in bookmarks">
 						<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding bookmark-package-cover" >
