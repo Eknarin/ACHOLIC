@@ -25,11 +25,11 @@
 	background-color:rgba(0,0,0,0.65); 
 	color:white;
 }
-.checkout-order-summary-header{
+.checkout-order-summary-payment-header{
 	font-size: 30px;
 	padding-top:10px; 
 	text-align:left;
-	color: white;
+	color: #fbd300;
 }
 .checkout-order-summary-table-header{
 	font-size: 16px;
@@ -39,12 +39,6 @@
 }
 .checkout-order-summary-table-detail{
 	font-size: 13px;
-}
-.checkout-payment-header{
-	font-size: 30px;
-	padding-top:10px; 
-	text-align:left;
-	color: white;
 }
 .checkout-header-box{
 	background-color:rgba(0,0,0,0.85);

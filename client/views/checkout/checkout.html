@@ -1,51 +1,51 @@
-<html>
+<!-- <html>
 	<head>
 		<title>ACHOLIC</title>
 		<meta charset = "utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 	<body>
-		<div class="container-fluid center-picture checkout-body-style" style="background-image:url('../../image/main-background.png');">
+		<div class="container-fluid center-picture checkout-body-style" style="background-image:url('../../image/main-background.png');"> -->
 			<!-- blank div for make vertical space -->
-			<div class="container" style="margin-top:70px">
-			</div>
+			<!-- <div class="container" style="margin-top:70px">
+			</div> -->
 			<!-- My Cart Header -->
-			<div class="container">
+			<!-- <div class="container">
 				<div class="col-xs-12 col-sm-12 col-md-12">
 					<p class="checkout-header" style=" text-align:center;">Checkout</p>
 				</div>
 			</div>
-			<div class="container">
+			<div class="container"> -->
 				<!-- Order Summary table -->
-				<div class="col-xs-12 col-sm-7 col-md-7 checkout-table-overflow no-horizotal-padding checkout-order-summary-cover">
+				<!-- <div class="col-xs-12 col-sm-7 col-md-7 checkout-table-overflow no-horizotal-padding checkout-order-summary-cover">
 					<div class="col-xs-12 col-sm-12 col-md-12 checkout-order-summary-header">
 						<p>Order Summary</p>
 					</div>
-					<table class="table checkout-table">
+					<table class="table checkout-table"> -->
 						<!-- Table Header -->
-					    <thead>
+					   <!--  <thead>
 					      <tr>
 					      	<th class="checkout-order-summary-table-header">Package</th>
 					        <th class="checkout-order-summary-table-header">Type</th>
 					        <th class="checkout-order-summary-table-header">Price (฿)</th>
 					        <th class="checkout-order-summary-table-header">Amount</th>					       
 					      </tr>
-					    </thead>
+					    </thead> -->
 					    <!-- Table Detail -->
-					    <tbody>
+					   <!--  <tbody>
 					      <tr ng-repeat="item in cart_show track by $index">
 					        <td class="checkout-order-summary-table-detail"><a href="/packageDetail/{{item.packages_id}}" style="color:white">{{getPackage(item.item.packages_id).name}}</a></td>
 					        <td class="checkout-order-summary-table-detail">{{item.item.type}}</td>
 					        <td class="checkout-order-summary-table-detail">{{item.item.price}}</td>
-					        <td class="checkout-order-summary-table-detail">{{item.amount}}</td>
+					        <td class="checkout-order-summary-table-detail">{{item.amount}}</td> -->
 					       <!--  <td class="my-cart-table-detail"><button class="btn btn-danger" ng-click="removeItem(item)">Delete</button></td> -->
-					      </tr>
+					     <!--  </tr>
 					    </tbody>
 					  </table>
-				</div>
+				</div> -->
 
 				<!-- Payment -->
-				<div class="col-xs-12 col-sm-5 col-md-5">
+				<!-- <div class="col-xs-12 col-sm-5 col-md-5">
 					<div class="col-xs-12 col-sm-12 col-md-12 checkout-header-box">
 						<p class="checkout-payment-header">Payment</p>
 					</div>
@@ -76,6 +76,90 @@
 						</div>
 						<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center;">
 							<button ng-click="saveCart()" class="btn my-cart-payment-button">Payment</button>
+						</div>
+					</div>
+				</div>
+			</div>
+	</body>
+</html> -->
+<html>
+	<head>
+		<title>ACHOLIC</title>
+		<meta charset = "utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<div class="container-fluid center-picture checkout-body-style" style="background-image:url('../../image/main-background.png');">
+			<!-- blank div for make vertical space -->
+			<div class="container" style="margin-top:70px">
+			</div>
+			<!-- My Cart Header -->
+			<div class="container">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<p class="checkout-header" style=" text-align:center;">สั่งซื้อแพ็คเกจ</p>
+				</div>
+			</div>
+			<div class="container">
+				<!-- Order Summary table -->
+				<div class="col-xs-12 col-sm-7 col-md-7 checkout-table-overflow no-horizotal-padding checkout-order-summary-cover">
+					<div class="col-xs-12 col-sm-12 col-md-12 checkout-order-summary-payment-header">
+						<p>สรุปการสั่งซื้อ</p>
+					</div>
+					<table class="table checkout-table">
+						<!-- Table Header -->
+					    <thead>
+					      <tr>
+					      	<th class="checkout-order-summary-table-header">แพ็คเกจ</th>
+					        <th class="checkout-order-summary-table-header">ชนิด</th>
+					        <th class="checkout-order-summary-table-header">ราคา (บาท)</th>
+					        <th class="checkout-order-summary-table-header">จำนวน</th>		  
+					      </tr>
+					    </thead>
+					    <!-- Table Detail -->
+					    <tbody>
+					      <tr ng-repeat="item in cart_show track by $index">
+					        <td class="checkout-order-summary-table-detail"><a href="/packageDetail/{{item.packages_id}}" style="color:white">{{getPackage(item.item.packages_id).name}}</a></td>
+					        <td class="checkout-order-summary-table-detail">{{item.item.type}}</td>
+					        <td class="checkout-order-summary-table-detail">{{item.item.price}}</td>
+					        <td class="checkout-order-summary-table-detail">{{item.amount}}</td>
+					       <!--  <td class="my-cart-table-detail"><button class="btn btn-danger" ng-click="removeItem(item)">Delete</button></td> -->
+					      </tr>
+					    </tbody>
+					  </table>
+				</div>
+
+				<!-- Payment -->
+				<div class="col-xs-12 col-sm-5 col-md-5">
+					<div class="col-xs-12 col-sm-12 col-md-12 checkout-header-box">
+						<p class="checkout-order-summary-payment-header">สรุปราคา</p>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-12 checkout-detail-box">
+						<div class="col-xs-12 col-sm-12 col-md-12">
+							<div class="col-xs-7 col-sm-7 col-md-7">
+								<p class="checkout-detail">จำนวนชนิดแพ็คเกจ</p>
+							</div>
+							<div class="col-xs-5 col-sm-5 col-md-5">
+								<p class="checkout-detail">{{cart.length}}</p>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12">
+							<div class="col-xs-7 col-sm-7 col-md-7">
+								<p class="checkout-detail">จำนวนแพ็คเกจทั้งหมด</p>
+							</div>
+							<div class="col-xs-5 col-sm-5 col-md-5">
+								<p class="checkout-detail">{{cart.length}}</p>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12">
+							<div class="col-xs-7 col-sm-7 col-md-7">
+								<p class="checkout-total-price">ราคารวม </p>
+							</div>
+							<div class="col-xs-5 col-sm-5 col-md-5">
+								<p class="checkout-total-price">{{total_price}} บาท</p>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center; margin-top:30px;">
+							<button ng-click="saveCart()" class="btn my-cart-payment-button">สั่งซื้อแพ็คเกจ</button>
 						</div>
 					</div>
 				</div>
