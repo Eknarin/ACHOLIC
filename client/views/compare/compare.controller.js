@@ -33,7 +33,8 @@ angular.module('acholic')
             $scope.divingItem.push(res[i]);
           }
         };
-        $scope.packages = $scope.raftingItem;
+        
+        $scope.choose('PackageRafting');
         console.log($scope.comparePackage.items);
         console.log("----------------");
         console.log($scope.raftingItem);
@@ -43,20 +44,37 @@ angular.module('acholic')
     		$scope.loadItem = true;        
         $scope.prepareRaftingData();
     	});  
-    
-  $scope.currentChoose = "PackageRafting";
+  
+  var isRotateRiv = 0;
+  var isRotateState  = 0;
+  var isRotateMore = 0;
+  // $scope.currentChoose = "PackageRafting";
   $scope.choose = function(type){
-    if(type == 'PackageRafting'){
-      $scope.packages = $scope.raftingItem;
-      $scope.currentChoose = "PackageRafting";
+    if($scope.currentChoose != type){
+      if(type == 'PackageRafting'){
+        $scope.packages = $scope.raftingItem;
+        $scope.currentChoose = "PackageRafting";
+      }
+      else if(type == 'PackageDiving'){
+        $scope.packages = $scope.divingItem;
+        $scope.currentChoose = "PackageDiving";
+      }  
+      $scope.checkRotate();
     }
-    else if(type == 'PackageDiving'){
-      $scope.packages = $scope.divingItem;
-      $scope.currentChoose = "PackageDiving";
-    }  
-    $scope.prepareData();
+    // $scope.prepareData();
   };
 
+  $scope.checkRotate = function(){
+    if(isRotateRiv == 1){
+      $scope.rotateRiv();
+    }
+    if(isRotateMore == 1){
+      $scope.rotateMore();
+    }
+    if(isRotateState == 1){
+      $scope.rotateStage();
+    }
+  };
   $scope.prepareRaftingData = function(){
     var dataPicking = new Array($scope.raftingItem.length);
     for(var i = 0; i < $scope.raftingItem.length; i++){     
@@ -125,14 +143,32 @@ angular.module('acholic')
 
   $scope.rotateRiv = function(){
     $('#expandButtriv').toggleClass('rotate-90deg');
+    if (isRotateRiv == 0) {
+      isRotateRiv = 1;
+    }
+    else if(isRotateRiv == 1){
+      isRotateRiv = 0;
+    }
   };
 
   $scope.rotateStage = function(){
     $('#expandButtstage').toggleClass('rotate-90deg');
+    if (isRotateState == 0) {
+      isRotateState = 1;
+    }
+    else if(isRotateState == 1){
+      isRotateState = 0;
+    }
   };
 
   $scope.rotateMore = function(){
     $('#expandButtmore').toggleClass('rotate-90deg');
+    if (isRotateMore == 0) {
+      isRotateMore = 1;
+    }
+    else if(isRotateMore == 1){
+      isRotateMore = 0;
+    }
   };
 
   
