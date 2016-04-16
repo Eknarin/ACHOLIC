@@ -25,6 +25,12 @@ angular.module('acholic')
       $scope.loading = true;
   });
 
+  $scope.activeSelectedButton = function(event){
+    var activeButton = $(event.target);
+      
+    $('.select-package-type-button').removeClass('select-package-type-button-active');
+    activeButton.addClass('select-package-type-button-active');
+  };
   $scope.loadBookmarks = function(){
     for(var i = 0 ; i<$scope.packages.length ;i++){
       for(var j = 0; j<$scope.bookmarks.length ;j++){
@@ -126,9 +132,6 @@ angular.module('acholic')
     $scope.filter = {};
     $scope.filter.priceMin = $scope.slider.min;
     $scope.filter.priceMax = $scope.slider.max;
-    // $scope.filter.location = $scope.selected;
-    // $scope.filter.tag = $scope.selectedType;
-    // $scope.filter.people = $scope.guest;
     $scope.packages = PackageItem.filter($scope.filter);
   };
 	

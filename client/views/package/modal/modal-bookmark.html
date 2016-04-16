@@ -1,4 +1,4 @@
-<div class="modal-header">
+<!-- <div class="modal-header">
   <p class="package-modal-header">Bookmarks</p>
 </div>
 <div class="modal-body">    
@@ -20,4 +20,28 @@
 <div class="modal-body bookmark-body-style" style="padding-bottom:15px;">
   <HR WIDTH="100%" NOSHADE>
   <button type="button" class="btn btn-default" ng-click="closeModal()">Close</button>
+</div>
+ -->
+ <div class="modal-header">
+  <p class="package-modal-header">รายการโปรด</p>
+</div>
+<div class="modal-body">    
+  <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" ng-repeat="folder in folders" ng-show='loading'>
+    <div class="col-xs-9 col-sm-9 col-md-9 no-horizotal-padding">
+      <p class="bookmark-list-name">{{folder.folder}}<p>
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3 no-horizotal-padding">
+      <input class="bookmark-select-button" ng-click="bookmarkItem(folder._id)" type="image" src="../image/unselect-bookmark-list.png"></input>      
+    </div>
+  </div>
+</div>
+<div class="modal-body bookmark-body-style">    
+  <HR WIDTH="100%" NOSHADE>
+  <div class="col-xs-8 col-sm-9 col-md-9"><input class="bookmark-input-box" ng-model="folder_name" type="text" placeholder="สร้างโฟลเดอร์รายการโปรด"></div>
+  <div class="col-xs-4 col-sm-3 col-md-3"> <button type="submit" ng-click="createFolder()" class="btn bookmark-add-new-list-button">เพิ่ม</button></div></br></br>
+  <div class="alertText" ng-show="showAlert"><p>กรุณาใส่ชื่อโฟลเดอร์รายการโปรด</p></div>
+</div>
+<div class="modal-body bookmark-body-style" style="padding-bottom:15px;">
+  <HR WIDTH="100%" NOSHADE>
+  <button type="button" class="btn btn-danger" ng-click="closeModal()" style="padding-left:15px; padding-right:15px;">ปิด</button>
 </div>
