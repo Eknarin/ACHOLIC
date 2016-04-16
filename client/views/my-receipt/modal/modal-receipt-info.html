@@ -1,4 +1,4 @@
-<div class="modal-header" style=" background-color:#e1bd00;">
+<!-- <div class="modal-header" style=" background-color:#e1bd00;">
   <p class="receipt-header" style="color:#c84646">Receipt : <font class="receipt-detail">{{receipt._id}}</font></p>
   <p class="receipt-purchased-date" style="color:black">Purcahsed at : <font ng-bind="getCreateDate(receipt.created_at)"></font></p>
 
@@ -36,4 +36,43 @@
 <div class="modal-body bookmark-body-style" style="padding-bottom:15px;">
   <HR WIDTH="100%" NOSHADE>
   <button type="button" class="btn btn-danger" ng-click="closeModal()">Close</button>
+</div> -->
+<div class="modal-header" style=" background-color:#e1bd00;">
+  <p class="receipt-header" style="color:#c84646">เลขที่ใบเสร็จ : <font class="receipt-detail">{{receipt._id}}</font></p>
+  <p class="receipt-purchased-date" style="color:black">วันที่ซื้อ : <font ng-bind="getCreateDate(receipt.created_at)"></font></p>
+
+</div>
+<div class="modal-body" style="padding-bottom:0px;">    
+    <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" >
+        <div class="col-xs-5 col-sm-5 col-md-5 no-horizotal-padding">
+            <p class="modal-receipt-header">ชนิดแพ็คเกจ<p>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 no-horizotal-padding">
+            <p class="modal-receipt-header">ราคา (บาท)</p>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 no-horizotal-padding">
+            <p class="modal-receipt-header">รหัสยืนยันแพ็คเกจ</p>
+        </div>
+    </div>          
+    <HR WIDTH="100%" NOSHADE>
+    <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" ng-repeat="transaction in transactions track by $index">
+        <div class="col-xs-5 col-sm-5 col-md-5 no-horizotal-padding">
+            <p class="modal-receipt-detail">{{transaction.type}}<p>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 no-horizotal-padding">
+            <p class="modal-receipt-detail">{{transaction.price}}</p>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 no-horizotal-padding">
+            <p class="modal-receipt-detail">{{transaction.serial}}</p>             
+        </div>      
+        <HR WIDTH="100%" NOSHADE>        
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="text-align:center; background-color:rgba(0, 0, 0, 0.75);">
+        <p class="modal-receipt-total-price">ราคารวม : {{receipt.total_price}} บาท<p>
+    </div>
+
+</div>
+<div class="modal-body bookmark-body-style" style="padding-bottom:15px;">
+  <HR WIDTH="100%" NOSHADE>
+  <button type="button" class="btn btn-danger" ng-click="closeModal()" style="padding-right:15px; padding-left:15px;">ปิด</button>
 </div>
