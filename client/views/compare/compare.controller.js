@@ -11,7 +11,8 @@ angular.module('acholic')
 
     // Chart style
     var chartStyle = {     
-      "labels": ["Age","Rating","Level","StageAmount"], 
+      // "labels": ["Age","Rating","Level","StageAmount"], 
+      "labels": ["อายุ","เรตติ้ง","ระดับล่องแก่ง","จำนวนด่าน"], 
       "colors": [{ // default
         "fillColor": "rgba(255, 153, 153, 0.4)",
         "strokeColor": "rgba(207,100,103,1)",
@@ -171,7 +172,11 @@ angular.module('acholic')
     }
   };
 
+  $scope.activeSelectedButton = function(event){
+    var activeButton = $(event.target);
+      
+    $('.select-package-type-button').removeClass('select-package-type-button-active');
+    activeButton.addClass('select-package-type-button-active');
+  }; 
   
-
-
   }]);
