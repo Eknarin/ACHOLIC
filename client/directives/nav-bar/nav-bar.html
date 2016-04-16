@@ -1,4 +1,4 @@
-    <!Doctype html>
+    <!-- <!Doctype html>
     <html>
     <head>
       <title>ACHOLIC</title>
@@ -9,9 +9,9 @@
     <body>
       <div class="alert alert-warning fade" id="warning-alert">
         <strong>Warning!</strong> No comparing packages, Please choose the package and click Compare button. 
-      </div>
+      </div> -->
       <!-- Navigation Bar -->
-      <nav class="navbar navbar-fixed-top" style = "background-color:rgba(0,0,0,0.85);" >
+     <!--  <nav class="navbar navbar-fixed-top" style = "background-color:rgba(0,0,0,0.85);" >
         <div class="container-fluid">
           <div class="row-fluid">
             <div class="col-xs-12 col-sm-2 col-md-2 navbar-header no-horizotal-padding">
@@ -19,15 +19,15 @@
                 <span class="icon-bar" style="background-color:rgba(0,0,0,0.85);"></span>
                 <span class="icon-bar" style="background-color:rgba(0,0,0,0.85);"></span>
                 <span class="icon-bar" style="background-color:rgba(0,0,0,0.85);"></span>
-              </button>
+              </button> -->
               <!-- Brand name -->
-              <a class="col-xs-12 col-sm-12 col-md-12 navbar-brand brand-name" href="/" style="color:#fbd300;"><img src="../image/MostMark.png" class="brand-logo" style="display:inline-block;">MostMark</a>
+              <!-- <a class="col-xs-12 col-sm-12 col-md-12 navbar-brand brand-name" href="/" style="color:#fbd300;"><img src="../image/MostMark.png" class="brand-logo" style="display:inline-block;">MostMark</a>
             </div>
             <div class="col-xs-12 col-sm-10 col-md-10 no-horizotal-padding">
               <div id="navbar" class="navbar-collapse collapse">
-                <div class="nav navbar-nav col-xs-12 col-sm-12 col-md-12">
+                <div class="nav navbar-nav col-xs-12 col-sm-12 col-md-12"> -->
                   <!-- Search box -->
-                  <div class="col-xs-12 col-sm-6 col-md-9" style="padding-top:10px; padding-bottom:10px;">
+                  <!-- <div class="col-xs-12 col-sm-6 col-md-9" style="padding-top:10px; padding-bottom:10px;">
                    <form class="navbar-form" role="search">
                      <div class="input-group" style="width:100%">
                         <input type="text" class="form-control" placeholder="Search your places..." name="srch-term" id="srch-term" ng-model="search" style="width:100%"></input>
@@ -38,9 +38,9 @@
                         </div>
                      </div>
                    </form>
-                  </div>
+                  </div> -->
                   <!-- Dropdown utilities menu -->
-                  <div class="col-xs-6 col-sm-3 col-md-1 utilities-dropdown-menu no-horizotal-padding" style="margin-top:5px;">
+                  <!-- <div class="col-xs-6 col-sm-3 col-md-1 utilities-dropdown-menu no-horizotal-padding" style="margin-top:5px;">
                     <li ng-show="!Auth.isLogged()" style="text-align:center; padding-top:10px;">
                       <a href="/package" style="color:#fbd300; padding:5px;">Packages</a>
                     </li>
@@ -48,10 +48,10 @@
                       <a class="dropdown-toggle" href="#" data-toggle="dropdown" style="color:#fbd300;text-align:center;">
                         <img src="../image/more.png" class="more-info-button">
                       </a>
-                      <ul class="dropdown-menu dropdown-menu-right" style="width:300px; position:absolute; background-color:white; padding-top:15px;">
+                      <ul class="dropdown-menu dropdown-menu-right" style="width:300px; position:absolute; background-color:white; padding-top:15px;"> -->
                         <!-- User function -->
                         <!-- first row -->
-                        <div class="col-xs-4 col-sm-4 col-md-4 user-function-last">
+                        <!-- <div class="col-xs-4 col-sm-4 col-md-4 user-function-last">
                           <a href="/package" style="color:black">
                             <img src="../image/globe.png" class="more-function">
                             <p>Packages</p>
@@ -83,10 +83,10 @@
                     </li>
                     <li class="dropdown" ng-show="Auth.isLogged() && user.role == 'Vendor' || user.role == 'Admin'">
                       <a class="dropdown-toggle" href="#" data-toggle="dropdown" style="color:#fbd300;text-align:center; padding:25px;"><img src="../image/more.png" class="more-info-button"></a>
-                      <ul class="dropdown-menu dropdown-menu-right" style="width:300px; padding-top:0px; ">
+                      <ul class="dropdown-menu dropdown-menu-right" style="width:300px; padding-top:0px; "> -->
                         <!-- User function -->
                         <!-- first row -->
-                        <div class="col-xs-4 col-sm-4 col-md-4 user-function-last">
+                        <!-- <div class="col-xs-4 col-sm-4 col-md-4 user-function-last">
                           <a href="/package" style="color:black">
                             <img src="../image/globe.png" class="more-function">
                             <p>Packages</p>
@@ -128,15 +128,193 @@
                         <li>&nbsp</li>
                       </ul>
                     </li>                    
+                  </div> -->
+                  <!-- Dropdown User Menu -->
+                  <!-- <div class="col-xs-6 col-sm-3 col-md-2 user-dropdown-menu no-horizotal-padding" style="margin-top:5px;">   -->
+                    <!-- Dropdown SignIn/SignUp menu -->
+                    <!-- <li class="dropdown" ng-show="!Auth.isLogged()" style="text-align:center; padding-top:10px;">
+                      <a href="#"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#fbd300; padding:5px;">Sign In <span class="caret"></span></a>
+                      <ul class="dropdown-menu" style="background-color:white;">
+                        <li><a ng-click="openLogin()" style="color:#fbd300;">Sign In</a></li>
+                        <li><a ng-click="openSignup()" style="color:#fbd300;">Sign Up</a></li>
+                      </ul>
+                    </li>
+
+                    <li class="dropdown" ng-if="Auth.isLogged()">
+                      <a ng-show="user.image" class="dropdown-toggle" href="#"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#fbd300; top: 0px; padding:25px;"><img class="nav-small-profile-image-style" ng-src=api/images/{{user.image}}></img>  {{user.first_name}} <span class="caret"></span></a>
+                      <a ng-show="!user.image" class="dropdown-toggle" href="#"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#fbd300; top: 0px; padding:25px;"><img class="nav-small-profile-image-style" ng-src={{user.facebook_image}}></img>  {{user.first_name}} <span class="caret"></span></a>
+                      <ul class="col-xs-12 col-sm-12 col-md-12 dropdown-menu dropdown-menu-right dropdown-user" style="padding-top:0px;"> -->
+                        <!-- Profile Picture -->
+                        <!-- <div class="col-xs-12 col-sm-5 col-md-5 user-menu">
+                          <img ng-show="user.image" class="nav-profile-image-style" style="height:80px; width:80px;" ng-src=api/images/{{user.image}}></img>
+                          <img ng-show="!user.image" class="nav-profile-image-style" style="height:80px; width:80px;" ng-src={{user.facebook_image}}></img>
+                        </div> -->
+                        <!-- Info -->
+                        <!-- <div class="col-xs-12 col-sm-7 col-md-7 user-menu" style="background-color:white; padding-bottom:8px;">
+                          <div class="col-xs-12 col-sm-12 col-md-12">
+                            <p class="nav-profile-name-style ">{{user.first_name}} {{user.last_name}}</p> 
+                          </div>                        
+                          <div class="col-xs-12 col-sm-12 col-md-12">
+                            <p class="nav-profile-name-style">{{user.role}}</p> 
+                          </div>
+                          <div class="col-xs-12 col-sm-12 col-md-12 user-menu">
+                            <a href="/profile" class="btn btn-primary" role="button" style="color:white;">My Profile</a>
+                          </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 profile-bottom user-menu">
+                          <button ng-if="Auth.isLogged()" type="button" class="btn btn-danger" ng-click="openLogout()">Sign Out</button>
+                        </div>
+                      </ul>
+                    </li>      
+                  </div>          
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+    <!Doctype html>
+    <html>
+    <head>
+      <title>ACHOLIC</title>
+      <meta charset = "utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+      <div class="alert alert-warning fade" id="warning-alert" style="padding-top:50px;">
+        <strong>Warning!</strong> ไม่พบรายกาารเปรียบเทียบ กรุณาเพิ่มแพ็คเกจเพื่อการเปรียบเทียบ
+      </div>
+      <!-- Navigation Bar -->
+      <nav class="navbar navbar-fixed-top" style = "background-color:rgba(0,0,0,0.85);" >
+        <div class="container-fluid">
+          <div class="row-fluid">
+            <div class="col-xs-12 col-sm-2 col-md-2 navbar-header no-horizotal-padding">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" style="background-color:#fbd300; margin-top:15px;">
+                <span class="icon-bar" style="background-color:rgba(0,0,0,0.85);"></span>
+                <span class="icon-bar" style="background-color:rgba(0,0,0,0.85);"></span>
+                <span class="icon-bar" style="background-color:rgba(0,0,0,0.85);"></span>
+              </button>
+              <!-- Brand name -->
+              <a class="col-xs-12 col-sm-12 col-md-12 navbar-brand brand-name" href="/" style="color:#fbd300;"><img src="../image/MostMark.png" class="brand-logo" style="display:inline-block;">MostMark</a>
+            </div>
+            <div class="col-xs-12 col-sm-10 col-md-10 no-horizotal-padding">
+              <div id="navbar" class="navbar-collapse collapse">
+                <div class="nav navbar-nav col-xs-12 col-sm-12 col-md-12">
+                  <!-- Search box -->
+                  <div class="col-xs-12 col-sm-6 col-md-9" style="padding-top:10px; padding-bottom:10px;">
+                   <form class="navbar-form" role="search">
+                     <div class="input-group" style="width:100%">
+                        <input type="text" class="form-control" placeholder="Search your places..." name="srch-term" id="srch-term" ng-model="search" style="width:100%"></input>
+                        <div class="input-group-btn" style="width:10%">
+                          <button class="btn btn-default" type="submit" ng-click="searchPage()">
+                            <span class="glyphicon glyphicon-search"></span>
+                          </button>
+                        </div>
+                     </div>
+                   </form>
+                  </div>
+                  <!-- Dropdown utilities menu -->
+                  <div class="col-xs-6 col-sm-3 col-md-1 utilities-dropdown-menu no-horizotal-padding" style="margin-top:5px;">
+                    <li ng-show="!Auth.isLogged()" style="text-align:center; padding-top:10px;">
+                      <a href="/package" style="color:#fbd300; padding:5px;">แพ็คเกจ</a>
+                    </li>
+                    <li class="dropdown" ng-show="Auth.isLogged() && user.role == 'Customer'">
+                      <a class="dropdown-toggle" href="#" data-toggle="dropdown" style="color:#fbd300;text-align:center;">
+                        <img src="../image/more.png" class="more-info-button">
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-right" style="width:300px; background-color:white; padding-top:0px;">
+                        <!-- User function -->
+                        <!-- first row -->
+                        <div class="col-xs-4 col-sm-4 col-md-4 user-function-last">
+                          <a href="/package" style="color:black">
+                            <img src="../image/globe.png" class="more-function">
+                            <p style="padding-top:5px;">แพ็คเกจทั้งหมด</p>
+                          </a>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 user-function">
+                          <a ng-click="checkCompare()" style="color:black">
+                            <img src="../image/compare.png" class="more-function">
+                            <p style="padding-top:5px;">เปรียบเทียบแพ็คเกจ</p>
+                          </a>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 user-function">
+                          <a href="/my-bookmark" style="color:black">
+                            <img src="../image/myBookmark.png" class="more-function">
+                            <p style="padding-top:5px;">รายการโปรด</p>
+                          </a>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12" style="background-color:white;">
+                          <li role="separator" class="divider"></li>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 user-function-last">
+                          <a href="/my-receipt" style="color:black">
+                            <img src="../image/receipt.png" class="more-function">
+                            <p style="padding-top:5px;">ใบเสร็จ</p>
+                          </a>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 user-function-last">
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 user-function-last">
+                        </div>
+                        <li>&nbsp</li>
+                      </ul>
+                    </li>
+                    <li class="dropdown" ng-show="Auth.isLogged() && user.role == 'Vendor' || user.role == 'Admin'">
+                      <a class="dropdown-toggle" href="#" data-toggle="dropdown" style="color:#fbd300;text-align:center; padding:25px;"><img src="../image/more.png" class="more-info-button"></a>
+                      <ul class="dropdown-menu dropdown-menu-right" style="width:300px; padding-top:0px; ">
+                        <!-- User function -->
+                        <!-- first row -->
+                        <div class="col-xs-4 col-sm-4 col-md-4 user-function-last">
+                          <a href="/package" style="color:black">
+                            <img src="../image/globe.png" class="more-function">
+                            <p style="padding-top:5px;">แพ็คเกจทั้งหมด</p>
+                          </a>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 user-function">
+                          <a href="/package/create" style="color:black">
+                            <img src="../image/plus.png" class="more-function">
+                            <p style="padding-top:5px;">สร้างแพ็คเกจ</p>
+                          </a>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 user-function">
+                          <a ng-click="checkCompare()" style="color:black">
+                            <img src="../image/compare.png" class="more-function">
+                            <p style="padding-top:5px;">เปรียบเทียบแพ็คเกจ</p>
+                          </a>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12" style="background-color:white;">
+                          <li role="separator" class="divider"></li>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 user-function">
+                          <a href="/my-package" style="color:black">
+                            <img src="../image/suitcase_travel.png" class="more-function">
+                            <p style="padding-top:5px;">แพ็คเกจของฉัน</p>
+                          </a>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 user-function">
+                          <a href="/my-bookmark" style="color:black">
+                            <img src="../image/myBookmark.png" class="more-function">
+                            <p style="padding-top:5px;">รายการโปรด</p>
+                          </a>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 user-function-last">
+                          <a href="/my-receipt" style="color:black">
+                            <img src="../image/receipt.png" class="more-function">
+                            <p style="padding-top:5px;">ใบเสร็จ</p>
+                          </a>
+                        </div>
+                        <li>&nbsp</li>
+                      </ul>
+                    </li>                    
                   </div>
                   <!-- Dropdown User Menu -->
                   <div class="col-xs-6 col-sm-3 col-md-2 user-dropdown-menu no-horizotal-padding" style="margin-top:5px;">  
                     <!-- Dropdown SignIn/SignUp menu -->
                     <li class="dropdown" ng-show="!Auth.isLogged()" style="text-align:center; padding-top:10px;">
-                      <a href="#"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#fbd300; padding:5px;">Sign In <span class="caret"></span></a>
+                      <a href="#"data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#fbd300; padding:5px;">เข้าสู่ระบบ<span class="caret"></span></a>
                       <ul class="dropdown-menu" style="background-color:white;">
-                        <li><a ng-click="openLogin()" style="color:#fbd300;">Sign In</a></li>
-                        <li><a ng-click="openSignup()" style="color:#fbd300;">Sign Up</a></li>
+                        <li><a ng-click="openLogin()" style="color:#fbd300;">เข้าสู่ระบบ</a></li>
+                        <li><a ng-click="openSignup()" style="color:#fbd300;">สมัครสมาชิก</a></li>
                       </ul>
                     </li>
 
@@ -158,11 +336,11 @@
                             <p class="nav-profile-name-style">{{user.role}}</p> 
                           </div>
                           <div class="col-xs-12 col-sm-12 col-md-12 user-menu">
-                            <a href="/profile" class="btn btn-primary" role="button" style="color:white;">My Profile</a>
+                            <a href="/profile" class="btn btn-primary" role="button" style="color:white;">โปรไฟล์ของฉัน</a>
                           </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 profile-bottom user-menu">
-                          <button ng-if="Auth.isLogged()" type="button" class="btn btn-danger" ng-click="openLogout()">Sign Out</button>
+                          <button ng-if="Auth.isLogged()" type="button" class="btn btn-danger" ng-click="openLogout()">ออกจากระบบ</button>
                         </div>
                       </ul>
                     </li>      
@@ -172,5 +350,7 @@
             </div>
           </div>
         </div>
+      </nav>
+      <!-- End Navigation Bar -->
       </nav>
       <!-- End Navigation Bar -->

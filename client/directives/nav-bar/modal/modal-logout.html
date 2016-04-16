@@ -1,4 +1,4 @@
-      <div class="modal-header" >
+<!--       <div class="modal-header" >
         <h2 class="modal-title">Sign out confirmation</h2>
       </div>
       <form ng-submit="logout()">
@@ -9,5 +9,19 @@
         <div class="modal-footer">
           <button type="submit" class="btn btn-danger"> Sign Out </button>
           <button type="button" class="btn btn-default" ng-click="cancel()">Cancle</button>
+        </div>
+      </form>
+ -->
+       <div class="modal-header" >
+        <h2 class="modal-title">ยืนยันออกจากระบบ</h2>
+      </div>
+      <form ng-submit="logout()">
+        <div class="modal-body">
+          <pre ng-if="vg.error">{{ vm.error | json }}</pre>  
+          <h4>คุณต้องการที่ออกจากระบบ?</h4>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger"> ออกจากระบบ </button>
+          <button type="button" class="btn btn-default" ng-click="cancel()">ยกเลิก</button>
         </div>
       </form>
