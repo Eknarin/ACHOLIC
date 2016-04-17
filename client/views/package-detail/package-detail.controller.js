@@ -16,7 +16,8 @@ angular.module('acholic')
     var items = [];
     $scope.like = false;
     $scope.loading1 = false;
-    $scope.levelNum = parseInt(itemData.map_id.map_id.level.substring(5))-1;
+    if(itemData.map_id.map_id.level)
+      $scope.levelNum = parseInt(itemData.map_id.map_id.level.substring(5))-1;
     console.log($scope.levelNum);
     $scope.levelDetail = ["ระดับ 1 ง่ายมาก มีแก่งเล็กน้อยที่ง่ายมากคนทั่วไปสามารถพายได้บนสายน้ำไหลเอื่อย เหมาะสมสำหรับผู้ที่เริ่มล่องแก่ง",
     "ระดับ 2 ธรรมดา น้ำไหลแรงขึ้น มีแก่งที่ต้องใช้เทคนิค ในระดับนี้ผู้พายจะต้องมีทักษะในการพายอยู่พอสมควร",
