@@ -21,7 +21,7 @@ angular.module('acholic')
             $scope.seasonMonth = true;
         }
         else{
-            $scope.seas = "Whole Year";
+            $scope.seas = "ตลอดปี";
             $scope.seasonMonth = false;
         }
 
@@ -54,7 +54,7 @@ angular.module('acholic')
     });
 
     $scope.checkSeason = function(){
-        if ($scope.seas == "Whole Year") {
+        if ($scope.seas == "ตลอดปี") {
             $scope.seasonMonth = false;
         } else{
             $scope.seasonMonth = true;
@@ -74,7 +74,7 @@ angular.module('acholic')
 
         //season
         $scope.packageTab2.season = {};
-        if($scope.seas == "Whole Year"){
+        if($scope.seas == "ตลอดปี"){
             $scope.packageTab2.season.year = $scope.seas;
             $scope.packageTab2.season.month1 = "";
             $scope.packageTab2.season.month2 = "";
@@ -331,18 +331,18 @@ angular.module('acholic')
   $scope.month2 = "";
 
   $scope.months = [
-    {name: 'January'},
-    {name: 'February'},
-    {name: 'March'},
-    {name: 'May'},
-    {name: 'April'},
-    {name: 'June'},
-    {name: 'July'},
-    {name: 'August'},
-    {name: 'September'},
-    {name: 'October'},
-    {name: 'November'},
-    {name: 'December'}
+    {name: 'มกราคม'},
+    {name: 'กุมภาพันธ์'},
+    {name: 'มีนาคม'},
+    {name: 'เมษายน'},
+    {name: 'พฤษภาคม'},
+    {name: 'มิถุนายน'},
+    {name: 'กรกฏาคม'},
+    {name: 'สิงหาคม'},
+    {name: 'กันยายน'},
+    {name: 'ตุลาคม'},
+    {name: 'พฤศจิกายน'},
+    {name: 'ธันวาคม'}
   ];
   $scope.setMonth1 = function(value){
     $scope.month1 = value;
