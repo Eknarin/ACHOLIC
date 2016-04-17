@@ -17,17 +17,15 @@ angular.module('acholic')
             $scope.findAllPackageId($scope.myPackages);
             $scope.findAllPackageName($scope.myPackages);
             $scope.findSoldRatePerPackage(tran);
-            console.log($scope.packageNameArr);
-            console.log($scope.packageSoldAmount);
+            // $scope.findSubPackageSoldRate(tran);
+            $scope.findSoldRatePerWeek(tran);
           });
         });
   	});
     // Chart style
-    var chartStyle = {     
-      // "labels": ["Age","Rating","Level","StageAmount"], 
-      "labels": ["อายุ","เรตติ้ง","ระดับล่องแก่ง","จำนวนด่าน"], 
+    var chartStyle = {           
       "colors": [{ // default
-        "fillColor": "rgba(255, 153, 153, 0.4)",
+        "fillColor": "rgba(255, 153, 153, 1)",
         "strokeColor": "rgba(207,100,103,1)",
         "pointColor": "rgba(220,220,220,1)",
         "pointStrokeColor": "#fff",
@@ -69,7 +67,7 @@ angular.module('acholic')
       $scope.packageSoldAmount = new Array($scope.packageIdArr.length);
       for (var i = 0; i < $scope.packageIdArr.length; i++) {      
         $scope.packageSoldAmount[i] = 0;
-      };
+      }
       for (var i = 0; i < trans.length; i++) {
         for(var j=0; j < $scope.packageIdArr.length; j++){            
            if(trans[i].packages_id == $scope.packageIdArr[j]){                               
@@ -78,4 +76,69 @@ angular.module('acholic')
         }       
       }
     };
+
+    $scope.packageSoldPerMonthLabels = ['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน',
+    'กรกฏาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'];
+    $scope.findSoldRatePerWeek = function(trans){
+      $scope.packageSoldPerMonth = new Array($scope.packageIdArr.length);
+      for(var i=0; i<$scope.packageSoldPerMonth.length; i++){
+        var soldPerMonth = new Array(12);      
+        for(var j=0; j<soldPerMonth.length; j++){
+          soldPerMonth[j] = 0;
+        }
+        $scope.packageSoldPerMonth[i] = soldPerMonth;   
+      }
+      console.log("=====");
+      console.log($scope.packageSoldPerMonth);
+
+      // // var weekArr = new Array(52);
+      for(var i=0; i<trans.length; i++){
+        for(var j=0; j<$scope.packageIdArr.length; j++){
+          if(trans[i].packages_id == $scope.packageIdArr[j]){
+            var month = new Date(trans[i].created_at).getMonth();
+            $scope.packageSoldPerMonth[j][month-1] += 1;
+          }
+        }
+      }
+      console.log($scope.packageSoldPerMonth);
+    };
+
+
+    $scope.findSubPackageSoldRate = function(trans){
+      var subPackage = [];
+      for (var i = 0; i < trans.length; i++) {
+        for(var j=0; j < $scope.packageIdArr.length; j++){ 
+          if(trans[i].packages_id == $scope.packageIdArr[j]){                               
+            var temp = {
+              pac_id : 0,
+              type : "",
+              amount : 0
+            };
+            temp.pac_id = $scope.packageIdArr[j];
+            temp.type = trans[i].type;
+            temp.amount += 1;
+            var x = 0;
+            for (var k = 0; k < subPackage.length; k++) {
+              if(subPackage[k].type == temp.type){
+                subPackage[k].amount += temp.amount;
+                x += 1;
+                // break;
+              }
+            }
+            if(x == 0){
+              subPackage.push(temp);
+            }
+          }
+        }
+      }
+      console.log("SUBPACKAGE");
+      console.log(subPackage);
+      var subPackageSoldRate = [[]];
+      for(var i=0; i<subPackage.length; i++){
+        
+      }
+    };
+    // $scope.onClick = function (points, evt) {
+    //   console.log(points, evt);
+    // };
   }]);
