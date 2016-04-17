@@ -256,7 +256,7 @@ angular.module('acholic')
     {name: 'อุบลราชธานี'},
     {name: 'อำนาจเจริญ'}
   ];
-  $scope.selectedProvince = "Province";
+  $scope.selectedProvince = "-";
   $scope.setProvince = function(value){
     $scope.selectedProvince = value;
     $scope.packages.province = value;

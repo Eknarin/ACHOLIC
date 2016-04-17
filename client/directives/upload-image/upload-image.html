@@ -1,5 +1,5 @@
    <!-- Cover Image -->
-  <div class="col-xs-12 col-sm-12 col-md-12">
+  <!-- <div class="col-xs-12 col-sm-12 col-md-12">
     <div class="col-xs-12 col-sm-12 col-md-12">
       <p style="font-size:20px">Upload Cover Image</p>
     </div>
@@ -7,6 +7,21 @@
       <button class="btn btn-warning" ngf-select ng-model="file" ngf-max-size="8MB"
              ngf-model-invalid="errorFiles">
       Upload Image</button>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <img ng-show="file" ngf-thumbnail="file" style="height:200px; width:200px;">  
+    </div>
+    <HR WIDTH="100%" NOSHADE>
+  </div> -->
+     <!-- Cover Image -->
+  <div class="col-xs-12 col-sm-12 col-md-12">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <p style="font-size:20px">ใส่รูปหลัก</p>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <button class="btn btn-warning" ngf-select ng-model="file" ngf-max-size="8MB"
+             ngf-model-invalid="errorFiles">
+      อัพโหลด</button>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
       <img ng-show="file" ngf-thumbnail="file" style="height:200px; width:200px;">  
