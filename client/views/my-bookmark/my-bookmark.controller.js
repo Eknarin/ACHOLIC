@@ -60,7 +60,6 @@ angular.module('acholic')
   		  $scope.totalItems = res.total;
   		  $scope.currentPage = res.page;
 	      $scope.loading = true;
-        console.log($scope.loading);
 	    });
 	 });
 
@@ -188,5 +187,22 @@ angular.module('acholic')
   $scope.go = function ( path ) {
 	  	$location.path( path );
 	};
+
+  $scope.openAddToCartModal = function(item){
+    var modalInstance = $uibModal.open({
+      animation: true,
+      templateUrl: 'views/package/modal/modal-addToCart.html',
+      controller: 'AddToCartModalCtrl',
+      size: 'md',
+      resolve: {
+        packageData:['PackageItem', function(PackageItem){
+          return PackageItem.query({id : item}).$promise;
+          }] ,
+          userData: $scope.user
+        }
+        }).result.then(function(res){
+            $scope.reloadCart();
+          });
+    };
 
   }]);
