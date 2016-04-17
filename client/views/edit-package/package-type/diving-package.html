@@ -780,8 +780,8 @@
 				   					<p class="package-create-topic-style">ฤดูท่องเที่ยว : </p>
 			    				</div>
 			    				<div class="col-xs-12 col-sm-12 col-md-8 package-create-bullet-group-style">
-		        					<input type="radio" name="season" ng-model="seas" value="Whole Year" ng-change="checkSeason(value)" checked> Whole Year<br>
-									<input type="radio" name="season" ng-model="seas" value="From " ng-change="checkSeason(value)"> From 
+		        					<input type="radio" name="season" ng-model="seas" value="ตลอดปี" ng-change="checkSeason(value)" checked> ตลอดปี<br>
+									<input type="radio" name="season" ng-model="seas" value="From " ng-change="checkSeason(value)"> เริ่มจาก 
 										<div class="col-xs-12 col-sm-12 col-md-12">
 											<div class="btn-group" style="margin-bottom:15px;" ng-show="seasonMonth">
 												<button type="button" class="btn btn-default package-create-dropdown-select" ng-bind='month1'> Start Month </button>
@@ -793,7 +793,7 @@
 													<li ng-repeat="m in months" ng-model="month1" ng-click="setMonth1(m.name)"><a href="#">{{m.name}}</a></li>
 												</ul>
 											</div>
-											<p ng-show="seasonMonth">To</p>
+											<p ng-show="seasonMonth">ถึง</p>
 											<div class="btn-group" ng-show="seasonMonth">
 												<button type="button" class="btn btn-default package-create-dropdown-select" ng-bind='month2'> End Month </button>
 												<button type="button" class="btn btn-default dropdown-toggle package-create-dropdown-menu-button" data-toggle="dropdown">
