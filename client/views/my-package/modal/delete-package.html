@@ -1,3 +1,5 @@
+
+<!-- <div class="modal-header">
 <div class="modal-header">
 	<div style="text-align: right;">
   		<button ng-click="closeModal()">&times;</button>
@@ -10,5 +12,20 @@
 <div class="modal-body" style="padding-bottom:15px; text-align:center; padding-top:0px;">
   <HR WIDTH="100%" NOSHADE>
   <button type="submit" class="btn" style="background-color:#fbd300; color:white;" ng-click="deletePackage()">Yes</button>
-  <!-- <button type="button" class="btn" style="background-color:#fe5a5f; color:white" ng-click="closeModal()">Cancel</button> -->
+  <button type="button" class="btn" style="background-color:#fe5a5f; color:white" ng-click="closeModal()">Cancel</button>
+</div> -->
+<div class="modal-header">
+  <div class="col-xs-10 col-sm-10 col-md-10">
+    <p class="package-modal-header">ลบแพ็คเกจ</p>
+  </div>
+  <div class="col-xs-2 col-sm-2 col-md-2"style="text-align: right;">
+    <button class="btn btn-danger"ng-click="closeModal()">&times;</button>
+  </div>  
+</div>
+<div class="modal-body" style="padding-bottom:0px;">    
+	<p style="font-size:18px;"><font style="color:red">การยืนยัน :</font> ยืนยันในการลบแพ็คเกจ?</p>
+</div>
+<div class="modal-body" style="padding-bottom:15px; text-align:center; padding-top:0px;">
+  <HR WIDTH="100%" NOSHADE>
+  <button type="submit" class="btn" style="background-color:#fbd300; color:white;" ng-click="deletePackage()">ยืนยัน</button>
 </div>
