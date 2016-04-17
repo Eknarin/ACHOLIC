@@ -1,6 +1,6 @@
-<div>
+<!-- <div> -->
   <!-- Multi Image -->
-  <div class="col-xs-12 col-sm-12 col-md-12">
+  <!-- <div class="col-xs-12 col-sm-12 col-md-12">
     <div class="col-xs-12 col-sm-12 col-md-12">
       <p style="font-size:20px">Upload Multi-Image</p>
     </div>
@@ -8,6 +8,24 @@
       <button class="btn btn-warning" ngf-select="uploadFiles($files, $invalidFiles)" multiple
           accept="image/*" ngf-max-size="8MB">
       Upload Image</button>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-3" ng-repeat="image in images" style="text-align:center;">
+      <img class="multi-img center-picture" ng-src="/api/images/{{image}}"/> -->
+      <!-- {{image.name}} {{image.$errorParam}} -->
+     <!--  <img class="delete-img-button" src="../image/remove-button.png" name="image" data-ng-click="removeRow($index)"></img>
+    </div>
+  </div>
+</div> -->
+<div>
+  <!-- Multi Image -->
+  <div class="col-xs-12 col-sm-12 col-md-12">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <p style="font-size:20px">อัพโหลดแกลอรี่รูป</p>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <button class="btn btn-warning" ngf-select="uploadFiles($files, $invalidFiles)" multiple
+          accept="image/*" ngf-max-size="8MB">
+      อัพโหลด</button>
     </div>
     <div class="col-xs-12 col-sm-4 col-md-3" ng-repeat="image in images" style="text-align:center;">
       <img class="multi-img center-picture" ng-src="/api/images/{{image}}"/>
