@@ -63,9 +63,18 @@
 				อัตราการขายแพ็คเกจ
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="text-align:center; margin-top:15px; margin-bottom:15px; padding-bottom:15px;">
-				<canvas id="doughnut" class="chart chart-doughnut"
+				<!-- <canvas id="doughnut" class="chart chart-doughnut"
 				  chart-data="packageSoldAmount" chart-labels="packageNameArr" chart-legend="true">
-				</canvas> 
+				</canvas> -->
+				<canvas id="bar" 
+						class="chart chart-bar"
+				  		chart-data="[packageSoldAmount]" 
+				  		chart-labels="packageNameArr"
+				  		height="300"
+						width="300"
+						chart-colours="packageChartStyle.colors"
+						chart-legend="true">
+				</canvas >
 			</div>
 		</div>
 	</div>	

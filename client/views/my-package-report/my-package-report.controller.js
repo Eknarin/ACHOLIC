@@ -17,9 +17,25 @@ angular.module('acholic')
             $scope.findAllPackageId($scope.myPackages);
             $scope.findAllPackageName($scope.myPackages);
             $scope.findSoldRatePerPackage(tran);
+            console.log($scope.packageNameArr);
+            console.log($scope.packageSoldAmount);
           });
         });
   	});
+    // Chart style
+    var chartStyle = {     
+      // "labels": ["Age","Rating","Level","StageAmount"], 
+      "labels": ["อายุ","เรตติ้ง","ระดับล่องแก่ง","จำนวนด่าน"], 
+      "colors": [{ // default
+        "fillColor": "rgba(255, 153, 153, 0.4)",
+        "strokeColor": "rgba(207,100,103,1)",
+        "pointColor": "rgba(220,220,220,1)",
+        "pointStrokeColor": "#fff",
+        "pointHighlightFill": "#fff",
+        "pointHighlightStroke": "rgba(151,187,205,0.8)"
+      }] };
+    $scope.packageChartStyle = chartStyle;
+
     $scope.selectFolder = function(id){
       // $scope.activeButton(event);
       if(id == 0){
@@ -31,7 +47,7 @@ angular.module('acholic')
       else if(id == 2){
         $location.path("/my-package-report");
       }
-    };
+    };     
 
     // find all package id
     $scope.findAllPackageId = function(packages){
