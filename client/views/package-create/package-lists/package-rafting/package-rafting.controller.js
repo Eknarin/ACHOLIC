@@ -267,18 +267,18 @@ angular.module('acholic')
   $scope.month2 = "";
 
   $scope.months = [
-    {name: 'January'},
-    {name: 'February'},
-    {name: 'March'},
-    {name: 'May'},
-    {name: 'April'},
-    {name: 'June'},
-    {name: 'July'},
-    {name: 'August'},
-    {name: 'September'},
-    {name: 'October'},
-    {name: 'November'},
-    {name: 'December'}
+    {name: 'มกราคม'},
+    {name: 'กุมภาพันธ์'},
+    {name: 'มีนาคม'},
+    {name: 'เมษายน'},
+    {name: 'พฤษภาคม'},
+    {name: 'มิถุนายน'},
+    {name: 'กรกฏาคม'},
+    {name: 'สิงหาคม'},
+    {name: 'กันยายน'},
+    {name: 'ตุลาคม'},
+    {name: 'พฤศจิกายน'},
+    {name: 'ธันวาคม'}
   ];
   $scope.setMonth1 = function(value){
     $scope.month1 = value;
