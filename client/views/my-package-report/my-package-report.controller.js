@@ -96,7 +96,7 @@ angular.module('acholic')
         for(var j=0; j<$scope.packageIdArr.length; j++){
           if(trans[i].packages_id == $scope.packageIdArr[j]){
             var month = new Date(trans[i].created_at).getMonth();
-            $scope.packageSoldPerMonth[j][month-1] += 1;
+            $scope.packageSoldPerMonth[j][month] += 1;
           }
         }
       }
