@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('CheckoutCtrl',['$scope','Auth','$location','Cart','PackageItem','Transaction', function ($scope,Auth,$location,Cart,PackageItem,Transaction) {
+  .controller('CheckoutCtrl',['$scope','$timeout','Auth','$location','Cart','PackageItem','Transaction', function ($scope,$timeout,Auth,$location,Cart,PackageItem,Transaction) {
   	$scope.userId = {};
   	$scope.cart = [];
     $scope.cart_show = [];
@@ -73,10 +73,19 @@ angular.module('acholic')
   		console.log('Under construction : remove '+item);
   	};
 
+    $scope.isPaid = false;
+
+    $scope.closeNoti = function(){
+      $scope.isPaid = false;
+    }
+
     $scope.saveCart = function(){
       Transaction.saveCart({items: $scope.cart}).$promise.then(function(res){
         Cart.clearCart();
-        $location.path('/my-receipt');
+        $scope.isPaid = true;
+        $timeout(function(){ 
+          $location.path('/my-receipt');
+        },5000);
       });
     };
   }]);

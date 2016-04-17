@@ -98,6 +98,8 @@
 				<div class="col-xs-12 col-sm-12 col-md-12">
 					<p class="checkout-header" style=" text-align:center;">สั่งซื้อแพ็คเกจ</p>
 				</div>
+				<growl-notifications>
+				</growl-notifications>
 			</div>
 			<div class="container">
 				<!-- Order Summary table -->
@@ -164,5 +166,7 @@
 					</div>
 				</div>
 			</div>
+		<!-- put this somewhere in your view -->
+		<growl-notification ng-if="isPaid" on-close="closeNoti()"><strong>Payment </strong>successful.</growl-notification>
 	</body>
 </html>
