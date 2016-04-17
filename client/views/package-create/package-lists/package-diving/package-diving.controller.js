@@ -24,7 +24,7 @@ angular.module('acholic')
 
 
     $scope.checkSeason = function(){
-        if ($scope.seas == "Whole Year") {
+        if ($scope.seas == "ตลอดปี") {
             $scope.seasonMonth = false;
         } else{
             $scope.seasonMonth = true;
@@ -257,7 +257,7 @@ angular.module('acholic')
     $scope.packages.info.expired = value;
   }
 
-  $scope.seas = "Whole Year";
+  $scope.seas = "ตลอดปี";
   $scope.month1 = "";
   $scope.month2 = "";
 
