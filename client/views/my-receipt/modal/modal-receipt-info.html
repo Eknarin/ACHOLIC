@@ -59,12 +59,12 @@
     </div>          
     <HR WIDTH="100%" NOSHADE>
     <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" ng-repeat="transaction in transactions track by $index">
-        <div class="col-xs-3 col-sm-3 col-md-3 no-horizotal-padding" style="overflow:hidden">
-            <p class="modal-receipt-detail">{{pacName[$index]}}<p>
+        <div class="col-xs-3 col-sm-3 col-md-3 no-horizotal-padding">
+            <p class="modal-receipt-detail package-header-overflow" style="color:black;">{{pacName[$index]}}<p>
             <!-- <p class="modal-receipt-detail">{{getPackageName(transaction.packages_id[0])}}<p> -->
         </div>
         <div class="col-xs-3 col-sm-3 col-md-3 no-horizotal-padding">
-            <p class="modal-receipt-detail">{{transaction.type}}<p>
+            <p class="modal-receipt-detail package-header-overflow" style="color:black;">{{transaction.type}}<p>
         </div>
         <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
             <p class="modal-receipt-detail">{{transaction.price}}</p>
