@@ -168,6 +168,12 @@ angular.module('acholic')
       isRotateMore = 1;
     }
     else if(isRotateMore == 1){
+      if($('#provideja').css('display') == 'table-row')
+      {
+        $('#expandButtmore').toggleClass('rotate-90deg');
+        isRotateMore == 1;
+        return;
+      }
       isRotateMore = 0;
     }
   };
