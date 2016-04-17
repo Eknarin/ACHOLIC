@@ -2,7 +2,8 @@
 
 angular.module('acholic')
   .controller('MyPackageReportCtrl',['$scope','$location','PackageItem','Auth','Transaction',function ($scope, $location,PackageItem,Auth,Transaction) {
-  	
+  	$scope.pacName = [];
+
   	Auth.getUser().then(function(res){
   		$scope.user = res;
   		console.log('User Data');
@@ -19,6 +20,7 @@ angular.module('acholic')
             $scope.findSoldRatePerPackage(tran);
             // $scope.findSubPackageSoldRate(tran);
             $scope.findSoldRatePerWeek(tran);
+            $scope.findPackage(tran);
           });
         });
   	});
@@ -88,10 +90,7 @@ angular.module('acholic')
         }
         $scope.packageSoldPerMonth[i] = soldPerMonth;   
       }
-      console.log("=====");
-      console.log($scope.packageSoldPerMonth);
-
-      // // var weekArr = new Array(52);
+    
       for(var i=0; i<trans.length; i++){
         for(var j=0; j<$scope.packageIdArr.length; j++){
           if(trans[i].packages_id == $scope.packageIdArr[j]){
@@ -100,44 +99,55 @@ angular.module('acholic')
           }
         }
       }
-      console.log($scope.packageSoldPerMonth);
     };
 
+    $scope.findPackage = function(tran){
+      for (var i = 0; i < tran.length; i++) {
+        PackageItem.query({id : tran[i].packages_id[0]}).$promise.then(function(res){
+          $scope.pacName.push(res.map_id.map_id.info);
+          var temp = [];
+          for (var j = 0; j < res.map_id.map_id.info.length; j++) {
+            res.map_id.map_id.info[i]
+          };
+          console.log($scope.pacName);
+        });
+      };
+    };
 
-    $scope.findSubPackageSoldRate = function(trans){
-      var subPackage = [];
-      for (var i = 0; i < trans.length; i++) {
-        for(var j=0; j < $scope.packageIdArr.length; j++){ 
-          if(trans[i].packages_id == $scope.packageIdArr[j]){                               
-            var temp = {
-              pac_id : 0,
-              type : "",
-              amount : 0
-            };
-            temp.pac_id = $scope.packageIdArr[j];
-            temp.type = trans[i].type;
-            temp.amount += 1;
-            var x = 0;
-            for (var k = 0; k < subPackage.length; k++) {
-              if(subPackage[k].type == temp.type){
-                subPackage[k].amount += temp.amount;
-                x += 1;
-                // break;
-              }
-            }
-            if(x == 0){
-              subPackage.push(temp);
-            }
-          }
-        }
-      }
-      console.log("SUBPACKAGE");
-      console.log(subPackage);
-      var subPackageSoldRate = [[]];
-      for(var i=0; i<subPackage.length; i++){
+    // $scope.findSubPackageSoldRate = function(trans){
+    //   var subPackage = [];
+    //   for (var i = 0; i < trans.length; i++) {
+    //     for(var j=0; j < $scope.packageIdArr.length; j++){ 
+    //       if(trans[i].packages_id == $scope.packageIdArr[j]){                               
+    //         var temp = {
+    //           pac_id : 0,
+    //           type : "",
+    //           amount : 0
+    //         };
+    //         temp.pac_id = $scope.packageIdArr[j];
+    //         temp.type = trans[i].type;
+    //         temp.amount += 1;
+    //         var x = 0;
+    //         for (var k = 0; k < subPackage.length; k++) {
+    //           if(subPackage[k].type == temp.type){
+    //             subPackage[k].amount += temp.amount;
+    //             x += 1;
+    //             // break;
+    //           }
+    //         }
+    //         if(x == 0){
+    //           subPackage.push(temp);
+    //         }
+    //       }
+    //     }
+    //   }
+    //   console.log("SUBPACKAGE");
+    //   console.log(subPackage);
+    //   var subPackageSoldRate = [[]];
+    //   for(var i=0; i<subPackage.length; i++){
         
-      }
-    };
+    //   }
+    // };
     // $scope.onClick = function (points, evt) {
     //   console.log(points, evt);
     // };
