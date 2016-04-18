@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('acholic')
-  .service('Compare', function ($rootScope, $cookies) {
+  .service('Compare', function ($rootScope, $q,$cookies,Auth) {
 	var cart = {};
 
   	this.addItem = function (item , type){
@@ -49,6 +49,28 @@ angular.module('acholic')
 	    	return '';
     	}
     	return '';
+    };
+
+    this.getCompares = function(){
+    	var def = $q.defer();
+    	if($cookies.getObject('compare')){
+	    	cart =$cookies.getObject('compare');
+	    	var userId = {};
+	    	Auth.getUser().then(function(usr){
+	    		userId = usr._id;
+	    		if(userId == undefined){
+			   		userId = "guest";
+			   	}
+			   	if(userId in cart)
+		    		def.resolve(cart[userId]);
+		    	else  {
+		    		def.reject();
+		    	}
+	    	});
+    	}else{
+    		def.reject();
+		}
+		return def.promise;
     };
 
   });

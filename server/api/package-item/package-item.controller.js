@@ -59,17 +59,22 @@ function checkPackage (type) {
  exports.indexList = function (req, res) {
   PackageItem.find({'_id' : { $in : req.query.items }}).populate('map_id').exec(function(err, packageItem) {
    if (err) { return handleError(res, err); }
-    if(packageItem[0])
-      if(packageItem[0].map_id.map_table){
+   var temp = [];
+   var i = 0 
+    function load() {
+      if(i > packageItem.length-1)
+         return res.status(200).json(temp);
       var options = {
         path: 'map_id.map_id',
-        model: packageItem[0].map_id.map_table
+        model: packageItem[i].map_id.map_table
       };
-
-      PackageItem.populate(packageItem ,options, function (err, packageDetail) {
-        return res.status(200).json(packageDetail);
+      PackageItem.populate(packageItem[i] ,options, function (err, packageDetail) {
+        temp.push(packageDetail);
+        i++;
+        load();
       });
-    }
+    };
+    load();
   });
 };
 

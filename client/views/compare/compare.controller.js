@@ -2,12 +2,35 @@
 
 angular.module('acholic')
   .controller('CompareCtrl',['$scope','Compare','PackageItem',function ($scope , Compare ,PackageItem) {
-
-  	$scope.comparePackage =  Compare.getCompare();
-  	$scope.loadItem = false;
+    $scope.loadItem = false;
     $scope.raftingItem = [];
     $scope.divingItem = [];
     $scope.chooseType = 'PackageRafting';
+
+  	$scope.comparePackage =  {};
+    Compare.getCompares().then(function(res){
+        PackageItem.list({items: res}).$promise.then(function(result){
+          $scope.comparePackage.items = result;
+          for (var i = 0; i < result.length; i++) {
+            if(result[i].package_type == 'PackageRafting'){           
+              $scope.raftingItem.push(result[i]);
+            }
+            else if(result[i].package_type == 'PackageDiving'){
+              $scope.divingItem.push(result[i]);
+            }
+          };
+          
+          $scope.choose('PackageRafting');
+          console.log($scope.comparePackage.items);
+          console.log("----------------");
+          console.log($scope.raftingItem);
+          console.log("----------------");
+          console.log($scope.divingItem);
+
+          $scope.loadItem = true;        
+          $scope.prepareRaftingData();
+        });  
+    });
 
     // Chart style
     var chartStyle = {     
@@ -22,29 +45,6 @@ angular.module('acholic')
         "pointHighlightStroke": "rgba(151,187,205,0.8)"
       }] };
     $scope.packageChartStyle = chartStyle;
-
-    if($scope.comparePackage.length > 0)
-    	PackageItem.list({items: $scope.comparePackage}).$promise.then(function(res){
-    		$scope.comparePackage.items = res;
-        for (var i = 0; i < res.length; i++) {
-          if(res[i].package_type == 'PackageRafting'){           
-            $scope.raftingItem.push(res[i]);
-          }
-          else if(res[i].package_type == 'PackageDiving'){
-            $scope.divingItem.push(res[i]);
-          }
-        };
-        
-        $scope.choose('PackageRafting');
-        console.log($scope.comparePackage.items);
-        console.log("----------------");
-        console.log($scope.raftingItem);
-        console.log("----------------");
-        console.log($scope.divingItem);
-
-    		$scope.loadItem = true;        
-        $scope.prepareRaftingData();
-    	});  
   
   var isRotateRiv = 0;
   var isRotateState  = 0;
