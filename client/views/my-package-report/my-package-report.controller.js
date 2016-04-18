@@ -30,24 +30,9 @@ angular.module('acholic')
             $scope.chartParams = {
               colours: [{fillColor:$scope.myColors}],
             };
-            // console.log($scope.myColors);
           });
         });
   	});
-
-    // console.log(Chart.defaults.global.colours);
-
-    // // Chart style
-    // var chartStyle = {           
-    //   "colors": [{ // default
-    //     "fillColor": "rgba(255, 153, 153, 1)",
-    //     "strokeColor": "rgba(207,100,103,1)",
-    //     "pointColor": "rgba(220,220,220,1)",
-    //     "pointStrokeColor": "#fff",
-    //     "pointHighlightFill": "#fff",
-    //     "pointHighlightStroke": "rgba(151,187,205,0.8)"
-    //   }] };
-    // $scope.packageChartStyle = chartStyle;
 
     $scope.selectFolder = function(id){
       // $scope.activeButton(event);
