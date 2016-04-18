@@ -128,12 +128,6 @@ angular.module('acholic')
     }
     return new Array(5-$scope.yStar);
   };
-  $scope.filtering = function(){
-    $scope.filter = {};
-    $scope.filter.priceMin = $scope.slider.min;
-    $scope.filter.priceMax = $scope.slider.max;
-    $scope.packages = PackageItem.filter($scope.filter);
-  };
 	
 	$scope.rotate = function(){
 		$('#expandButt').toggleClass('rotate-180deg');
