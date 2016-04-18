@@ -3,38 +3,51 @@
 angular.module('acholic')
   .controller('MyPackageReportCtrl',['$scope','$location','PackageItem','Auth','Transaction',function ($scope, $location,PackageItem,Auth,Transaction) {
   	$scope.pacName = [];
+    $scope.myColors = [];
+    $scope.thisYear = new Date().getFullYear();
 
   	Auth.getUser().then(function(res){
   		$scope.user = res;
-  		console.log('User Data');
-  		console.log(res);
+  		// console.log('User Data');
+  		// console.log(res);
   		PackageItem.myPackageAll({q: $scope.user._id}).$promise.then(function(pack){
           $scope.myPackages = pack;
-          console.log('All my packages');
-          console.log(pack);
+          // console.log('All my packages');
+          // console.log(pack);
           Transaction.queryTranAll({vendor_id: $scope.user._id,page:1}).$promise.then(function(tran){
-          	console.log('All the transactions from all packages');
-          	console.log(tran);
+          	// console.log('All the transactions from all packages');
+          	// console.log(tran);
             $scope.findAllPackageId($scope.myPackages);
             $scope.findAllPackageName($scope.myPackages);
             $scope.findSoldRatePerPackage(tran);
             // $scope.findSubPackageSoldRate(tran);
             $scope.findSoldRatePerWeek(tran);
             $scope.findPackage(tran);
+           
+            for (var i = 0; i < $scope.myPackages.length; i++) {
+              $scope.myColors.push($scope.getRandomColor());
+            };
+            $scope.chartParams = {
+              colours: [{fillColor:$scope.myColors}],
+            };
+            // console.log($scope.myColors);
           });
         });
   	});
-    // Chart style
-    var chartStyle = {           
-      "colors": [{ // default
-        "fillColor": "rgba(255, 153, 153, 1)",
-        "strokeColor": "rgba(207,100,103,1)",
-        "pointColor": "rgba(220,220,220,1)",
-        "pointStrokeColor": "#fff",
-        "pointHighlightFill": "#fff",
-        "pointHighlightStroke": "rgba(151,187,205,0.8)"
-      }] };
-    $scope.packageChartStyle = chartStyle;
+
+    // console.log(Chart.defaults.global.colours);
+
+    // // Chart style
+    // var chartStyle = {           
+    //   "colors": [{ // default
+    //     "fillColor": "rgba(255, 153, 153, 1)",
+    //     "strokeColor": "rgba(207,100,103,1)",
+    //     "pointColor": "rgba(220,220,220,1)",
+    //     "pointStrokeColor": "#fff",
+    //     "pointHighlightFill": "#fff",
+    //     "pointHighlightStroke": "rgba(151,187,205,0.8)"
+    //   }] };
+    // $scope.packageChartStyle = chartStyle;
 
     $scope.selectFolder = function(id){
       // $scope.activeButton(event);
@@ -109,10 +122,20 @@ angular.module('acholic')
           for (var j = 0; j < res.map_id.map_id.info.length; j++) {
             res.map_id.map_id.info[i]
           };
-          console.log($scope.pacName);
+          // console.log($scope.pacName);
         });
       };
     };
+
+    $scope.getRandomColor = function() {
+      var letters = '0123456789ABCDEF'.split('');
+      var color = '#';
+      for (var i = 0; i < 6; i++ ) {
+          color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
 
     // $scope.findSubPackageSoldRate = function(trans){
     //   var subPackage = [];
