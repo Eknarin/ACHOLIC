@@ -42,7 +42,7 @@ function checkPackage (type) {
  * @param res
  */
  exports.indexFilter = function (req, res) {
-  PackageItem.paginate({'province': new RegExp(req.query.province),
+  PackageItem.paginate({'name' : new RegExp(req.query.q),'province': new RegExp(req.query.province),
     'price': {$gte:req.query.price_min,$lte:req.query.price_max},
     'rating':{$gte:req.query.rating}}, { page: req.query.page, limit: 9}, function(err, result) {
    if (err) { return handleError(res, err); }

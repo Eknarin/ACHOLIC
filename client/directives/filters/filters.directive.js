@@ -10,7 +10,8 @@ angular.module('acholic')
 			items: '=packages',
 			pageTotal: '=total',
 			pageCurrent: '=current',
-			pageLimit: '=limit'
+			pageLimit: '=limit',
+            search: '=name'
 		},
 		controller: ['$scope','PackageItem', function($scope,PackageItem){
 			$scope.price = {};
@@ -28,20 +29,19 @@ angular.module('acholic')
 				}
 			}
 
-
             $scope.$watch("itemType",function( newValue, oldValue ) {
             	var pro = "";
             	if($scope.selectedProvince != "-")
 					pro = $scope.selectedProvince;
                 if($scope.itemType === "all"){
-                PackageItem.query({province: pro,page: 1,rating: $scope.selectedMinRate,price_max: $scope.price.max,price_min:$scope.price.min}).$promise.then(function(res){
+                PackageItem.query({q:$scope.search ,province: pro,page: 1,rating: $scope.selectedMinRate,price_max: $scope.price.max,price_min:$scope.price.min}).$promise.then(function(res){
                 	$scope.items = res.docs;
                 	$scope.pageTotal = res.total;
                 	$scope.pageCurrent = res.page;
                 	$scope.pageLimit = res.limit;
                 });}else if($scope.itemType === "PackageRafting"){
                 PackageItem.type_filter({extra: $scope.extra,package_type:$scope.itemType,province: pro,page: 1,rating: $scope.selectedMinRate,price_max: $scope.price.max,price_min:$scope.price.min}).$promise.then(function(res){
-                	$scope.items = res.docs;
+                    $scope.items = res.docs;
                 	$scope.pageTotal = res.total;
                 	$scope.pageCurrent = res.page;
                 	$scope.pageLimit = res.limit;
@@ -60,7 +60,7 @@ angular.module('acholic')
             	if($scope.selectedProvince != "-")
 					pro = $scope.selectedProvince;
                 if($scope.itemType === "all"){
-                PackageItem.query({province: pro,page: newValue,rating: $scope.selectedMinRate,price_max: $scope.price.max,price_min:$scope.price.min}).$promise.then(function(res){
+                PackageItem.query({q:$scope.search ,province: pro,page: newValue,rating: $scope.selectedMinRate,price_max: $scope.price.max,price_min:$scope.price.min}).$promise.then(function(res){
                 	$scope.items = res.docs;
                 });}else if($scope.itemType === "PackageRafting"){
                 PackageItem.type_filter({extra: $scope.extra,package_type:$scope.itemType,province: pro,page: 1,rating: $scope.selectedMinRate,price_max: $scope.price.max,price_min:$scope.price.min}).$promise.then(function(res){
@@ -81,7 +81,7 @@ angular.module('acholic')
             	if($scope.selectedProvince != "-")
 					pro = $scope.selectedProvince;
 				if($scope.itemType === "all"){
-                PackageItem.all({province: pro,page: 1,rating: $scope.selectedMinRate,price_max: $scope.price.max,price_min:$scope.price.min}).$promise.then(function(res){
+                PackageItem.all({q:$scope.search ,province: pro,page: 1,rating: $scope.selectedMinRate,price_max: $scope.price.max,price_min:$scope.price.min}).$promise.then(function(res){
                 	$scope.items = res.docs;
                 	$scope.pageTotal = res.total;
                 	$scope.pageCurrent = res.page;
