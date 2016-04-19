@@ -104,7 +104,7 @@ angular.module('acholic')
         $scope.isPaid = true;
         $timeout(function(){ 
           $location.path('/my-receipt');
-        },5000);
+        },4300);
       });
     };
   }]);
