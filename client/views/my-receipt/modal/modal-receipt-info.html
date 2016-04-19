@@ -52,6 +52,8 @@
         <div class="col-xs-3 col-sm-3 col-md-3 no-horizotal-padding">
             <p class="modal-receipt-header">ชื่อแพ็คเกจ<p>
         </div>
+        <growl-notifications>
+        </growl-notifications>
         <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
             <p class="modal-receipt-header">ชนิดแพ็คเกจ<p>
         </div>
@@ -91,6 +93,9 @@
     <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="text-align:center; background-color:rgba(0, 0, 0, 0.75);">
         <p class="modal-receipt-total-price">ราคารวม : {{receipt.total_price}} บาท<p>
     </div>
+    <!-- put this somewhere in your view -->
+    <growl-notification ng-if="done && isBook" on-close="closeNoti()">ทำการจองวัน <strong>เรียบร้อย</strong></growl-notification>
+    <growl-notification style="background-color:rgba(220,20,60,0.85)" ng-if="done && !isBook" on-close="closeNoti()"><strong>ไม่สามารถ</strong> ทำการจองวันได้</growl-notification>
 </div>
 <div class="modal-body bookmark-body-style" style="padding-bottom:15px;">
   <HR WIDTH="100%" NOSHADE>

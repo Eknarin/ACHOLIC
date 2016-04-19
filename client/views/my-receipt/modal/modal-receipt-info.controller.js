@@ -45,6 +45,7 @@ angular.module('acholic')
               $scope.showCal = false;
               Transaction.update($scope.transactions[index]).$promise.then(function(result){
                 console.log('saved');
+                $scope.isBook = true;
               });
              }
           }
@@ -52,10 +53,19 @@ angular.module('acholic')
           {
              $scope.showCal = false;
             console.log('Overlimit');
+            $scope.isBook = false;
           }
+           $scope.done = true;
         });
     });
   };
+
+  $scope.isBook = false;
+
+  $scope.closeNoti = function(){
+    $scope.isBook = false;
+    $scope.done = false;
+  }
 
   // get date
   $scope.getCreateDate = function(timeStamp){
