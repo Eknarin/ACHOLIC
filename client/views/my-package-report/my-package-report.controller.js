@@ -20,7 +20,7 @@ angular.module('acholic')
             $scope.findAllPackageId($scope.myPackages);
             $scope.findAllPackageName($scope.myPackages);
             $scope.findSoldRatePerPackage(tran);
-            // $scope.findSubPackageSoldRate(tran);
+            $scope.findSubPackageSoldRate(tran);
             $scope.findSoldRatePerWeek(tran);
             $scope.findPackage(tran);
            
@@ -122,40 +122,68 @@ angular.module('acholic')
     }
 
 
-    // $scope.findSubPackageSoldRate = function(trans){
-    //   var subPackage = [];
-    //   for (var i = 0; i < trans.length; i++) {
-    //     for(var j=0; j < $scope.packageIdArr.length; j++){ 
-    //       if(trans[i].packages_id == $scope.packageIdArr[j]){                               
-    //         var temp = {
-    //           pac_id : 0,
-    //           type : "",
-    //           amount : 0
-    //         };
-    //         temp.pac_id = $scope.packageIdArr[j];
-    //         temp.type = trans[i].type;
-    //         temp.amount += 1;
-    //         var x = 0;
-    //         for (var k = 0; k < subPackage.length; k++) {
-    //           if(subPackage[k].type == temp.type){
-    //             subPackage[k].amount += temp.amount;
-    //             x += 1;
-    //             // break;
-    //           }
-    //         }
-    //         if(x == 0){
-    //           subPackage.push(temp);
-    //         }
-    //       }
-    //     }
-    //   }
-    //   console.log("SUBPACKAGE");
-    //   console.log(subPackage);
-    //   var subPackageSoldRate = [[]];
-    //   for(var i=0; i<subPackage.length; i++){
+    $scope.findSubPackageSoldRate = function(trans){
+      // var subPackage = [];
+      // for (var i = 0; i < trans.length; i++) {
+      //   for(var j=0; j < $scope.packageIdArr.length; j++){ 
+      //     if(trans[i].packages_id == $scope.packageIdArr[j]){                               
+      //       var temp = {
+      //         pac_id : 0,
+      //         type : "",
+      //         amount : 0
+      //       };
+      //       temp.pac_id = $scope.packageIdArr[j];
+      //       temp.type = trans[i].type;
+      //       temp.amount += 1;
+      //       var x = 0;
+      //       for (var k = 0; k < subPackage.length; k++) {
+      //         if(subPackage[k].type == temp.type){
+      //           subPackage[k].amount += temp.amount;
+      //           x += 1;
+      //           // break;
+      //         }
+      //       }
+      //       if(x == 0){
+      //         subPackage.push(temp);
+      //       }
+      //     }
+      //   }
+      // }
+      // console.log("SUBPACKAGE");
+      // console.log(subPackage);
+      // var subPackageSoldRate = [[]];
+      // for(var i=0; i<subPackage.length; i++){
         
-    //   }
-    // };
+      // }
+      $scope.packages = [];
+      for (var k = 0; k < $scope.myPackages.length; k++) {
+        PackageItem.query({id : $scope.myPackages[k]._id}).$promise.then(function(result){
+          // var qpackId = $scope.myPackages[k]._id;
+          var temp = [];
+          temp.push(result._id);
+          for (var j = 0; j < result.map_id.map_id.info.length; j++) {
+            // if(result.map_id.map_table == "PackageDiving"){
+            //   temp.push(result.map_id.map_id.info[j].diving_type);
+            // }else{
+            //   temp.push(result.map_id.map_id.info[j].boat_type);
+            // }
+            temp.push(result.map_id.map_id.info[j].type);
+            temp.push(0);
+          };
+          for (var i = 0; i < trans.length; i++) {
+            if(trans[i].packages_id[0] == temp[0]){
+              for (var l = 0; l < temp.length; l++) {
+                if(trans[i].type == temp[l]){
+                  temp[l+1]++;
+                }
+              }
+            }
+          }
+          $scope.packages.push(temp);
+          // console.log($scope.packages);
+        });
+      };
+    };
     // $scope.onClick = function (points, evt) {
     //   console.log(points, evt);
     // };
