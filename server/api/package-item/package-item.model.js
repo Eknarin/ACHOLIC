@@ -5,7 +5,7 @@ var mongoosePaginate = require('mongoose-paginate');
 var Schema = mongoose.Schema;
 
 var PackageItemSchema = new Schema({
-  name: { type: String, required: true, unique: true },
+  name: { type: String, required: true },
   description: String,
   price: Number,
   province: String,
