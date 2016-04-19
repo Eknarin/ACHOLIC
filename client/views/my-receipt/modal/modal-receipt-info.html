@@ -79,7 +79,7 @@
         </div>
         <div class="col-xs-3 col-sm-3 col-md-3 no-horizotal-padding">
             <p ng-show="!transaction.active_status" class="modal-receipt-detail">{{transaction.serial}}</p> 
-            <p ng-show="transaction.active_status" class="modal-receipt-header">ใช้แล้ว</p> 
+            <p ng-show="transaction.active_status" class="modal-receipt-header" style="color:green">ใช้แล้ว</p> 
         </div>  
         <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
             <a class="glyphicon glyphicon-calendar" ng-click="checkDate(transaction)"></a>

@@ -168,5 +168,11 @@ angular.module('acholic')
         $location.path("/my-package-report");
       }
     };
+    $scope.activeSelectedButton = function(event){
+      var activeButton = $(event.target);
+        
+      $('.transaction-filter-package-type').removeClass('active-transaction-filter-package-type');
+      activeButton.addClass('active-transaction-filter-package-type');
+    };
 
   }]);
