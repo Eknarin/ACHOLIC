@@ -32,13 +32,15 @@ angular.module('acholic')
 
           $scope.loadItem = true;        
           $scope.prepareRaftingData();
+          $scope.prepareDivingData();
         });  
     });
 
     // Chart style
     var chartStyle = {     
       // "labels": ["Age","Rating","Level","StageAmount"], 
-      "labels": ["อายุ","เรตติ้ง","ระดับล่องแก่ง","จำนวนด่าน"], 
+      "raftingLabels": ["อายุ","เรตติ้ง","ระดับล่องแก่ง","จำนวนด่าน"], 
+      "divingLabels": ["อายุ","เรตติ้ง","ระยะการมอง","ความลึก"], 
       "colors": [{ // default
         "fillColor": "rgba(255, 153, 153, 0.4)",
         "strokeColor": "rgba(207,100,103,1)",
@@ -121,7 +123,29 @@ angular.module('acholic')
   };
 
   $scope.prepareDivingData = function(){
+    var dataPicking = new Array($scope.divingItem.length);
+    for (var i = 0; i < $scope.divingItem.length; i++) {
+      var temp = {
+        age : 0,
+        rating : 0,
+        sight : 0,
+        depth : 0
+      };
+      // Age
+      temp.age = $scope.findAge($scope.divingItem[i].map_id.map_id.age_limit);      
+      // Rating
+      temp.rating = parseInt($scope.divingItem[i].rating);
+      // Sight
+      temp.sight = parseInt($scope.divingItem[i].map_id.map_id.sight);
+      // Depth
+      temp.depth = parseInt($scope.divingItem[i].map_id.map_id.depth);
+        
+      dataPicking[i] = temp;
+    };
+    $scope.divingGraphDatas = dataPicking;
 
+    console.log("dfghjkl");
+    console.log($scope.divingGraphDatas);
   };
 
   $scope.findAge = function(value){    
