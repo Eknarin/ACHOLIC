@@ -5,6 +5,7 @@ angular.module('acholic')
 	Auth.getUser().then(function(res){
 		// User.query_user({id:res._id}).$promise.then(function(user){
 			$scope.user_edit = res;
+			console.log(res);
   			  	//Check BD
   			//  console.log($scope.user_edit);
 
@@ -74,7 +75,7 @@ angular.module('acholic')
 	      	return;
 	      }
 
-	      $scope.user_edit.$update().then(function(res){
+	      User.update($scope.user_edit).$promise.then(function(res){
 	      	Auth.reloadUser().then(function(){
 	      		$location.path('/profile');
 	      	})
