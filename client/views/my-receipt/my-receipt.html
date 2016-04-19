@@ -86,7 +86,7 @@
 				<!-- Sorting -->
 				<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding">
 					<div class="col-xs-12 col-sm-12 col-md-12 my-receipt-header">
-						ใบเสร็จ
+						ใบเสร็จการซื้อ
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="margin-top:50px;">
 						<div class="col-xs-12 col-sm-12 col-md-12 sidebar-header">
@@ -118,7 +118,7 @@
 						</div>
 						<div class="col-xs-12 col-sm-6 col-md-6" ng-show="loading">
 							<div class="col-xs-12 col-sm-12 col-md-12">
-								<font class="receipt-header">เลขที่ใบเสร็จ : {{getOrder(receipt._id)}}</font>
+								<font class="receipt-header">ลำดับที่ใบเสร็จ : <font class="receipt-detail">{{getOrder(receipt._id)}}</font></font>
 							</div>
 							<!-- <div class="col-xs-12 col-sm-12 col-md-12">
 								<font class="receipt-detail">{{receipt._id}}</font>
@@ -129,11 +129,11 @@
 						</div>
 						<div class="col-xs-12 col-sm-5 col-md-5">
 							<div class="col-xs-12 col-sm-12 col-md-12 total-price-align">
-								<p class="receipt-header">ราคารวม (บาท) : <font class="receipt-detail">{{receipt.total_price}}</font></p>
+								<p class="receipt-header">ราคารวม : <font class="receipt-detail">{{receipt.total_price}}</font><font class="receipt-header"> บาท</font></p>
 								<p class="receipt-total-price-style"></p>
 							</div>
 							<div class="col-xs-12 col-sm-12 col-md-12 receipt-button-cover">
-								<button class="btn btn-primary" ng-click="openReceiptInfoModal(receipt)"><img src="../image/view.png" style="width:20px; height:20px;"></img></button>
+								<button class="btn btn-primary" ng-click="openReceiptInfoModal(receipt)">รายละเอียด</button>
 							</div>
 						</div>
 					</div>					
