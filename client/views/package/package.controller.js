@@ -8,19 +8,11 @@ angular.module('acholic')
   $scope.limit = itemData.limit;
   $scope.totalItems = itemData.total;
   $scope.currentPage = itemData.page;
-  $scope.bookmarks = [];
   $scope.loading = false;
   $scope.chooseType = 'all';
   
   Auth.getUser().then(function(res){
    $scope.user = res;
-    if($scope.user._id){
-      Bookmark.queryAll({userId: $scope.user._id}).$promise.then(function(res){
-        $scope.bookmarks = res;
-        $scope.loadBookmarks();
-        $scope.loading = true;
-      });
-    }
   }).catch(function () {
       $scope.loading = true;
   });
@@ -31,27 +23,7 @@ angular.module('acholic')
     $('.select-package-type-button').removeClass('select-package-type-button-active');
     activeButton.addClass('select-package-type-button-active');
   };
-  $scope.loadBookmarks = function(){
-    for(var i = 0 ; i<$scope.packages.length ;i++){
-      for(var j = 0; j<$scope.bookmarks.length ;j++){
-        if(!$scope.packages[i].bookmark)
-          if($scope.packages[i]._id == $scope.bookmarks[j].packageId._id)
-           {
-            $scope.packages[i].bookmark = $scope.bookmarks[j];
-          }
-      }
-    }
-  };
 
-  $scope.checkBookmark = function(packid){
-    for(var i = 0; i < bookmarks.length; i++){
-      if(packid == bookmarks[i].packageId._id){
-            return true;
-            break;
-      }
-    }
-    return false;
-  };
 
   $scope.checkCompare = function(packid){
     var com = Compare.getCompare();

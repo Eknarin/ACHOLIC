@@ -793,21 +793,21 @@
 							<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding package-detail-comment-header">
 								เกี่ยวกับผู้ขาย, {{packageItem.user_id.first_name}}
 							</div>
-							<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding package-detail-comment-header">	
+							<!-- <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding package-detail-comment-header">	
 								<div class="col-xs-6 col-sm-6 col-md-5 no-horizotal-padding" style="text-align:left;">	
 									<p class="package-detail-comment-sub-header">เลขที่ผู้ประกอบการ : </p>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-7 no-horizotal-padding">
-									<p class="package-detail-comment-sub-header" ng-show="packageItem.user_id.provider_num != null" style="text-align:left;">{{packageItem.user_id.provider_num}}</p>
+									<p class="package-detail-comment-sub-header" ng-show="packageItem.user_id.provider_num != null" style="text-align:left;">{{packageItem.vendor.provider_num}}</p>
 									<p class="package-detail-comment-sub-header" ng-show="packageItem.user_id.provider_num == null" style="text-align:left;"> - </p>
 								</div>
-							</div>
+							</div> -->
 							<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding package-detail-comment-header">	
 								<div class="col-xs-6 col-sm-6 col-md-5 no-horizotal-padding" style="text-align:left;">	
 									<p class="package-detail-comment-sub-header">เป็นสมาชิกตั้งแต่: </p>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-7 no-horizotal-padding">
-									<p class="package-detail-comment-sub-header" style="text-align:left;" ng-bind="getCommonDate(packageItem.user_id.updated_at)"></p>
+									<p class="package-detail-comment-sub-header" style="text-align:left;" ng-bind="getCommonDate(packageItem.user_id.created_at)"></p>
 								</div>
 							</div>
 						</div>
