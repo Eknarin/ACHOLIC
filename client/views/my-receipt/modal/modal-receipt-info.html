@@ -70,7 +70,8 @@
             <p class="modal-receipt-detail">{{transaction.price}}</p>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 no-horizotal-padding">
-            <p class="modal-receipt-detail">{{transaction.serial}}</p>             
+            <p ng-show="!transaction.active_status" class="modal-receipt-detail">{{transaction.serial}}</p> 
+            <p ng-show="transaction.active_status" class="modal-receipt-header">ใช้แล้ว</p> 
         </div>      
         <HR WIDTH="100%" NOSHADE>        
     </div>
