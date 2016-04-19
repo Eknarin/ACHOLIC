@@ -42,7 +42,6 @@ angular.module('acholic')
             if(time)
              {
               $scope.transactions[index].confirm_at = time;
-              $scope.temp = false;
               $scope.showCal = false;
               Transaction.update($scope.transactions[index]).$promise.then(function(result){
                 console.log('saved');
@@ -51,6 +50,7 @@ angular.module('acholic')
           }
           else
           {
+             $scope.showCal = false;
             console.log('Overlimit');
           }
         });
