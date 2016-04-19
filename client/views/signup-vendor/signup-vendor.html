@@ -13,7 +13,7 @@
 			<!-- Customer Header -->
 			<div class="container">
 				<div class="col-xs-12 col-sm-12 col-md-12">
-					<p class="customer-header-size" style=" text-align:center; color:white;">Vendor SignUp</p>
+					<p class="customer-header-size" style=" text-align:center; color:white;">ลงทะเบียนผู้ค้า</p>
 				</div>
 			</div>			
 
@@ -45,35 +45,35 @@
 
 					      			<!-- Email -->
 					      			<div class="input-width sign-up-cover-style">
-										<p class="sign-up-header"><font class="required-box">*</font> Email</p>	
-										<p style="color:yellow;">**Vendor email is not for log in**</p>
+										<p class="sign-up-header"><font class="required-box">*</font> อีเมล</p>	
+										<p style="color:yellow;">**อีเมลนี้ไม่ได้ใช้เพื่อการlogin**</p>
 										<input ng-model="vendor.alt_email" name="uEmail" required class="signup-inputbox-style input-width" type="email" name="email"><br>
 									</div>
 									<div ng-show="form.$submitted || form.uEmail.$touched">
-										<p class="invalid-input" ng-show="!form.uEmail.$valid" >Invalid E-mail pattern.</p>
+										<p class="invalid-input" ng-show="!form.uEmail.$valid" >รูปแบบอีเมลไม่ถูกต้อง</p>
 									</div>
 
 									<!-- ID Number -->
 									<div class="input-width sign-up-cover-style">
-										<p class="sign-up-header"><font class="required-box">*</font> Identification Number</p>	
-										<input ng-model="vendor.identification_num" name="id_num" required class="signup-inputbox-style input-width" type="text" pattern="[0-9]{13}" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="confirm-password" placeholder="13 number digits"><br>	
+										<p class="sign-up-header"><font class="required-box">*</font> เลขบัตรประจำตัวประชาชน</p>	
+										<input ng-model="vendor.identification_num" name="id_num" required class="signup-inputbox-style input-width" type="text" pattern="[0-9]{13}" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="confirm-password" placeholder="13 หลัก"><br>	
 									</div>
 									<div ng-show="form.$submitted || form.id_num.$touched">
-										<p class="invalid-input" ng-show="!form.id_num.$valid" >The correct pattern is number 13 digits.</p>
+										<p class="invalid-input" ng-show="!form.id_num.$valid" >กรุณาใส่เลข 13 หลัก</p>
 									</div>
 
 									<!-- Provider Number -->
 									<div class="input-width sign-up-cover-style">
-										<p class="sign-up-header"><font class="required-box">*</font> Tourist Business license no.</p>	
+										<p class="sign-up-header"><font class="required-box">*</font> เลขที่ผู้ประกอบการ</p>	
 										<input ng-model="vendor.provider_num" name="provider" required pattern="[0-9]{2}/[0-9]{5}" class="signup-inputbox-style input-width" type="text" name="confirm-password" placeholder="xx/xxxxx"><br>	
 									</div>
 									<div ng-show="form.$submitted || form.provider.$touched">
-										<p class="invalid-input" ng-show="!form.provider.$valid" >Please provide with valid pattern xx/xxxxx.</p>
+										<p class="invalid-input" ng-show="!form.provider.$valid" >กรุณากรอกในรูปแบบ xx/xxxxx.</p>
 									</div>
 
 									<!-- Button -->
 									<div class="input-width" style="margin-top:15px; margin-bottom:15px;">
-										<button type="button" class="btn btn-success" ng-click="activeTab(1)" data-toggle="tab" data-target="#contact">Next</button>
+										<button type="button" class="btn btn-success" ng-click="activeTab(1)" data-toggle="tab" data-target="#contact">ต่อไป</button>
 									</div>	
 
 								</form>
@@ -85,26 +85,26 @@
 
 					      			<!-- Address -->
 					      			<div class="input-width sign-up-cover-style">
-										<p class="sign-up-header">Address</p>	
-										<textarea ng-model="vendor.address.address" class="form-control signup-inputbox-style input-width" rows="5" name="address" placeholder="Address"></textarea>
+										<p class="sign-up-header">ที่อยู่</p>	
+										<textarea ng-model="vendor.address.address" class="form-control signup-inputbox-style input-width" rows="5" name="address" ></textarea>
 									</div>
 
 									<!-- Zip Code -->
 									<div class="input-width sign-up-cover-style">
-										<p class="sign-up-header">Zip Code</p>	
-										<input ng-model="vendor.address.zip_code" class="signup-inputbox-style input-width" type="text" name="zipcode" placeholder="Zip Code"><br>
+										<p class="sign-up-header">รหัสไปรษณีย์</p>	
+										<input ng-model="vendor.address.zip_code" class="signup-inputbox-style input-width" type="text" name="zipcode"><br>
 									</div>
 
 									<!-- Phone -->
 									<div class="input-width sign-up-cover-style">
-										<p class="sign-up-header"><font class="required-box">*</font> Phone</p>	
-									<input ng-model="vendor.phone_number" required class="signup-inputbox-style input-width" type="text" name="phone" placeholder="Phone"><br>
+										<p class="sign-up-header"><font class="required-box">*</font> หมายเลขโทรศัพท์</p>	
+									<input ng-model="vendor.phone_number" required class="signup-inputbox-style input-width" type="text" name="phone"><br>
 									</div>
 
 									<!-- Button -->
 									<div class="input-width" style="margin-top:15px; margin-bottom:15px;">
-										<button type="button" class="btn btn-danger" ng-click="activeTab(0)" data-toggle="tab" data-target="#security">Back</button>
-										<button ng-click="onSubmit()" type="button" class="btn btn-success">Submit</button>
+										<button type="button" class="btn btn-danger" ng-click="activeTab(0)" data-toggle="tab" data-target="#security">ก่อนหน้า</button>
+										<button ng-click="onSubmit()" type="button" class="btn btn-success">ยืนยัน</button>
 										<!-- <button type="button" class="btn btn-success" ng-click="activeTab(3)" data-toggle="tab" data-target="#addimage">Next</button> -->
 									</div>	
 								</form>
