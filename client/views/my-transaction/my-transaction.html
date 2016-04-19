@@ -2,7 +2,7 @@
 	<!-- Side menu-bar -->
 	<!-- <div class="col-xs-12 col-sm-12 col-md-3 side-menu-bar-cover"> -->
 		<!-- Side menu -->
-		<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding">
+		<!-- <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding"> -->
 		<!-- 	<div class="col-xs-12 col-sm-12 col-md-12 my-package-header">
 				Activate Serial
 			</div>
@@ -140,18 +140,25 @@
 					</table>
 				</div>
 			</div>
-			<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center;"ng-show="!active">
-				<button class="btn" type"button" ng-click="activateSerial()" style="color:white; background-color:#c84646; font-size:18px; margin-top:30px; border:1px solid white;">
-					เปิดการใช้งาน
-				</button>
+			<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding transaction-table-style">		
+				<table class="table">
+					<thead>
+							<th class="transaction-table-header" style="vertical-align: top;"> Transaction No. </th>
+							<th class="transaction-table-header" style="vertical-align: top;"> Package Name </th>
+							<th class="transaction-table-header" style="vertical-align: top;"> Customer Name </th>							<th class="transaction-table-header" style="vertical-align: top;"> Sold Date </th>
+							<th class="transaction-table-header" style="vertical-align: top;"> Activated </th>
+					</thead>
+					<tbody>
+						<tr ng-repeat="receipt in receipts">
+							<td class="transaction-table-detail" style="vertical-align: top;"> {{receipt._id}} </td>
+							<td class="transaction-table-detail" style="vertical-align: top;"> {{getPackge(receipt.packages_id[0]).name}} </td>
+							<td class="transaction-table-detail" style="vertical-align: top;"> {{receipt.user_id.first_name}} {{receipt.user_id.last_name}} </td>
+							<td class="transaction-table-detail" style="vertical-align: top;" ng-bind="getCreateDate(receipt.created_at)"></td>
+							<td class="transaction-table-detail" style="vertical-align: top;"> {{receipt.active_status}} </td>
+						</tr>
+					</tbody>			
+				</table>
 			</div>
-			<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center;" ng-show="active">
-				<button disabled class="btn" type"button" ng-click="activateSerial()" style="color:white; background-color:#c84646; font-size:18px; margin-top:30px; border:1px solid white;">
-					เปิดการใช้งานแล้ว
-				</button>
-			</div>
-		</div>		
+		</div>
 	</div>
-
-	
 </div>
