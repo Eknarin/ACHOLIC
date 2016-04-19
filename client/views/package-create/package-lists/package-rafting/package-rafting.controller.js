@@ -57,7 +57,7 @@ angular.module('acholic')
         //stage
         $scope.packages.info.stages = $scope.stages;
         //stage type
-        $scope.packages.info.stages_amount = $scope.stageHighlights.length;
+        // $scope.packages.info.stages_amount = $scope.stageHighlights.length;
 
         //start stage
         $scope.packages.info.start_location = $scope.firstStage;
