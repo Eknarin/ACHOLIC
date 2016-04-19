@@ -28,7 +28,8 @@ angular.module('acholic')
             user_id: $scope.userId,
   					type: carts[i].list[j].type,
             price: carts[i].list[j].price,
-            active_status: false
+            active_status: false,
+            expire:  $scope.getPackage(carts[i].package).map_id.map_id.expired
   				}
           $scope.total_price += $scope.calSubTotal(carts[i].list[j]);
           for(var k = 0;k<carts[i].list[j].amount ;k++){

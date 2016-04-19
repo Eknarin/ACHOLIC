@@ -150,6 +150,10 @@ exports.createCart = function (req, res) {
     for(var i = 0 ;i<transactions.length ;i++){
       recep.transaction_id.push(transactions[i]._id);
       recep.total_price += transactions[i].price;
+        var CurrentDate = new Date();
+        CurrentDate.setMonth(CurrentDate.getMonth() + req.body.items[0].expire);
+        transactions[i].expired_at = CurrentDate;
+        transactions[i].save();
     }
     recep.payment_status = false;
     recep.save();

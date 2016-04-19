@@ -17,7 +17,7 @@ var TransactionSchema = new Schema({
   },
   active_status: Boolean,
   created_at: { type: Date, default: Date.now },
-  updated_at: Date
+  expired_at: Date
 });
 
 TransactionSchema.plugin(mongoosePaginate);
