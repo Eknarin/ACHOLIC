@@ -13,15 +13,15 @@ angular.module('acholic')
 
     $scope.onSubmit= function(){
       if($scope.vendor.identification_num == null){
-        alert("Please enter your Identification Number.");
+        alert("กรุณากรอกเลขที่บัตรประชาชน");
         return;
       }
       if($scope.vendor.provider_num == null){
-        alert("Please enter your Tourist Business license Number.");
+        alert("กรุณากรอกเลขที่ผู้ประกอบการ");
         return;
       }
       if($scope.vendor.phone_number == null){
-        alert("Please enter your Phone number.");
+        alert("กรุณากรอกหมายเลขโทรศัพท์ของท่าน");
         return;
       }
       else{

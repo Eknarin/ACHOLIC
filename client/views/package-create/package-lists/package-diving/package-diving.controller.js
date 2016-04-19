@@ -116,7 +116,7 @@ angular.module('acholic')
     //next and previous tab
     var state = [0, 1, 2, 3];
     var currenstate = 0;  
-    var req = "Please check all required(*) fields."
+    var req = "กรุณากรอกทุกช่องที่มีเครื่องหมาย (*)"
 
     var canNext0 = true;   
     $scope.activeNextTab = function(){
@@ -310,7 +310,7 @@ angular.module('acholic')
   $scope.addPrice = function(){
 
     if($scope.packages.info.info == null){
-        alert("Please fill out all details before submit.");
+        alert("กรุณากรอกข้อมูลให้ครบทุกช่องที่ระบุไว้ก่อนการส่ง");
         return;
     }
 
@@ -321,35 +321,35 @@ angular.module('acholic')
     var addType = $scope.packages.info.info.type;
     var addDiving = $scope.diving_type;
 
-    var alertMess = "Please check ";
-    var lastMess = "field(s) and try again.";
+    var alertMess = "โปรดตรวจสอบช่อง ";
+    var lastMess = "และส่งใหม่อีกครั้ง";
     var checkLoss = "";
     var complete = true;
 
 
 
     if(addPrice == null){
-        checkLoss = checkLoss + ".Price ";
+        checkLoss = checkLoss + "ราคา ";
         complete = false;
     }
     if(addPeople == null){
-        checkLoss = checkLoss + ".People ";
+        checkLoss = checkLoss + "จำนวนคน ";
         complete = false;
     }
     if(addDistance == null){
-        checkLoss = checkLoss + ".Distance ";
+        checkLoss = checkLoss + "ระยะทาง ";
         complete = false;
     }
     if(addDuration == null){
-        checkLoss = checkLoss + ".Duration ";
+        checkLoss = checkLoss + "ระยะเวลา ";
         complete = false;
     }
     if(addType == null){
-        checkLoss = checkLoss + ".Name ";
+        checkLoss = checkLoss + "ชื่อ ";
         complete = false;
     }
     if(addDiving == null){
-        checkLoss = checkLoss + ".DivingType ";
+        checkLoss = checkLoss + "ชนิดดำน้ำ ";
         complete = false;
     }
 
