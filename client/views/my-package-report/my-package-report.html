@@ -106,15 +106,15 @@
 			</div>
 		</div>	
 
-		<div class="col-xs-12 col-sm-6 col-md-4 no-horizotal-padding" style="background-color:rgba(0,0,0,0.85); color:white;" ng-repeat="mp in myPackages">	
-			<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="background-color:rgba(0,0,0,0.20); color:white; padding-top:15px; padding-bottom:15px; font-size:25px; margin-bottom:15px; text-align:center;">
-				{{mp.name}}
+		<div class="col-xs-12 col-sm-6 col-md-4 no-horizotal-padding" style="background-color:rgba(0,0,0,0.85); color:white;" ng-repeat="pack in packages">	
+			<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding package-header-overflow" style="background-color:rgba(0,0,0,0.20); color:white; padding-top:15px; padding-bottom:15px; font-size:25px; margin-bottom:15px; text-align:center;">
+				{{pack[1]}}
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="text-align:center; margin-top:15px; margin-bottom:15px; padding-bottom:15px;">
 				<canvas id="doughnut" 
 				class="chart chart-doughnut"
-				chart-data="data" 
-				chart-labels="labels"
+				chart-data="pack[3]" 
+				chart-labels="pack[2]"
 				chart-legend="true" >
 				</canvas> 
 			</div>

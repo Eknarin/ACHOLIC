@@ -126,33 +126,30 @@ angular.module('acholic')
 
     $scope.findSubPackageSoldRate = function(trans){
       $scope.packages = [];
-      $scope.graphData = [];
 
       for (var k = 0; k < $scope.myPackages.length; k++) {
         PackageItem.query({id : $scope.myPackages[k]._id}).$promise.then(function(result){
           var temp = [];
+          var tempLabel = [];
           var tempData = [];
           temp.push(result._id);
+          temp.push(result.name);
           for (var j = 0; j < result.map_id.map_id.info.length; j++) {
-            temp.push(result.map_id.map_id.info[j].type);
-            temp.push(0);
+            tempLabel.push(result.map_id.map_id.info[j].type);
             tempData.push(0);
           };
-          // console.log(temp);
+          temp.push(tempLabel);
           for (var i = 0; i < trans.length; i++) {
-            if(trans[i].packages_id[0] == temp[0]){
-              for (var l = 0; l < temp.length; l++) {
-                if(trans[i].type == temp[l]){
-                  temp[l+1]++;
-                  tempData[(l-1)/2]++;
+            if(trans[i].packages_id[0] == temp[0]){//check id
+              for (var l = 0; l < tempLabel.length; l++) {
+                if(trans[i].type == tempLabel[l]){//check name of subpackage
+                  tempData[l]++;
                 }
               }
             }
           }
+          temp.push(tempData);
           $scope.packages.push(temp);
-          $scope.graphData.push(tempData);
-          console.log($scope.graphData);
-          // console.log($scope.packages);
         });
       };
     };
