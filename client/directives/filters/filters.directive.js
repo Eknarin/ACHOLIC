@@ -13,12 +13,24 @@ angular.module('acholic')
 			pageLimit: '=limit',
             search: '=name'
 		},
-		controller: ['$scope','PackageItem', function($scope,PackageItem){
+		controller: ['$scope','PackageItem','Auth','Bookmark', function($scope,PackageItem,Auth,Bookmark){
 			$scope.price = {};
 			$scope.price.min = 0;
 			$scope.price.max = 10000;
 			$scope.extra = 0;
             $scope.diving = {};
+            $scope.loading =false;
+            Auth.getUser().then(function(res){
+               $scope.user = res;
+                if($scope.user._id){
+                  Bookmark.queryAll({userId: $scope.user._id}).$promise.then(function(res){
+                    $scope.bookmarks = res;
+                    $scope.loadBookmarks();
+                  });
+                }
+              }).catch(function () {
+
+              });
 			$scope.getTemplateUrl = function() {
 				if($scope.itemType === "all"){
 					return "directives/filters/filter-all/filter-all.html";
@@ -27,7 +39,20 @@ angular.module('acholic')
 				}else if($scope.itemType === "PackageDiving"){
 					return "directives/filters/filter-diving/filter-diving.html";
 				}
-			}
+			};
+
+           $scope.loadBookmarks = function(){
+            for(var i = 0 ; i<$scope.items.length ;i++){
+              for(var j = 0; j<$scope.bookmarks.length ;j++){
+                if(!$scope.items[i].bookmark)
+                  if($scope.items[i]._id == $scope.bookmarks[j].packageId._id)
+                   {
+                    $scope.items[i].bookmark = $scope.bookmarks[j];
+                  }
+              }
+            }
+            $scope.loading =true;
+          };
 
             $scope.$watch("itemType",function( newValue, oldValue ) {
             	var pro = "";
@@ -39,18 +64,24 @@ angular.module('acholic')
                 	$scope.pageTotal = res.total;
                 	$scope.pageCurrent = res.page;
                 	$scope.pageLimit = res.limit;
+                    if($scope.loading)
+                $scope.loadBookmarks();
                 });}else if($scope.itemType === "PackageRafting"){
                 PackageItem.type_filter({extra: $scope.extra,package_type:$scope.itemType,province: pro,page: 1,rating: $scope.selectedMinRate,price_max: $scope.price.max,price_min:$scope.price.min}).$promise.then(function(res){
                     $scope.items = res.docs;
                 	$scope.pageTotal = res.total;
                 	$scope.pageCurrent = res.page;
                 	$scope.pageLimit = res.limit;
+                    if($scope.loading)
+                $scope.loadBookmarks();
                 });}else{
                     PackageItem.type_filter({extra: $scope.diving.diving_type,extra2:$scope.diving.diving_side,package_type:$scope.itemType,province: pro,page: 1,rating: $scope.selectedMinRate,price_max: $scope.price.max,price_min:$scope.price.min}).$promise.then(function(res){
                     $scope.items = res.docs;
                     $scope.pageTotal = res.total;
                     $scope.pageCurrent = res.page;
                     $scope.pageLimit = res.limit;
+                    if($scope.loading)
+                $scope.loadBookmarks();
                 });
             }
                 });
@@ -62,15 +93,21 @@ angular.module('acholic')
                 if($scope.itemType === "all"){
                 PackageItem.query({q:$scope.search ,province: pro,page: newValue,rating: $scope.selectedMinRate,price_max: $scope.price.max,price_min:$scope.price.min}).$promise.then(function(res){
                 	$scope.items = res.docs;
+                    if($scope.loading)
+                $scope.loadBookmarks();
                 });}else if($scope.itemType === "PackageRafting"){
                 PackageItem.type_filter({extra: $scope.extra,package_type:$scope.itemType,province: pro,page: 1,rating: $scope.selectedMinRate,price_max: $scope.price.max,price_min:$scope.price.min}).$promise.then(function(res){
                 	$scope.items = res.docs;
+                    if($scope.loading)
+                $scope.loadBookmarks();
                 });}else{
                     PackageItem.type_filter({extra: $scope.diving.diving_type,extra2:$scope.diving.diving_side,package_type:$scope.itemType,province: pro,page: 1,rating: $scope.selectedMinRate,price_max: $scope.price.max,price_min:$scope.price.min}).$promise.then(function(res){
                     $scope.items = res.docs;
                     $scope.pageTotal = res.total;
                     $scope.pageCurrent = res.page;
                     $scope.pageLimit = res.limit;
+                    if($scope.loading)
+                $scope.loadBookmarks();
                 });
             }
                 }
@@ -86,6 +123,8 @@ angular.module('acholic')
                 	$scope.pageTotal = res.total;
                 	$scope.pageCurrent = res.page;
                 	$scope.pageLimit = res.limit;
+                    if($scope.loading)
+                $scope.loadBookmarks();
                     //console.log(res);
                 });}else if($scope.itemType === "PackageRafting"){
                 PackageItem.type_filter({extra: $scope.extra,package_type:$scope.itemType,province: pro,page: 1,rating: $scope.selectedMinRate,price_max: $scope.price.max,price_min:$scope.price.min}).$promise.then(function(res){
@@ -93,6 +132,8 @@ angular.module('acholic')
                 	$scope.pageTotal = res.total;
                 	$scope.pageCurrent = res.page;
                 	$scope.pageLimit = res.limit;
+                    if($scope.loading)
+                $scope.loadBookmarks();
                     //console.log(res);
                 });}else{
                      PackageItem.type_filter({extra: $scope.diving.diving_type,extra2:$scope.diving.diving_side,package_type:$scope.itemType,province: pro,page: 1,rating: $scope.selectedMinRate,price_max: $scope.price.max,price_min:$scope.price.min}).$promise.then(function(res){
@@ -100,7 +141,10 @@ angular.module('acholic')
                     $scope.pageTotal = res.total;
                     $scope.pageCurrent = res.page;
                     $scope.pageLimit = res.limit;
+                    if($scope.loading)
+                $scope.loadBookmarks();
                 });
+
             }
 			};
     		//province filter
