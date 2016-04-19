@@ -140,12 +140,22 @@
 					</table>
 				</div>
 			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="margin-bottom:30px; text-align:center;">	
+				<button class="btn transaction-filter-package-type" ng-click="choosePack(0)"> 
+						Show All 
+				</button>
+			<button ng-repeat="package in packages" class="btn transaction-filter-package-type" ng-click="choosePack(package._id)"> 
+				{{package.name}}
+			</button>
+			</div>
 			<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding transaction-table-style">		
 				<table class="table">
 					<thead>
 							<th class="transaction-table-header" style="vertical-align: top;"> Transaction No. </th>
 							<th class="transaction-table-header" style="vertical-align: top;"> Package Name </th>
-							<th class="transaction-table-header" style="vertical-align: top;"> Customer Name </th>							<th class="transaction-table-header" style="vertical-align: top;"> Sold Date </th>
+							<th class="transaction-table-header" style="vertical-align: top;"> Customer Name </th>	
+							<th class="transaction-table-header" style="vertical-align: top;"> Sold Date </th>
+							<th class="transaction-table-header" style="vertical-align: top;"> Confirm Date </th>
 							<th class="transaction-table-header" style="vertical-align: top;"> Activated </th>
 					</thead>
 					<tbody>
@@ -154,11 +164,16 @@
 							<td class="transaction-table-detail" style="vertical-align: top;"> {{getPackge(receipt.packages_id[0]).name}} </td>
 							<td class="transaction-table-detail" style="vertical-align: top;"> {{receipt.user_id.first_name}} {{receipt.user_id.last_name}} </td>
 							<td class="transaction-table-detail" style="vertical-align: top;" ng-bind="getCreateDate(receipt.created_at)"></td>
+							<td class="transaction-table-detail" style="vertical-align: top;" ng-bind="getCreateDate(receipt.confirm_at)"></td>
 							<td class="transaction-table-detail" style="vertical-align: top;"> {{receipt.active_status}} </td>
 						</tr>
 					</tbody>			
 				</table>
 			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center; margin-top:15px;">
+				<uib-pagination total-items="totalItems" items-per-page="limit" ng-change="pageChanged(currentPage)" ng-model="currentPage" max-size="maxSize" class="pagination-md" boundary-links="true" rotate="false"></uib-pagination>
+			</div>
+
 		</div>
 	</div>
 </div>
