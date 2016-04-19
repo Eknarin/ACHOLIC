@@ -114,7 +114,8 @@
 					      	<th class="checkout-order-summary-table-header">แพ็คเกจ</th>
 					        <th class="checkout-order-summary-table-header">ชนิด</th>
 					        <th class="checkout-order-summary-table-header">ราคา (บาท)</th>
-					        <th class="checkout-order-summary-table-header">จำนวน</th>		  
+					        <th class="checkout-order-summary-table-header">จำนวน</th>
+					        <th class="checkout-order-summary-table-header">จองวัน</th>		  
 					      </tr>
 					    </thead>
 					    <!-- Table Detail -->
@@ -124,6 +125,10 @@
 					        <td class="checkout-order-summary-table-detail">{{item.item.type}}</td>
 					        <td class="checkout-order-summary-table-detail">{{item.item.price}}</td>
 					        <td class="checkout-order-summary-table-detail">{{item.amount}}</td>
+					        <td class="checkout-order-summary-table-detail">
+								<a class="glyphicon glyphicon-calendar" ng-click="checkDate(item)"></a>
+								<a ng-show="item.confirm_date">{{item.confirm_date}}</a>
+							</td>	
 					       <!--  <td class="my-cart-table-detail"><button class="btn btn-danger" ng-click="removeItem(item)">Delete</button></td> -->
 					      </tr>
 					    </tbody>

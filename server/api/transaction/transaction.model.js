@@ -16,6 +16,7 @@ var TransactionSchema = new Schema({
     'default': shortid.generate
   },
   active_status: Boolean,
+  confirm_at: Date,
   created_at: { type: Date, default: Date.now },
   expired_at: Date
 });

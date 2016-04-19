@@ -35,6 +35,11 @@ angular.module('acholic')
       	method: 'POST',
       	url: '/api/transactions/cart',
         isArray: true
+      },
+      checkTran:{
+        method: 'GET',
+        url: '/api/transactions/checkTran',
+        isArray: true
       }
     });
   });
