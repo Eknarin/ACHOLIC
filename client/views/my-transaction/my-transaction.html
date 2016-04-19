@@ -140,6 +140,17 @@
 					</table>
 				</div>
 			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center;"ng-show="!active">
+				<button class="btn" type"button" ng-click="activateSerial()" style="color:white; background-color:#c84646; font-size:18px; margin-top:30px; border:1px solid white;">
+					เปิดการใช้งาน
+				</button>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center;" ng-show="active">
+				<button disabled class="btn" type"button" ng-click="activateSerial()" style="color:white; background-color:#c84646; font-size:18px; margin-top:30px; border:1px solid white;">
+					เปิดการใช้งานแล้ว
+				</button>
+			</div>
+
 			<div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="margin-bottom:30px; text-align:center;">	
 				<button class="btn transaction-filter-package-type" ng-click="choosePack(0)"> 
 						Show All 
