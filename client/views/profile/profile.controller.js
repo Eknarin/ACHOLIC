@@ -2,8 +2,10 @@
 
 angular.module('acholic')
   .controller('ProfileCtrl',['$scope','Auth','$location', function ($scope , Auth , $location) {
+    $scope.loading = false;
   	Auth.getUser().then(function(res){
       $scope.user = res;
+      $scope.loading = true;
         $scope.dob = new Date($scope.user.date_of_birth);
         if(!isNaN($scope.dob.getDate())){
           $scope.user.date_of_birth = $scope.dob.getDate() + "/" + ($scope.dob.getMonth() + 1) + "/" + $scope.dob.getFullYear();
