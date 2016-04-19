@@ -104,7 +104,7 @@ angular.module('acholic')
             animation: true,
             templateUrl: 'views/my-receipt/modal/modal-receipt-info.html',
             controller: 'ReceiptInfoModalCtrl',
-            size: 'md',
+            size: 'lg',
             resolve:{
               itemData: item
             }

@@ -255,35 +255,28 @@
 					       <!-- Diving Place-->
 					       <tr class="showriv" style="display:none" ng-if="currentChoose == 'PackageDiving'">
 					        <th class="compare-table-subheader" ng-show="packages.length">สถานที่ดำน้ำ</th>
-					        <td class="compare-table-detail" ng-repeat="p in packages">{{p.map_id.map_id.river_line}}</td>
+					        <td class="compare-table-detail" ng-repeat="p in packages">{{p.map_id.map_id.diving_place}}</td>
 					       </tr>
 					       <!-- Diving Side -->
 					       <tr class="showriv" style="display:none" ng-if="currentChoose == 'PackageDiving'">
 					        <th class="compare-table-subheader" ng-show="packages.length">ฝั่งทะเล</th>
-					        <td class="compare-table-detail" ng-repeat="p in packages">{{p.map_id.map_id.level}}</td>
+					        <td class="compare-table-detail" ng-repeat="p in packages">{{p.map_id.map_id.diving_side}}</td>
 					       </tr>
 					       <!-- Sight -->
 					       <tr class="showriv" style="display:none" ng-if="currentChoose == 'PackageDiving'">
 					        <th class="compare-table-subheader" ng-show="packages.length">ระยะการมองเห็น (ม.)</th>
-					        <td class="compare-table-detail" ng-repeat="p in packages">{{p.map_id.map_id.river_line}}</td>
+					        <td class="compare-table-detail" ng-repeat="p in packages">{{p.map_id.map_id.sight}}</td>
 					       </tr>
 					       <!-- Depth -->
 					       <tr class="showriv" style="display:none" ng-if="currentChoose == 'PackageDiving'">
 					        <th class="compare-table-subheader" ng-show="packages.length">ระดับความลึก (ม.)</th>
-					        <td class="compare-table-detail" ng-repeat="p in packages">{{p.map_id.map_id.river_line}}</td>
+					        <td class="compare-table-detail" ng-repeat="p in packages">{{p.map_id.map_id.depth}}</td>
 					       </tr>
-					        <!-- Stage -->
-					        <!-- <tr class="compare-table-header toggler" data-prod="stage"  ng-click="rotateStage()">
-					          <th><img id="expandButtstage" src="../../image/down.png"></img> Stage</th>
-					          	<td ng-repeat="comparePackageItem in comparePackage.items"> </td>
-					        </tr> -->
-					        <!-- Stage Amount-->
-					        <tr class="showstage" style="display:none">
-					        	<th class="compare-table-subheader">Stage Amount</th>
-					          	<td class="compare-table-detail" ng-repeat="p in packages">{{p.map_id.map_id.stages_amount}}</td>
-					        </tr>	
-					        					        
-
+					       <!-- Stage Amount-->
+					       <tr class="showstage" style="display:none">
+					       	<th class="compare-table-subheader">Stage Amount</th>
+					        <td class="compare-table-detail" ng-repeat="p in packages">{{p.map_id.map_id.stages_amount}}</td>
+					       </tr>	
 					        <!-- More Details -->
 					        <tr class="compare-table-header toggler" data-prod="more" ng-click="rotateMore()">
 					          <th ng-show="packages.length"><img id="expandButtmore" src="../../image/down.png"></img> ข้อมูลเพิ่มเติม</th>
@@ -332,13 +325,22 @@
 					        <!-- Package Chart -->
 					        <tr>
 					          	<th class="compare-table-header" ng-show="packages.length">กราฟเปรียบเทียบ</th>
-					            <td class="compare-table-detail" ng-repeat="raftingGraphData in raftingGraphDatas" style="text-align:center">
-					            	<canvas ng-if="currentChoose == 'PackageRafting'"
+					            <td class="compare-table-detail" ng-repeat="raftingGraphData in raftingGraphDatas" style="text-align:center" ng-if="currentChoose == 'PackageRafting'">
+					            	<canvas 
 					            		id="bar" 
 				            			class="chart chart-bar"
 									  	height="300"
 									  	width="300"
-									  	chart-data="[[raftingGraphData.age, raftingGraphData.rating, raftingGraphData.level, raftingGraphData.stage]]" chart-labels="packageChartStyle.labels" chart-colours="packageChartStyle.colors">
+									  	chart-data="[[raftingGraphData.age, raftingGraphData.rating, raftingGraphData.level, raftingGraphData.stage]]" chart-labels="packageChartStyle.raftingLabels" chart-colours="packageChartStyle.colors">
+									</canvas>									
+								</td>
+								<td class="compare-table-detail" ng-repeat="divingGraphData in divingGraphDatas" style="text-align:center" ng-if="currentChoose == 'PackageDiving'">
+									<canvas
+					            		id="bar" 
+				            			class="chart chart-bar"
+									  	height="300"
+									  	width="300"
+									  	chart-data="[[divingGraphData.age, divingGraphData.rating, divingGraphData.sight, divingGraphData.depth]]" chart-labels="packageChartStyle.divingLabels" chart-colours="packageChartStyle.colors">
 									</canvas>
 								</td>
 					        </tr>

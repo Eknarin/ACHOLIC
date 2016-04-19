@@ -42,19 +42,27 @@
   <p class="receipt-purchased-date" style="color:black">วันที่ซื้อ : <font ng-bind="getCreateDate(receipt.created_at)"></font></p>
 
 </div>
+<div ng-show="showCal" class="modal-body" style="height: 360px;width: 400px; margin: 0 auto;">   
+  <div datepicker date-format="MM-dd-yyyy" date-year-title="selected title" style="visibility:visible;">
+    <input class="signup-inputbox-style input-width" ng-model="date_time" ng-change="addDate(date_time)"/>
+ </div>
+</div>
 <div class="modal-body" style="padding-bottom:0px;">    
     <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" >
         <div class="col-xs-3 col-sm-3 col-md-3 no-horizotal-padding">
             <p class="modal-receipt-header">ชื่อแพ็คเกจ<p>
         </div>
-        <div class="col-xs-3 col-sm-3 col-md-3 no-horizotal-padding">
+        <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
             <p class="modal-receipt-header">ชนิดแพ็คเกจ<p>
         </div>
         <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
             <p class="modal-receipt-header">ราคา (บาท)</p>
         </div>
-        <div class="col-xs-4 col-sm-4 col-md-4 no-horizotal-padding">
+        <div class="col-xs-3 col-sm-3 col-md-3 no-horizotal-padding">
             <p class="modal-receipt-header">รหัสยืนยันแพ็คเกจ</p>
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
+            <p class="modal-receipt-header">วันที่จอง</p>
         </div>
     </div>          
     <HR WIDTH="100%" NOSHADE>
@@ -63,22 +71,26 @@
             <p class="modal-receipt-detail package-header-overflow" style="color:black;">{{pacName[$index]}}<p>
             <!-- <p class="modal-receipt-detail">{{getPackageName(transaction.packages_id[0])}}<p> -->
         </div>
-        <div class="col-xs-3 col-sm-3 col-md-3 no-horizotal-padding">
+        <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
             <p class="modal-receipt-detail package-header-overflow" style="color:black;">{{transaction.type}}<p>
         </div>
         <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
             <p class="modal-receipt-detail">{{transaction.price}}</p>
         </div>
-        <div class="col-xs-4 col-sm-4 col-md-4 no-horizotal-padding">
+        <div class="col-xs-3 col-sm-3 col-md-3 no-horizotal-padding">
             <p ng-show="!transaction.active_status" class="modal-receipt-detail">{{transaction.serial}}</p> 
             <p ng-show="transaction.active_status" class="modal-receipt-header">ใช้แล้ว</p> 
-        </div>      
+        </div>  
+        <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
+            <a class="glyphicon glyphicon-calendar" ng-click="checkDate(transaction)"></a>
+            <a ng-show="transaction.confirm_at">{{transaction.confirm_at}}</a>
+            <a ng-show="!transaction.confirm_at">เลือกวันจอง</a>
+        </div>    
         <HR WIDTH="100%" NOSHADE>        
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" style="text-align:center; background-color:rgba(0, 0, 0, 0.75);">
         <p class="modal-receipt-total-price">ราคารวม : {{receipt.total_price}} บาท<p>
     </div>
-
 </div>
 <div class="modal-body bookmark-body-style" style="padding-bottom:15px;">
   <HR WIDTH="100%" NOSHADE>

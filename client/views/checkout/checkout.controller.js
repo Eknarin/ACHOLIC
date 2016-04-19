@@ -57,7 +57,9 @@ angular.module('acholic')
       }
       }).result.then(function(res){
         if(res)
-          item.confirm_at = res;
+          {
+          item.item.confirm_at = res;
+         } 
       });
     };
 
