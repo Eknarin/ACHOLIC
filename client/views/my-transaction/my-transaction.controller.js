@@ -13,6 +13,7 @@ angular.module('acholic')
     $scope.totalItems = 1;
     $scope.serial = "";
     $scope.serial_code = {};
+    $scope.active =false;
 
   	Auth.getUser().then(function(res){
         $scope.user = res;
@@ -30,9 +31,19 @@ angular.module('acholic')
     $scope.checkSerial = function(){
       Transaction.serial({'serial':$scope.serial}).$promise.then(function(serial){
         if(serial._id)
+         { 
           $scope.serial_code = serial;
+          if($scope.serial_code.active_status)
+            $scope.active = true;
+          else
+            $scope.active = false;
+         }
         else
-          console.log('no serial found!!');
+          {
+            $scope.serial_code = {};
+            $scope.active = false;
+            console.log('no serial found!!');
+          }
       });
     };
 
