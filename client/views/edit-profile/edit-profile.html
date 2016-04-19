@@ -12,7 +12,7 @@
 			<!-- Customer Header -->
 			<div class="container">
 				<div class="col-xs-12 col-sm-12 col-md-12">
-					<p class="customer-header-size" style=" text-align:center; color:white;">Edit Profile</p>
+					<p class="customer-header-size" style=" text-align:center; color:white;">แก้ไขโปรไฟล์</p>
 				</div>
 			</div>			
 			<!-- Customer SignUp -->
@@ -42,28 +42,28 @@
 					      		<form>
 					      			<!-- First Name -->
 					      			<div class="input-width sign-up-cover-style">
-										<p class="sign-up-header"><font class="required-box">*</font> First Name</p>					
+										<p class="sign-up-header"><font class="required-box">*</font> ชื่อจริง</p>					
 										<input required ng-model="user_edit.first_name" class="signup-inputbox-style input-width" type="text" name="FirstName"><br>
 									</div>
 
 									<!-- Last Name -->
 									<div class="input-width sign-up-cover-style">
-										<p class="sign-up-header"><font class="required-box">*</font> Last Name</p>	
+										<p class="sign-up-header"><font class="required-box">*</font> นามสกุล</p>	
 										<input required ng-model="user_edit.last_name" class="signup-inputbox-style input-width" type="text" name="LastName"><br>
 									</div>
 									<!-- Gender -->
 									<div class="input-width sign-up-cover-style">
-										<p class="sign-up-header">Gender</p>
+										<p class="sign-up-header">เพศ</p>
 										<div style="padding-left:50px; text-align:left;">
-											<input type="radio" ng-model="user_edit.gender" value="Men" name="gender"> MEN<br>
-											<input type="radio" ng-model="user_edit.gender" value="Women" name="gender"> WOMEN<br>
-											<input type="radio" ng-model="user_edit.gender" value="Other" name="gender"> OTHER<br>
+											<input type="radio" ng-model="user_edit.gender" value="Men" name="gender"> ชาย<br>
+											<input type="radio" ng-model="user_edit.gender" value="Women" name="gender"> หญิง<br>
+											<input type="radio" ng-model="user_edit.gender" value="Other" name="gender"> อื่นๆ<br>
 										</div>
 									</div>	
 
 									<!-- ฺBirth Date -->
 									<div class="input-width sign-up-cover-style">
-										<p class="sign-up-header">Birth Date</p>
+										<p class="sign-up-header">วันเกิด</p>
 										<datepicker date-format="dd-MM-yyyy" date-year-title="selected title">
 										  <input class="signup-inputbox-style input-width" ng-model="user_edit.date_of_birth" type="text"/>
 										</datepicker>
@@ -71,7 +71,7 @@
 
 									<!-- Button -->
 									<div class="input-width" style="margin-top:15px; margin-bottom:15px;">
-										<button type="button" class="btn btn-success" ng-click="activeTab(1)" data-toggle="tab" data-target="#security" >Next</button>							
+										<button type="button" class="btn btn-success" ng-click="activeTab(1)" data-toggle="tab" data-target="#security" >ต่อไป</button>							
 									</div>	
 
 								</form>
@@ -83,31 +83,31 @@
 					      		<form>
 					      			<!-- Email -->
 					      			<div class="input-width sign-up-cover-style">
-										<p class="sign-up-header"><font class="required-box">*</font> Email</p>	
+										<p class="sign-up-header"><font class="required-box">*</font> อีเมล</p>	
 										<input required ng-model="user_edit.email" class="signup-inputbox-style input-width" type="text" name="email"><br>
 									</div>
 									<div class="vendor-information">
 										<!-- Vendor Email -->
 						      			<div class="input-width sign-up-cover-style" ng-show="user_edit.vendor">
-											<p class="sign-up-header"><font class="required-box">*</font> Vendor Email</p>	
+											<p class="sign-up-header"><font class="required-box">*</font> อีเมลผู้ขาย</p>	
 											<input required ng-model="user_edit.vendor.alt_email" class="signup-inputbox-style input-width" type="text" name="email"><br>
 										</div>
 										<!-- ID Number -->
 										<div class="input-width sign-up-cover-style" ng-show="user_edit.vendor">
-											<p class="sign-up-header"><font class="required-box">*</font> Identification Number</p>	
+											<p class="sign-up-header"><font class="required-box">*</font> เลขที่บัตรประชาชน</p>	
 											<input ng-model="user_edit.vendor.identification_num" name="id_num" required class="signup-inputbox-style input-width" type="text" pattern="[0-9]{13}" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="confirm-password" placeholder="13 number digits"><br>	
 										</div>
 										<!-- Provider Number -->
 										<div class="input-width sign-up-cover-style" ng-show="user_edit.vendor">
-											<p class="sign-up-header"><font class="required-box">*</font> Tourist Business license no.</p>	
+											<p class="sign-up-header"><font class="required-box">*</font> เลขที่ผู้ประกอบการ</p>	
 											<input ng-model="user_edit.vendor.provider_num" name="provider" required pattern="[0-9]{2}/[0-9]{5}" class="signup-inputbox-style input-width" type="text" name="confirm-password" placeholder="xx/xxxxx"><br>	
 										</div>
 									</div>
 								
 									<!-- Button -->
 									<div class="input-width" style="margin-top:15px; margin-bottom:15px;">
-										<button type="button" class="btn btn-danger" ng-click="activeTab(0)" data-toggle="tab" data-target="#account">Back</button>
-										<button type="button" class="btn btn-success" ng-click="activeTab(2)" data-toggle="tab" data-target="#contact">Next</button>
+										<button type="button" class="btn btn-danger" ng-click="activeTab(0)" data-toggle="tab" data-target="#account">ก่อนหน้า</button>
+										<button type="button" class="btn btn-success" ng-click="activeTab(2)" data-toggle="tab" data-target="#contact">ต่อไป</button>
 									</div>									
 
 								</form>
@@ -120,19 +120,19 @@
 					      		<form>
 					      			<!-- Address -->
 					      			<div class="input-width sign-up-cover-style">
-										<p class="sign-up-header">Address</p>	
+										<p class="sign-up-header">ที่อยู่</p>	
 										<textarea ng-model="user_edit.address.address" class="form-control signup-inputbox-style input-width" rows="5" name="address"></textarea>
 									</div>
 
 									<!-- Zip Code -->
 									<div class="input-width sign-up-cover-style">
-										<p class="sign-up-header">Zipcode</p>	
+										<p class="sign-up-header">รหัสไปรษณีย์</p>	
 										<input ng-model="user_edit.address.zip_code"  class="signup-inputbox-style input-width" type="text" name="zipcode"><br>
 									</div>
 
 									<!-- Phone -->
 									<div class="input-width sign-up-cover-style">
-										<p class="sign-up-header"><font class="required-box">*</font> Phone</p>	
+										<p class="sign-up-header"><font class="required-box">*</font> หมายเลขโทรศัพท์</p>	
 										<input ng-model="user_edit.phone_number"  required class="signup-inputbox-style input-width" type="text" name="phone"><br>	
 									</div>								
 								</form>
@@ -140,27 +140,27 @@
 					      			<div class="vendor-information">
 						      			<!-- Vendor Address -->
 						      			<div class="input-width sign-up-cover-style">
-											<p class="sign-up-header">Vendor Address</p>	
+											<p class="sign-up-header">ที่อยู่ผู้ค้า</p>	
 											<textarea ng-model="user_edit.vendor.address.address" class="form-control signup-inputbox-style input-width" rows="5" name="address"></textarea>
 										</div>
 
 										<!-- Vendor Zip Code -->
 										<div class="input-width sign-up-cover-style">
-											<p class="sign-up-header">Vendor Zipcode</p>	
+											<p class="sign-up-header">รหัสไปรษณีย์ผู้ค้า</p>	
 											<input ng-model="user_edit.vendor.address.zip_code"  class="signup-inputbox-style input-width" type="text" name="zipcode"><br>
 										</div>
 
 										<!-- vendor Phone -->
 										<div class="input-width sign-up-cover-style">
-											<p class="sign-up-header"><font class="required-box">*</font> Vendor Phone</p>	
+											<p class="sign-up-header"><font class="required-box">*</font> หมายเลขโทรศัพท์ผู้ค้า</p>	
 											<input ng-model="user_edit.vendor.phone_number"  required class="signup-inputbox-style input-width" type="text" name="phone"><br>	
 										</div>	
 									</div>					
 								</form>
 								<!-- Button -->
 								<div class="input-width" style="margin-top:15px; margin-bottom:15px;">
-									<button type="button" class="btn btn-danger" ng-click="activeTab(1)" data-toggle="tab" data-target="#security">Back</button>
-									<button type="button" class="btn btn-success" ng-click="activeTab(3)" data-toggle="tab" data-target="#addimage">Next</button>
+									<button type="button" class="btn btn-danger" ng-click="activeTab(1)" data-toggle="tab" data-target="#security">ก่อนหน้า</button>
+									<button type="button" class="btn btn-success" ng-click="activeTab(3)" data-toggle="tab" data-target="#addimage">ต่อไป</button>
 								</div>		
 							</center>
 				    	</div>
@@ -169,7 +169,7 @@
 					      		<form>
 					      			<!-- //required -->
 					      			<div class="col-xs-12 col-sm-12 col-md-12">
-					      				<p style="font-size:20px"><font class="required-box">*</font> PROFILE IMAGE</p>
+					      				<p style="font-size:20px"><font class="required-box">*</font> รูปประจำตัว</p>
 					      			</div>
 					      			<div class="col-xs-12 col-sm-12 col-md-12">
 					      				<img ng-show="user_edit.image" class="edit-profile-image-style" ng-src=api/images/{{user_edit.image}}></img>
@@ -180,8 +180,8 @@
 									</div>
 					      			<!-- Button -->
 									<div class="col-xs-12 col-sm-12 col-md-12" style="margin-top:15px; margin-bottom:15px;">
-										<button type="button" class="btn btn-danger" ng-click="activeTab(2)" data-toggle="tab" data-target="#contact">Back</button>
-										<button ng-click="onSubmit()" type="button" class="btn btn-success">Submit</button>
+										<button type="button" class="btn btn-danger" ng-click="activeTab(2)" data-toggle="tab" data-target="#contact">ก่อนหน้า</button>
+										<button ng-click="onSubmit()" type="button" class="btn btn-success">ถัดไป</button>
 									</div>	
 								</form>								
 							</center>
