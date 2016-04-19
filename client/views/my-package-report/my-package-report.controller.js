@@ -121,28 +121,38 @@ angular.module('acholic')
       return color;
     }
 
+    $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
+  $scope.data = [300, 500, 100];
 
     $scope.findSubPackageSoldRate = function(trans){
       $scope.packages = [];
+      $scope.graphData = [];
+
       for (var k = 0; k < $scope.myPackages.length; k++) {
         PackageItem.query({id : $scope.myPackages[k]._id}).$promise.then(function(result){
           var temp = [];
+          var tempData = [];
           temp.push(result._id);
           for (var j = 0; j < result.map_id.map_id.info.length; j++) {
             temp.push(result.map_id.map_id.info[j].type);
             temp.push(0);
+            tempData.push(0);
           };
+          // console.log(temp);
           for (var i = 0; i < trans.length; i++) {
             if(trans[i].packages_id[0] == temp[0]){
               for (var l = 0; l < temp.length; l++) {
                 if(trans[i].type == temp[l]){
                   temp[l+1]++;
+                  tempData[(l-1)/2]++;
                 }
               }
             }
           }
           $scope.packages.push(temp);
-          console.log($scope.packages);
+          $scope.graphData.push(tempData);
+          console.log($scope.graphData);
+          // console.log($scope.packages);
         });
       };
     };
