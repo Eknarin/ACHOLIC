@@ -101,6 +101,7 @@ angular.module('acholic')
         $scope.serial = "";
         $scope.serial_code = {};
         console.log('activated');
+        location.reload();
       });
     };
 
