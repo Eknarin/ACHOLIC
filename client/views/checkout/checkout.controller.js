@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('CheckoutCtrl',['$scope','$timeout','Auth','$location','Cart','PackageItem','Transaction', function ($scope,$timeout,Auth,$location,Cart,PackageItem,Transaction) {
+  .controller('CheckoutCtrl',['$scope','$timeout','Auth','$location','Cart','PackageItem','Transaction','$uibModal', function ($scope,$timeout,Auth,$location,Cart,PackageItem,Transaction,$uibModal) {
   	$scope.userId = {};
   	$scope.cart = [];
     $scope.cart_show = [];
@@ -29,7 +29,8 @@ angular.module('acholic')
   					type: carts[i].list[j].type,
             price: carts[i].list[j].price,
             active_status: false,
-            expire:  $scope.getPackage(carts[i].package).map_id.map_id.expired
+            expire:  $scope.getPackage(carts[i].package).map_id.map_id.expired,
+            confirm_at: null
   				}
           $scope.total_price += $scope.calSubTotal(carts[i].list[j]);
           for(var k = 0;k<carts[i].list[j].amount ;k++){
@@ -44,6 +45,21 @@ angular.module('acholic')
   		}
   		$scope.loading = true;
   	};
+
+    $scope.checkDate = function(item){
+    var modalInstance = $uibModal.open({
+      animation: true,
+      templateUrl: 'views/checkout/modal/calendarModal.html',
+      controller: 'CalendarModalCtrl',
+      size: 'md',
+      resolve: {
+          packageData: item
+      }
+      }).result.then(function(res){
+        if(res)
+          item.confirm_at = res;
+      });
+    };
 
     $scope.getPackage = function(packageId){
       for(var i = 0;i<$scope.package.length ;i++){

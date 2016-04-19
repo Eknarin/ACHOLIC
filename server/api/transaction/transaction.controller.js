@@ -42,6 +42,12 @@ exports.index = function (req, res) {
   });
 };
 
+exports.checkTransaction = function (req, res) {
+  Transaction.find({'packages_id': req.query.packageId,'confirm_at': req.query.confirm_at}).populate('packages_id').exec(function(err,tran){
+    if (err) { return handleError(res, err); }
+    return res.status(200).json(tran);
+  });
+};
 /**
  * Get Serail
  *

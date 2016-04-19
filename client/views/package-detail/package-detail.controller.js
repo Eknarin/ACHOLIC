@@ -6,7 +6,6 @@ angular.module('acholic')
     // $(window).scroll(function(){
     //   $scope.sticky_relocate();  
     // });
-
     $scope.packageItem = itemData;
     $scope.comment = new Comment;
     $scope.comment.user_id = $rootScope._user._id;
