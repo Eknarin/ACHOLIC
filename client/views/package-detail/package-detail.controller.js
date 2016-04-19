@@ -82,6 +82,9 @@ angular.module('acholic')
     $scope.addToCart = function(){
       $scope.isAddCart = true;
       Cart.addItem($scope.packageInfos, $scope.packageItem._id);
+      for(var i = 0;i<$scope.packageInfos.length ;i++){
+        $scope.packageInfos[i].amount = null;
+      }
       $scope.reloadCart();
     }
 
