@@ -23,30 +23,30 @@
 				<div class="col-xs-12 col-sm-5 col-md-5 profile-cover-style" style="background-color:rgba(0,0,0,0.75);">
 					
 					  <ul class="nav nav-tabs profile-tab-style">
-					    <li class="active"><a data-toggle="tab" data-target="#home" style="color:white;font-size:16px;">Customer</a></li>
-					    <li ng-show="user.role == 'Vendor'"><a data-toggle="tab" style="color:white;font-size:16px;" data-target="#menu1">Vendor</a></li>
+					    <li class="active"><a data-toggle="tab" data-target="#home" style="color:white;font-size:16px;">ลูกค้า</a></li>
+					    <li ng-show="user.role == 'Vendor'"><a data-toggle="tab" style="color:white;font-size:16px;" data-target="#menu1">ผู้ค้า</a></li>
 					  </ul>
 
 					  <div class="tab-content">
 					    <div id="home" class="tab-pane fade in active">
 					      <!-- General Information -->
 							<div class="col-xs-12 col-sm-12 col-md-12" style="padding-top:25px;">
-								<p class="profile-information-header">General Information</p>
+								<p class="profile-information-header">ข้อมูลทั่วไป</p>
 								<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:15%">
 									<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
-										<p class="profile-information-detail">Gender :</p> 
+										<p class="profile-information-detail">เพศ :</p> 
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<p class="profile-information-detail">{{user.gender}}</p> 								
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
-										<p class="profile-information-detail">Date of birth  :</p> 
+										<p class="profile-information-detail">วันเกิด  :</p> 
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<p class="profile-information-detail">{{user.date_of_birth}}</p> 
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
-										<p class="profile-information-detail">Role :</p> 
+										<p class="profile-information-detail">สถานะ :</p> 
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<p class="profile-information-detail">{{user.role}}</p> 
@@ -55,30 +55,30 @@
 							</div>
 							<!-- Contact -->
 							<div class="col-xs-12 col-sm-12 col-md-12">
-								<p class="profile-information-header">Contact</p>
+								<p class="profile-information-header">การติดต่อ</p>
 								<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:15%">
 									<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
-										<p class="profile-information-detail">Email :</p> 
+										<p class="profile-information-detail">อีเมล :</p> 
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<p class="profile-information-detail">{{user.email}}</p> 
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
-										<p class="profile-information-detail">Phone :</p> 
+										<p class="profile-information-detail">หมายเลขโทรศัพท์ :</p> 
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<p ng-show="user.phone_number" class="profile-information-detail">{{user.phone_number}}</p> 
 										<p ng-show="!user.phone_number" class="profile-information-detail"> - </p> 
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
-										<p class="profile-information-detail">Address :</p> 
+										<p class="profile-information-detail">ที่อยู่ :</p> 
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<p ng-show="user.address.address" class="profile-information-detail">{{user.address.address}}</p> 
 										<p ng-show="!user.address.address" class="profile-information-detail"> - </p>
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
-										<p class="profile-information-detail">Zipcode :</p> 
+										<p class="profile-information-detail">รหัสไปรษณีย์ :</p> 
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<p  ng-show="user.address.zip_code" class="profile-information-detail">{{user.address.zip_code}}</p> 
@@ -90,23 +90,23 @@
 					    <div id="menu1" class="tab-pane fade" ng-show="user.role == 'Vendor'">
 					      <!-- General Vendor Information -->
 							<div class="col-xs-12 col-sm-12 col-md-12" style="padding-top:25px;">
-								<p class="profile-information-header">Vendor Information</p>
+								<p class="profile-information-header">ข้อมูลผู้ค้า</p>
 								<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:15%">
 									<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
-										<p class="profile-information-detail">Email :</p> 
+										<p class="profile-information-detail">อีเมล :</p> 
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<p class="profile-information-detail" ng-show="user.vendor.alt_email">{{user.vendor.alt_email}}</p> 
 										<p class="profile-information-detail" ng-show="!user.vendor.alt_email">-</p>								
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
-										<p class="profile-information-detail">ID Number :</p>
+										<p class="profile-information-detail">เลขบัตรประชาชน :</p>
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<p class="profile-information-detail">{{user.vendor.identification_num}}</p> 
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
-										<p class="profile-information-detail">Tourist Business license no. :</p> 
+										<p class="profile-information-detail">เลขที่ผู้ประกอบการ :</p> 
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<p class="profile-information-detail">{{user.vendor.provider_num}}</p> 
@@ -115,23 +115,23 @@
 							</div>
 							<!-- Vendor Contact -->
 							<div class="col-xs-12 col-sm-12 col-md-12">
-								<p class="profile-information-header">Contact</p>
+								<p class="profile-information-header">การติดต่อ</p>
 								<div class="col-xs-12 col-sm-12 col-md-12" style="padding-left:15%">
 									<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
-										<p class="profile-information-detail">Address :</p> 
+										<p class="profile-information-detail">ที่อยู่ :</p> 
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<p class="profile-information-detail">{{user.vendor.address.address}}</p> 
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
-										<p class="profile-information-detail">Zipcode :</p> 
+										<p class="profile-information-detail">รหัสไปรษณีย์ :</p> 
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<p ng-show="user.phone_number" class="profile-information-detail">{{user.vendor.address.zip_code}}</p> 
 										<p ng-show="!user.phone_number" class="profile-information-detail"> - </p> 
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6" style="padding-left:0px;">
-										<p class="profile-information-detail">Phone :</p> 
+										<p class="profile-information-detail">หมายเลขโทรศัพท์ :</p> 
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<p ng-show="user.address.address" class="profile-information-detail">{{user.vendor.phone_number}}</p> 
@@ -143,8 +143,8 @@
 					  </div>
 					<!-- Edit Button -->
 					<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center; margin-top:30px;">
-						<button type="button" class="btn btn-success" ng-click="editProfile()">Edit Profile</button>
-						<button type="button" ng-show="user.role != 'Vendor'" class="btn btn-primary" ng-click="setVendor()">Become Vendor</button>
+						<button type="button" class="btn btn-success" ng-click="editProfile()">แก้ไขโปรไฟล์</button>
+						<button type="button" ng-show="user.role != 'Vendor'" class="btn btn-primary" ng-click="setVendor()">เริ่มเป็นผู้ค้า</button>
 					</div>
 				</div>
 			</div>	
