@@ -47,10 +47,13 @@
     <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding">
       <p class="add-to-cart-package-name">{{packageName}}<p>
     </div>
-    <div class="col-xs-5 col-sm-5 col-md-5 no-horizotal-padding">
+    <div class="col-xs-3 col-sm-3 col-md-3 no-horizotal-padding">
+      <p class="add-to-cart-package-header">ชนิด</p>
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3 no-horizotal-padding">
       <p class="add-to-cart-package-header">ราคา (บาท)</p>
     </div>
-     <div class="col-xs-5 col-sm-5 col-md-5 no-horizotal-padding">
+     <div class="col-xs-4 col-sm-4 col-md-4 no-horizotal-padding">
       <p class="add-to-cart-package-header">จำนวนผู้เล่น</p>
     </div>
     <div class="col-xs-2 col-sm-2 col-md-2 no-horizotal-padding">
@@ -59,12 +62,16 @@
   </div>
   <HR WIDTH="100%" NOSHADE>
   <div class="col-xs-12 col-sm-12 col-md-12 no-horizotal-padding" ng-repeat="package in packages">
+    <!-- package type -->
+    <div class="col-xs-3 col-sm-3 col-md-3 no-horizotal-padding">
+      <p class="add-to-cart-package-detail">{{package.type}}</p>
+    </div>
     <!-- package price -->
-    <div class="col-xs-5 col-sm-5 col-md-5 no-horizotal-padding">
+    <div class="col-xs-3 col-sm-3 col-md-3 no-horizotal-padding">
       <p class="add-to-cart-package-detail">{{package.price}}</p>
     </div>
     <!-- suitable for people with amount -->
-     <div class="col-xs-5 col-sm-5 col-md-5 no-horizotal-padding">
+     <div class="col-xs-4 col-sm-4 col-md-4 no-horizotal-padding">
       <p class="add-to-cart-package-detail">{{package.people}}</p>
     </div>
     <!-- input box for amount of buying package -->
