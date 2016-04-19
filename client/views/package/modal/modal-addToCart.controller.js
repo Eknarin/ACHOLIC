@@ -12,5 +12,5 @@ angular.module('acholic')
 
    $scope.closeModal = function(){
       $uibModalInstance.close();
-  };
+  };  
 }]);
