@@ -1,11 +1,14 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('CompareCtrl',['$scope','Compare','PackageItem',function ($scope , Compare ,PackageItem) {
+  .controller('CompareCtrl',['$scope','Compare','PackageItem','Auth','$uibModal',function ($scope , Compare ,PackageItem,Auth,$uibModal) {
     $scope.loadItem = false;
     $scope.raftingItem = [];
     $scope.divingItem = [];
     $scope.chooseType = 'PackageRafting';
+    Auth.getUser().then(function(usr){
+      $scope.user = usr;
+    });
 
   	$scope.comparePackage =  {};
     Compare.getCompares().then(function(res){
@@ -64,6 +67,24 @@ angular.module('acholic')
     }
     // $scope.prepareData();
   };
+
+  $scope.openAddToCartModal = function(item){
+    var modalInstance = $uibModal.open({
+      animation: true,
+      templateUrl: 'views/package/modal/modal-addToCart.html',
+      controller: 'AddToCartModalCtrl',
+      size: 'md',
+      resolve: {
+        packageData:['PackageItem', function(PackageItem){
+          return PackageItem.query({id : item}).$promise;
+          }] ,
+          userData: $scope.user
+        }
+        }).result.then(function(res){
+            $scope.reloadCart();
+        });
+    };
+
 
   $scope.checkRotate = function(){
     if(isRotateRiv == 1){

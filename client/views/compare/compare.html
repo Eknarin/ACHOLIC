@@ -205,7 +205,10 @@
 					    	<!-- Package Image -->
 					       <tr>
 					         <th style="border-top: 0px;"> </th>
-					           <td class="compare-table-header" style="border-top:0px; text-align:center;" ng-repeat="p in packages"><img class="center-picture compare-image-style" style="width:320px;" ng-src=api/images/{{p.image}} ></img></td>
+					           <td class="compare-table-header" style="border-top:0px; text-align:center;" ng-repeat="p in packages"><img class="center-picture compare-image-style" style="width:320px;" ng-src=api/images/{{p.image}} ></img>
+					           <input class="add-to-cart-button" ng-click="openAddToCartModal(p._id)" type="image" src="../image/add-to-cart.png"></input> 
+					           </td>
+
 					       </tr>	      				       
 					        <!-- Package Name -->
 					       <tr>
@@ -344,5 +347,6 @@
 				</div>
 			</div>
 		</div>
+		<shop-cart></shop-cart>
 	</body>
 </html>
