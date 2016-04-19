@@ -29,7 +29,8 @@ angular.module('acholic')
   					type: carts[i].list[j].type,
             price: carts[i].list[j].price,
             active_status: false,
-            expire:  $scope.getPackage(carts[i].package).map_id.map_id.expired
+            expire:  $scope.getPackage(carts[i].package).map_id.map_id.expired,
+            confirm_at: null
   				}
           $scope.total_price += $scope.calSubTotal(carts[i].list[j]);
           for(var k = 0;k<carts[i].list[j].amount ;k++){
@@ -56,7 +57,7 @@ angular.module('acholic')
       }
       }).result.then(function(res){
         if(res)
-          item.confirm_date = res;
+          item.confirm_at = res;
       });
     };
 
