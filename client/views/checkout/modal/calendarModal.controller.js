@@ -13,7 +13,7 @@ angular.module('acholic')
    	$scope.showError = false;
    //	console.log(packageData);
    	Transaction.checkTran({'packagesId': packageData.item.packages_id,'confirm_at': $scope.time_date}).$promise.then(function(res){
-   		if(res.length < $scope.pack.amount_limit)
+      if(res.length < $scope.pack.amount_limit)
    		{	
    			if($scope.time_date)
     			$uibModalInstance.close($scope.time_date);
