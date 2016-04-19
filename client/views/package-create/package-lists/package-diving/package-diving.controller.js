@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('acholic')
-  .controller('PackageDivingCtrl',['$scope','packageData','PackageItem','$location','$rootScope','$timeout','PackageGallery',function ($scope ,packageData, PackageItem ,$location , $rootScope , $timeout,PackageGallery) {
+  .controller('PackageDivingCtrl',['$scope','Auth','packageData','PackageItem','$location','$rootScope','$timeout','PackageGallery',function ($scope ,Auth,packageData, PackageItem ,$location , $rootScope , $timeout,PackageGallery) {
   	$scope.packages = packageData;
     $scope.gallery = new PackageGallery;
     $scope.gallery.images = [];
@@ -9,7 +9,9 @@ angular.module('acholic')
     $scope.packages.info.stages = [];
     $scope.packages.info.equipments_provide = [];
     $scope.packages.type = "PackageDiving";
-    $scope.packages.user_id = $rootScope._user._id;
+    Auth.getUser().then(function(usr){
+        $scope.packages.user_id = usr._id;
+    });
     $scope.packages.info.location = {};
     $scope.provide = "";
     $scope.require = "";
@@ -17,6 +19,8 @@ angular.module('acholic')
     $scope.minPrice = 9000000;
     $scope.activities = "";
     $scope.packages.rating = 0;
+    $scope.packages.info.diving_type = [];
+
 
     $scope.seasonMonth = false;
 
@@ -366,6 +370,9 @@ angular.module('acholic')
 
     $scope.priceArrs.push(priceObj);
 
+    if ($scope.packages.info.diving_type.indexOf($scope.diving_type) == -1) {
+        $scope.packages.info.diving_type.push($scope.diving_type);
+    }
     //empty input fields
     $scope.packages.info.info.price = "";
     $scope.packages.info.info.type = "";

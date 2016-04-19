@@ -90,6 +90,7 @@ function checkPackage (type) {
     'rating':{$gte:req.query.rating}}).populate('map_id').exec(function(err, packageItem) {
    if (err) { return handleError(res, err); }
     if(packageItem.length){
+      // console.log(packageItem);
       var option = {
           path: 'map_id.map_id',
           model: packageItem[0].map_id.map_table
@@ -109,11 +110,43 @@ function checkPackage (type) {
             }
           else if(req.query.package_type == "PackageDiving")
             {
-              var item_list = packageDetail;
-              // if(req.query.extra !== '')
-              //   var arr = packageDetail[i].map_id.map_id.diving_side;
-              // if(req.query.extra2 !== '')
-              //   var arr = packageDetail[i].map_id.map_id.diving_type;
+              if(req.query.extra !== undefined&& req.query.extra2 !== undefined)
+               {
+                 var arr = packageDetail[i].map_id.map_id.diving_type;
+                 var arr2 = packageDetail[i].map_id.map_id.diving_side;
+                 if(arr.length == 2 && arr2 == req.query.extra2)
+                    {
+                        item_list.push(packageDetail[i]._id);
+                    }
+                  else if(arr[0] == req.query.extra && arr2 == req.query.extra2){
+                    item_list.push(packageDetail[i]._id);
+                  }
+               }
+                // var arr = packageDetail[i].map_id.map_id.diving_side;
+              else if(req.query.extra !== undefined&& req.query.extra2 === undefined)
+                {
+                  var arr = packageDetail[i].map_id.map_id.diving_type;
+                  if(arr.length == 2 )
+                    {
+                        item_list.push(packageDetail[i]._id);
+                    }
+                  else if(arr[0] == req.query.extra){
+                    item_list.push(packageDetail[i]._id);
+                  }
+                }
+               else if(req.query.extra2 !== undefined && req.query.extra === undefined)
+               {
+                  var arr2 = packageDetail[i].map_id.map_id.diving_side;
+                  if(arr2 == req.query.extra2)
+                    {
+                      item_list.push(packageDetail[i]._id);
+                    }
+               }
+               else{
+                  // console.log(packageDetail[i]);
+                  item_list.push(packageDetail[i]._id);
+               }
+                // var arr = packageDetail[i].map_id.map_id.diving_type;
             }
         }
         PackageItem.paginate({'_id' : { $in : item_list }},{page: req.query.page, limit: 9},function(err,result) {

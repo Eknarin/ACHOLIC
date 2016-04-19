@@ -155,6 +155,7 @@ angular.module('acholic')
               ];
               $scope.setDivingType = function(value){
                 $scope.selectedDivingType = value;
+                $scope.diving.diving_type = value;
               }
               $scope.selectedDivingSide = "-";
               $scope.divingSides = [
@@ -163,6 +164,7 @@ angular.module('acholic')
               ];
               $scope.setDivingSide = function(value){
                 $scope.selectedDivingSide = value;
+                $scope.diving.diving_side = value;
               }
 			  // minimum rating filter
 			  $scope.minRate = [

@@ -39,7 +39,8 @@ var DivingSchema = new Schema({
 	prepration: String,
 	skills_require: [String],
 	image_gallery: { type: Schema.Types.ObjectId, ref: 'PackageGallery' },
-	diving_side: String
+	diving_side: String,
+	diving_type: [String]
 });
 
 module.exports = mongoose.model('PackageDiving', DivingSchema ,'PackageDiving');
