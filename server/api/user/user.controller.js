@@ -65,6 +65,7 @@ exports.createCustomer = function (req, res) {
   User.create(req.body, function (err, user) {
     if (err) { return handleError(res, err); }
     RankCustomer.findOne({rank_name:"Bronze Customer"}, function(err,rank){
+	user.vendor = {};
         user.rank = rank._id;
         user.customer_level = 1;
         user.customer_exp = 0;
@@ -106,6 +107,8 @@ exports.update = function (req, res) {
 exports.loginFacebook = function (req, res) {
   User.findOne(req.body, function (err, user) {
     if (err) { return handleError(res, err); }
+	user.vendor = {};
+	user.save();
     res.status(201).json({
       user: _.omit(user.toObject(), ['passwordHash', 'salt']),
       token: authService.signToken(user._id)
